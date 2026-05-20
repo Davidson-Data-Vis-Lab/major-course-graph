@@ -1,0 +1,42 @@
+
+  
+  .container {
+    display: flex;
+    align-items: flex-start;  
+    gap: 20px;                
+    padding: 10px;
+  }
+  .controls {
+    flex: 0 0 auto;
+  }
+
+  .controls input[type="checkbox"] {
+    margin-right: 6px;
+    transform: scale(1.2);
+    vertical-align: middle;
+  }
+  svg#svg {
+   
+    border: 1px solid #ddd;
+  }
+  
+  .controls {
+  font-size: 14px;
+  border-style: dashed;
+  border-color: steelblue;
+  border-width: 2px; 
+  padding: 10px;     
+  border-radius: 6px; 
+}
+
+
+  .controls h4{
+    color: steelblue;
+  }
+
+  footer{
+    text-align: right;
+    font-style: italic;
+    color:#696969;
+  }
+

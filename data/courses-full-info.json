@@ -1,0 +1,559 @@
+[
+  {
+    "id": "MAT 111",
+    "parentIds": [],
+    "name": "Calculus 1",
+    "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and inverse trigonometric functions with applications including graphical analysis, optimization and numerical methods.",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [],
+    "group": "math"
+  },
+  {
+    "id": "CSC 121",
+    "parentIds": [],
+    "name": "Programming and Problem Solving",
+    "description": "An introduction to computer science and structured programming, including algorithmic thinking, using control structures, essential data structures, creating functions, recursion, and object-oriented programming.",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement.",
+      "Satisfies a requirement in the Data Science interdisciplinary minor.",
+      "Satisfies Digital Studies major and minor requirement."
+    ],
+    "PRQ": [],
+    "group": "intro"
+  },
+  { "id": "CSC 200",
+    "parentIds": [],
+    "name": "Computational Physics (=PHY200)",
+    "description": "(Cross-listed as PHY 200, CSC/PHY 240) is an introduction to computer programming and computational physics using Python. No prior programming experience is necessary. This course will provide students with the skills required to write code to solve physics problems in areas inclyuding quantum physics, electromagnetism, and mechanics. Structured programming methods will be covered as well as algorithms for numerical integration, solving differential equations, and more.",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [],
+    "group": "intro"
+  },
+  {
+    "id": "CSC 120",
+    "parentIds": [],
+    "name": "Programming in Humanities (= DIG 120)",
+    "description": "Computational methods have significantly broadened and deepened the possibilities of inquiry in the Humanities. Programming skills have allowed textual scholars, in particular, to take advantage of enormous digitized corpora of historical documents, newspapers, novels, books, and social network data like Twitter feeds to pose new questions to the written word. We can now trace the changing semantics of words and phrases across millions of documents and hundreds of years, visualize centuries-old plot structures in new ways through sentiment analysis and character networks, and solve long-standing riddles of authorship attribution-among many other exciting feats. This course offers an introduction to computer science through applications in the Humanities. Students will learn to program in the Wolfram Language, aka Mathematica. The Wolfram Language is especially well suited for humanists: its rich documentation and natural language processing capabilities ensure a gentle introduction for first-time programmers, its symbolic computation structure allows us to work with texts written in any language and any alphabet, while its Notebook environment provides an interactive medium for publishing and sharing our results with peers. Mathematica also provides a great springboard for further work in computer science, physical computing, and Digital Studies more broadly.",
+    "satisfies": [
+      "Satisfies a minor requirement in Computer Science.",
+      "Satisfies a requirement in the Data Science interdisciplinary minor.",
+      "Satisfies the Mathematical and Quantitative Thought requirement. "
+    ],
+    "PRQ": [],
+    "group": "intro"
+  },
+  {
+    "id": "CSC 209",
+    "parentIds": [],
+    "name": "Bioinformatics Programming (= BIO 209)",
+    "description": "An interdisciplinary introduction to computer science and structured programming using the Python programming language in the context of biological datasets and applications, including algorithms for analyzing genomic data.  ",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement.",
+      "Satisfies a requirement in the Data Science interdisciplinary minor."
+    ],
+    "PRQ": [],
+    "group": "intro"
+  },
+  {
+    "id": "MAT 112",
+    "parentIds": [],
+    "name": "Calculus I and Modeling",
+    "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. ",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [],
+    "group": "math"
+  },
+  {
+    "id": "MAT 113",
+    "parentIds": [
+      "MAT 111",
+      "MAT 112"
+    ],
+    "name": "Calculus II",
+    "description": "An introduction to techniques and applications of integration; infinite series including convergence tests and Taylor series; calculus on parametric and polar curves; and concepts in 3-space including vectors, lines, planes, and vector-valued functions.",
+    "satisfies": [
+      " Satisfies a major requirement in Mathematics.",
+      "Satisfies the Mathematical and Quantitative Thought distribution requirement."
+    ],
+    "PRQ": [
+      "MAT 111",
+      "or",
+      "MAT 112"
+    ],
+    "group": "math"
+  },
+  {
+    "id": "MAT 150",
+    "parentIds": [
+      "MAT 113"
+    ],
+    "name": "Linear Algebra",
+    "description": [
+      "An introduction to systems of linear equations, matrices, determinants, vector spaces, and eigenvectors in an interactive learning environment provided by the computer algebra system Mathematica. Applications are chosen from linear programming, least squares approximation, graph theory, cryptography, computer graphics, and other topics. "
+    ],
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [
+      "MAT 113"
+    ],
+    "group": "math"
+  },
+  {
+    "id": "MAT 160",
+    "parentIds": [
+      "MAT 113"
+    ],
+    "name": "Calculus III",
+    "description": "A study of the differential and integral calculus of functions of several variables together with an introduction to vector calculus.  Topics include partial derivatives, directional derivatives, gradients, tangent planes to surfaces, double and triple integrals, change of variables in multiple integrals, vector fields, line integrals, Green\u2019s Theorem, and surface integrals.",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [
+      "MAT 113"
+    ],
+    "group": "math"
+  },
+  {
+    "id": "CSC 250",
+    "parentIds": [
+      "CSC 121",
+      "CSC 120",
+      "CSC 209",
+      "CSC 200"
+    ],
+    "name": "Computer Organization",
+    "description": "An introduction to how digital computers are built and the process by which computer programs expressed in a high-level language are translated into signals to be routed on a digital circuit board. Topics include data representation and manipulation, digital logic building blocks (logic gates, flip-flops), computer memory, assembly and machine code, hardware components and their organization, and the C programming language. ",
+    "satisfies": "Mandatory for CS",
+    "PRQ": [
+      "CSC 121",
+      "or",
+      "CSC 120",
+      "or",
+      "CSC 209",
+      "or",
+      "CSC 220"
+
+    ],
+    "group": "core"
+  },
+  {
+    "id": "MAT 140",
+    "parentIds": [
+      "MAT 111",
+      "MAT 112"
+    ],
+    "name": "Multivariable Calculus and Modeling",
+    "description": "Continued study of calculus and other mathematical methods for modeling change and uncertainty. Multivariable calculus topics include partial derivatives and the gradient vector, multivariate optimization, and double integrals. Matrix methods include systems of linear equations, matrix algebra, and eigenvalues. Models, primarily in the context of problems in the life sciences, make use of these methods and others chosen from systems of differential equations, difference equations, and discrete and continuous probability.",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [
+      "MAT 111",
+      "or",
+      "MAT 112"
+    ],
+    "group": "math"
+  },
+  {
+    "id": "MAT 235",
+    "parentIds": [
+      "MAT 150"
+    ],
+    "name": "Differential Equations",
+    "description": "A study of solution techniques and models in ordinary differential equations including first order equations, linear differential equations, series solutions, Laplace transform methods, and concepts of numerical and graphical techniques applied to equations and systems. ",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [
+      "MAT 150"
+    ],
+    "group": "math"
+  },
+  {
+    "id": "MAT 315",
+    "parentIds": [
+      "MAT 235"
+    ],
+    "name": "Numerical Analysis (= CSC 315)",
+    "description": "Survey of methods to approximate numerical solutions of problems in root-finding, differentiation, integration, curve-fitting, differential equations, and systems of equations. Derivations, limitations, and efficiency of different algorithms are considered.",
+    "satisfies": [
+      "Counts towards the Mathematics major and minor.",
+      "Counts towards the Computer Science major and minor."
+    ],
+    "PRQ": [
+      "MAT 235"
+    ],
+    "group": "other"
+  },
+  {
+    "id": "CSC 210",
+    "parentIds": [
+      "MAT 150",
+      "MAT 140",
+      "CSC 121",
+      "CSC 120",
+      "CSC 209",
+      "CSC 200"
+    ],
+    "name": "Mathematical Modeling (=MAT 210)",
+    "description": "A survey of discrete mathematical and computational modeling techniques and their application to the natural and social sciences. Mathematical tools are selected from such topics as Monte Carlo simulation, queuing theory, Markov chains, optimization, discrete dynamical systems, computational geometry, agent-based modeling, and cellular automata. Emphasis is on formulating models, investigating them analytically and computationally, and communicating the results.",
+    "satisfies": [
+      "Counts as an elective in the Mathematics major.",
+      "Counts as an Applications elective in the Computer Science major.",
+      "Counts as an elective in the Data Science interdisciplinary minor.",
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [
+      "(",
+      "CSC 121",
+      "or",
+      "CSC 209",
+      "or",
+      "CSC 120",
+      "or",
+      "CSC 200",
+      ")",
+      "and",
+      "(",
+      "MAT 140",
+      "or",
+      "MAT 150",
+      ")"
+    ],
+    "group": "applications"
+  },
+  {
+    "id": "CSC 361",
+    "parentIds": [
+      "MAT 150",
+      "MAT 140",
+      "CSC 221"
+    ],
+    "name": "Computer Graphics",
+    "description": "Overview of 2D and 3D computer graphics techniques: line drawing routines, antialiasing, 3D object representation, culling, z-buffers, a-buffers, illumination and shading models, ray tracing, color models, the graphics pipeline, levels of detail, and image processing. Emphasis on understanding and implementing computer graphics algorithms and creating computer generated images using OpenGL and C++.",
+    "satisfies": [
+      "Counts towards the Computer Science major and minor."
+    ],
+    "PRQ": [
+      "(",
+      "MAT 140",
+      "or",
+      "MAT 150",
+      ")",
+      "and",
+      "CSC 221"
+    ],
+    "group": "applications"
+  },
+  {
+    "id": "CSC 221",
+    "parentIds": [
+      "CSC 121",
+      "CSC 120",
+      "CSC 209",
+      "CSC 200"
+    ],
+    "name": "Data Structures",
+    "description": "A study of abstract data types, including lists, stacks, queues, and search tables, and their supporting data structures, including arrays, linked lists, binary search trees, and hash tables. Implications of the choice of data structure on the efficiency of the implementation of an algorithm. Efficient methods of sorting and searching.",
+    "satisfies": [
+      "Mandatory for CS",
+      "Counts towards the Mathematics major and minor.",
+      "Counts towards the Computer Science major and minor.",
+      "Counts as an elective in the Data Science interdisciplinary minor.",
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [
+      "CSC 121",
+      "or",
+      "CSC 209",
+      "or",
+      "CSC 120",
+      "or",
+      "CSC 200"
+    ],
+    "group": "core"
+  },
+  {
+    "id": "CSC 321",
+    "parentIds": [
+      "CSC 220",
+      "CSC 221"
+    ],
+    "name": "Analysis of Algorithms",
+    "description": "Algorithm design strategies, including greedy, divide-and-conquer, and dynamic programming methods.  Advanced data structures, including balanced search trees, graphs, heaps, and priority queues.  Advanced methods of searching and sorting.  Computational complexity and analysis of algorithms.  NP-complete problems.",
+    "satisfies": [
+      "Mandatory for CS",
+      "Counts towards the Mathematics major and minor.",
+      "Counts towards the Computer Science major and minor."
+    ],
+    "PRQ": [
+      "CSC 220",
+      "and",
+      "CSC 221"
+    ],
+    "group": "core"
+  },
+  {
+    "id": "CSC 353",
+    "parentIds": [
+      "CSC 221"
+    ],
+    "name": "Database Systems",
+    "description": "Sciences and societies are increasingly reliant on storing, querying, and processing data. Major scientific endeavors and applications rely on our ability to manage - and interpret - large data sets. In addition, our ability to generate data increases quickly as computational devices become less expensive and more ubiquitous. In this upper-level Computer Science course, we study key algorithmic and structural strategies used in database management systems, including indexing techniques, concurrency control protocols, and parallelism.",
+    "satisfies": [
+      "Satisfies a requirement in the Computer Science major and minor.",
+      "Counts as an elective in the Data Science interdisciplinary minor."
+    ],
+    "PRQ": [
+      "CSC 221"
+    ],
+    "group": "systems"
+  },
+  {
+    "id": "CSC 357",
+    "parentIds": [
+      "CSC 221"
+    ],
+    "name": "Concurrent and Parallel Computing",
+    "description": "Core concepts, problems, and techniques related to the construction and maintenance of highly-scalable concurrent and parallel systems, including how computer and network architecture influence performance. Both theoretical and practical perspectives are considered as tools to analyze modern systems.",
+    "satisfies": [
+      "Satisfies a minor requirement in Computer Science."
+    ],
+    "PRQ": [
+      "CSC 221"
+    ],
+    "group": "systems"
+  },
+  {
+    "id": "CSC 322",
+    "parentIds": [
+      "CSC 221"
+    ],
+    "name": "Programming Languages",
+    "description": "Principles of programming languages, including lexical and syntactic analysis, semantics, types, functions and parameters, and memory management.  Programming paradigms, drawn from imperative, object-oriented, functional, and logical programming languages.  ",
+    "satisfies": [],
+    "PRQ": [
+      "CSC 221"
+    ],
+    "group": "other"
+  },
+  {
+    "id": "CSC 312",
+    "parentIds": [
+      "CSC 221"
+    ],
+    "name": "Software Design",
+    "description": "Explores the key software design concepts involved in practical software projects. Topics include software development processes, design patterns, software architecture, software testing, software performance, security, and safety.",
+    "satisfies": [
+      "Satisfies a requirement in the Computer Science major and minor."
+    ],
+    "PRQ": [
+      "CSC 221"
+    ],
+    "group": "other"
+  },
+  {
+    "id": "CSC 371",
+    "parentIds": [
+      "CSC 221",
+      "CSC 220"
+    ],
+    "name": "Machine Learning",
+    "description": "A survey of the field of machine learning, with an introduction to the fundamental algorithms in the field and the theory underpinning them. Topics include techniques for regression, classification, ensemble methods, and dimensionality reduction.",
+    "satisfies": [
+      "Counts towards the Mathematics major and minor",
+      "Counts towards the Computer Science major and minor.",
+      "Counts as an elective in the Data Science interdisciplinary minor."
+    ],
+    "PRQ": [
+      "CSC 220",
+      "and",
+      "CSC 221"
+    ],
+    "group": "applications"
+  },
+  {
+    "id": "CSC 362",
+    "parentIds": [
+      "CSC 221"
+    ],
+    "name": "Data Visualization",
+    "description": "An introduction to the theory and application of graphical representations of data. Topics include: the human visual system, low-level vision processing, attentive vs. preattentive processes, color vision and color map design, interaction, space perception, and visualization design.",
+    "PRQ": [
+      "CSC 221"
+    ],
+    "satisfies": [
+      "Counts as an elective in the Data Science interdisciplinary minor.",
+      "Satisfies Computer Science major and minor requirement."
+    ],
+    "group": "applications"
+  },
+  {
+    "id": "CSC 370",
+    "parentIds": [
+      "CSC 221",
+      "CSC 220"
+    ],
+    "name": "Machine Reasoning",
+    "description": "A survey of core algorithms and techniques from the field of machine reasoning and decision-making. Topics include search, game playing, constraint satisfaction problems, planning, reinforcement learning, knowledge representation, and logic.",
+    "satisfies": [
+      "Counts towards the Mathematics major and minor.",
+      "Counts towards the Computer Science major and minor."
+    ],
+    "PRQ": [
+      "CSC 220",
+      "and",
+      "CSC 221"
+    ],
+    "group": "applications"
+  },
+  {
+    "id": "CSC 363",
+    "parentIds": [
+      "DIG 245",
+      "CSC 221"
+    ],
+    "name": "Human Computer Interaction",
+    "description": "The field of Human Computer Interaction (HCI) encompasses the design, implementation, and evaluation of interactive computing systems. This course will provide a survey of HCI theory and will provide web-based implementation practice of these theories. The course will address the presentation of information and the design of interaction from a practical, human-centered perspective. Through a combination of technical topics in interface and interaction design, students will explore the capabilities and limits of both humans and computers.",
+    "satisfies": [
+      "Satisfies Computer Science major and minor requirement.",
+      "Satisfies a major requirement in Digital & Screen Media (CIS)",
+      "Satisfies an interdisciplinary minor requirement in Digital Studies"
+    ],
+    "PRQ": [
+      "CSC 221",
+      "or",
+      "DIG 245"
+    ],
+    "group": "applications"
+  },
+  {
+    "id": "CSC 351",
+    "parentIds": [
+      "CSC 221",
+      "CSC 250"
+    ],
+    "name": "Operating Systems",
+    "description": "Operating Systems are collections of software services that manage physical hardware resources, from small sensors to complex servers, and provide applications with a higher-level interface for common tasks. Typical responsibilities of operating systems include task and memory management; input and output abstractions and services (which includes file systems and networking); and authentication / authorization. For workstations and servers, operating systems also commonly include the means to define and enforce security policies, to perform virtualization, and to manage energy consumption, among others. In our course, students develop in practice the crucial parts of a modern operating system, and develop scientific writing and public presentation skills in an informal and rewarding class environment.",
+    "satisfies": [
+      "Satisfies a 300-level elective requirement in the Systems area of the Computer Science major.",
+      "Satisfies a 300-level elective requirement in the Computer Science minor."
+    ],
+    "PRQ": [
+      "CSC 221",
+      "and",
+      "CSC 250"
+    ],
+    "group": "systems"
+  },
+  {
+    "id": "CSC 359",
+    "parentIds": [
+      "CSC 221",
+      "CSC 250"
+    ],
+    "name": "Networks and Distributed Systems",
+    "description": "Computer networks have revolutionized the way societies create and communicate information.  In particular, the Internet is a massive deployment of network algorithms and systems, with lasting social, scientific, and economical impact.  Network algorithms and systems are specified by protocols, which allow different organizations to interoperate.  Protocols are designed to handle network failures and non-cooperative agents, and to operate at large scale without critical performance issues.  Algorithms and systems associated with network protocols are elegant and significant applications of fundamental Computer Science ideas.  This course studies fundamental Internet protocols such as ARP, IP, ICM, and TCP; higher-level application protocols, such as DNS, HTTP, SMTP, and security-related protocols; as well as medium access control specifications for Ethernet and wireless networks.  All of these protocols are studied from a perspective that emphasizes their algorithmic and design-related aspects, with focus on the fundamental computer science principles underlying the associated algorithms and systems.",
+    "satisfies": [
+      "Fulfills the Systems area requirement of the Computer Science major.",
+      "Satisfies a requirement in the Computer Science minor."
+    ],
+    "PRQ": [
+      "CSC 221",
+      "and",
+      "CSC 250"
+    ],
+    "group": "systems"
+  },
+  {
+    "id": "CSC 220",
+    "parentIds": [
+      "CSC 121",
+      "CSC 120",
+      "CSC 209",
+      "CSC 200"
+    ],
+    "name": "Discrete Structures (= MAT 220)",
+    "description": "An introduction to proof techniques and discrete mathematics, with a focus on topics relevant to computer science, and an introduction to functional programming. Topics include logic, sets, functions, equivalence relations, algorithm analysis, methods of proof, essential combinatorics, recurrence relations, and discrete probability, as well as the essentials of functional programming. Additional topics may be selected from graph theory, number theory, or automata theory. This course prepares students for advanced work in both computer science and mathematics.",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement.",
+      "Counts towards the Mathematics major and minor.",
+      "Counts towards the Computer Science major and minor."
+    ],
+    "PRQ": [
+      "CSC 121",
+      "or",
+      "CSC 209",
+      "or",
+      "CSC 120",
+      "or",
+      "CSC 200"
+    ],
+    "group": "core"
+  },
+  {
+    "id": "MAT 320",
+    "parentIds": [
+      "CSC 220"
+    ],
+    "name": "Combinatorics",
+    "description": "The mathematics of arrangements of discrete sets, including binomial and multinomial coefficients, inclusion and exclusion, the pigeonhole principle, partitions and compositions, Stirling and Catalan numbers, occupancy problems, generating functions, recurrence relations, and selected modern topics.",
+    "satisfies": [
+      "Counts as an elective in the Theory category of the Computer Science major."
+    ],
+    "PRQ": [
+      "CSC 220"
+    ],
+    "group": "theory"
+  },
+  {
+    "id": "MAT 325",
+    "parentIds": [
+      "CSC 220"
+    ],
+    "name": "Graph Theory",
+    "description": "A rigorous introduction to graph theory including the study of trees, connectivity, graph distances, adjacency matrices, Euler tours, Hamiltonian cycles, matchings, graph colorings, planarity, Euler characteristic, directed graphs, network flows, algorithms and extremal problems.",
+    "satisfies": [
+      "Counts as an elective in the Theory category of the Computer Science major.",
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [
+      "CSC 220"
+    ],
+    "group": "theory"
+  },
+  {
+    "id": "CSC 324",
+    "parentIds": [
+      "CSC 220"
+    ],
+    "name": "Theory of Computation",
+    "description": "Mathematical models of computation, and the fundamental capabilities and limitations of computers.  Topics include regular languages, finite automata, context-free languages, grammars, Turing machines, the Chomsky hierarchy, the halting problem, algorithms, decidable and undecidable problems, algorithmic reductions, complexity theory, the classes P, NP, and PSPACE, and NP-complete problems.",
+    "satisfies": [
+      "Counts towards the Mathematics major and minor.",
+      "Counts towards the Computer Science major and minor."
+    ],
+    "PRQ": [
+      "CSC 220"
+    ],
+    "group": "theory"
+  },
+  {
+    "id": "DIG 245",
+    "parentIds": [],
+    "name": "Critical Web Design",
+    "description": "In this course, students will learn to conceptualize, design, and program responsive websites as both an applied and creative practice. Through a combination of technical topics in interface design and development such as usability, coding in HTML, CSS, Javascript and jQuery, as well as readings and discussions around net-based artworks and historical and cultural concerns surrounding the internet as a communication platform, students will execute interactive projects that are both culturally-relevant and technically sophisticated.",
+    "satisfies": [
+      "Satisfies a requirement of the Digital Studies minor."
+    ],
+    "PRQ": [],
+    "group": "intro"
+  }
+]

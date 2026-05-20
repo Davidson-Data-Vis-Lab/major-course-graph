@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sugiyama Graph</title>
+</head>
+
+<body>
+  <h1>Computer Science Major Requirements</h1>
+  <div class="container">
+
+    <div class="controls">
+      <h3>Instructions</h3>
+      <p> Use the check boxes below to mark the courses <br> 
+      you have taken.
+      Use the graph to see what <br> courses you can take.</p>
+      
+      <div class="prerequisite">
+        <h3>Prerequisite for the major</h3>
+        <p> These classes do not give any major credits,<br> 
+        but are prerequisites of major classes</p>
+
+        <input type="checkbox" data-course-id="CLUSTER_1" onchange="colorClass(this)"/>
+        Introductory programming: CSC 121 or <br> CSC 120 or CSC 209 or CSC 200
+        <br>
+
+        <input type="checkbox" data-course-id="CLUSTER_0" onchange="colorClass(this)"/>
+        Math prerequisite: MAT 111 or <br> MAT 112
+        <br>
+         <input type="checkbox" data-course-id="MAT 113" onchange="colorClass(this)"/>
+        MAT 113: Calculus II
+
+        <br>
+         <input type="checkbox" data-course-id="DIG 245" onchange="colorClass(this)"/>
+        DIG 245: Critical Web Design
+        <br>
+         <input type="checkbox" data-course-id="MAT 235" onchange="colorClass(this)"/>
+        MAT 235: Differential Equations
+        <br>
+      </div>
+
+      <div class="major credits">
+        <h3>Major Requirements</h3>
+
+        <h4>Math Requirement (1):</h4>
+        <input type="checkbox" data-course-id="MAT 150" onchange="colorClass(this)"/>
+        MAT 150: Linear Algebra
+        <br>
+
+        <input type="checkbox" data-course-id="MAT 140" onchange="colorClass(this)"/>
+        MAT 140: Multivariable Calculus and M.
+        <br>
+
+        <input type="checkbox" data-course-id="MAT 160" onchange="colorClass(this)"/>
+        MAT 160: Calculus III
+        <br>
+
+        <h4>Core Classes:</h4>
+        <input type="checkbox" data-course-id="CSC 221" onchange="colorClass(this)"/>
+        CSC 221: Data Structures
+        <br>
+
+        <input type="checkbox" data-course-id="CSC 220" onchange="colorClass(this)"/>
+        CSC 220: Discrete Structures
+        <br>
+
+        <input type="checkbox" data-course-id="CSC 250" onchange="colorClass(this)"/>
+        CSC 250: Computer Organization
+        <br>
+
+        <input type="checkbox" data-course-id="CSC 321" onchange="colorClass(this)"/>
+        CSC 321: Analysis of Algorithms
+        <br>
+
+        <h4>Electives:</h4>
+        <input type="checkbox" data-course-id="" onchange="colorClass(this)"/>
+        Applications (1 credit needed)
+        <br>
+
+        <input type="checkbox" data-course-id="" onchange="colorClass(this)"/>
+        Systems (1 credit needed)
+        <br>
+
+        <input type="checkbox" data-course-id="" onchange="colorClass(this)"/>
+        Additional CS Courses (3 credit needed)
+      </div>
+    </div>
+
+    <svg id="svg">
+      <g transform="translate(10,10)">
+        <g id="links"></g>
+        <g id="nodes"></g>
+        <g id="arrows"></g>
+      </g>
+    </svg>
+  </div>
+
+ 
+  <script>
+    function colorClass(checkbox) {
+      const courseId = checkbox.dataset.courseId;
+      const checked = checkbox.checked;
+
+      d3.selectAll("#nodes > g").each(function(d) {
+        if (d.data.id === courseId) {
+          d3.select(this).select("rect")
+            .attr("fill", checked ? "#285841" : "steelblue");
+        }
+      });
+    }
+  </script>
+
+ 
+  <script src="js/clusterNodes.js" type="module"></script>
+  <script src="js/createClusteredGraphBuilder.js" type="module"></script>
+  <script src="js/main.js" type="module"></script>
+</body>
+<footer> Created by Yurdanur Yolcu and Dr. Katy Williams. Summer 2025.   </footer>
+</html>
