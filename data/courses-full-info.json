@@ -180,11 +180,11 @@
     "group": "math"
   },
   {
-    "id": "MAT 315",
+    "id": "CSC 315",
     "parentIds": [
       "MAT 235"
     ],
-    "name": "Numerical Analysis (= CSC 315)",
+    "name": "Numerical Analysis (= MAT 315)",
     "description": "Survey of methods to approximate numerical solutions of problems in root-finding, differentiation, integration, curve-fitting, differential equations, and systems of equations. Derivations, limitations, and efficiency of different algorithms are considered.",
     "satisfies": [
       "Counts towards the Mathematics major and minor.",
@@ -532,5 +532,195 @@
     ],
     "PRQ": [],
     "group": "intro"
+  },
+  {
+    "id": "MAT 230",
+    "parentIds": [
+      "MAT 113",
+      "MAT 140",
+      "MAT 150",
+      "MAT 160"
+    ],
+    "name": "Sets and Proofs",
+    "description": "**NEEDS UPDATE**",
+    "satisfies": [
+      "**NEEDS UPDATE**"
+    ],
+    "PRQ": [
+      "MAT 113",
+      "or",
+      "MAT 140",
+      "or",
+      "MAT 150",
+      "or",
+      "MAT 160"
+    ],
+    "group": "**NEEDS UPDATE**"
+  },
+  {
+    "id": "CSC 372",
+    "parentIds": [
+      "CSC 221",
+      "MAT 230"
+    ],
+    "name": "Natural Language Processing",
+    "description": "**NEEDS UPDATE**",
+    "satisfies": [
+      "**NEEDS UPDATE**"
+    ],
+    "PRQ": [
+      "CSC 221",
+      "and",
+      "MAT 230"
+    ],
+    "group": "**NEEDS UPDATE**"
+  },
+  {
+    "id": "CSC 374",
+    "parentIds": [
+      "MAT 140",
+      "MAT 150",
+      "MAT 160",
+      "CSC 221"
+    ],
+    "name": "Deep Learning",
+    "description": "**NEEDS UPDATE**",
+    "satisfies": [
+      "**NEEDS UPDATE**"
+    ],
+    "PRQ": [
+      "(",
+      "MAT 140",
+      "or",
+      "MAT 150",
+      "or",
+      "MAT 160",
+      ")",
+      "and",
+      "CSC 221"
+    ],
+    "group": "**NEEDS UPDATE**"
+  },
+  {
+    "id": "CSC 352",
+    "parentIds": [
+      "CSC 221",
+      "MAT 230"
+    ],
+    "name": "Blockchains",
+    "description": "**NEEDS UPDATE**",
+    "satisfies": [
+      "**NEEDS UPDATE**"
+    ],
+    "PRQ": [
+      "CSC 221",
+      "and",
+      "MAT 230"
+    ],
+    "group": "**NEEDS UPDATE**"
+  },
+  {
+    "id": "CSC 354",
+    "parentIds": [
+      "CSC 221",
+      "MAT 230"
+    ],
+    "name": "Applied Cryptography",
+    "description": "**NEEDS UPDATE**",
+    "satisfies": [
+      "**NEEDS UPDATE**"
+    ],
+    "PRQ": [
+      "CSC 221",
+      "and",
+      "MAT 230"
+    ],
+    "group": "**NEEDS UPDATE**"
+  },
+  {
+    "id": "CSC 355",
+    "parentIds": [
+      "CSC 221",
+      "CSC 250"
+    ],
+    "name": "Compiler Design",
+    "description": "**NEEDS UPDATE**",
+    "satisfies": [
+      "**NEEDS UPDATE**"
+    ],
+    "PRQ": [
+      "CSC 221",
+      "and",
+      "CSC 250"
+    ],
+    "group": "**NEEDS UPDATE**"
+  },
+  {
+    "id": "CSC 379",
+    "parentIds": [
+      "MAT 150",
+      "MAT 230"
+    ],
+    "name": "Cryptology",
+    "description": "**NEEDS UPDATE**",
+    "satisfies": [
+      "**NEEDS UPDATE**"
+    ],
+    "PRQ": [
+      "MAT 150",
+      "and",
+      "MAT 230"
+    ],
+    "group": "**NEEDS UPDATE**"
+  },
+  {
+    "id": "CSC 385",
+    "parentIds": [
+      "CSC 121",
+      "CSC 209",
+      "CSC 120",
+      "CSC 240",
+      "MAT 150",
+      "MAT 230"
+    ],
+    "name": "Linear and Discrete Optimization",
+    "description": "**NEEDS UPDATE**",
+    "satisfies": [
+      "**NEEDS UPDATE**"
+    ],
+    "PRQ": [
+      "(",
+      "CSC 121",
+      "or",
+      "CSC 209",
+      "or",
+      "CSC 120",
+      "or",
+      "CSC 240",
+      ")",
+      "and",
+      "MAT 150",
+      "and",
+      "MAT 230"
+    ],
+    "group": "**NEEDS UPDATE**"
+  },
+{
+    "id": "CSC 358",
+    "parentIds": [
+      "MAT 230",
+      "CSC 250"
+    ],
+    "name": "Real-Time Systems",
+    "description": "**NEEDS UPDATE**",
+    "satisfies": [
+      "**NEEDS UPDATE**"
+    ],
+    "PRQ": [
+      "MAT 230",
+      "and",
+      "CSC 250"
+    ],
+    "group": "**NEEDS UPDATE**"
   }
 ]
