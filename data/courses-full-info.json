@@ -2,7 +2,7 @@
   {
     "id": "MAT 111",
     "parentIds": [],
-    "name": "Calculus 1",
+    "name": "Calculus I (for those with no previous exposure)",
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and inverse trigonometric functions with applications including graphical analysis, optimization and numerical methods.",
     "satisfies": [
       "Satisfies the Mathematical and Quantitative Thought requirement."
@@ -23,10 +23,10 @@
     "PRQ": [],
     "group": "intro"
   },
-  { "id": "CSC 200",
+  { "id": "CSC 240",
     "parentIds": [],
-    "name": "Computational Physics (=PHY200)",
-    "description": "(Cross-listed as PHY 200, CSC/PHY 240) is an introduction to computer programming and computational physics using Python. No prior programming experience is necessary. This course will provide students with the skills required to write code to solve physics problems in areas inclyuding quantum physics, electromagnetism, and mechanics. Structured programming methods will be covered as well as algorithms for numerical integration, solving differential equations, and more.",
+    "name": "Computational Physics (=PHY240)",
+    "description": "(Cross-listed as PHY 240) is an introduction to computer programming and computational physics using Python. No prior programming experience is necessary. This course will provide students with the skills required to write code to solve physics problems in areas inclyuding quantum physics, electromagnetism, and mechanics. Structured programming methods will be covered as well as algorithms for numerical integration, solving differential equations, and more.",
     "satisfies": [
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
@@ -91,7 +91,8 @@
   {
     "id": "MAT 150",
     "parentIds": [
-      "MAT 113"
+      "MAT 111",
+      "MAT 112"
     ],
     "name": "Linear Algebra",
     "description": [
@@ -101,7 +102,9 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": [
-      "MAT 113"
+      "MAT 111",
+      "or",
+      "MAT 112"
     ],
     "group": "math"
   },
@@ -126,7 +129,7 @@
       "CSC 121",
       "CSC 120",
       "CSC 209",
-      "CSC 200"
+      "CSC 240"
     ],
     "name": "Computer Organization",
     "description": "An introduction to how digital computers are built and the process by which computer programs expressed in a high-level language are translated into signals to be routed on a digital circuit board. Topics include data representation and manipulation, digital logic building blocks (logic gates, flip-flops), computer memory, assembly and machine code, hardware components and their organization, and the C programming language. ",
@@ -138,7 +141,7 @@
       "or",
       "CSC 209",
       "or",
-      "CSC 220"
+      "MAT 230"
 
     ],
     "group": "core"
@@ -200,7 +203,7 @@
       "CSC 121",
       "CSC 120",
       "CSC 209",
-      "CSC 200"
+      "CSC 240"
     ],
     "name": "Mathematical Modeling (=MAT 210)",
     "description": "A survey of discrete mathematical and computational modeling techniques and their application to the natural and social sciences. Mathematical tools are selected from such topics as Monte Carlo simulation, queuing theory, Markov chains, optimization, discrete dynamical systems, computational geometry, agent-based modeling, and cellular automata. Emphasis is on formulating models, investigating them analytically and computationally, and communicating the results.",
@@ -218,7 +221,7 @@
       "or",
       "CSC 120",
       "or",
-      "CSC 200",
+      "CSC 240",
       ")",
       "and",
       "(",
@@ -258,7 +261,7 @@
       "CSC 121",
       "CSC 120",
       "CSC 209",
-      "CSC 200"
+      "CSC 240"
     ],
     "name": "Data Structures",
     "description": "A study of abstract data types, including lists, stacks, queues, and search tables, and their supporting data structures, including arrays, linked lists, binary search trees, and hash tables. Implications of the choice of data structure on the efficiency of the implementation of an algorithm. Efficient methods of sorting and searching.",
@@ -276,14 +279,14 @@
       "or",
       "CSC 120",
       "or",
-      "CSC 200"
+      "CSC 240"
     ],
     "group": "core"
   },
   {
     "id": "CSC 321",
     "parentIds": [
-      "CSC 220",
+      "MAT 230",
       "CSC 221"
     ],
     "name": "Analysis of Algorithms",
@@ -294,7 +297,7 @@
       "Counts towards the Computer Science major and minor."
     ],
     "PRQ": [
-      "CSC 220",
+      "MAT 230",
       "and",
       "CSC 221"
     ],
@@ -363,7 +366,7 @@
     "id": "CSC 371",
     "parentIds": [
       "CSC 221",
-      "CSC 220"
+      "MAT 230"
     ],
     "name": "Machine Learning",
     "description": "A survey of the field of machine learning, with an introduction to the fundamental algorithms in the field and the theory underpinning them. Topics include techniques for regression, classification, ensemble methods, and dimensionality reduction.",
@@ -373,7 +376,7 @@
       "Counts as an elective in the Data Science interdisciplinary minor."
     ],
     "PRQ": [
-      "CSC 220",
+      "MAT 230",
       "and",
       "CSC 221"
     ],
@@ -399,7 +402,7 @@
     "id": "CSC 370",
     "parentIds": [
       "CSC 221",
-      "CSC 220"
+      "MAT 230"
     ],
     "name": "Machine Reasoning",
     "description": "A survey of core algorithms and techniques from the field of machine reasoning and decision-making. Topics include search, game playing, constraint satisfaction problems, planning, reinforcement learning, knowledge representation, and logic.",
@@ -408,7 +411,7 @@
       "Counts towards the Computer Science major and minor."
     ],
     "PRQ": [
-      "CSC 220",
+      "MAT 230",
       "and",
       "CSC 221"
     ],
@@ -473,35 +476,9 @@
     "group": "systems"
   },
   {
-    "id": "CSC 220",
-    "parentIds": [
-      "CSC 121",
-      "CSC 120",
-      "CSC 209",
-      "CSC 200"
-    ],
-    "name": "Discrete Structures (= MAT 220)",
-    "description": "An introduction to proof techniques and discrete mathematics, with a focus on topics relevant to computer science, and an introduction to functional programming. Topics include logic, sets, functions, equivalence relations, algorithm analysis, methods of proof, essential combinatorics, recurrence relations, and discrete probability, as well as the essentials of functional programming. Additional topics may be selected from graph theory, number theory, or automata theory. This course prepares students for advanced work in both computer science and mathematics.",
-    "satisfies": [
-      "Satisfies the Mathematical and Quantitative Thought requirement.",
-      "Counts towards the Mathematics major and minor.",
-      "Counts towards the Computer Science major and minor."
-    ],
-    "PRQ": [
-      "CSC 121",
-      "or",
-      "CSC 209",
-      "or",
-      "CSC 120",
-      "or",
-      "CSC 200"
-    ],
-    "group": "core"
-  },
-  {
     "id": "MAT 320",
     "parentIds": [
-      "CSC 220"
+      "MAT 230"
     ],
     "name": "Combinatorics",
     "description": "The mathematics of arrangements of discrete sets, including binomial and multinomial coefficients, inclusion and exclusion, the pigeonhole principle, partitions and compositions, Stirling and Catalan numbers, occupancy problems, generating functions, recurrence relations, and selected modern topics.",
@@ -509,14 +486,14 @@
       "Counts as an elective in the Theory category of the Computer Science major."
     ],
     "PRQ": [
-      "CSC 220"
+      "MAT 230"
     ],
     "group": "theory"
   },
   {
     "id": "MAT 325",
     "parentIds": [
-      "CSC 220"
+      "MAT 230"
     ],
     "name": "Graph Theory",
     "description": "A rigorous introduction to graph theory including the study of trees, connectivity, graph distances, adjacency matrices, Euler tours, Hamiltonian cycles, matchings, graph colorings, planarity, Euler characteristic, directed graphs, network flows, algorithms and extremal problems.",
@@ -525,14 +502,14 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": [
-      "CSC 220"
+      "MAT 230"
     ],
     "group": "theory"
   },
   {
     "id": "CSC 324",
     "parentIds": [
-      "CSC 220"
+      "MAT 230"
     ],
     "name": "Theory of Computation",
     "description": "Mathematical models of computation, and the fundamental capabilities and limitations of computers.  Topics include regular languages, finite automata, context-free languages, grammars, Turing machines, the Chomsky hierarchy, the halting problem, algorithms, decidable and undecidable problems, algorithmic reductions, complexity theory, the classes P, NP, and PSPACE, and NP-complete problems.",
@@ -541,7 +518,7 @@
       "Counts towards the Computer Science major and minor."
     ],
     "PRQ": [
-      "CSC 220"
+      "MAT 230"
     ],
     "group": "theory"
   },
