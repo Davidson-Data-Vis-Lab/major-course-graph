@@ -115,7 +115,7 @@ function clusterNodes(nodes) {
     }
   });
 
-  return { visualGroups, nodeToGroupId, edgeMap}
+  return {visualGroups, nodeToGroupId, edgeMap}
 
 }
 
