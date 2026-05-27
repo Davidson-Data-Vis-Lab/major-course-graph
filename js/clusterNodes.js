@@ -10,8 +10,6 @@ function clusterNodes(nodes) {
   // Initialize all nodes with empty children arrays
   nodes.forEach(node => {
     childrenMap.set(node.id, { 'children': []});
-    node.edgeType = 'solid';
-    node.name = node.name;
   });
    // Make a map of the edges and their types (source, target, type)
   const edgeMap = new Map();
@@ -54,7 +52,119 @@ function clusterNodes(nodes) {
   });
 
  
-  
+  const visualGroups = []; // array of individual nodes and "clustered" groups
+  const nodeToGroupId = new Map();
+  let groupCounter = 0;
+
+  //Grouping non-leaf nodes (same parents AND same children)
+  const nonLeafGroups = new Map();
+  nonLeafNodes.forEach(node => {
+    const parentKey = createKey(node.parentIds);
+    const childrenKey = createKey(node.children);
+    // capture the parent-child relationship
+    const combinedKey = `${parentKey}__${childrenKey}`;
+
+    if (!nonLeafGroups.has(combinedKey)) {
+      nonLeafGroups.set(combinedKey, []);
+    }
+    nonLeafGroups.get(combinedKey).push(node);
+  });
+
+  nonLeafGroups.forEach(arrOfNodes => {
+    if(arrOfNodes.length > 1){
+      const groupId = `group_${groupCounter++}`;
+      const clusteredGroup = {
+        id: groupId,
+        reason: 'same_parents_and_children',
+        members: arrOfNodes,
+        memberIds: arrOfNodes.map(n => n.id),
+        parentIds: arrOfNodes[0].parentIds,
+        childIds: arrOfNodes[0].children
+      };
+
+      visualGroups.push(clusteredGroup);
+      arrOfNodes.forEach(n => nodeToGroupId.set(n.id, groupId));
+    }
+  });
+
+
+  //Grouping leaf nodes (same parents only, no children)
+  const leafGroups = new Map();
+  leafNodes.forEach(node => {
+    const parentKey = createKey(node.parentIds);
+    
+    if (!leafGroups.has(parentKey)) {
+      leafGroups.set(parentKey, []);
+    }
+    leafGroups.get(parentKey).push(node);
+  });
+
+  leafGroups.forEach(arrOfNodes => {
+    if(arrOfNodes.length > 1){
+      const groupId = `group_${groupCounter++}`;
+      const clusteredGroup = {
+        id: groupId,
+        reason: 'same_parents_leaf_nodes',
+        members: arrOfNodes,
+        memberIds: arrOfNodes.map(n => n.id),
+        parentIds: arrOfNodes[0].parentIds,
+        childIds: []
+      };
+      visualGroups.push(clusteredGroup);
+      arrOfNodes.forEach(n => nodeToGroupId.set(n.id, groupId));
+    }
+  });
+
+  return { visualGroups, nodeToGroupId, edgeMap}
+
+}
+
+function findMatching(tokens, i) {
+  let depth = 0;
+  for (let j = i; j < tokens.length; j++) {
+    if (tokens[j] === '(') depth++;
+    else if (tokens[j] === ')') {
+      depth--;
+      if (depth === 0) return j;
+    }
+  }
+  throw new Error(`Unmatched "(" at ${i}`);
+}
+
+function parseGroup(tokens, target) {
+  const hasOr  = tokens.includes('or');
+  const hasAnd = tokens.includes('and');
+  const style  = !hasOr ? 'solid' : (!hasAnd ? 'dashed' : 'solid');
+  let out = [];
+  let i = 0;
+  while (i < tokens.length) {
+    const t = tokens[i];
+    if (t === '(') {
+      const j = findMatching(tokens, i);
+      out.push(...parseGroup(tokens.slice(i + 1, j), target));
+      i = j + 1;
+    } else if (t === 'and' || t === 'or' || t === ')') {
+      i++;
+    } else {
+      out.push({ source: t, target, style });
+      i++;
+    }
+  }
+  return out;
+}
+
+function determineParentEdgeType(node, edgeMap) {
+  const incomingEdgesList = parseGroup(node.PRQ, node.id);
+  for (const { source, target, style } of incomingEdgesList) {
+    if (!edgeMap.has(source)) edgeMap.set(source, []);
+    edgeMap.get(source).push({ target, style });
+  }
+}
+
+// Export the function for use
+export {clusterNodes}
+
+  /*
   const clusters = [];
   const processedNodes = new Set();
  
@@ -84,7 +194,7 @@ function clusterNodes(nodes) {
       const clusterNode = {
         id: `CLUSTER_${clusters.length}`,
         type: 'cluster',
-        members: groupNodes.map(n => n.id),
+        members: groupNodes,
         parentIds: groupNodes[0].parentIds, // All have same parents
         children: groupNodes[0].children,   // All have same children
         group: groupNodes[0].group,
@@ -123,7 +233,7 @@ function clusterNodes(nodes) {
       const clusterNode = {
         id: `CLUSTER_${clusters.length}`,
         type: 'cluster',
-        members: groupNodes.map(n => n.id),
+        members: groupNodes,
         parentIds: groupNodes[0].parentIds, // All have same parents
         children: [], // All are leaf nodes
         group: groupNodes[0].group,
@@ -169,7 +279,7 @@ function parseGroup(tokens, target) {
   const hasAnd = tokens.includes('and');
   const style  = !hasOr         ? 'solid'
                : (!hasAnd       ? 'dashed'
-               : /* mixed */     'solid');
+               : /* mixed     'solid');
   let out = [];
   let i = 0;
   while (i < tokens.length) {
@@ -204,8 +314,6 @@ function determineParentEdgeType(node, edgeMap) {
     edgeMap.get(source).push({ target, style });
   }
 
-}
+*/
 
 
-// Export the function for use
-export {clusterNodes}

@@ -19,7 +19,7 @@ function buildClusteredGraph(originalData) {
     .forEach((cluster, index) => {
         console.log(`\nCluster ${index + 1}:`);
         console.log(`  ID: ${cluster.id}`);
-        console.log(`  Members: ${cluster.members.join(', ')}`);
+        console.log(`  Members: ${cluster.members.map(m => m.id).join(', ')}`);
         console.log(`  Reason: ${cluster.reason}`);
         console.log(`  EdgeType: ${cluster.edgeType}`);
         console.log(`  Parent IDs: ${cluster.parentIds.join(', ') || 'None'}`);
@@ -57,8 +57,8 @@ function createClusteredGraphBuilder() {
       if (node.type === 'cluster') {
         clusterNodes.push(node);
         // Map each member to this cluster
-        node.members.forEach(memberId => {
-          nodeToClusterMap.set(memberId, node.id);
+        node.members.forEach(member => {
+          nodeToClusterMap.set(member.id, node.id);
         });
       } else {
         individualNodes.push(node);

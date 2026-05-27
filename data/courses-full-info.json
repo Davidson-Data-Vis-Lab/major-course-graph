@@ -141,7 +141,7 @@
       "or",
       "CSC 209",
       "or",
-      "MAT 230"
+      "CSC 240"
 
     ],
     "group": "core"
@@ -286,8 +286,8 @@
   {
     "id": "CSC 321",
     "parentIds": [
-      "MAT 230",
-      "CSC 221"
+      "CSC 221",
+      "MAT 230"
     ],
     "name": "Analysis of Algorithms",
     "description": "Algorithm design strategies, including greedy, divide-and-conquer, and dynamic programming methods.  Advanced data structures, including balanced search trees, graphs, heaps, and priority queues.  Advanced methods of searching and sorting.  Computational complexity and analysis of algorithms.  NP-complete problems.",
@@ -297,9 +297,9 @@
       "Counts towards the Computer Science major and minor."
     ],
     "PRQ": [
-      "MAT 230",
+      "CSC 221",
       "and",
-      "CSC 221"
+      "MAT 230"
     ],
     "group": "core"
   },
@@ -376,9 +376,9 @@
       "Counts as an elective in the Data Science interdisciplinary minor."
     ],
     "PRQ": [
-      "MAT 230",
+      "CSC 221",
       "and",
-      "CSC 221"
+      "MAT 230"
     ],
     "group": "applications"
   },
@@ -411,9 +411,9 @@
       "Counts towards the Computer Science major and minor."
     ],
     "PRQ": [
-      "MAT 230",
+      "CSC 221",
       "and",
-      "CSC 221"
+      "MAT 230"
     ],
     "group": "applications"
   },
