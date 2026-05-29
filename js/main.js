@@ -366,13 +366,18 @@ svg.select("#nodes")
 
 // Tooltip events (attached once, outside the .each loop)
 svg.select("#nodes").selectAll("g")
-  .on("click", (event, d) => {
+  .on("mouseover", (event, d) => {
     Tooltip
       .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>
              Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`)
       .style("top", (event.pageY + 10) + "px")
       .style("left", (event.pageX + 10) + "px")
       .style("visibility", "visible");
+  })
+  .on("mousemove", (event) => {
+    Tooltip
+      .style("top", (event.pageY + 10) + "px")
+      .style("left", (event.pageX + 10) + "px")
   })
   .on("mouseout", () => {
     Tooltip.style("visibility", "hidden");

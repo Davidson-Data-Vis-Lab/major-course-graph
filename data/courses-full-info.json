@@ -8,7 +8,7 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": [],
-    "group": "math"
+    "group": "intro"
   },
   {
     "id": "CSC 121",
@@ -67,7 +67,7 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": [],
-    "group": "math"
+    "group": "intro"
   },
   {
     "id": "MAT 113",
@@ -86,7 +86,7 @@
       "or",
       "MAT 112"
     ],
-    "group": "math"
+    "group": "intro"
   },
   {
     "id": "MAT 150",
@@ -121,7 +121,7 @@
     "PRQ": [
       "MAT 113"
     ],
-    "group": "math"
+    "group": "other"
   },
   {
     "id": "CSC 250",
@@ -177,7 +177,7 @@
     "PRQ": [
       "MAT 150"
     ],
-    "group": "math"
+    "group": "theory"
   },
   {
     "id": "CSC 315",
@@ -476,21 +476,6 @@
     "group": "systems"
   },
   {
-    "id": "MAT 320",
-    "parentIds": [
-      "MAT 230"
-    ],
-    "name": "Combinatorics",
-    "description": "The mathematics of arrangements of discrete sets, including binomial and multinomial coefficients, inclusion and exclusion, the pigeonhole principle, partitions and compositions, Stirling and Catalan numbers, occupancy problems, generating functions, recurrence relations, and selected modern topics.",
-    "satisfies": [
-      "Counts as an elective in the Theory category of the Computer Science major."
-    ],
-    "PRQ": [
-      "MAT 230"
-    ],
-    "group": "theory"
-  },
-  {
     "id": "MAT 325",
     "parentIds": [
       "MAT 230"
@@ -523,17 +508,6 @@
     "group": "theory"
   },
   {
-    "id": "DIG 245",
-    "parentIds": [],
-    "name": "Critical Web Design",
-    "description": "In this course, students will learn to conceptualize, design, and program responsive websites as both an applied and creative practice. Through a combination of technical topics in interface design and development such as usability, coding in HTML, CSS, Javascript and jQuery, as well as readings and discussions around net-based artworks and historical and cultural concerns surrounding the internet as a communication platform, students will execute interactive projects that are both culturally-relevant and technically sophisticated.",
-    "satisfies": [
-      "Satisfies a requirement of the Digital Studies minor."
-    ],
-    "PRQ": [],
-    "group": "intro"
-  },
-  {
     "id": "MAT 230",
     "parentIds": [
       "MAT 113",
@@ -555,7 +529,7 @@
       "or",
       "MAT 160"
     ],
-    "group": "**NEEDS UPDATE**"
+    "group": "math"
   },
   {
     "id": "CSC 372",
@@ -573,7 +547,7 @@
       "and",
       "MAT 230"
     ],
-    "group": "**NEEDS UPDATE**"
+    "group": "applications"
   },
   {
     "id": "CSC 374",
@@ -599,7 +573,7 @@
       "and",
       "CSC 221"
     ],
-    "group": "**NEEDS UPDATE**"
+    "group": "applications"
   },
   {
     "id": "CSC 352",
@@ -617,7 +591,7 @@
       "and",
       "MAT 230"
     ],
-    "group": "**NEEDS UPDATE**"
+    "group": "systems"
   },
   {
     "id": "CSC 354",
@@ -635,7 +609,7 @@
       "and",
       "MAT 230"
     ],
-    "group": "**NEEDS UPDATE**"
+    "group": "systems"
   },
   {
     "id": "CSC 355",
@@ -653,7 +627,7 @@
       "and",
       "CSC 250"
     ],
-    "group": "**NEEDS UPDATE**"
+    "group": "systems"
   },
   {
     "id": "CSC 379",
@@ -671,7 +645,7 @@
       "and",
       "MAT 230"
     ],
-    "group": "**NEEDS UPDATE**"
+    "group": "theory"
   },
   {
     "id": "CSC 385",
@@ -703,7 +677,7 @@
       "and",
       "MAT 230"
     ],
-    "group": "**NEEDS UPDATE**"
+    "group": "theory"
   },
 {
     "id": "CSC 358",
@@ -721,6 +695,6 @@
       "and",
       "CSC 250"
     ],
-    "group": "**NEEDS UPDATE**"
+    "group": "other"
   }
 ]
