@@ -73,13 +73,16 @@ function clusterNodes(nodes) {
   nonLeafGroups.forEach(arrOfNodes => {
     if(arrOfNodes.length > 1){
       const groupId = `group_${groupCounter++}`;
+      const parentIds = arrOfNodes[0].parentIds;
+      const childIds = arrOfNodes[0].children;
       const clusteredGroup = {
         id: groupId,
         reason: 'same_parents_and_children',
         members: arrOfNodes,
         memberIds: arrOfNodes.map(n => n.id),
-        parentIds: arrOfNodes[0].parentIds,
-        childIds: arrOfNodes[0].children
+        parentIds,
+        childIds,
+        role: parentIds.length === 0 ? 'root' : 'leaf',
       };
 
       visualGroups.push(clusteredGroup);
@@ -102,13 +105,15 @@ function clusterNodes(nodes) {
   leafGroups.forEach(arrOfNodes => {
     if(arrOfNodes.length > 1){
       const groupId = `group_${groupCounter++}`;
+      const parentIds = arrOfNodes[0].parentIds;
       const clusteredGroup = {
         id: groupId,
         reason: 'same_parents_leaf_nodes',
         members: arrOfNodes,
         memberIds: arrOfNodes.map(n => n.id),
-        parentIds: arrOfNodes[0].parentIds,
-        childIds: []
+        parentIds,
+        childIds: [],
+        role: parentIds.length === 0 ? 'root' : 'leaf',
       };
       visualGroups.push(clusteredGroup);
       arrOfNodes.forEach(n => nodeToGroupId.set(n.id, groupId));

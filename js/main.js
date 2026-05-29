@@ -11,8 +11,9 @@ import * as d3dag from "https://cdn.skypack.dev/d3-dag@1.0.0-1";
 import { clusterNodes } from './clusterNodes.js';
 import {
   buildLayoutNodes,
-  createLayoutNodeSize,
+  createRoleAwareLayoutNodeSize,
   expandLayoutToCourseGraph,
+  fitGraphToViewport,
 } from './groupLayout.js';
 
 const data = await d3.json("data/courses-full-info.json");
@@ -68,8 +69,10 @@ try {
 // Phase 3: Layout      //
 // -------------------- //
 
-const layoutNodeSize = createLayoutNodeSize(nodeW, nodeH, INTRA_GROUP_VERTICAL_GAP);
+// Roots reserve full stack height; leaves use one slot and expand into bottom margin.
+const layoutNodeSize = createRoleAwareLayoutNodeSize(nodeW, nodeH, INTRA_GROUP_VERTICAL_GAP);
 const shape = d3dag.tweakShape(layoutNodeSize, d3dag.shapeRect);
+const LAYER_GAP_Y = nodeH * 0.55;
 // With this — the path generator now accepts an optional trim:
 function makePath(points, trimEnd = 0) {
   if (trimEnd === 0) return d3.line().curve(d3.curveMonotoneY)(points);
@@ -95,7 +98,7 @@ const layout = d3dag
   .gap([baseNodeRadius, baseNodeRadius * 5.5])
   .tweaks([shape]);
 
-const { width, height } = layout(layoutGraph);
+layout(layoutGraph);
 
 // ------------------------------ //
 // Phase 4: Expand to course graph //
@@ -114,6 +117,8 @@ try {
   console.error('Error building course DAG:', err);
   throw err;
 }
+
+const { width, height } = fitGraphToViewport(graph, nodeW, nodeH);
 
 // ------------------------------ //
 // Phase 4b: Deduplicate edges     //
