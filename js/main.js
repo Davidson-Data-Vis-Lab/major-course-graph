@@ -440,7 +440,6 @@ function populateSidebar(data) {
     label.appendChild(checkbox);
     label.appendChild(document.createTextNode(` ${course.id}: ${course.name}`));
     container.appendChild(label);
-    container.appendChild(document.createElement('br'));
   });
 }
 
