@@ -366,13 +366,18 @@ svg.select("#nodes")
 
 // Tooltip events (attached once, outside the .each loop)
 svg.select("#nodes").selectAll("g")
-  .on("click", (event, d) => {
+  .on("mouseover", (event, d) => {
     Tooltip
       .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>
              Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`)
       .style("top", (event.pageY + 10) + "px")
       .style("left", (event.pageX + 10) + "px")
       .style("visibility", "visible");
+  })
+  .on("mousemove", (event) => {
+    Tooltip
+      .style("top", (event.pageY + 10) + "px")
+      .style("left", (event.pageX + 10) + "px")
   })
   .on("mouseout", () => {
     Tooltip.style("visibility", "hidden");
@@ -428,6 +433,40 @@ svg.select("#arrows")
       .call(enter => enter.transition(trans).attr("opacity", 1))
   );
 
+// ----------------------- //
+// Sidebar: populate lists //
+// ----------------------- //
 
+function populateSidebar(data) {
+  
+
+  // Sort courses within each group alphabetically by id
+  const sorted = [...data].sort((a, b) => a.id.localeCompare(b.id));
+
+  sorted.forEach(course => {
+    const listId = course.group;
+
+    const container = document.getElementById(listId);
+
+    const label = document.createElement('label');
+    label.className = 'course-item';
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.dataset.courseId = course.id;
+    checkbox.dataset.group = course.group;
+    checkbox.onchange = function() {
+      colorClass(this);
+      updateGroupCheckbox(course.group);
+    };
+
+    label.appendChild(checkbox);
+    label.appendChild(document.createTextNode(` ${course.id}: ${course.name}`));
+    container.appendChild(label);
+    container.appendChild(document.createElement('br'));
+  });
+}
+
+populateSidebar(data);
 
 

@@ -13,78 +13,91 @@
 
     <div class="controls">
       <h3>Instructions</h3>
-      <p> Use the check boxes below to mark the courses <br> 
-      you have taken.
-      Use the graph to see what <br> courses you can take.</p>
-      
-      <div class="prerequisite">
-        <h3>Prerequisite for the major</h3>
-        <p> These classes do not give any major credits,<br> 
-        but are prerequisites of major classes</p>
+      <p>Hover over a course to see details.<br>
+      Check courses you have completed.</p>
 
-        <input type="checkbox" data-course-id="CLUSTER_1" onchange="colorClass(this)"/>
-        Introductory programming: CSC 121 or <br> CSC 120 or CSC 209 or CSC 200
-        <br>
+      <div class="sidebar-section">
+        <h3>Major Prerequisites</h3>
 
-        <input type="checkbox" data-course-id="CLUSTER_0" onchange="colorClass(this)"/>
-        Math prerequisite: MAT 111 or <br> MAT 112
-        <br>
-         <input type="checkbox" data-course-id="MAT 113" onchange="colorClass(this)"/>
-        MAT 113: Calculus II
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="intro-programming" onchange="handleGroupCheck(this)"/>
+            Introductory Programming
+          </label>
+          <div class="course-list" id="intro-programming"></div>
+        </div>
 
-        <br>
-         <input type="checkbox" data-course-id="DIG 245" onchange="colorClass(this)"/>
-        DIG 245: Critical Web Design
-        <br>
-         <input type="checkbox" data-course-id="MAT 235" onchange="colorClass(this)"/>
-        MAT 235: Differential Equations
-        <br>
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="intro-math" onchange="handleGroupCheck(this)"/>
+            Introductory Mathematics
+          </label>
+          <div class="course-list" id="intro-math"></div>
+        </div>
       </div>
 
-      <div class="major credits">
-        <h3>Major Requirements</h3>
+      <div class="sidebar-section">
+        <h3>Requirements for the Major</h3>
 
-        <h4>Math Requirement (1):</h4>
-        <input type="checkbox" data-course-id="MAT 150" onchange="colorClass(this)"/>
-        MAT 150: Linear Algebra
-        <br>
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="math" onchange="handleGroupCheck(this)"/>
+            Mathematics Courses
+          </label>
+          <div class="course-list" id="math"></div>
+        </div>
 
-        <input type="checkbox" data-course-id="MAT 140" onchange="colorClass(this)"/>
-        MAT 140: Multivariable Calculus and M.
-        <br>
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="core" onchange="handleGroupCheck(this)"/>
+            Core Courses
+          </label>
+          <div class="course-list" id="core"></div>
+        </div>
 
-        <input type="checkbox" data-course-id="MAT 160" onchange="colorClass(this)"/>
-        MAT 160: Calculus III
-        <br>
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="electives"/>
+            Electives
+          </label>
 
-        <h4>Core Classes:</h4>
-        <input type="checkbox" data-course-id="CSC 221" onchange="colorClass(this)"/>
-        CSC 221: Data Structures
-        <br>
+          <div class="course-list electives-wrapper">
 
-        <input type="checkbox" data-course-id="CSC 220" onchange="colorClass(this)"/>
-        CSC 220: Discrete Structures
-        <br>
+            <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="applications" onchange="handleGroupCheck(this)"/>
+                Applications
+              </label>
+              <div class="course-list" id="applications"></div>
+            </div>
 
-        <input type="checkbox" data-course-id="CSC 250" onchange="colorClass(this)"/>
-        CSC 250: Computer Organization
-        <br>
+            <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="systems" onchange="handleGroupCheck(this)"/>
+                Systems
+              </label>
+              <div class="course-list" id="systems"></div>
+            </div>
 
-        <input type="checkbox" data-course-id="CSC 321" onchange="colorClass(this)"/>
-        CSC 321: Analysis of Algorithms
-        <br>
+            <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="theory" onchange="handleGroupCheck(this)"/>
+                Theory
+              </label>
+              <div class="course-list" id="theory"></div>
+            </div>
 
-        <h4>Electives:</h4>
-        <input type="checkbox" data-course-id="" onchange="colorClass(this)"/>
-        Applications (1 credit needed)
-        <br>
+            <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="other" onchange="handleGroupCheck(this)"/>
+                Other
+              </label>
+              <div class="course-list" id="other"></div>
+            </div>
 
-        <input type="checkbox" data-course-id="" onchange="colorClass(this)"/>
-        Systems (1 credit needed)
-        <br>
+          </div>
+        </div>
 
-        <input type="checkbox" data-course-id="" onchange="colorClass(this)"/>
-        Additional CS Courses (3 credit needed)
       </div>
     </div>
 
