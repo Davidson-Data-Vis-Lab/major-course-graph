@@ -178,21 +178,10 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
     const visualSource = srcGroup ? groupBottomNode.get(srcGroup) : link.source;
     const visualTarget = tgtGroup ? groupTopNode.get(tgtGroup)    : link.target;
 
-    // POINT CONSTRUCTION (2 options...)
-
-    // 1. Build a clean two-point path between the resolved nodes
     const points = [
       [visualSource.x, visualSource.y],
       [visualTarget.x, visualTarget.y]
     ];
-    // // 2.
-    // const midY = (visualSource.y + visualTarget.y) / 2;
-    // const points = [
-    //     [visualSource.x, visualSource.y],
-    //     [visualSource.x, midY],          // vertical drop from source
-    //     [visualTarget.x, midY],          // horizontal move at midpoint
-    //     [visualTarget.x, visualTarget.y]
-    // ];
 
     visualLinks.push({
       points,
