@@ -8,7 +8,7 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": [],
-    "group": "intro"
+    "group": "intro-math"
   },
   {
     "id": "CSC 121",
@@ -21,7 +21,7 @@
       "Satisfies Digital Studies major and minor requirement."
     ],
     "PRQ": [],
-    "group": "intro"
+    "group": "intro-programming"
   },
   { "id": "CSC 240",
     "parentIds": [],
@@ -31,7 +31,7 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": [],
-    "group": "intro"
+    "group": "intro-programming"
   },
   {
     "id": "CSC 120",
@@ -44,7 +44,7 @@
       "Satisfies the Mathematical and Quantitative Thought requirement. "
     ],
     "PRQ": [],
-    "group": "intro"
+    "group": "intro-programming"
   },
   {
     "id": "CSC 209",
@@ -56,7 +56,7 @@
       "Satisfies a requirement in the Data Science interdisciplinary minor."
     ],
     "PRQ": [],
-    "group": "intro"
+    "group": "intro-programming"
   },
   {
     "id": "MAT 112",
@@ -67,7 +67,7 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": [],
-    "group": "intro"
+    "group": "intro-math"
   },
   {
     "id": "MAT 113",
@@ -86,7 +86,7 @@
       "or",
       "MAT 112"
     ],
-    "group": "intro"
+    "group": "intro-math"
   },
   {
     "id": "MAT 150",
@@ -95,9 +95,8 @@
       "MAT 112"
     ],
     "name": "Linear Algebra",
-    "description": [
-      "An introduction to systems of linear equations, matrices, determinants, vector spaces, and eigenvectors in an interactive learning environment provided by the computer algebra system Mathematica. Applications are chosen from linear programming, least squares approximation, graph theory, cryptography, computer graphics, and other topics. "
-    ],
+    "description": 
+      "An introduction to systems of linear equations, matrices, determinants, vector spaces, and eigenvectors in an interactive learning environment provided by the computer algebra system Mathematica. Applications are chosen from linear programming, least squares approximation, graph theory, cryptography, computer graphics, and other topics. ",
     "satisfies": [
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
@@ -506,6 +505,17 @@
       "MAT 230"
     ],
     "group": "theory"
+  },
+  {
+    "id": "DIG 245",
+    "parentIds": [],
+    "name": "Critical Web Design",
+    "description": "In this course, students will learn to conceptualize, design, and program responsive websites as both an applied and creative practice. Through a combination of technical topics in interface design and development such as usability, coding in HTML, CSS, Javascript and jQuery, as well as readings and discussions around net-based artworks and historical and cultural concerns surrounding the internet as a communication platform, students will execute interactive projects that are both culturally-relevant and technically sophisticated.",
+    "satisfies": [
+      "Satisfies a requirement of the Digital Studies minor."
+    ],
+    "PRQ": [],
+    "group": "intro-programming"
   },
   {
     "id": "MAT 230",
