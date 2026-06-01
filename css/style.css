@@ -59,6 +59,31 @@
     font-size: 0.95em;
   }
 
+  .group-header.section-complete .header-title,
+  .subgroup-header.section-complete .header-title {
+    color: #285841;
+  }
+
+  .group-progress {
+    font-weight: normal;
+    font-size: 0.85em;
+    margin-left: 0.35rem;
+    color: #666;
+  }
+
+  .group-progress.progress-complete {
+    color: #285841;
+    font-weight: 600;
+  }
+
+  .group-progress.progress-complete::before {
+    content: "✓ ";
+  }
+
+  .group-progress.progress-incomplete {
+    color: #666;
+  }
+
   /* Courses sit indented under their topic header */
   .sidebar-group > .course-list {
     margin: 0 0 0.5rem;

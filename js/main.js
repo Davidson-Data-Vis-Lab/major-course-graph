@@ -415,15 +415,14 @@ svg.select("#arrows")
 // ----------------------- //
 
 function populateSidebar(data) {
-  
-
-  // Sort courses within each group alphabetically by id
   const sorted = [...data].sort((a, b) => a.id.localeCompare(b.id));
 
   sorted.forEach(course => {
-    const listId = course.group;
-
-    const container = document.getElementById(listId);
+    const container = document.getElementById(`list-${course.group}`);
+    if (!container) {
+      console.warn(`No sidebar list for group "${course.group}" (${course.id})`);
+      return;
+    }
 
     const label = document.createElement('label');
     label.className = 'course-item';
@@ -441,6 +440,10 @@ function populateSidebar(data) {
     label.appendChild(document.createTextNode(` ${course.id}: ${course.name}`));
     container.appendChild(label);
   });
+
+  if (typeof initAllProgressIndicators === 'function') {
+    initAllProgressIndicators();
+  }
 }
 
 populateSidebar(data);
