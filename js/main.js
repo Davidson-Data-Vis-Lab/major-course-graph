@@ -212,6 +212,7 @@ const legend = svg.append("g")
   .attr("transform", `translate(20, 20)`);
 
 const legendData = [
+  { key: "Unavailable", color: "#aaaaaa", type: "box" },
   { key: "Available", color: "steelblue", type: "box" },
   { key: "Taken", color: "#285841", type: "box" },
   { key: "Required Path", dash: "0", type: "line" },
@@ -341,7 +342,7 @@ svg.select("#nodes")
       })
   );
 
-// Tooltip events (attached once, outside the .each loop)
+// Interaction events
 svg.select("#nodes").selectAll("g")
   .on("mouseover", (event, d) => {
     Tooltip
@@ -358,6 +359,19 @@ svg.select("#nodes").selectAll("g")
   })
   .on("mouseout", () => {
     Tooltip.style("visibility", "hidden");
+  })
+  .on("click", (event, d) => {
+    const checkbox = document.querySelector(
+      `input[data-course-id="${d.data.id}"]`
+    );
+
+    if (!checkbox) return;
+
+    checkbox.checked = !checkbox.checked;
+
+    if (typeof checkbox.onchange === "function") {
+      checkbox.onchange();
+    }
   });
 
 // --- Links ---
@@ -415,6 +429,9 @@ svg.select("#arrows")
 // ----------------------- //
 
 function populateSidebar(data) {
+  
+
+  // Sort courses within each group alphabetically by id
   const sorted = [...data].sort((a, b) => a.id.localeCompare(b.id));
 
   sorted.forEach(course => {
@@ -432,7 +449,7 @@ function populateSidebar(data) {
     checkbox.dataset.courseId = course.id;
     checkbox.dataset.group = course.group;
     checkbox.onchange = function() {
-      colorClass(this);
+      recomputeAllNodeColors(this);
       updateGroupCheckbox(course.group);
     };
 
@@ -448,4 +465,125 @@ function populateSidebar(data) {
 
 populateSidebar(data);
 
+// --------------------------------- //
+// Phase 6: Three-state node coloring //
+// --------------------------------- //
 
+const NODE_COLOR = {
+  taken:       "#285841",  // green
+  available:   "steelblue", // blue
+  unavailable: "#aaaaaa",  // gray
+};
+
+/**
+ * Recursively evaluate a PRQ token array against a set of taken course IDs.
+ * Returns true if the prerequisite expression is satisfied.
+ *
+ * Token array format: each entry is either a full course ID string,
+ * or one of: "and", "or", "(", ")"
+ *
+ * Top-level: implicit AND between all non-OR-separated terms.
+ * "or" between terms means either satisfies.
+ * Parentheses group sub-expressions.
+ */
+function evaluatePrerequisites(tokens, takenSet) {
+  if (!tokens || tokens.length === 0) return true; // no prereqs = always available
+
+  // Find the matching closing paren for an opening paren at index i
+  function matchParen(toks, i) {
+    let depth = 0;
+    for (let j = i; j < toks.length; j++) {
+      if (toks[j] === '(') depth++;
+      else if (toks[j] === ')') { depth--; if (depth === 0) return j; }
+    }
+    return toks.length - 1;
+  }
+
+  // Split tokens into clauses separated by the given operator at the top level
+  function splitBy(toks, op) {
+    const clauses = [];
+    let current = [];
+    let depth = 0;
+    for (const t of toks) {
+      if (t === '(') { depth++; current.push(t); }
+      else if (t === ')') { depth--; current.push(t); }
+      else if (t === op && depth === 0) {
+        clauses.push(current);
+        current = [];
+      } else {
+        current.push(t);
+      }
+    }
+    if (current.length > 0) clauses.push(current);
+    return clauses;
+  }
+
+  function evaluate(toks) {
+    if (toks.length === 0) return true;
+
+    // Strip outer parens
+    if (toks[0] === '(' && matchParen(toks, 0) === toks.length - 1) {
+      return evaluate(toks.slice(1, toks.length - 1));
+    }
+
+    // OR has lower precedence — split by 'or' first
+    const orClauses = splitBy(toks, 'or');
+    if (orClauses.length > 1) {
+      return orClauses.some(clause => evaluate(clause));
+    }
+
+    // AND — split by 'and'
+    const andClauses = splitBy(toks, 'and');
+    if (andClauses.length > 1) {
+      return andClauses.every(clause => evaluate(clause));
+    }
+
+    // Single token — must be a course ID
+    const courseId = toks.join(' ').trim(); // handles multi-word IDs defensively
+    return takenSet.has(courseId);
+  }
+
+  return evaluate(tokens);
+}
+
+/**
+ * Build a Set of course IDs the user has marked as taken,
+ * by reading all checked course checkboxes in the sidebar.
+ */
+function getTakenSet() {
+  const taken = new Set();
+  document.querySelectorAll('input[type="checkbox"][data-course-id]').forEach(cb => {
+    if (cb.checked) taken.add(cb.dataset.courseId);
+  });
+  return taken;
+}
+
+/**
+ * Recompute and apply green/blue/gray to every node in the graph.
+ * Called whenever the taken-course set changes.
+ */
+function recomputeAllNodeColors() {
+  const takenSet = getTakenSet();
+
+  d3.selectAll("#nodes > g").each(function(d) {
+    const courseId = d.data.id;
+    const prq = d.data.PRQ ?? [];
+
+    let color;
+    if (takenSet.has(courseId)) {
+      color = NODE_COLOR.taken;
+    } else if (evaluatePrerequisites(prq, takenSet)) {
+      color = NODE_COLOR.available;
+    } else {
+      color = NODE_COLOR.unavailable;
+    }
+
+    d3.select(this).select("rect.course-rect").attr("fill", color);
+  });
+}
+
+// Expose so index.html script block can call it
+window.recomputeAllNodeColors = recomputeAllNodeColors;
+
+// Run once on load so unavailable courses start gray
+recomputeAllNodeColors();

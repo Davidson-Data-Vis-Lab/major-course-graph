@@ -258,14 +258,14 @@
     }
 
     function colorClass(checkbox) {
-      const courseId = checkbox.dataset.courseId;
-      const checked = checkbox.checked;
-      d3.selectAll("#nodes > g").each(function(d) {
-        if (d.data.id === courseId) {
-          d3.select(this).select("rect")
-            .attr("fill", checked ? "#285841" : "steelblue");
-        }
-      });
+      // const courseId = checkbox.dataset.courseId;
+      // const checked = checkbox.checked;
+      // d3.selectAll("#nodes > g").each(function(d) {
+      //   if (d.data.id === courseId) {
+      //     d3.select(this).select("rect")
+      //       .attr("fill", checked ? "#285841" : "steelblue");
+      //   }
+      // });
     }
 
     function updateProgressIndicator(group) {
@@ -331,7 +331,7 @@
           const boxes = getGroupCheckboxes(subgroup);
           boxes.forEach(cb => {
             cb.checked = checked;
-            colorClass(cb);
+            // colorClass(cb);
           });
           updateGroupCheckbox(subgroup);
         });
@@ -340,10 +340,12 @@
         const boxes = getGroupCheckboxes(group);
         boxes.forEach(cb => {
           cb.checked = checked;
-          colorClass(cb);
+          // colorClass(cb);
         });
         updateGroupCheckbox(group);
       }
+
+      if (window.recomputeAllNodeColors) recomputeAllNodeColors();
     }
 
     function initAllProgressIndicators() {
