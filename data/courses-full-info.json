@@ -23,7 +23,8 @@
     "PRQ": [],
     "group": "intro-programming"
   },
-  { "id": "CSC 240",
+  {     
+    "id": "CSC 240",
     "parentIds": [],
     "name": "Computational Physics (=PHY240)",
     "description": "(Cross-listed as PHY 240) is an introduction to computer programming and computational physics using Python. No prior programming experience is necessary. This course will provide students with the skills required to write code to solve physics problems in areas inclyuding quantum physics, electromagnetism, and mechanics. Structured programming methods will be covered as well as algorithms for numerical integration, solving differential equations, and more.",

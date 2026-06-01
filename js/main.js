@@ -9,6 +9,12 @@ import * as d3 from "https://cdn.skypack.dev/d3@7.8.4";
 window.d3 = d3;
 import * as d3dag from "https://cdn.skypack.dev/d3-dag@1.0.0-1";
 import { clusterNodes } from './clusterNodes.js';
+import {
+  buildLayoutNodes,
+  createRoleAwareLayoutNodeSize,
+  expandLayoutToCourseGraph,
+  fitGraphToViewport,
+} from './groupLayout.js';
 
 const data = await d3.json("data/courses-full-info.json");
 
@@ -35,20 +41,27 @@ data.forEach(node => {
 });
 
 // ------------------- //
-// Phase 2: Build DAG  //
+// Phase 2: Layout DAG //
 // ------------------- //
-// ALL real nodes go directly into Sugiyama. No synthetic cluster nodes.
-// parentIds are unchanged — no remapping needed.
+// Collapse visual groups to one Sugiyama node each (parentIds remapped to
+// group ids). After layout, expand back to all courses for rendering.
+
+const baseNodeRadius = 33;
+const nodeW = baseNodeRadius * 3.1;
+const nodeH = baseNodeRadius * 1.1;
+const INTRA_GROUP_VERTICAL_GAP = 2;
 
 const stratify = d3dag.graphStratify()
   .id(d => d.id)
   .parentIds(d => d.parentIds || []);
 
-let graph;
+const layoutNodes = buildLayoutNodes(data, visualGroups, nodeToGroupId);
+
+let layoutGraph;
 try {
-  graph = stratify(data);
+  layoutGraph = stratify(layoutNodes);
 } catch (err) {
-  console.error('Error building DAG:', err);
+  console.error('Error building layout DAG:', err);
   throw err;
 }
 
@@ -56,11 +69,10 @@ try {
 // Phase 3: Layout      //
 // -------------------- //
 
-const baseNodeRadius = 33;
-const nodeW = baseNodeRadius * 3.1;
-const nodeH = baseNodeRadius * 1.1;
-const nodeSize = [nodeW, nodeH];
-const shape = d3dag.tweakShape(nodeSize, d3dag.shapeRect);
+// Roots reserve full stack height; leaves use one slot and expand into bottom margin.
+const layoutNodeSize = createRoleAwareLayoutNodeSize(nodeW, nodeH, INTRA_GROUP_VERTICAL_GAP);
+const shape = d3dag.tweakShape(layoutNodeSize, d3dag.shapeRect);
+const LAYER_GAP_Y = nodeH * 0.55;
 // With this — the path generator now accepts an optional trim:
 function makePath(points, trimEnd = 0) {
   if (trimEnd === 0) return d3.line().curve(d3.curveMonotoneY)(points);
@@ -82,55 +94,31 @@ function makePath(points, trimEnd = 0) {
 const layout = d3dag
   .sugiyama()
   .layering(d3dag.layeringSimplex())
-  .nodeSize(nodeSize)
+  .nodeSize(layoutNodeSize)
   .gap([baseNodeRadius, baseNodeRadius * 5.5])
   .tweaks([shape]);
 
-const { width, height } = layout(graph);
+layout(layoutGraph);
 
 // ------------------------------ //
-// Phase 4: Post-layout grouping  //
+// Phase 4: Expand to course graph //
 // ------------------------------ //
-// Sugiyama has assigned every node an (x, y).
-// Now repack grouped nodes so they sit tightly side-by-side,
-// centered on the group's centroid within their shared layer.
 
-const INTRA_GROUP_VERTICAL_GAP = 2; // px between nodes inside a group
-
-function repositionGroups(graph, visualGroups) {
-  // Build a fast id -> node lookup
-  const nodeById = new Map();
-  graph.nodes().forEach(node => nodeById.set(node.data.id, node));
-
-  visualGroups.forEach(group => {
-    const memberNodes = group.memberIds
-      .map(id => nodeById.get(id))
-      .filter(Boolean);
-
-    if (memberNodes.length < 2) return;
-
-    // Centroid of where Sugiyama placed these nodes
-    const centroidX = memberNodes.reduce((sum, n) => sum + n.x, 0) / memberNodes.length;
-    const centroidY = memberNodes.reduce((sum, n) => sum + n.y, 0) / memberNodes.length;
-
-    // Repack horizontally around the centroid
-    const totalHeight = memberNodes.length * nodeH + (memberNodes.length - 1) * INTRA_GROUP_VERTICAL_GAP;
-    const startY = centroidY - totalHeight / 2 + nodeH / 2;
-
-    // Sort by course number for stable ordering?
-    memberNodes.sort((a, b) =>
-      a.data.id.localeCompare(b.data.id)
-    );
-
-    memberNodes.forEach((node, i) => {
-        node.x = centroidX;
-        node.y = startY + i * (nodeH + INTRA_GROUP_VERTICAL_GAP);
-    });
-  });
+let graph;
+try {
+  graph = expandLayoutToCourseGraph(
+    data,
+    layoutGraph,
+    visualGroups,
+    nodeToGroupId,
+    { nodeH, gap: INTRA_GROUP_VERTICAL_GAP },
+  );
+} catch (err) {
+  console.error('Error building course DAG:', err);
+  throw err;
 }
 
-repositionGroups(graph, visualGroups);
-
+const { width, height } = fitGraphToViewport(graph, nodeW, nodeH);
 
 // ------------------------------ //
 // Phase 4b: Deduplicate edges     //
@@ -178,21 +166,10 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
     const visualSource = srcGroup ? groupBottomNode.get(srcGroup) : link.source;
     const visualTarget = tgtGroup ? groupTopNode.get(tgtGroup)    : link.target;
 
-    // POINT CONSTRUCTION (2 options...)
-
-    // 1. Build a clean two-point path between the resolved nodes
     const points = [
       [visualSource.x, visualSource.y],
       [visualTarget.x, visualTarget.y]
     ];
-    // // 2.
-    // const midY = (visualSource.y + visualTarget.y) / 2;
-    // const points = [
-    //     [visualSource.x, visualSource.y],
-    //     [visualSource.x, midY],          // vertical drop from source
-    //     [visualTarget.x, midY],          // horizontal move at midpoint
-    //     [visualTarget.x, visualTarget.y]
-    // ];
 
     visualLinks.push({
       points,
@@ -438,15 +415,14 @@ svg.select("#arrows")
 // ----------------------- //
 
 function populateSidebar(data) {
-  
-
-  // Sort courses within each group alphabetically by id
   const sorted = [...data].sort((a, b) => a.id.localeCompare(b.id));
 
   sorted.forEach(course => {
-    const listId = course.group;
-
-    const container = document.getElementById(listId);
+    const container = document.getElementById(`list-${course.group}`);
+    if (!container) {
+      console.warn(`No sidebar list for group "${course.group}" (${course.id})`);
+      return;
+    }
 
     const label = document.createElement('label');
     label.className = 'course-item';
@@ -463,8 +439,11 @@ function populateSidebar(data) {
     label.appendChild(checkbox);
     label.appendChild(document.createTextNode(` ${course.id}: ${course.name}`));
     container.appendChild(label);
-    container.appendChild(document.createElement('br'));
   });
+
+  if (typeof initAllProgressIndicators === 'function') {
+    initAllProgressIndicators();
+  }
 }
 
 populateSidebar(data);

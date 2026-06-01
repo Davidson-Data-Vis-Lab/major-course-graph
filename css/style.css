@@ -23,7 +23,7 @@
   .controls {
   font-size: 14px;
   border-style: dashed;
-  border-color: steelblue;
+  border-color: red;
   border-width: 2px; 
   padding: 10px;     
   border-radius: 6px; 
@@ -32,6 +32,90 @@
 
   .controls h4{
     color: steelblue;
+  }
+
+  .sidebar-section {
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-section > h3 {
+    margin: 0 0 0.5rem;
+  }
+
+  .sidebar-group {
+    margin-bottom: 0.75rem;
+  }
+
+  .group-header,
+  .subgroup-header {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+  }
+
+  .subgroup-header {
+    font-weight: 500;
+    font-size: 0.95em;
+  }
+
+  .group-header.section-complete .header-title,
+  .subgroup-header.section-complete .header-title {
+    color: #285841;
+  }
+
+  .group-progress {
+    font-weight: normal;
+    font-size: 0.85em;
+    margin-left: 0.35rem;
+    color: #666;
+  }
+
+  .group-progress.progress-complete {
+    color: #285841;
+    font-weight: 600;
+  }
+
+  .group-progress.progress-complete::before {
+    content: "✓ ";
+  }
+
+  .group-progress.progress-incomplete {
+    color: #666;
+  }
+
+  /* Courses sit indented under their topic header */
+  .sidebar-group > .course-list {
+    margin: 0 0 0.5rem;
+    padding-left: 1.5rem;
+  }
+
+  /* Elective subtopics (Applications, Systems, …) under Electives */
+  .electives-wrapper {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .sidebar-subgroup {
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-subgroup > .course-list {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .course-item {
+    display: block;
+    font-weight: normal;
+    cursor: pointer;
+    line-height: 1.35;
   }
 
   footer{
