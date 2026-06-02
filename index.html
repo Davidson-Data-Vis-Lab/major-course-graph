@@ -16,6 +16,9 @@
       <p>Hover over a course to see details.<br>
       Check courses you have completed.</p>
 
+      <button onclick="resetAllCourses()">Unselect All</button>
+
+
       <div class="sidebar-section">
         <h3>Major Prerequisites</h3>
 
@@ -350,6 +353,27 @@
 
     function initAllProgressIndicators() {
       PROGRESS_GROUPS.forEach(updateProgressIndicator);
+    }
+
+    function resetAllCourses() {
+      // Uncheck every course checkbox
+      document.querySelectorAll('input[type="checkbox"][data-course-id]').forEach(cb => {
+        cb.checked = false;
+      });
+
+      // Uncheck and clear indeterminate on all group header checkboxes
+      document.querySelectorAll('input.group-checkbox').forEach(cb => {
+        cb.checked = false;
+        cb.indeterminate = false;
+      });
+
+      // Recompute node colors (everything goes back to available/unavailable)
+      if (window.recomputeAllNodeColors) recomputeAllNodeColors();
+
+      // Update all progress indicators back to 0
+      if (typeof initAllProgressIndicators === 'function') {
+        initAllProgressIndicators();
+      }
     }
   </script>
 

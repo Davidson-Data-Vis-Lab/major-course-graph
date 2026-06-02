@@ -242,13 +242,6 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
 const visualLinks = buildVisualLinks(graph, visualGroups, nodeToGroupId);
 
 
-// After moving nodes, patch the first and last waypoint of each link
-// so edges connect to the updated node positions.
-// (d3-dag computed link.points during layout, before we moved nodes.)
-graph.links().forEach(link => {
-  link.points[0] = [link.source.x, link.source.y];
-  link.points[link.points.length - 1] = [link.target.x, link.target.y];
-});
 
 // ------------------- //
 // Phase 5: Rendering  //
