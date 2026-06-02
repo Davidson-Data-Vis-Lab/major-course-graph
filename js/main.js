@@ -89,6 +89,7 @@ function makePath(points, trimEnd = 0) {
     ];
   }
   return d3.line().curve(d3.curveMonotoneY)(pts);
+  // return d3.line().curve(d3.curveBumpY)(pts); // [EXPERIMENT ORGANIZE]
 }
 
 const layout = d3dag
@@ -111,7 +112,7 @@ try {
     layoutGraph,
     visualGroups,
     nodeToGroupId,
-    { nodeH, gap: INTRA_GROUP_VERTICAL_GAP },
+    { nodeW, nodeH, gap: INTRA_GROUP_VERTICAL_GAP },
   );
 } catch (err) {
   console.error('Error building course DAG:', err);
@@ -130,9 +131,8 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
   const nodeById = new Map();
   graph.nodes().forEach(n => nodeById.set(n.data.id, n));
 
-  // For each group, find the top (min y) and bottom (max y) member node
-  const groupTopNode = new Map();    // groupId -> node with smallest y
-  const groupBottomNode = new Map(); // groupId -> node with largest y
+  const groupTopNode = new Map();    
+  const groupBottomNode = new Map(); 
 
   visualGroups.forEach(group => {
     const members = group.memberIds.map(id => nodeById.get(id)).filter(Boolean);
@@ -141,10 +141,16 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
     groupBottomNode.set(group.id, members[members.length - 1]);
   });
 
-  const visualLinks = [];
-  // Track which logical connections have already been drawn
-  // Key: "sourceNodeOrGroupId --> targetNodeOrGroupId"
-  const seen = new Set();
+  // Create a quick lookup map of the layout graph links that actually contain the computed curves!
+  const layoutPointsMap = new Map();
+  layoutGraph.links().forEach(link => {
+    const key = `${link.source.data.id}-->${link.target.data.id}`;
+    if (link.points) {
+      layoutPointsMap.set(key, link.points);
+    }
+  });
+
+  const incomingLinksMap = new Map();
 
   graph.links().forEach(link => {
     const srcId = link.source.data.id;
@@ -152,41 +158,81 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
     const srcGroup = nodeToGroupId.get(srcId) ?? null;
     const tgtGroup = nodeToGroupId.get(tgtId) ?? null;
 
-    // Logical endpoints (group id if grouped, node id if not)
     const logicalSrc = srcGroup ?? srcId;
     const logicalTgt = tgtGroup ?? tgtId;
     const key = `${logicalSrc}-->${logicalTgt}`;
 
-    if (seen.has(key)) return; // already have a visual edge for this connection
-    seen.add(key);
-
-    // Resolve the actual node to draw from/to
-    // Incoming to a group: draw to the top node of the group
-    // Outgoing from a group: draw from the bottom node of the group
+    const visualTarget = tgtGroup ? groupTopNode.get(tgtGroup) : link.target;
     const visualSource = srcGroup ? groupBottomNode.get(srcGroup) : link.source;
-    const visualTarget = tgtGroup ? groupTopNode.get(tgtGroup)    : link.target;
+    const vtId = visualTarget.data.id;
 
-    const points = [
-      [visualSource.x, visualSource.y],
-      [visualTarget.x, visualTarget.y]
-    ];
+    if (!incomingLinksMap.has(vtId)) {
+      incomingLinksMap.set(vtId, []);
+    }
+    
+    const list = incomingLinksMap.get(vtId);
+    if (!list.some(item => item.key === key)) {
+      list.push({
+        link,
+        key,
+        sourceX: visualSource.x,
+        visualSource,
+        visualTarget,
+        logicalSrc,
+        logicalTgt
+      });
+    }
+  });
 
-    // // 2. another way to implement points --> don't like bc lines overlap
-    // const midY = (visualSource.y + visualTarget.y) / 2;
-    // const points = [
-    //     [visualSource.x, visualSource.y],
-    //     [visualSource.x, midY],          // vertical drop from source
-    //     [visualTarget.x, midY],          // horizontal move at midpoint
-    //     [visualTarget.x, visualTarget.y]
-    // ];
+  const visualLinks = [];
 
-    visualLinks.push({
-      points,
-      // Carry through the original source/target for edge style lookups
-      source: link.source,
-      target: link.target,
-      logicalSrc,
-      logicalTgt
+  incomingLinksMap.forEach((incomingList, vtId) => {
+    incomingList.sort((a, b) => a.sourceX - b.sourceX);
+
+    const count = incomingList.length;
+    const visualTarget = incomingList[0].visualTarget;
+
+    let rectWidth = baseNodeRadius * 2.2;
+    if (visualTarget.data.id.length > 7) rectWidth *= 1.4;
+    const usableWidth = rectWidth * 0.7; 
+
+    incomingList.forEach((item, index) => {
+      const { visualSource, logicalSrc, logicalTgt } = item;
+      
+      // Look up the beautiful curved layout points from the original math layout graph!
+      const layoutKey = `${logicalSrc}-->${logicalTgt}`;
+      const originalPoints = layoutPointsMap.get(layoutKey);
+      
+      let points = [];
+      if (originalPoints && originalPoints.length > 1) {
+        // Deep copy the internal path routing waypoints calculated by Sugiyama
+        points = originalPoints.map(p => [...p]);
+      } else {
+        // Fallback safety straight line if no routing points exist
+        points = [[visualSource.x, visualSource.y], [visualTarget.x, visualTarget.y]];
+      }
+
+      let xOffset = 0;
+      if (count > 1) {
+        xOffset = ((index / (count - 1)) - 0.5) * usableWidth;
+      }
+
+      const halfH = baseNodeRadius / 2;
+      const gapBuffer = 6; 
+
+      // Snap the first point directly to the bottom edge of the source card
+      points[0] = [visualSource.x, visualSource.y + halfH];
+      
+      // Snap the last point to our beautifully calculated staggered slot above the target card
+      points[points.length - 1] = [visualTarget.x + xOffset, visualTarget.y - halfH - gapBuffer];
+
+      visualLinks.push({
+        points,
+        source: item.link.source,
+        target: item.link.target,
+        logicalSrc,
+        logicalTgt
+      });
     });
   });
 
@@ -389,7 +435,7 @@ svg.select("#links")
   .data(visualLinks)
   .join(enter =>
     enter.append("path")
-      .attr("d", ({ points }) => makePath(points, 10))
+      .attr("d", ({ points }) => makePath(points, 2))
       .attr("fill", "none")
       .attr("stroke-width", 3)
       .attr("stroke-dasharray", d => {
@@ -643,7 +689,8 @@ function recomputeAllNodeColors() {
 
   // Apply colors to edge paths
   d3.select("#links").selectAll("path")
-    .attr("stroke", getLinkColor);
+    .attr("stroke", getLinkColor)
+    .attr("opacity", d => getLinkColor(d) === "black" ? 0.9 : 0.35); // Pop active paths!
 
   // Apply colors to structural triangle pointer markers
   d3.select("#arrows").selectAll("path")
