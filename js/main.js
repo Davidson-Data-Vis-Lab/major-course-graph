@@ -171,6 +171,15 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
       [visualTarget.x, visualTarget.y]
     ];
 
+    // // 2. another way to implement points --> don't like bc lines overlap
+    // const midY = (visualSource.y + visualTarget.y) / 2;
+    // const points = [
+    //     [visualSource.x, visualSource.y],
+    //     [visualSource.x, midY],          // vertical drop from source
+    //     [visualTarget.x, midY],          // horizontal move at midpoint
+    //     [visualTarget.x, visualTarget.y]
+    // ];
+
     visualLinks.push({
       points,
       // Carry through the original source/target for edge style lookups
@@ -243,7 +252,6 @@ legend.selectAll(".legend-item")
       }
       group.append("text")
         .attr("x", 12).attr("y", 0).attr("dy", "0.35em")
-        .style("font-family", "sans-serif").style("font-size", "10px")
         .style("fill", "#333").text(d.key);
     });
   });
@@ -330,7 +338,6 @@ svg.select("#nodes")
           g.append("text")
             .text(d.data.id)
             .attr("font-weight", "bold")
-            .attr("font-family", "sans-serif")
             .attr("font-size", "12px")
             .attr("text-anchor", "middle")
             .attr("alignment-baseline", "middle")
@@ -344,6 +351,7 @@ svg.select("#nodes")
 
 // Interaction events
 svg.select("#nodes").selectAll("g")
+  // tooltip
   .on("mouseover", (event, d) => {
     Tooltip
       .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>
@@ -360,6 +368,7 @@ svg.select("#nodes").selectAll("g")
   .on("mouseout", () => {
     Tooltip.style("visibility", "hidden");
   })
+  // click for taken courses
   .on("click", (event, d) => {
     const checkbox = document.querySelector(
       `input[data-course-id="${d.data.id}"]`
@@ -562,24 +571,83 @@ function getTakenSet() {
  * Recompute and apply green/blue/gray to every node in the graph.
  * Called whenever the taken-course set changes.
  */
+/**
+ * Recompute and apply green/blue/gray to every node in the graph.
+ * Handles the initial all-blue state and updates arrow/link colors dynamically.
+ */
 function recomputeAllNodeColors() {
   const takenSet = getTakenSet();
+  const isInitialState = (takenSet.size === 0);
+  
+  // Keep track of evaluated individual node states
+  const nodeStates = new Map();
 
+  // 1. Process and update Node Colors
   d3.selectAll("#nodes > g").each(function(d) {
     const courseId = d.data.id;
     const prq = d.data.PRQ ?? [];
 
-    let color;
+    let state;
     if (takenSet.has(courseId)) {
-      color = NODE_COLOR.taken;
+      state = "taken";
     } else if (evaluatePrerequisites(prq, takenSet)) {
-      color = NODE_COLOR.available;
+      state = "available";
     } else {
-      color = NODE_COLOR.unavailable;
+      state = "unavailable";
+    }
+    
+    nodeStates.set(courseId, state);
+
+    // Initial state override: Force everything to show up blue
+    const finalColor = isInitialState ? NODE_COLOR.available : NODE_COLOR[state];
+    d3.select(this).select("rect.course-rect").attr("fill", finalColor);
+  });
+
+  // Create a fast group lookup map: groupId -> array of member course IDs
+  const groupMembersMap = new Map();
+  visualGroups.forEach(g => {
+    groupMembersMap.set(g.id, g.memberIds);
+  });
+
+  // 2. Compute dynamic line and arrow colors
+  function getLinkColor(d) {
+    // Check initial state condition first
+    if (isInitialState) {
+      return "black";
     }
 
-    d3.select(this).select("rect.course-rect").attr("fill", color);
-  });
+    const srcId = d.source.data.id;
+    const tgtId = d.target.data.id;
+
+    // Determine the source group if it exists
+    const srcGroupId = nodeToGroupId.get(srcId);
+    
+    // Gather all source course IDs we care about. 
+    // If it's in a group, look at all group members. If singleton, just look at itself.
+    const sourceCoursesToCheck = srcGroupId ? (groupMembersMap.get(srcGroupId) ?? [srcId]) : [srcId];
+
+    // Determine the target group if it exists
+    const tgtGroupId = nodeToGroupId.get(tgtId);
+    const targetCoursesToCheck = tgtGroupId ? (groupMembersMap.get(tgtGroupId) ?? [tgtId]) : [tgtId];
+
+    // Check if ANY target node in the connected layout slot is available or taken
+    const isTargetAccessible = targetCoursesToCheck.some(id => {
+      const state = nodeStates.get(id);
+      return state === "taken" || state === "available";
+    });
+    // Check if ANY source node in the connected layout slot has been taken
+    const isAnySourceTaken = sourceCoursesToCheck.some(id => takenSet.has(id));
+
+    return (isAnySourceTaken && isTargetAccessible) ? "black" : "#e2e8f0"
+  }
+
+  // Apply colors to edge paths
+  d3.select("#links").selectAll("path")
+    .attr("stroke", getLinkColor);
+
+  // Apply colors to structural triangle pointer markers
+  d3.select("#arrows").selectAll("path")
+    .attr("fill", getLinkColor);
 }
 
 // Expose so index.html script block can call it
