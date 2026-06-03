@@ -254,7 +254,7 @@ const svg = d3
 
 const trans = svg.transition().duration(500);
 
-// Legend (unchanged)
+// Legend
 const legend = svg.append("g")
   .attr("class", "legend")
   .attr("transform", `translate(20, 20)`);
@@ -432,12 +432,40 @@ svg.select("#links")
       .attr("fill", "none")
       .attr("stroke-width", 3)
       .attr("stroke-dasharray", d => {
-        const allEdgeInfo = edgeMap.get(d.source.data.id);
-        if (allEdgeInfo) {
-          const edgeInfo = allEdgeInfo.find(e => e.target === d.target.data.id);
-          if (edgeInfo && edgeInfo.style === "dashed") return '5px';
+        const srcId = d.source.data.id;
+        const tgtId = d.target.data.id;
+
+        // 1. Check if the source course belongs to a cluster group
+        const srcGroupId = nodeToGroupId.get(srcId);
+
+        if (srcGroupId) {
+          // Find the group object to inspect its layout properties
+          const group = visualGroups.find(g => g.id === srcGroupId);
+          if (group) {
+            // Check the styles of ALL edges originating from this cluster's members to the target
+            const memberEdges = group.memberIds.map(mId => {
+              const allEdgeInfo = edgeMap.get(mId);
+              return allEdgeInfo ? allEdgeInfo.find(e => e.target === tgtId) : null;
+            }).filter(Boolean);
+
+            // If EVERY member pointing to this target uses a dashed line, it means the 
+            // structural path itself is an "OR" cluster requirement. We override it to SOLID.
+            const isClusterRequirement = memberEdges.length > 0 && memberEdges.every(e => e.style === "dashed");
+            
+            if (isClusterRequirement) {
+              return "none"; // Forces the line to be beautifully solid!
+            }
+          }
         }
-        return '50%';
+
+        // 2. Fallback to standard singleton line style logic if not a cluster requirement
+        const allEdgeInfo = edgeMap.get(srcId);
+        if (allEdgeInfo) {
+          const edgeInfo = allEdgeInfo.find(e => e.target === tgtId);
+          if (edgeInfo && edgeInfo.style === "dashed") return '5px'; // Standard standalone dashed path
+        }
+        
+        return "none"; // Default solid
       })
       .attr("stroke", "black")
       .attr("opacity", 0)
