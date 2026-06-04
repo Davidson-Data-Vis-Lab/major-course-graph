@@ -166,5 +166,5 @@ function determineParentEdgeType(node, edgeMap) {
   }
 }
 
-export { clusterNodes };
+export { clusterNodes, parseGroup, findMatching };
 

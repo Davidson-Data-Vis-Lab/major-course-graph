@@ -1,11 +1,5 @@
 import * as d3dag from "https://cdn.skypack.dev/d3-dag@1.0.0-1";
 
-/**
- * Collapse visual groups into single layout nodes for Sugiyama, then expand
- * member courses. Groups are only roots or leaves: layout uses one slot per
- * node; stacks grow into top/bottom margin instead of inflating every layer.
- */
-
 function resolveLayoutId(nodeId, nodeToGroupId) {
   return nodeToGroupId.get(nodeId) ?? nodeId;
 }
@@ -17,7 +11,46 @@ export function groupRole(group) {
   return 'interior';
 }
 
-/** Nodes fed to graphStratify — one row per layout slot (group or ungrouped course). */
+/**
+ * Calculates grid layout dimensions.
+ * For groups with > 3 members, it splits them into 2 columns.
+ */
+function getGridDimensions(memberCount) {
+  const cols = memberCount > 3 ? 2 : 1; 
+  const rows = Math.ceil(memberCount / cols);
+  return { rows, cols };
+}
+
+/** Computes the total height of the cluster bounding box based on rows */
+export function stackedGroupHeight(memberCount, nodeH, gap) {
+  if (memberCount < 1) return nodeH;
+  const { rows } = getGridDimensions(memberCount);
+  return rows * nodeH + (rows - 1) * gap;
+}
+
+/** Computes the total width of the cluster bounding box based on columns */
+export function stackedGroupWidth(memberCount, nodeW, gap) {
+  if (memberCount < 1) return nodeW;
+  const { cols } = getGridDimensions(memberCount);
+  return cols * nodeW + (cols - 1) * gap;
+}
+
+/** * Updates Sugiyama slot sizing to reflect the true 2D width and height 
+ * of our new boxy grid structures.
+ */
+export function createRoleAwareLayoutNodeSize(nodeW, nodeH, gap) {
+  return (node) => {
+    const count = node.data.memberCount ?? 1;
+    return [
+      stackedGroupWidth(count, nodeW, gap),
+      stackedGroupHeight(count, nodeH, gap)
+    ];
+  };
+}
+
+/**
+ * High-level descriptor builder for Phase 2 graph stratification.
+ */
 export function buildLayoutNodes(courses, visualGroups, nodeToGroupId) {
   const inGroup = new Set(nodeToGroupId.keys());
   const layoutNodes = [];
@@ -52,61 +85,39 @@ export function buildLayoutNodes(courses, visualGroups, nodeToGroupId) {
   return layoutNodes;
 }
 
-export function stackedGroupHeight(memberCount, nodeH, gap) {
-  if (memberCount < 1) return nodeH;
-  return memberCount * nodeH + (memberCount - 1) * gap;
-}
-
 /**
- * Sugiyama slot heights: roots reserve their full stack (pushes layer 1 down);
- * leaves and singletons use one slot (stack grows into bottom margin after layout).
+ * Places group members inside their assigned layout slots.
+ * Arranges nodes left-to-right, then top-to-bottom within the box.
  */
-export function createRoleAwareLayoutNodeSize(nodeW, nodeH, gap) {
-  return (node) => {
-    const count = node.data.memberCount ?? 1;
-    if (node.data.role === 'root') {
-      return [nodeW, stackedGroupHeight(count, nodeH, gap)];
-    }
-    return [nodeW, nodeH];
-  };
-}
-
-/**
- * Place group members in the layout slot.
- * - root: fill the tall reserved box (top-to-bottom)
- * - leaf: top member at anchor, stack into bottom margin
- */
-export function placeGroupStack(members, anchor, role, nodeH, gap) {
+export function placeGroupStack(members, anchor, role, nodeH, gap, nodeW) {
   if (members.length === 0) return;
 
-  if (role === 'root') {
-    const stackH = stackedGroupHeight(members.length, nodeH, gap);
-    let y = anchor.y - stackH / 2 + nodeH / 2;
-    for (const node of members) {
-      node.x = anchor.x;
-      node.y = y;
-      y += nodeH + gap;
-    }
-    return;
-  }
+  const { rows, cols } = getGridDimensions(members.length);
+  const totalW = cols * nodeW + (cols - 1) * gap;
+  const totalH = rows * nodeH + (rows - 1) * gap;
 
-  let y = anchor.y;
-  for (const node of members) {
-    node.x = anchor.x;
-    node.y = y;
-    y += nodeH + gap;
-  }
+  // Center the grid coordinates directly over the layout anchor point
+  const startX = anchor.x - totalW / 2 + nodeW / 2;
+  const startY = anchor.y - totalH / 2 + nodeH / 2;
+
+  members.forEach((node, index) => {
+    const col = index % cols;
+    const row = Math.floor(index / cols);
+
+    node.x = startX + col * (nodeW + gap);
+    node.y = startY + row * (nodeH + gap);
+  });
 }
 
 /**
- * Stratify all courses, copy (x, y) from the collapsed layout graph.
+ * Expands layout coordinates back to all independent courses.
  */
 export function expandLayoutToCourseGraph(
   courses,
   layoutGraph,
   visualGroups,
   nodeToGroupId,
-  { nodeH, gap },
+  { nodeW, nodeH, gap }, 
 ) {
   const stratify = d3dag.graphStratify()
     .id(d => d.id)
@@ -125,7 +136,7 @@ export function expandLayoutToCourseGraph(
       .filter(Boolean)
       .sort((a, b) => a.data.id.localeCompare(b.data.id));
 
-    placeGroupStack(members, anchor, groupRole(group), nodeH, gap);
+    placeGroupStack(members, anchor, groupRole(group), nodeH, gap, nodeW);
   }
 
   for (const node of graph.nodes()) {
@@ -140,7 +151,7 @@ export function expandLayoutToCourseGraph(
   return graph;
 }
 
-/** Shift so content fits [padX, padTop].. and return pixel width/height. */
+/** Fitting helper logic to prevent clipping windows */
 export function fitGraphToViewport(graph, nodeW, nodeH, padX = 24, padTop = 32, padBottom = 48) {
   let minX = Infinity;
   let minY = Infinity;
