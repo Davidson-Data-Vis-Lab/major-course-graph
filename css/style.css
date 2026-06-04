@@ -1,149 +1,173 @@
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    align-items: flex-start;  
+    gap: 20px;                
+    padding: 10px;
+    width: calc(100vw - 20px);
+    height: calc(100vh - 120px);
+    overflow: hidden;
+  }
+  .controls {
+    flex: 0 0 auto;
+  }
 
-.container {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 10px;
-  width: calc(100vw - 20px);
-  height: calc(100vh - 120px);
-  overflow: hidden;
-}
-
-.controls {
+  .controls input[type="checkbox"] {
+    margin-right: 6px;
+    transform: scale(1.2);
+    vertical-align: middle;
+  }
+  svg#svg {
+   
+    border: 1px solid #ddd;
+  }
+  
+  .controls {
   flex: 0 0 340px;
   max-height: 100%;
   overflow-y: auto;
+  font-size: 14px;  
   font-size: 14px;
-  border: 2px dashed #aaaaaa;
-  padding: 10px;
+  border-style: dashed;
+  border-color: #aaaaaa;
+  border-width: 2px; 
+  padding: 10px;     
   border-radius: 6px;
   box-sizing: border-box;
 }
 
-.controls input[type="checkbox"] {
-  margin-right: 6px;
-  transform: scale(1.2);
-  vertical-align: middle;
-}
 
-.controls h4 {
-  color: steelblue;
-}
+  .controls h4{
+    color: steelblue;
+  }
 
-.sidebar-section {
-  margin-bottom: 1rem;
-}
+  .sidebar-section {
+    margin-bottom: 1rem;
+  }
 
-.sidebar-section > h3 {
-  margin: 0 0 0.5rem;
-}
+  .sidebar-section > h3 {
+    margin: 0 0 0.5rem;
+  }
 
-.sidebar-group {
-  margin-bottom: 0.75rem;
-}
+  .sidebar-group {
+    margin-bottom: 0.75rem;
+  }
 
-.group-header,
-.subgroup-header {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  cursor: pointer;
-}
+  .group-header,
+  .subgroup-header {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+  }
 
-.subgroup-header {
-  font-weight: 500;
-  font-size: 0.95em;
-}
+  .subgroup-header {
+    font-weight: 500;
+    font-size: 0.95em;
+  }
 
-.group-header.section-complete .header-title,
-.subgroup-header.section-complete .header-title {
-  color: #285841;
-}
+  .group-header.section-complete .header-title,
+  .subgroup-header.section-complete .header-title {
+    color: #285841;
+  }
 
-.group-progress {
-  font-weight: normal;
-  font-size: 0.85em;
-  margin-left: 0.35rem;
-  color: #666;
-}
+  .group-progress {
+    font-weight: normal;
+    font-size: 0.85em;
+    margin-left: 0.35rem;
+    color: #666;
+  }
 
-.group-progress.progress-complete {
-  color: #285841;
-  font-weight: 600;
-}
+  .group-progress.progress-complete {
+    color: #285841;
+    font-weight: 600;
+  }
 
-.group-progress.progress-complete::before {
-  content: "✓ ";
-}
+  .group-progress.progress-complete::before {
+    content: "✓ ";
+  }
 
-/* .progress-incomplete inherits color: #666 from .group-progress */
+  .group-progress.progress-incomplete {
+    color: #666;
+  }
 
-/* Courses sit indented under their topic header */
-.sidebar-group > .course-list {
-  margin: 0 0 0.5rem;
-  padding-left: 1.5rem;
-}
+  /* Courses sit indented under their topic header */
+  .sidebar-group > .course-list {
+    margin: 0 0 0.5rem;
+    padding-left: 1.5rem;
+  }
 
-/* Elective subtopics (Applications, Systems, …) under Electives */
-.electives-wrapper {
-  margin: 0;
-  padding-left: 1.25rem;
-}
+  /* Elective subtopics (Applications, Systems, …) under Electives */
+  .electives-wrapper {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
 
-.sidebar-subgroup {
-  margin-bottom: 0.5rem;
-}
+  .sidebar-subgroup {
+    margin-bottom: 0.5rem;
+  }
 
-.sidebar-subgroup > .course-list {
-  margin: 0;
-  padding-left: 1.25rem;
-}
+  .sidebar-subgroup > .course-list {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
 
-.course-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
 
-.course-item {
-  display: block;
-  font-weight: normal;
-  cursor: pointer;
-  line-height: 1.35;
-}
+  .course-item {
+    display: block;
+    font-weight: normal;
+    cursor: pointer;
+    line-height: 1.35;
+  }
 
-footer {
-  text-align: right;
-  font-style: italic;
-  color: #696969;
-}
+  footer{
+    text-align: right;
+    font-style: italic;
+    color:#696969;
+  }
+
+  .graph-viewport {
+    flex: 1;                    /* Allows the viewport window to expand into all remaining screen space */
+    height: 100%;               /* Spans full height of the container */
+    overflow: auto;             /* Creates independent vertical & horizontal scrollbars for large graphs */
+    border: 1px solid #ddd;     /* Moves the outer display frame boundary from the SVG to the container */
+    background-color: #fafafa;
+  }
+  
+  /* Remove the old border statement from the raw SVG to avoid a double border box artifact */
+  svg#svg {
+    border: none;
+  }
 
 .graph-wrapper {
   flex: 1;
   height: 100%;
-  position: relative;
-  overflow: auto;
+  position: relative; /* Establishes the stacking context for the overlay */
+  overflow: auto; /* Enables scrolling for the graph content */
 }
 
-.graph-viewport {
-  width: fit-content;
-  min-width: 100%;
-  height: fit-content;
-  min-height: 100%;
-  background-color: #fafafa;
+/* .graph-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   border: 1px solid #ddd;
-}
+  background-color: #fafafa;
+} */
 
 svg#svg {
   border: none;
-  display: block;
 }
 
 .legend-overlay {
-  position: absolute;
+  position: absolute;    /* Sits on top of the viewport, ignores scroll */
   top: 10px;
   left: 10px;
   background: rgba(250, 250, 250, 0.92);
@@ -151,7 +175,7 @@ svg#svg {
   border-radius: 6px;
   padding: 8px 12px;
   font-size: 13px;
-  pointer-events: none;
+  pointer-events: none;  /* Clicks pass through to the graph beneath */
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -169,7 +193,7 @@ svg#svg {
   width: 12px;
   height: 12px;
   border-radius: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255,255,255,0.6);
   flex-shrink: 0;
 }
 
