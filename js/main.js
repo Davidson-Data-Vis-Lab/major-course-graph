@@ -128,27 +128,16 @@ const { width, height } = fitGraphToViewport(graph, nodeW, nodeH);
 // representative visual edge per logical group connection.
 
 function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
-  const nodeById = new Map();
-  graph.nodes().forEach(n => nodeById.set(n.data.id, n));
-
-  const groupTopNode = new Map();    
-  const groupBottomNode = new Map(); 
-
-  visualGroups.forEach(group => {
-    const members = group.memberIds.map(id => nodeById.get(id)).filter(Boolean);
-    members.sort((a, b) => a.y - b.y);
-    groupTopNode.set(group.id, members[0]);
-    groupBottomNode.set(group.id, members[members.length - 1]);
-  });
-
-  // Create a quick lookup map of the layout graph links that actually contain the computed curves!
+  // Create a quick lookup map of the layout graph links that contain the computed curves
   const layoutPointsMap = new Map();
-  layoutGraph.links().forEach(link => {
-    const key = `${link.source.data.id}-->${link.target.data.id}`;
-    if (link.points) {
-      layoutPointsMap.set(key, link.points);
-    }
-  });
+  if (typeof layoutGraph !== 'undefined' && layoutGraph.links) {
+    layoutGraph.links().forEach(link => {
+      const key = `${link.source.data.id}-->${link.target.data.id}`;
+      if (link.points) {
+        layoutPointsMap.set(key, link.points);
+      }
+    });
+  }
 
   const incomingLinksMap = new Map();
 
@@ -158,13 +147,13 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
     const srcGroup = nodeToGroupId.get(srcId) ?? null;
     const tgtGroup = nodeToGroupId.get(tgtId) ?? null;
 
+    // The logical link key maps group-to-group, group-to-node, or node-to-node
     const logicalSrc = srcGroup ?? srcId;
     const logicalTgt = tgtGroup ?? tgtId;
     const key = `${logicalSrc}-->${logicalTgt}`;
 
-    const visualTarget = tgtGroup ? groupTopNode.get(tgtGroup) : link.target;
-    const visualSource = srcGroup ? groupBottomNode.get(srcGroup) : link.source;
-    const vtId = visualTarget.data.id;
+    // Anchor tracking is bound directly to the base target ID now
+    const vtId = link.target.data.id;
 
     if (!incomingLinksMap.has(vtId)) {
       incomingLinksMap.set(vtId, []);
@@ -175,11 +164,11 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
       list.push({
         link,
         key,
-        sourceX: visualSource.x,
-        visualSource,
-        visualTarget,
+        sourceX: link.source.x,
         logicalSrc,
-        logicalTgt
+        logicalTgt,
+        srcGroup,
+        tgtGroup
       });
     }
   });
@@ -187,51 +176,53 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
   const visualLinks = [];
 
   incomingLinksMap.forEach((incomingList, vtId) => {
+    // Sort incoming streams left-to-right based on their source positions
     incomingList.sort((a, b) => a.sourceX - b.sourceX);
 
     const count = incomingList.length;
-    const visualTarget = incomingList[0].visualTarget;
+    const firstItem = incomingList[0];
+    const visualTarget = firstItem.link.target;
 
+    // Establish width profiles for calculating the slot distributions
     let rectWidth = baseNodeRadius * 2.2;
     if (visualTarget.data.id.length > 7) rectWidth *= 1.4;
     const usableWidth = rectWidth * 0.7; 
 
     incomingList.forEach((item, index) => {
-      const { visualSource, logicalSrc, logicalTgt } = item;
+      const { link, logicalSrc, logicalTgt, srcGroup, tgtGroup } = item;
       
-      // Look up the beautiful curved layout points from the original math layout graph!
       const layoutKey = `${logicalSrc}-->${logicalTgt}`;
       const originalPoints = layoutPointsMap.get(layoutKey);
       
       let points = [];
       if (originalPoints && originalPoints.length > 1) {
-        // Deep copy the internal path routing waypoints calculated by Sugiyama
         points = originalPoints.map(p => [...p]);
       } else {
-        // Fallback safety straight line if no routing points exist
-        points = [[visualSource.x, visualSource.y], [visualTarget.x, visualTarget.y]];
+        points = [[link.source.x, link.source.y], [link.target.x, link.target.y]];
       }
 
+      // Calculate the point distribution offset across the face of the targets
       let xOffset = 0;
       if (count > 1) {
         xOffset = ((index / (count - 1)) - 0.5) * usableWidth;
       }
 
       const halfH = baseNodeRadius / 2;
-      const gapBuffer = 6; 
-
-      // Snap the first point directly to the bottom edge of the source card
-      points[0] = [visualSource.x, visualSource.y + halfH];
       
-      // Snap the last point to our beautifully calculated staggered slot above the target card
-      points[points.length - 1] = [visualTarget.x + xOffset, visualTarget.y - halfH - gapBuffer];
+      // Default fallback anchors (Singletons use these coordinates directly,
+      // while cluster links use them as temporary placeholders until Phase 5 snaps them)
+      points[0] = [link.source.x, link.source.y + halfH];
+      points[points.length - 1] = [link.target.x + xOffset, link.target.y - halfH];
 
       visualLinks.push({
         points,
-        source: item.link.source,
-        target: item.link.target,
+        source: link.source,
+        target: link.target,
         logicalSrc,
-        logicalTgt
+        logicalTgt,
+        srcGroup, 
+        tgtGroup,
+        xOffset   
       });
     });
   });
@@ -303,11 +294,13 @@ graph.nodes().forEach(n => nodeById.set(n.data.id, n));
 
 const GROUP_PADDING = 2;
 
-svg.select("#groups")
+const groupBoxes = svg.select("#groups")
   .selectAll("rect.visual-group")
   .data(visualGroups)
   .join("rect")
   .attr("class", "visual-group")
+  // Give it an identifier so we can query its coordinates in real-time
+  .attr("data-group-id", group => group.id) 
   .attr("rx", 12)
   .attr("fill", "none")
   .attr("stroke", "steelblue")
@@ -330,6 +323,54 @@ svg.select("#groups")
     const ys = group.memberIds.map(id => nodeById.get(id)?.y ?? 0);
     return (Math.max(...ys) - Math.min(...ys)) + nodeH + GROUP_PADDING * 2;
   });
+
+  // ==================================================
+// DYNAMIC REAL-TIME GEOMETRY ADJUSTMENT
+// ==================================================
+// Now that the cluster bounding boxes exist live in the DOM, 
+// we query their real coordinates and snap the lines to them.
+visualLinks.forEach(link => {
+  // 1. Adjust Origin Point (If coming FROM a cluster box)
+  if (link.srcGroup) {
+    const boxEl = document.querySelector(`rect[data-group-id="${link.srcGroup}"]`);
+    if (boxEl) {
+      const bx = parseFloat(boxEl.getAttribute("x"));
+      const by = parseFloat(boxEl.getAttribute("y"));
+      const bw = parseFloat(boxEl.getAttribute("width"));
+      const bh = parseFloat(boxEl.getAttribute("height"));
+      
+      // Start perfectly from the exact horizontal center of the bottom border edge
+      link.points[0] = [bx + bw / 2, by + bh];
+    }
+  }
+
+  // 2. Adjust Destination Point (If pointing TO a cluster box)
+  if (link.tgtGroup) {
+    const boxEl = document.querySelector(`rect[data-group-id="${link.tgtGroup}"]`);
+    if (boxEl) {
+      const bx = parseFloat(boxEl.getAttribute("x"));
+      const by = parseFloat(boxEl.getAttribute("y"));
+      const bw = parseFloat(boxEl.getAttribute("width"));
+      
+      const gapBuffer = 6; 
+      
+      // Target points spread evenly along the absolute top boundary edge of the box container
+      const targetX = bx + bw / 2 + link.xOffset;
+      const targetY = by - gapBuffer;
+      
+      link.points[link.points.length - 1] = [targetX, targetY];
+    }
+  }
+  
+  // Clean up routing artifacts to keep vectors looking smooth
+  if (link.points.length > 2) {
+    const startY = link.points[0][1];
+    const endY = link.points[link.points.length - 1][1];
+    link.points = link.points.filter(p => p[1] <= endY && p[1] >= startY);
+    link.points.unshift([link.points[0][0], link.points[0][1]]);
+    link.points.push([link.points[link.points.length-1][0], link.points[link.points.length-1][1]]);
+  }
+});
 
 // --- Nodes ---
 // Every node is an individual course. No cluster branching needed.
@@ -428,44 +469,43 @@ svg.select("#links")
   .data(visualLinks)
   .join(enter =>
     enter.append("path")
-      .attr("d", ({ points }) => makePath(points, 2))
+    .attr("d", d => {
+      // If pointing to a clustered box, our gapBuffer (6) already handles spacing,
+      // so we pass 0 to let it draw fully to its calculated border slot.
+      if (d.tgtGroup) {
+        return makePath(d.points, 0); 
+      }
+      
+      // For individual nodes
+      return makePath(d.points, 7);
+    })
       .attr("fill", "none")
       .attr("stroke-width", 3)
       .attr("stroke-dasharray", d => {
         const srcId = d.source.data.id;
         const tgtId = d.target.data.id;
-
-        // 1. Check if the source course belongs to a cluster group
         const srcGroupId = nodeToGroupId.get(srcId);
 
         if (srcGroupId) {
-          // Find the group object to inspect its layout properties
           const group = visualGroups.find(g => g.id === srcGroupId);
           if (group) {
-            // Check the styles of ALL edges originating from this cluster's members to the target
             const memberEdges = group.memberIds.map(mId => {
               const allEdgeInfo = edgeMap.get(mId);
               return allEdgeInfo ? allEdgeInfo.find(e => e.target === tgtId) : null;
             }).filter(Boolean);
 
-            // If EVERY member pointing to this target uses a dashed line, it means the 
-            // structural path itself is an "OR" cluster requirement. We override it to SOLID.
-            const isClusterRequirement = memberEdges.length > 0 && memberEdges.every(e => e.style === "dashed");
-            
-            if (isClusterRequirement) {
-              return "none"; // Forces the line to be beautifully solid!
+            if (memberEdges.length > 0 && memberEdges.every(e => e.style === "dashed")) {
+              return "none"; 
             }
           }
         }
 
-        // 2. Fallback to standard singleton line style logic if not a cluster requirement
         const allEdgeInfo = edgeMap.get(srcId);
         if (allEdgeInfo) {
           const edgeInfo = allEdgeInfo.find(e => e.target === tgtId);
-          if (edgeInfo && edgeInfo.style === "dashed") return '5px'; // Standard standalone dashed path
+          if (edgeInfo && edgeInfo.style === "dashed") return '5px';
         }
-        
-        return "none"; // Default solid
+        return "none";
       })
       .attr("stroke", "black")
       .attr("opacity", 0)
@@ -475,6 +515,7 @@ svg.select("#links")
 // --- Arrows ---
 function arrowTransform(linkData) {
   const points = linkData.points;
+  if (points.length < 2) return "";
   const [x1, y1] = points[points.length - 2];
   const [x2, y2] = points[points.length - 1];
   const angle = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI + 90;
@@ -482,23 +523,51 @@ function arrowTransform(linkData) {
 }
 
 const arrowSize = 80;
-const arrowLen = Math.sqrt((4 * arrowSize) / Math.sqrt(3));
 const arrow = d3.symbol().type(d3.symbolTriangle).size(arrowSize);
 
+// // Clean up any old arrow tracking paths first
+// svg.select("#arrows").selectAll("path").remove();
+
+// Bind your link dataset to build the arrowheads
 svg.select("#arrows")
   .selectAll("path")
   .data(visualLinks)
-  .join(enter =>
-    enter.append("path")
-      .attr("d", arrow)
-      .attr("fill", "black")
-      .attr("transform", arrowTransform)
-      .attr("opacity", 0.7)
-      .attr("stroke", "white")
-      .attr("stroke-width", 2)
-      .attr("stroke-dasharray", `${arrowLen},${arrowLen}`)
-      .call(enter => enter.transition(trans).attr("opacity", 1))
-  );
+  .join("path")
+    .attr("d", arrow)
+    .attr("fill", "black")
+    .attr("opacity", 0.7)
+    .attr("stroke", "white")
+    .attr("stroke-width", 1.5)
+    .each(function(d, i) {
+      // 1. Find the corresponding rendered line path inside the DOM
+      // We look up the exact index matching the current link element
+      const pathNodes = svg.select("#links").selectAll("path").nodes();
+      const correspondingPath = pathNodes[i];
+
+      if (!correspondingPath) return;
+
+      // 2. Query the real browser SVG measurements
+      const totalLength = correspondingPath.getTotalLength();
+      
+      // Step backward by 0.5 pixels to get an ultra-precise local direction vector
+      const p2 = correspondingPath.getPointAtLength(totalLength);
+      const p1 = correspondingPath.getPointAtLength(Math.max(0, totalLength - 0.5));
+
+      // 3. Compute the exact local tangent angle of the curve
+      const dx = p2.x - p1.x;
+      const dy = p2.y - p1.y;
+      
+      // Fallback to purely vertical downward if the vector math returns 0
+      let angle = 0; 
+      if (dx !== 0 || dy !== 0) {
+        angle = (Math.atan2(dy, dx) * 180) / Math.PI + 90;
+      }
+
+      // 4. Snap the arrow position and rotation seamlessly to the line tip
+      d3.select(this)
+        .attr("transform", `translate(${p2.x}, ${p2.y}) rotate(${angle})`);
+    })
+    .call(enter => enter.transition(trans).attr("opacity", 1));
 
 // ----------------------- //
 // Sidebar: populate lists //

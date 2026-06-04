@@ -7,6 +7,9 @@
     align-items: flex-start;  
     gap: 20px;                
     padding: 10px;
+    width: calc(100vw - 20px);
+    height: calc(100vh - 120px);
+    overflow: hidden;
   }
   .controls {
     flex: 0 0 auto;
@@ -23,12 +26,17 @@
   }
   
   .controls {
+  flex: 0 0 340px;
+  max-height: 100%;
+  overflow-y: auto;
+  font-size: 14px;  
   font-size: 14px;
   border-style: dashed;
   border-color: #aaaaaa;
   border-width: 2px; 
   padding: 10px;     
-  border-radius: 6px; 
+  border-radius: 6px;
+  box-sizing: border-box;
 }
 
 
@@ -124,5 +132,18 @@
     text-align: right;
     font-style: italic;
     color:#696969;
+  }
+
+  .graph-viewport {
+    flex: 1;                    /* Allows the viewport window to expand into all remaining screen space */
+    height: 100%;               /* Spans full height of the container */
+    overflow: auto;             /* Creates independent vertical & horizontal scrollbars for large graphs */
+    border: 1px solid #ddd;     /* Moves the outer display frame boundary from the SVG to the container */
+    background-color: #fafafa;
+  }
+  
+  /* Remove the old border statement from the raw SVG to avoid a double border box artifact */
+  svg#svg {
+    border: none;
   }
 
