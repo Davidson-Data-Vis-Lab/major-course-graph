@@ -241,7 +241,9 @@ const visualLinks = buildVisualLinks(graph, visualGroups, nodeToGroupId);
 const svg = d3
   .select("#svg")
   .style("width", width + 4)
-  .style("height", height + 50);
+  .style("height", height + 50)
+  .style("transform-origin", "top left") // Scale from the top-left corner
+  .style("transform", "scale(0.55)");;
 
 const trans = svg.transition().duration(500);
 
