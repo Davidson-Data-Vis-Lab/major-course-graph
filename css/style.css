@@ -147,3 +147,68 @@
     border: none;
   }
 
+.graph-wrapper {
+  flex: 1;
+  height: 100%;
+  position: relative; /* Establishes the stacking context for the overlay */
+  overflow: auto; /* Enables scrolling for the graph content */
+}
+
+/* .graph-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+} */
+
+svg#svg {
+  border: none;
+}
+
+.legend-overlay {
+  position: absolute;    /* Sits on top of the viewport, ignores scroll */
+  top: 10px;
+  left: 10px;
+  background: rgba(250, 250, 250, 0.92);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  pointer-events: none;  /* Clicks pass through to the graph beneath */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 10;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-box {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.6);
+  flex-shrink: 0;
+}
+
+.legend-line {
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: black;
+  flex-shrink: 0;
+}
+
+.legend-line.dashed {
+  background: repeating-linear-gradient(
+    to right,
+    black 0px, black 4px,
+    transparent 4px, transparent 8px
+  );
+}
