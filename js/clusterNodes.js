@@ -10,8 +10,6 @@ function clusterNodes(nodes) {
   // Initialize all nodes with empty children arrays
   nodes.forEach(node => {
     childrenMap.set(node.id, { 'children': []});
-    node.edgeType = 'solid';
-    node.name = node.name;
   });
    // Make a map of the edges and their types (source, target, type)
   const edgeMap = new Map();
@@ -54,59 +52,48 @@ function clusterNodes(nodes) {
   });
 
  
-  
-  const clusters = [];
-  const processedNodes = new Set();
- 
-  // Cluster non-leaf nodes (same parents AND same children)
+  const visualGroups = []; // array of individual nodes and "clustered" groups
+  const nodeToGroupId = new Map();
+  let groupCounter = 0;
+
+  //Grouping non-leaf nodes (same parents AND same children)
   const nonLeafGroups = new Map();
-  
   nonLeafNodes.forEach(node => {
-    // skip a node if we've visited it already (check the set processedNodes)
-    if (processedNodes.has(node.id)) return;
-    
     const parentKey = createKey(node.parentIds);
     const childrenKey = createKey(node.children);
     // capture the parent-child relationship
     const combinedKey = `${parentKey}__${childrenKey}`;
-    
+
     if (!nonLeafGroups.has(combinedKey)) {
       nonLeafGroups.set(combinedKey, []);
     }
     nonLeafGroups.get(combinedKey).push(node);
   });
-  
-  // Create clusters for non-leaf nodes
-  nonLeafGroups.forEach((groupNodes, key) => {
-    if (groupNodes.length > 1) {
 
-      // Create a cluster
-      const clusterNode = {
-        id: `CLUSTER_${clusters.length}`,
-        type: 'cluster',
-        members: groupNodes.map(n => n.id),
-        parentIds: groupNodes[0].parentIds, // All have same parents
-        children: groupNodes[0].children,   // All have same children
-        group: groupNodes[0].group,
-        PRQ: groupNodes[0].PRQ,
-        reason: 'same_parents_and_children'
+  nonLeafGroups.forEach(arrOfNodes => {
+    if(arrOfNodes.length > 1){
+      const groupId = `group_${groupCounter++}`;
+      const parentIds = arrOfNodes[0].parentIds;
+      const childIds = arrOfNodes[0].children;
+      const clusteredGroup = {
+        id: groupId,
+        reason: 'same_parents_and_children',
+        members: arrOfNodes,
+        memberIds: arrOfNodes.map(n => n.id),
+        parentIds,
+        childIds,
+        role: parentIds.length === 0 ? 'root' : 'leaf',
       };
-      
-      clusters.push(clusterNode);
-      groupNodes.forEach(node => processedNodes.add(node.id));
-    } else {
-      // Single node, keep as is
-      clusters.push(groupNodes[0]);
-      processedNodes.add(groupNodes[0].id);
+
+      visualGroups.push(clusteredGroup);
+      arrOfNodes.forEach(n => nodeToGroupId.set(n.id, groupId));
     }
   });
-  
-  // Cluster leaf nodes (same parents only)
+
+
+  //Grouping leaf nodes (same parents only, no children)
   const leafGroups = new Map();
-  
   leafNodes.forEach(node => {
-    if (processedNodes.has(node.id)) return;
-    
     const parentKey = createKey(node.parentIds);
     
     if (!leafGroups.has(parentKey)) {
@@ -114,43 +101,29 @@ function clusterNodes(nodes) {
     }
     leafGroups.get(parentKey).push(node);
   });
-  
-  // Create clusters for leaf nodes
-  leafGroups.forEach((groupNodes, parentKey) => {
 
-    if (groupNodes.length > 1) {
-      // Create a cluster
-      const clusterNode = {
-        id: `CLUSTER_${clusters.length}`,
-        type: 'cluster',
-        members: groupNodes.map(n => n.id),
-        parentIds: groupNodes[0].parentIds, // All have same parents
-        children: [], // All are leaf nodes
-        group: groupNodes[0].group,
-        PRQ: groupNodes[0].PRQ,
-        reason: 'same_parents_leaf_nodes'
+  leafGroups.forEach(arrOfNodes => {
+    if(arrOfNodes.length > 1){
+      const groupId = `group_${groupCounter++}`;
+      const parentIds = arrOfNodes[0].parentIds;
+      const clusteredGroup = {
+        id: groupId,
+        reason: 'same_parents_leaf_nodes',
+        members: arrOfNodes,
+        memberIds: arrOfNodes.map(n => n.id),
+        parentIds,
+        childIds: [],
+        role: parentIds.length === 0 ? 'root' : 'leaf',
       };
-      
-      clusters.push(clusterNode);
-      groupNodes.forEach(node => processedNodes.add(node.id));
-    } else {
-      // Single node, keep as is
-      clusters.push(groupNodes[0]);
-      processedNodes.add(groupNodes[0].id);
+      visualGroups.push(clusteredGroup);
+      arrOfNodes.forEach(n => nodeToGroupId.set(n.id, groupId));
     }
   });
 
-  return {
-    clusteredNodes: clusters,
-    edgeMap: edgeMap,
-    originalNodeCount: nodes.length,
-    clusteredNodeCount: clusters.length,
-    clustersCreated: clusters.filter(n => n.type === 'cluster').length
-  };
+  return {visualGroups, nodeToGroupId, edgeMap}
+
 }
 
-
-// Find matching ')' for a '(' at position `i`
 function findMatching(tokens, i) {
   let depth = 0;
   for (let j = i; j < tokens.length; j++) {
@@ -163,28 +136,21 @@ function findMatching(tokens, i) {
   throw new Error(`Unmatched "(" at ${i}`);
 }
 
-
 function parseGroup(tokens, target) {
   const hasOr  = tokens.includes('or');
   const hasAnd = tokens.includes('and');
-  const style  = !hasOr         ? 'solid'
-               : (!hasAnd       ? 'dashed'
-               : /* mixed */     'solid');
+  const style  = !hasOr ? 'solid' : (!hasAnd ? 'dashed' : 'solid');
   let out = [];
   let i = 0;
   while (i < tokens.length) {
     const t = tokens[i];
     if (t === '(') {
       const j = findMatching(tokens, i);
-      // recurse into the parentheses
-      out.push(...parseGroup(tokens.slice(i+1, j), target));
+      out.push(...parseGroup(tokens.slice(i + 1, j), target));
       i = j + 1;
-    }
-    else if (t === 'and' || t === 'or' || t === ')') {
+    } else if (t === 'and' || t === 'or' || t === ')') {
       i++;
-    }
-    else {
-      // it's a course ID
+    } else {
       out.push({ source: t, target, style });
       i++;
     }
@@ -192,20 +158,13 @@ function parseGroup(tokens, target) {
   return out;
 }
 
-
 function determineParentEdgeType(node, edgeMap) {
-  
-  var prereqArray = node.PRQ;
-  //const toks = tokenizePRQ(prereqArray.toString());
-  var incomingEdgesList = parseGroup(node.PRQ, node.id);
-
+  const incomingEdgesList = parseGroup(node.PRQ, node.id);
   for (const { source, target, style } of incomingEdgesList) {
     if (!edgeMap.has(source)) edgeMap.set(source, []);
     edgeMap.get(source).push({ target, style });
   }
-
 }
 
+export { clusterNodes };
 
-// Export the function for use
-export {clusterNodes}

@@ -13,83 +13,102 @@
 
     <div class="controls">
       <h3>Instructions</h3>
-      <p> Use the check boxes below to mark the courses <br> 
-      you have taken.
-      Use the graph to see what <br> courses you can take.</p>
-      
-      <div class="prerequisite">
-        <h3>Prerequisite for the major</h3>
-        <p> These classes do not give any major credits,<br> 
-        but are prerequisites of major classes</p>
+      <p>Hover over a course to see details.<br>
+      Check courses you have completed.</p>
 
-        <input type="checkbox" data-course-id="CLUSTER_1" onchange="colorClass(this)"/>
-        Introductory programming: CSC 121 or <br> CSC 120 or CSC 209 or CSC 200
-        <br>
+      <div class="sidebar-section">
+        <h3>Major Prerequisites</h3>
 
-        <input type="checkbox" data-course-id="CLUSTER_0" onchange="colorClass(this)"/>
-        Math prerequisite: MAT 111 or <br> MAT 112
-        <br>
-         <input type="checkbox" data-course-id="MAT 113" onchange="colorClass(this)"/>
-        MAT 113: Calculus II
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="intro-programming" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Introductory Programming</span>
+          </label>
+          <div class="course-list" id="list-intro-programming"></div>
+        </div>
 
-        <br>
-         <input type="checkbox" data-course-id="DIG 245" onchange="colorClass(this)"/>
-        DIG 245: Critical Web Design
-        <br>
-         <input type="checkbox" data-course-id="MAT 235" onchange="colorClass(this)"/>
-        MAT 235: Differential Equations
-        <br>
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="intro-math" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Introductory Mathematics</span>
+          </label>
+          <div class="course-list" id="list-intro-math"></div>
+        </div>
       </div>
 
-      <div class="major credits">
-        <h3>Major Requirements</h3>
+      <div class="sidebar-section">
+        <h3>Requirements for the Major</h3>
 
-        <h4>Math Requirement (1):</h4>
-        <input type="checkbox" data-course-id="MAT 150" onchange="colorClass(this)"/>
-        MAT 150: Linear Algebra
-        <br>
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="math" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Mathematics Courses</span>
+            <span id="progress-math" class="group-progress"></span>
+          </label>
+          <div class="course-list" id="list-math"></div>
+        </div>
 
-        <input type="checkbox" data-course-id="MAT 140" onchange="colorClass(this)"/>
-        MAT 140: Multivariable Calculus and M.
-        <br>
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="core" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Core Courses</span>
+            <span id="progress-core" class="group-progress"></span>
+          </label>
+          <div class="course-list" id="list-core"></div>
+        </div>
 
-        <input type="checkbox" data-course-id="MAT 160" onchange="colorClass(this)"/>
-        MAT 160: Calculus III
-        <br>
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="electives" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Electives</span>
+            <span id="progress-electives" class="group-progress"></span>
+          </label>
 
-        <h4>Core Classes:</h4>
-        <input type="checkbox" data-course-id="CSC 221" onchange="colorClass(this)"/>
-        CSC 221: Data Structures
-        <br>
+          <div class="electives-wrapper">
 
-        <input type="checkbox" data-course-id="CSC 220" onchange="colorClass(this)"/>
-        CSC 220: Discrete Structures
-        <br>
+            <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="applications" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Applications</span>
+                <span id="progress-applications" class="group-progress"></span>
+              </label>
+              <div class="course-list" id="list-applications"></div>
+            </div>
 
-        <input type="checkbox" data-course-id="CSC 250" onchange="colorClass(this)"/>
-        CSC 250: Computer Organization
-        <br>
+            <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="systems" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Systems</span>
+                <span id="progress-systems" class="group-progress"></span>
+              </label>
+              <div class="course-list" id="list-systems"></div>
+            </div>
 
-        <input type="checkbox" data-course-id="CSC 321" onchange="colorClass(this)"/>
-        CSC 321: Analysis of Algorithms
-        <br>
+            <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="theory" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Theory</span>
+              </label>
+              <div class="course-list" id="list-theory"></div>
+            </div>
 
-        <h4>Electives:</h4>
-        <input type="checkbox" data-course-id="" onchange="colorClass(this)"/>
-        Applications (1 credit needed)
-        <br>
+            <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="other" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Other</span>
+              </label>
+              <div class="course-list" id="list-other"></div>
+            </div>
 
-        <input type="checkbox" data-course-id="" onchange="colorClass(this)"/>
-        Systems (1 credit needed)
-        <br>
+          </div>
+        </div>
 
-        <input type="checkbox" data-course-id="" onchange="colorClass(this)"/>
-        Additional CS Courses (3 credit needed)
       </div>
     </div>
 
     <svg id="svg">
       <g transform="translate(10,10)">
+        <g id="groups"></g>
         <g id="links"></g>
         <g id="nodes"></g>
         <g id="arrows"></g>
@@ -97,12 +116,150 @@
     </svg>
   </div>
 
- 
   <script>
+  /**
+   * Graduation requirement rules for "Requirements for the Major".
+   * Edit this object to change policy without touching evaluation logic.
+   */
+    const GRADUATION_REQUIREMENTS = {
+      math: {
+        type: 'rules',
+        rules: [
+          { anyOf: ['MAT 140', 'MAT 150'] },
+          { allOf: ['MAT 230'] },
+        ],
+      },
+      core: { type: 'allInGroup' },
+      applications: { type: 'minChecked', min: 1 },
+      systems: { type: 'minChecked', min: 1 },
+      // 5 electives max: 1 Applications + 1 Systems reserved, then up to 3 more (any category).
+      electives: {
+        type: 'cappedElectivePool',
+        total: 5,
+        reserveFromGroup: { applications: 1, systems: 1 },
+      },
+    };
+    window.GRADUATION_REQUIREMENTS = GRADUATION_REQUIREMENTS;
+
+    const ELECTIVE_GROUPS = ['applications', 'systems', 'theory', 'other'];
+    const PROGRESS_GROUPS = ['math', 'core', 'applications', 'systems', 'electives'];
+
+    function getGroupCheckboxes(group) {
+      const list = document.getElementById(`list-${group}`);
+      if (!list) return [];
+      return [...list.querySelectorAll('input[type="checkbox"][data-course-id]')];
+    }
+
+    function isCourseChecked(courseId) {
+      const el = document.querySelector(
+        `input[type="checkbox"][data-course-id="${CSS.escape(courseId)}"]`,
+      );
+      return el?.checked ?? false;
+    }
+
+    function countCheckedInGroup(group) {
+      return getGroupCheckboxes(group).filter(cb => cb.checked).length;
+    }
+
+    function getCheckedIdsInGroup(group) {
+      return getGroupCheckboxes(group)
+        .filter(cb => cb.checked)
+        .map(cb => cb.dataset.courseId);
+    }
+
+    /**
+     * Count electives toward the 5-course cap. One Applications and one Systems
+     * course each reserve a slot; if that category has none checked, that slot
+     * cannot count toward the 5 (so e.g. 5 Theory-only shows 3/5, not 5/5).
+     */
+    function countCappedElectives(spec) {
+      const total = spec.total;
+      const reserve = spec.reserveFromGroup ?? {};
+
+      const allMinsMet = Object.entries(reserve).every(
+        ([group, min]) => countCheckedInGroup(group) >= min,
+      );
+
+      let maxCountable = total;
+      for (const [group, min] of Object.entries(reserve)) {
+        if (countCheckedInGroup(group) < min) {
+          maxCountable -= min;
+        }
+      }
+
+      const remaining = {};
+      for (const g of ELECTIVE_GROUPS) {
+        remaining[g] = getCheckedIdsInGroup(g);
+      }
+
+      let counted = 0;
+      for (const [group, min] of Object.entries(reserve)) {
+        const use = Math.min(remaining[group].length, min);
+        counted += use;
+        remaining[group] = remaining[group].slice(use);
+      }
+
+      const discretionary = ELECTIVE_GROUPS.flatMap(g => remaining[g]);
+      const slotsLeft = Math.max(0, maxCountable - counted);
+      counted += Math.min(slotsLeft, discretionary.length);
+      counted = Math.min(maxCountable, counted);
+
+      return {
+        counted,
+        met: allMinsMet && counted >= total,
+      };
+    }
+
+    function evaluateGroupProgress(group) {
+      const spec = GRADUATION_REQUIREMENTS[group];
+      if (!spec) return null;
+
+      if (spec.type === 'rules') {
+        let metCount = 0;
+        for (const rule of spec.rules) {
+          if (rule.anyOf?.some(isCourseChecked)) metCount++;
+          else if (rule.allOf?.every(isCourseChecked)) metCount++;
+        }
+        const required = spec.rules.length;
+        return {
+          text: `${metCount} / ${required} required`,
+          met: metCount >= required,
+        };
+      }
+
+      if (spec.type === 'allInGroup') {
+        const boxes = getGroupCheckboxes(group);
+        const checked = boxes.filter(cb => cb.checked).length;
+        const total = boxes.length;
+        return {
+          text: `${checked} / ${total} required`,
+          met: total > 0 && checked >= total,
+        };
+      }
+
+      if (spec.type === 'minChecked') {
+        const checked = countCheckedInGroup(group);
+        const min = spec.min;
+        return {
+          text: `${Math.min(checked, min)} / ${min} required`,
+          met: checked >= min,
+        };
+      }
+
+      if (spec.type === 'cappedElectivePool') {
+        const { counted, met } = countCappedElectives(spec);
+        return {
+          text: `${counted} / ${spec.total} required`,
+          met,
+        };
+      }
+
+      return null;
+    }
+
     function colorClass(checkbox) {
       const courseId = checkbox.dataset.courseId;
       const checked = checkbox.checked;
-
       d3.selectAll("#nodes > g").each(function(d) {
         if (d.data.id === courseId) {
           d3.select(this).select("rect")
@@ -110,11 +267,91 @@
         }
       });
     }
+
+    function updateProgressIndicator(group) {
+      if (!GRADUATION_REQUIREMENTS[group]) return;
+
+      const span = document.getElementById(`progress-${group}`);
+      if (!span) return;
+
+      const result = evaluateGroupProgress(group);
+      if (!result) return;
+
+      span.textContent = result.text;
+      span.classList.toggle('progress-complete', result.met);
+      span.classList.toggle('progress-incomplete', !result.met);
+
+      const header = document
+        .querySelector(`.group-checkbox[data-group="${group}"]`)
+        ?.closest('.group-header, .subgroup-header');
+      if (header) {
+        header.classList.toggle('section-complete', result.met);
+      }
+    }
+
+    function updateElectivesGroupCheckbox() {
+      const header = document.querySelector('.group-checkbox[data-group="electives"]');
+      if (!header) return;
+
+      let total = 0;
+      let checked = 0;
+      for (const group of ELECTIVE_GROUPS) {
+        const boxes = getGroupCheckboxes(group);
+        total += boxes.length;
+        checked += boxes.filter(cb => cb.checked).length;
+      }
+      header.indeterminate = checked > 0 && checked < total;
+      header.checked = total > 0 && checked === total;
+    }
+
+    function updateGroupCheckbox(group) {
+      const boxes = getGroupCheckboxes(group);
+      const header = document.querySelector(`.group-checkbox[data-group="${group}"]`);
+      if (!header || !boxes.length) return;
+
+      const checked = boxes.filter(cb => cb.checked).length;
+      header.indeterminate = checked > 0 && checked < boxes.length;
+      header.checked = checked === boxes.length;
+
+      updateProgressIndicator(group);
+
+      if (ELECTIVE_GROUPS.includes(group)) {
+        updateElectivesGroupCheckbox();
+        updateProgressIndicator('electives');
+      }
+    }
+
+    function handleGroupCheck(groupCheckbox) {
+      const group = groupCheckbox.dataset.group;
+      const checked = groupCheckbox.checked;
+
+      if (group === 'electives') {
+        // ELECTIVES CASE --> Check/uncheck all four elective subgroups
+        ELECTIVE_GROUPS.forEach(subgroup => {
+          const boxes = getGroupCheckboxes(subgroup);
+          boxes.forEach(cb => {
+            cb.checked = checked;
+            colorClass(cb);
+          });
+          updateGroupCheckbox(subgroup);
+        });
+      } else {
+        // ALL OTHER CASES --> Check/uncheck all courses in the group
+        const boxes = getGroupCheckboxes(group);
+        boxes.forEach(cb => {
+          cb.checked = checked;
+          colorClass(cb);
+        });
+        updateGroupCheckbox(group);
+      }
+    }
+
+    function initAllProgressIndicators() {
+      PROGRESS_GROUPS.forEach(updateProgressIndicator);
+    }
   </script>
 
- 
   <script src="js/clusterNodes.js" type="module"></script>
-  <script src="js/createClusteredGraphBuilder.js" type="module"></script>
   <script src="js/main.js" type="module"></script>
 </body>
 <footer> Created by Yurdanur Yolcu and Dr. Katy Williams. Summer 2025.   </footer>
