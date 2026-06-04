@@ -154,13 +154,6 @@
   overflow: auto; /* Enables scrolling for the graph content */
 }
 
-/* .graph-viewport {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  border: 1px solid #ddd;
-  background-color: #fafafa;
-} */
 
 svg#svg {
   border: none;
