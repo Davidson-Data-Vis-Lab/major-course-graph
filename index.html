@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sugiyama Graph</title>
+  <title>Computer Science Major Graph</title>
 </head>
 
 <body>
@@ -107,6 +107,7 @@
 
       </div>
     </div>
+    <div class="graph-wrapper">
     <div class="graph-viewport">
       <svg id="svg">
         <g transform="translate(10,10)">
@@ -117,6 +118,24 @@
         </g>
       </svg>
     </div>
+    <div class="legend-overlay">
+    <div class="legend-item">
+      <span class="legend-box" style="background:#aaaaaa"></span> Unavailable
+    </div>
+    <div class="legend-item">
+      <span class="legend-box" style="background:steelblue"></span> Available
+    </div>
+    <div class="legend-item">
+      <span class="legend-box" style="background:#285841"></span> Taken
+    </div>
+    <div class="legend-item">
+      <span class="legend-line solid"></span> Required Path
+    </div>
+    <div class="legend-item">
+      <span class="legend-line dashed"></span> Optional Path
+    </div>
+  </div>
+  </div>
   </div>
 
   <script>
@@ -380,5 +399,5 @@
   <script src="js/clusterNodes.js" type="module"></script>
   <script src="js/main.js" type="module"></script>
 </body>
-<footer> Created by Yurdanur Yolcu and Dr. Katy Williams. Summer 2025.   </footer>
+<footer> Created by Yurdanur Yolcu, Christian Weaver, and Dr. Katy Williams. Summer 2025-2026. Coded with the help of Claude, ChatGPT, and Cursor.   </footer>
 </html>

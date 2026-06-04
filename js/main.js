@@ -246,45 +246,45 @@ const svg = d3
 const trans = svg.transition().duration(500);
 
 // Legend
-const legend = svg.append("g")
-  .attr("class", "legend")
-  .attr("transform", `translate(20, 20)`);
+// const legend = svg.append("g")
+//   .attr("class", "legend")
+//   .attr("transform", `translate(20, 20)`);
 
-const legendData = [
-  { key: "Unavailable", color: "#aaaaaa", type: "box" },
-  { key: "Available", color: "steelblue", type: "box" },
-  { key: "Taken", color: "#285841", type: "box" },
-  { key: "Required Path", dash: "0", type: "line" },
-  { key: "Optional Path", dash: "4,4", type: "line" }
-];
+// const legendData = [
+//   { key: "Unavailable", color: "#aaaaaa", type: "box" },
+//   { key: "Available", color: "steelblue", type: "box" },
+//   { key: "Taken", color: "#285841", type: "box" },
+//   { key: "Required Path", dash: "0", type: "line" },
+//   { key: "Optional Path", dash: "4,4", type: "line" }
+// ];
 
-legend.selectAll(".legend-item")
-  .data(legendData)
-  .join("g")
-  .attr("class", "legend-item")
-  .attr("transform", (d, i) => `translate(0, ${i * 20})`)
-  .style("cursor", "default")
-  .call(g => {
-    g.each(function(d) {
-      const group = d3.select(this);
-      if (d.type === "box") {
-        group.append("rect")
-          .attr("x", -6).attr("y", -6)
-          .attr("width", 12).attr("height", 12)
-          .attr("fill", d.color)
-          .attr("stroke", "white").attr("stroke-width", 1);
-      } else {
-        group.append("line")
-          .attr("x1", -6).attr("x2", 6)
-          .attr("y1", 0).attr("y2", 0)
-          .attr("stroke", "black").attr("stroke-width", 2)
-          .attr("stroke-dasharray", d.dash);
-      }
-      group.append("text")
-        .attr("x", 12).attr("y", 0).attr("dy", "0.35em")
-        .style("fill", "#333").text(d.key);
-    });
-  });
+// legend.selectAll(".legend-item")
+//   .data(legendData)
+//   .join("g")
+//   .attr("class", "legend-item")
+//   .attr("transform", (d, i) => `translate(0, ${i * 20})`)
+//   .style("cursor", "default")
+//   .call(g => {
+//     g.each(function(d) {
+//       const group = d3.select(this);
+//       if (d.type === "box") {
+//         group.append("rect")
+//           .attr("x", -6).attr("y", -6)
+//           .attr("width", 12).attr("height", 12)
+//           .attr("fill", d.color)
+//           .attr("stroke", "white").attr("stroke-width", 1);
+//       } else {
+//         group.append("line")
+//           .attr("x1", -6).attr("x2", 6)
+//           .attr("y1", 0).attr("y2", 0)
+//           .attr("stroke", "black").attr("stroke-width", 2)
+//           .attr("stroke-dasharray", d.dash);
+//       }
+//       group.append("text")
+//         .attr("x", 12).attr("y", 0).attr("dy", "0.35em")
+//         .style("fill", "#333").text(d.key);
+//     });
+//   });
 
 // --- Group bounding boxes ---
 // Rendered before nodes so they sit behind everything.
