@@ -10,6 +10,7 @@
   width: calc(100vw - 20px);
   height: calc(100vh - 120px);
   overflow: hidden;
+  max-width: 100%;
 }
 
 .controls {
@@ -125,7 +126,7 @@ footer {
   flex: 1;
   height: 100%;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .graph-viewport {
@@ -133,13 +134,15 @@ footer {
   min-width: 100%;
   height: fit-content;
   min-height: 100%;
-  background-color: #fafafa;
-  border: 1px solid #ddd;
+  background-color: #eaeaea;
+  border: 1px solid #eaeaea;
 }
 
 svg#svg {
-  border: none;
+  border: 1px solid #ddd;
   display: block;
+  transform: scale(.55);
+  transform-origin: top left;
 }
 
 .legend-overlay {

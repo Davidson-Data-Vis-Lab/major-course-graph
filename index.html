@@ -14,7 +14,8 @@
     <div class="controls">
       <h3>Instructions</h3>
       <p>Hover over a course to see details.<br>
-      Check courses you have completed.</p>
+      Check courses you have completed. <br>
+      Scroll to zoom in and out. Double click to reset zoom. </p>
 
       <button onclick="resetAllCourses()">Unselect All</button>
 
@@ -111,34 +112,34 @@
       </div>
     </div>
     <div class="graph-wrapper">
-    <div class="graph-viewport">
-      <svg id="svg">
-        <g transform="translate(10,10)">
-          <g id="groups"></g>
-          <g id="links"></g>
-          <g id="nodes"></g>
-          <g id="arrows"></g>
-        </g>
-      </svg>
+      <!-- <div class="graph-viewport"> -->
+        <svg id="svg">
+          <g transform="translate(10,10)">
+            <g id="groups"></g>
+            <g id="links"></g>
+            <g id="nodes"></g>
+            <g id="arrows"></g>
+          </g>
+        </svg>
+      <!-- </div>   -->
+      <div class="legend-overlay">
+        <div class="legend-item">
+          <span class="legend-box" style="background:#aaaaaa"></span> Unavailable
+        </div>
+        <div class="legend-item">
+          <span class="legend-box" style="background:steelblue"></span> Available
+        </div>
+        <div class="legend-item">
+          <span class="legend-box" style="background:#285841"></span> Taken
+        </div>
+        <div class="legend-item">
+          <span class="legend-line solid"></span> Required Path
+        </div>
+        <div class="legend-item">
+          <span class="legend-line dashed"></span> Optional Path
+        </div>
+      </div>
     </div>
-    <div class="legend-overlay">
-    <div class="legend-item">
-      <span class="legend-box" style="background:#aaaaaa"></span> Unavailable
-    </div>
-    <div class="legend-item">
-      <span class="legend-box" style="background:steelblue"></span> Available
-    </div>
-    <div class="legend-item">
-      <span class="legend-box" style="background:#285841"></span> Taken
-    </div>
-    <div class="legend-item">
-      <span class="legend-line solid"></span> Required Path
-    </div>
-    <div class="legend-item">
-      <span class="legend-line dashed"></span> Optional Path
-    </div>
-  </div>
-  </div>
   </div>
 
   <script>

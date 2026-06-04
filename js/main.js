@@ -241,9 +241,33 @@ const visualLinks = buildVisualLinks(graph, visualGroups, nodeToGroupId);
 const svg = d3
   .select("#svg")
   .style("width", width + 4)
-  .style("height", height + 50)
-  .style("transform-origin", "top left") // Scale from the top-left corner
-  .style("transform", "scale(0.55)");;
+  .style("height", height + 50);
+
+// --- Zoom ---
+const zoom = d3.zoom()
+  .scaleExtent([0.75, 3])         // min 75% zoom, max 300%
+  .translateExtent([[-100, -100], [width + 100, height + 100]])
+  .on("zoom", (event) => {
+    svg.select("g").attr("transform", event.transform);
+  });
+
+svg.call(zoom);
+
+// reset zoom function
+// double click
+svg.on("dblclick.zoom", () => svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity));
+// // vs button
+// d3.select("body").append("button")
+//   .text("Reset Zoom")
+//   .style("position", "fixed")
+//   .style("bottom", "16px")
+//   .style("right", "16px")
+//   .style("z-index", "100")
+//   .style("padding", "6px 12px")
+//   .style("cursor", "pointer")
+//   .on("click", () => {
+//     svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity);
+//   });
 
 const trans = svg.transition().duration(500);
 
@@ -296,7 +320,7 @@ graph.nodes().forEach(n => nodeById.set(n.data.id, n));
 
 const GROUP_PADDING = 2;
 
-const groupBoxes = svg.select("#groups")
+svg.select("#groups")
   .selectAll("rect.visual-group")
   .data(visualGroups)
   .join("rect")
