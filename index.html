@@ -39,7 +39,10 @@
       </div>
 
       <div class="sidebar-section">
-        <h3>Requirements for the Major</h3>
+        <label class="group-header" style="cursor: default; font-size: 1.17em; margin-bottom: 0.5rem;">
+          <span class="header-title" style="color: black;">Requirements for the Major</span>
+          <span id="progress-major" class="group-progress"></span>
+        </label>
 
         <div class="sidebar-group">
           <label class="group-header">
@@ -144,6 +147,10 @@
    * Edit this object to change policy without touching evaluation logic.
    */
     const GRADUATION_REQUIREMENTS = {
+      major: {
+        type: 'aggregateGrandTotal',
+        total: 10
+      },
       math: {
         type: 'rules',
         rules: [
@@ -164,7 +171,7 @@
     window.GRADUATION_REQUIREMENTS = GRADUATION_REQUIREMENTS;
 
     const ELECTIVE_GROUPS = ['applications', 'systems', 'theory', 'other'];
-    const PROGRESS_GROUPS = ['math', 'core', 'applications', 'systems', 'electives'];
+    const PROGRESS_GROUPS = ['major','math', 'core', 'applications', 'systems', 'electives'];
 
     function getGroupCheckboxes(group) {
       const list = document.getElementById(`list-${group}`);
@@ -235,6 +242,31 @@
     function evaluateGroupProgress(group) {
       const spec = GRADUATION_REQUIREMENTS[group];
       if (!spec) return null;
+
+      if (spec.type === 'aggregateGrandTotal') {
+        let grandTotal = 0;
+
+        // 1. Math rules component
+        const mSpec = GRADUATION_REQUIREMENTS['math'];
+        for (const rule of mSpec.rules) {
+          if (rule.anyOf?.some(isCourseChecked)) grandTotal++;
+          else if (rule.allOf?.every(isCourseChecked)) grandTotal++;
+        }
+
+        // 2. Core courses component
+        grandTotal += getGroupCheckboxes('core').filter(cb => cb.checked).length;
+
+        // 3. Electives pool component (Using your existing capped engine function!)
+        const eSpec = GRADUATION_REQUIREMENTS['electives'];
+        const { counted } = countCappedElectives(eSpec);
+        grandTotal += counted;
+
+        const finalScore = Math.min(spec.total, grandTotal);
+        return {
+          text: `${finalScore} / ${spec.total} required`,
+          met: finalScore >= spec.total
+        };
+      }
 
       if (spec.type === 'rules') {
         let metCount = 0;
@@ -341,6 +373,8 @@
         updateElectivesGroupCheckbox();
         updateProgressIndicator('electives');
       }
+
+      updateProgressIndicator('major');
     }
 
     function handleGroupCheck(groupCheckbox) {
