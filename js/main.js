@@ -89,6 +89,7 @@ function makePath(points, trimEnd = 0) {
     ];
   }
   return d3.line().curve(d3.curveMonotoneY)(pts);
+  // return d3.line().curve(d3.curveBumpY)(pts); // [EXPERIMENT ORGANIZE]
 }
 
 const layout = d3dag
@@ -111,7 +112,7 @@ try {
     layoutGraph,
     visualGroups,
     nodeToGroupId,
-    { nodeH, gap: INTRA_GROUP_VERTICAL_GAP },
+    { nodeW, nodeH, gap: INTRA_GROUP_VERTICAL_GAP },
   );
 } catch (err) {
   console.error('Error building course DAG:', err);
@@ -127,24 +128,18 @@ const { width, height } = fitGraphToViewport(graph, nodeW, nodeH);
 // representative visual edge per logical group connection.
 
 function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
-  const nodeById = new Map();
-  graph.nodes().forEach(n => nodeById.set(n.data.id, n));
+  // Create a quick lookup map of the layout graph links that contain the computed curves
+  const layoutPointsMap = new Map();
+  if (typeof layoutGraph !== 'undefined' && layoutGraph.links) {
+    layoutGraph.links().forEach(link => {
+      const key = `${link.source.data.id}-->${link.target.data.id}`;
+      if (link.points) {
+        layoutPointsMap.set(key, link.points);
+      }
+    });
+  }
 
-  // For each group, find the top (min y) and bottom (max y) member node
-  const groupTopNode = new Map();    // groupId -> node with smallest y
-  const groupBottomNode = new Map(); // groupId -> node with largest y
-
-  visualGroups.forEach(group => {
-    const members = group.memberIds.map(id => nodeById.get(id)).filter(Boolean);
-    members.sort((a, b) => a.y - b.y);
-    groupTopNode.set(group.id, members[0]);
-    groupBottomNode.set(group.id, members[members.length - 1]);
-  });
-
-  const visualLinks = [];
-  // Track which logical connections have already been drawn
-  // Key: "sourceNodeOrGroupId --> targetNodeOrGroupId"
-  const seen = new Set();
+  const incomingLinksMap = new Map();
 
   graph.links().forEach(link => {
     const srcId = link.source.data.id;
@@ -152,32 +147,83 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
     const srcGroup = nodeToGroupId.get(srcId) ?? null;
     const tgtGroup = nodeToGroupId.get(tgtId) ?? null;
 
-    // Logical endpoints (group id if grouped, node id if not)
+    // The logical link key maps group-to-group, group-to-node, or node-to-node
     const logicalSrc = srcGroup ?? srcId;
     const logicalTgt = tgtGroup ?? tgtId;
     const key = `${logicalSrc}-->${logicalTgt}`;
 
-    if (seen.has(key)) return; // already have a visual edge for this connection
-    seen.add(key);
+    // Anchor tracking is bound directly to the base target ID now
+    const vtId = link.target.data.id;
 
-    // Resolve the actual node to draw from/to
-    // Incoming to a group: draw to the top node of the group
-    // Outgoing from a group: draw from the bottom node of the group
-    const visualSource = srcGroup ? groupBottomNode.get(srcGroup) : link.source;
-    const visualTarget = tgtGroup ? groupTopNode.get(tgtGroup)    : link.target;
+    if (!incomingLinksMap.has(vtId)) {
+      incomingLinksMap.set(vtId, []);
+    }
+    
+    const list = incomingLinksMap.get(vtId);
+    if (!list.some(item => item.key === key)) {
+      list.push({
+        link,
+        key,
+        sourceX: link.source.x,
+        logicalSrc,
+        logicalTgt,
+        srcGroup,
+        tgtGroup
+      });
+    }
+  });
 
-    const points = [
-      [visualSource.x, visualSource.y],
-      [visualTarget.x, visualTarget.y]
-    ];
+  const visualLinks = [];
 
-    visualLinks.push({
-      points,
-      // Carry through the original source/target for edge style lookups
-      source: link.source,
-      target: link.target,
-      logicalSrc,
-      logicalTgt
+  incomingLinksMap.forEach((incomingList, vtId) => {
+    // Sort incoming streams left-to-right based on their source positions
+    incomingList.sort((a, b) => a.sourceX - b.sourceX);
+
+    const count = incomingList.length;
+    const firstItem = incomingList[0];
+    const visualTarget = firstItem.link.target;
+
+    // Establish width profiles for calculating the slot distributions
+    let rectWidth = baseNodeRadius * 2.2;
+    if (visualTarget.data.id.length > 7) rectWidth *= 1.4;
+    const usableWidth = rectWidth * 0.7; 
+
+    incomingList.forEach((item, index) => {
+      const { link, logicalSrc, logicalTgt, srcGroup, tgtGroup } = item;
+      
+      const layoutKey = `${logicalSrc}-->${logicalTgt}`;
+      const originalPoints = layoutPointsMap.get(layoutKey);
+      
+      let points = [];
+      if (originalPoints && originalPoints.length > 1) {
+        points = originalPoints.map(p => [...p]);
+      } else {
+        points = [[link.source.x, link.source.y], [link.target.x, link.target.y]];
+      }
+
+      // Calculate the point distribution offset across the face of the targets
+      let xOffset = 0;
+      if (count > 1) {
+        xOffset = ((index / (count - 1)) - 0.5) * usableWidth;
+      }
+
+      const halfH = baseNodeRadius / 2;
+      
+      // Default fallback anchors (Singletons use these coordinates directly,
+      // while cluster links use them as temporary placeholders until Phase 5 snaps them)
+      points[0] = [link.source.x, link.source.y + halfH];
+      points[points.length - 1] = [link.target.x + xOffset, link.target.y - halfH];
+
+      visualLinks.push({
+        points,
+        source: link.source,
+        target: link.target,
+        logicalSrc,
+        logicalTgt,
+        srcGroup, 
+        tgtGroup,
+        xOffset   
+      });
     });
   });
 
@@ -187,13 +233,6 @@ function buildVisualLinks(graph, visualGroups, nodeToGroupId) {
 const visualLinks = buildVisualLinks(graph, visualGroups, nodeToGroupId);
 
 
-// After moving nodes, patch the first and last waypoint of each link
-// so edges connect to the updated node positions.
-// (d3-dag computed link.points during layout, before we moved nodes.)
-graph.links().forEach(link => {
-  link.points[0] = [link.source.x, link.source.y];
-  link.points[link.points.length - 1] = [link.target.x, link.target.y];
-});
 
 // ------------------- //
 // Phase 5: Rendering  //
@@ -206,12 +245,13 @@ const svg = d3
 
 const trans = svg.transition().duration(500);
 
-// Legend (unchanged)
+// Legend
 const legend = svg.append("g")
   .attr("class", "legend")
   .attr("transform", `translate(20, 20)`);
 
 const legendData = [
+  { key: "Unavailable", color: "#aaaaaa", type: "box" },
   { key: "Available", color: "steelblue", type: "box" },
   { key: "Taken", color: "#285841", type: "box" },
   { key: "Required Path", dash: "0", type: "line" },
@@ -242,7 +282,6 @@ legend.selectAll(".legend-item")
       }
       group.append("text")
         .attr("x", 12).attr("y", 0).attr("dy", "0.35em")
-        .style("font-family", "sans-serif").style("font-size", "10px")
         .style("fill", "#333").text(d.key);
     });
   });
@@ -255,11 +294,13 @@ graph.nodes().forEach(n => nodeById.set(n.data.id, n));
 
 const GROUP_PADDING = 2;
 
-svg.select("#groups")
+const groupBoxes = svg.select("#groups")
   .selectAll("rect.visual-group")
   .data(visualGroups)
   .join("rect")
   .attr("class", "visual-group")
+  // Give it an identifier so we can query its coordinates in real-time
+  .attr("data-group-id", group => group.id) 
   .attr("rx", 12)
   .attr("fill", "none")
   .attr("stroke", "steelblue")
@@ -282,6 +323,54 @@ svg.select("#groups")
     const ys = group.memberIds.map(id => nodeById.get(id)?.y ?? 0);
     return (Math.max(...ys) - Math.min(...ys)) + nodeH + GROUP_PADDING * 2;
   });
+
+  // ==================================================
+// DYNAMIC REAL-TIME GEOMETRY ADJUSTMENT
+// ==================================================
+// Now that the cluster bounding boxes exist live in the DOM, 
+// we query their real coordinates and snap the lines to them.
+visualLinks.forEach(link => {
+  // 1. Adjust Origin Point (If coming FROM a cluster box)
+  if (link.srcGroup) {
+    const boxEl = document.querySelector(`rect[data-group-id="${link.srcGroup}"]`);
+    if (boxEl) {
+      const bx = parseFloat(boxEl.getAttribute("x"));
+      const by = parseFloat(boxEl.getAttribute("y"));
+      const bw = parseFloat(boxEl.getAttribute("width"));
+      const bh = parseFloat(boxEl.getAttribute("height"));
+      
+      // Start perfectly from the exact horizontal center of the bottom border edge
+      link.points[0] = [bx + bw / 2, by + bh];
+    }
+  }
+
+  // 2. Adjust Destination Point (If pointing TO a cluster box)
+  if (link.tgtGroup) {
+    const boxEl = document.querySelector(`rect[data-group-id="${link.tgtGroup}"]`);
+    if (boxEl) {
+      const bx = parseFloat(boxEl.getAttribute("x"));
+      const by = parseFloat(boxEl.getAttribute("y"));
+      const bw = parseFloat(boxEl.getAttribute("width"));
+      
+      const gapBuffer = 6; 
+      
+      // Target points spread evenly along the absolute top boundary edge of the box container
+      const targetX = bx + bw / 2 + link.xOffset;
+      const targetY = by - gapBuffer;
+      
+      link.points[link.points.length - 1] = [targetX, targetY];
+    }
+  }
+  
+  // Clean up routing artifacts to keep vectors looking smooth
+  if (link.points.length > 2) {
+    const startY = link.points[0][1];
+    const endY = link.points[link.points.length - 1][1];
+    link.points = link.points.filter(p => p[1] <= endY && p[1] >= startY);
+    link.points.unshift([link.points[0][0], link.points[0][1]]);
+    link.points.push([link.points[link.points.length-1][0], link.points[link.points.length-1][1]]);
+  }
+});
 
 // --- Nodes ---
 // Every node is an individual course. No cluster branching needed.
@@ -329,7 +418,6 @@ svg.select("#nodes")
           g.append("text")
             .text(d.data.id)
             .attr("font-weight", "bold")
-            .attr("font-family", "sans-serif")
             .attr("font-size", "12px")
             .attr("text-anchor", "middle")
             .attr("alignment-baseline", "middle")
@@ -341,8 +429,9 @@ svg.select("#nodes")
       })
   );
 
-// Tooltip events (attached once, outside the .each loop)
+// Interaction events
 svg.select("#nodes").selectAll("g")
+  // tooltip
   .on("mouseover", (event, d) => {
     Tooltip
       .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>
@@ -358,6 +447,20 @@ svg.select("#nodes").selectAll("g")
   })
   .on("mouseout", () => {
     Tooltip.style("visibility", "hidden");
+  })
+  // click for taken courses
+  .on("click", (event, d) => {
+    const checkbox = document.querySelector(
+      `input[data-course-id="${d.data.id}"]`
+    );
+
+    if (!checkbox) return;
+
+    checkbox.checked = !checkbox.checked;
+
+    if (typeof checkbox.onchange === "function") {
+      checkbox.onchange();
+    }
   });
 
 // --- Links ---
@@ -366,16 +469,43 @@ svg.select("#links")
   .data(visualLinks)
   .join(enter =>
     enter.append("path")
-      .attr("d", ({ points }) => makePath(points, 10))
+    .attr("d", d => {
+      // If pointing to a clustered box, our gapBuffer (6) already handles spacing,
+      // so we pass 0 to let it draw fully to its calculated border slot.
+      if (d.tgtGroup) {
+        return makePath(d.points, 0); 
+      }
+      
+      // For individual nodes
+      return makePath(d.points, 7);
+    })
       .attr("fill", "none")
       .attr("stroke-width", 3)
       .attr("stroke-dasharray", d => {
-        const allEdgeInfo = edgeMap.get(d.source.data.id);
+        const srcId = d.source.data.id;
+        const tgtId = d.target.data.id;
+        const srcGroupId = nodeToGroupId.get(srcId);
+
+        if (srcGroupId) {
+          const group = visualGroups.find(g => g.id === srcGroupId);
+          if (group) {
+            const memberEdges = group.memberIds.map(mId => {
+              const allEdgeInfo = edgeMap.get(mId);
+              return allEdgeInfo ? allEdgeInfo.find(e => e.target === tgtId) : null;
+            }).filter(Boolean);
+
+            if (memberEdges.length > 0 && memberEdges.every(e => e.style === "dashed")) {
+              return "none"; 
+            }
+          }
+        }
+
+        const allEdgeInfo = edgeMap.get(srcId);
         if (allEdgeInfo) {
-          const edgeInfo = allEdgeInfo.find(e => e.target === d.target.data.id);
+          const edgeInfo = allEdgeInfo.find(e => e.target === tgtId);
           if (edgeInfo && edgeInfo.style === "dashed") return '5px';
         }
-        return '50%';
+        return "none";
       })
       .attr("stroke", "black")
       .attr("opacity", 0)
@@ -385,6 +515,7 @@ svg.select("#links")
 // --- Arrows ---
 function arrowTransform(linkData) {
   const points = linkData.points;
+  if (points.length < 2) return "";
   const [x1, y1] = points[points.length - 2];
   const [x2, y2] = points[points.length - 1];
   const angle = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI + 90;
@@ -392,29 +523,60 @@ function arrowTransform(linkData) {
 }
 
 const arrowSize = 80;
-const arrowLen = Math.sqrt((4 * arrowSize) / Math.sqrt(3));
 const arrow = d3.symbol().type(d3.symbolTriangle).size(arrowSize);
 
+// // Clean up any old arrow tracking paths first
+// svg.select("#arrows").selectAll("path").remove();
+
+// Bind your link dataset to build the arrowheads
 svg.select("#arrows")
   .selectAll("path")
   .data(visualLinks)
-  .join(enter =>
-    enter.append("path")
-      .attr("d", arrow)
-      .attr("fill", "black")
-      .attr("transform", arrowTransform)
-      .attr("opacity", 0.7)
-      .attr("stroke", "white")
-      .attr("stroke-width", 2)
-      .attr("stroke-dasharray", `${arrowLen},${arrowLen}`)
-      .call(enter => enter.transition(trans).attr("opacity", 1))
-  );
+  .join("path")
+    .attr("d", arrow)
+    .attr("fill", "black")
+    .attr("opacity", 0.7)
+    .attr("stroke", "white")
+    .attr("stroke-width", 1.5)
+    .each(function(d, i) {
+      // 1. Find the corresponding rendered line path inside the DOM
+      // We look up the exact index matching the current link element
+      const pathNodes = svg.select("#links").selectAll("path").nodes();
+      const correspondingPath = pathNodes[i];
+
+      if (!correspondingPath) return;
+
+      // 2. Query the real browser SVG measurements
+      const totalLength = correspondingPath.getTotalLength();
+      
+      // Step backward by 0.5 pixels to get an ultra-precise local direction vector
+      const p2 = correspondingPath.getPointAtLength(totalLength);
+      const p1 = correspondingPath.getPointAtLength(Math.max(0, totalLength - 0.5));
+
+      // 3. Compute the exact local tangent angle of the curve
+      const dx = p2.x - p1.x;
+      const dy = p2.y - p1.y;
+      
+      // Fallback to purely vertical downward if the vector math returns 0
+      let angle = 0; 
+      if (dx !== 0 || dy !== 0) {
+        angle = (Math.atan2(dy, dx) * 180) / Math.PI + 90;
+      }
+
+      // 4. Snap the arrow position and rotation seamlessly to the line tip
+      d3.select(this)
+        .attr("transform", `translate(${p2.x}, ${p2.y}) rotate(${angle})`);
+    })
+    .call(enter => enter.transition(trans).attr("opacity", 1));
 
 // ----------------------- //
 // Sidebar: populate lists //
 // ----------------------- //
 
 function populateSidebar(data) {
+  
+
+  // Sort courses within each group alphabetically by id
   const sorted = [...data].sort((a, b) => a.id.localeCompare(b.id));
 
   sorted.forEach(course => {
@@ -432,7 +594,7 @@ function populateSidebar(data) {
     checkbox.dataset.courseId = course.id;
     checkbox.dataset.group = course.group;
     checkbox.onchange = function() {
-      colorClass(this);
+      recomputeAllNodeColors(this);
       updateGroupCheckbox(course.group);
     };
 
@@ -448,4 +610,185 @@ function populateSidebar(data) {
 
 populateSidebar(data);
 
+// --------------------------------- //
+// Phase 6: Three-state node coloring //
+// --------------------------------- //
 
+const NODE_COLOR = {
+  taken:       "#285841",  // green
+  available:   "steelblue", // blue
+  unavailable: "#aaaaaa",  // gray
+};
+
+/**
+ * Recursively evaluate a PRQ token array against a set of taken course IDs.
+ * Returns true if the prerequisite expression is satisfied.
+ *
+ * Token array format: each entry is either a full course ID string,
+ * or one of: "and", "or", "(", ")"
+ *
+ * Top-level: implicit AND between all non-OR-separated terms.
+ * "or" between terms means either satisfies.
+ * Parentheses group sub-expressions.
+ */
+function evaluatePrerequisites(tokens, takenSet) {
+  if (!tokens || tokens.length === 0) return true; // no prereqs = always available
+
+  // Find the matching closing paren for an opening paren at index i
+  function matchParen(toks, i) {
+    let depth = 0;
+    for (let j = i; j < toks.length; j++) {
+      if (toks[j] === '(') depth++;
+      else if (toks[j] === ')') { depth--; if (depth === 0) return j; }
+    }
+    return toks.length - 1;
+  }
+
+  // Split tokens into clauses separated by the given operator at the top level
+  function splitBy(toks, op) {
+    const clauses = [];
+    let current = [];
+    let depth = 0;
+    for (const t of toks) {
+      if (t === '(') { depth++; current.push(t); }
+      else if (t === ')') { depth--; current.push(t); }
+      else if (t === op && depth === 0) {
+        clauses.push(current);
+        current = [];
+      } else {
+        current.push(t);
+      }
+    }
+    if (current.length > 0) clauses.push(current);
+    return clauses;
+  }
+
+  function evaluate(toks) {
+    if (toks.length === 0) return true;
+
+    // Strip outer parens
+    if (toks[0] === '(' && matchParen(toks, 0) === toks.length - 1) {
+      return evaluate(toks.slice(1, toks.length - 1));
+    }
+
+    // OR has lower precedence — split by 'or' first
+    const orClauses = splitBy(toks, 'or');
+    if (orClauses.length > 1) {
+      return orClauses.some(clause => evaluate(clause));
+    }
+
+    // AND — split by 'and'
+    const andClauses = splitBy(toks, 'and');
+    if (andClauses.length > 1) {
+      return andClauses.every(clause => evaluate(clause));
+    }
+
+    // Single token — must be a course ID
+    const courseId = toks.join(' ').trim(); // handles multi-word IDs defensively
+    return takenSet.has(courseId);
+  }
+
+  return evaluate(tokens);
+}
+
+/**
+ * Build a Set of course IDs the user has marked as taken,
+ * by reading all checked course checkboxes in the sidebar.
+ */
+function getTakenSet() {
+  const taken = new Set();
+  document.querySelectorAll('input[type="checkbox"][data-course-id]').forEach(cb => {
+    if (cb.checked) taken.add(cb.dataset.courseId);
+  });
+  return taken;
+}
+
+/**
+ * Recompute and apply green/blue/gray to every node in the graph.
+ * Called whenever the taken-course set changes.
+ */
+/**
+ * Recompute and apply green/blue/gray to every node in the graph.
+ * Handles the initial all-blue state and updates arrow/link colors dynamically.
+ */
+function recomputeAllNodeColors() {
+  const takenSet = getTakenSet();
+  const isInitialState = (takenSet.size === 0);
+  
+  // Keep track of evaluated individual node states
+  const nodeStates = new Map();
+
+  // 1. Process and update Node Colors
+  d3.selectAll("#nodes > g").each(function(d) {
+    const courseId = d.data.id;
+    const prq = d.data.PRQ ?? [];
+
+    let state;
+    if (takenSet.has(courseId)) {
+      state = "taken";
+    } else if (evaluatePrerequisites(prq, takenSet)) {
+      state = "available";
+    } else {
+      state = "unavailable";
+    }
+    
+    nodeStates.set(courseId, state);
+
+    // Initial state override: Force everything to show up blue
+    const finalColor = isInitialState ? NODE_COLOR.available : NODE_COLOR[state];
+    d3.select(this).select("rect.course-rect").attr("fill", finalColor);
+  });
+
+  // Create a fast group lookup map: groupId -> array of member course IDs
+  const groupMembersMap = new Map();
+  visualGroups.forEach(g => {
+    groupMembersMap.set(g.id, g.memberIds);
+  });
+
+  // 2. Compute dynamic line and arrow colors
+  function getLinkColor(d) {
+    // Check initial state condition first
+    if (isInitialState) {
+      return "black";
+    }
+
+    const srcId = d.source.data.id;
+    const tgtId = d.target.data.id;
+
+    // Determine the source group if it exists
+    const srcGroupId = nodeToGroupId.get(srcId);
+    
+    // Gather all source course IDs we care about. 
+    // If it's in a group, look at all group members. If singleton, just look at itself.
+    const sourceCoursesToCheck = srcGroupId ? (groupMembersMap.get(srcGroupId) ?? [srcId]) : [srcId];
+
+    // Determine the target group if it exists
+    const tgtGroupId = nodeToGroupId.get(tgtId);
+    const targetCoursesToCheck = tgtGroupId ? (groupMembersMap.get(tgtGroupId) ?? [tgtId]) : [tgtId];
+
+    // Check if ANY target node in the connected layout slot is available or taken
+    const isTargetAccessible = targetCoursesToCheck.some(id => {
+      const state = nodeStates.get(id);
+      return state === "taken" || state === "available";
+    });
+    // Check if ANY source node in the connected layout slot has been taken
+    const isAnySourceTaken = sourceCoursesToCheck.some(id => takenSet.has(id));
+
+    return (isAnySourceTaken && isTargetAccessible) ? "black" : "#e2e8f0"
+  }
+
+  // Apply colors to edge paths
+  d3.select("#links").selectAll("path")
+    .attr("stroke", getLinkColor)
+    .attr("opacity", d => getLinkColor(d) === "black" ? 0.9 : 0.35); // Pop active paths!
+
+  // Apply colors to structural triangle pointer markers
+  d3.select("#arrows").selectAll("path")
+    .attr("fill", getLinkColor);
+}
+
+// Expose so index.html script block can call it
+window.recomputeAllNodeColors = recomputeAllNodeColors;
+
+// Run once on load so unavailable courses start gray
+recomputeAllNodeColors();
