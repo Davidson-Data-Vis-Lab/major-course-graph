@@ -142,8 +142,6 @@ svg#svg {
   background-color: #fafafa;
   border: 1px solid #ddd;
   display: block;
-  transform: scale(.55);
-  transform-origin: top left;
 }
 
 .legend-overlay {

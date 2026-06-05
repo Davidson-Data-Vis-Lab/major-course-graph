@@ -46,9 +46,9 @@ data.forEach(node => {
 // Collapse visual groups to one Sugiyama node each (parentIds remapped to
 // group ids). After layout, expand back to all courses for rendering.
 
-const baseNodeRadius = 33;
-const nodeW = baseNodeRadius * 3.1;
-const nodeH = baseNodeRadius * 1.1;
+const baseNodeRadius = 20;
+const nodeW = baseNodeRadius * 2.2;
+const nodeH = baseNodeRadius;
 const INTRA_GROUP_VERTICAL_GAP = 2;
 
 const stratify = d3dag.graphStratify()
@@ -96,7 +96,7 @@ const layout = d3dag
   .sugiyama()
   .layering(d3dag.layeringSimplex())
   .nodeSize(layoutNodeSize)
-  .gap([baseNodeRadius, baseNodeRadius * 5.5])
+  .gap([baseNodeRadius * 2, baseNodeRadius * 4])
   .tweaks([shape]);
 
 layout(layoutGraph);
@@ -267,16 +267,16 @@ const resetButton = svg.append("g")
   });
 
 resetButton.append("rect")
-  .attr("width", 150)
-  .attr("height", 60)
+  .attr("width", 90)
+  .attr("height", 30)
   .attr("rx", 5)
   .attr("fill", "#f0f0f0")
   .attr("stroke", "#888");
 resetButton.append("text")
-  .attr("x", 75)
-  .attr("y", 35)
+  .attr("x", 45)
+  .attr("y", 20)
   .attr("text-anchor", "middle")
-  .attr("font-size", "22px")
+  .attr("font-size", "14px")
   .text("Reset Zoom");
 
 const trans = svg.transition().duration(500);
@@ -423,6 +423,28 @@ const Tooltip = d3.select("body").append("div")
   .style("pointer-events", "none")
   .style("visibility", "hidden");
 
+function repositionTooltip(cursorX, cursorY) {
+  const tipW = Tooltip.node().offsetWidth;
+  const tipH = Tooltip.node().offsetHeight;
+  const pad = 8;
+  const gap = 12;
+
+  const spaceOnRight = window.innerWidth  - cursorX - gap;
+  const spaceBelow   = window.innerHeight - cursorY - gap;
+
+  const finalX = spaceOnRight >= tipW
+    ? cursorX + gap
+    : cursorX - tipW - gap;
+
+  const finalY = spaceBelow >= tipH
+    ? cursorY + gap
+    : cursorY - tipH - gap;
+
+  Tooltip
+    .style("left", Math.max(pad, finalX) + "px")
+    .style("top",  Math.max(pad, finalY) + "px");
+}
+
 svg.select("#nodes")
   .selectAll("g")
   .data(graph.nodes())
@@ -454,7 +476,7 @@ svg.select("#nodes")
           g.append("text")
             .text(d.data.id)
             .attr("font-weight", "bold")
-            .attr("font-size", "12px")
+            .attr("font-size", "8px")
             .attr("text-anchor", "middle")
             .attr("alignment-baseline", "middle")
             .attr("fill", "white")
@@ -472,14 +494,11 @@ svg.select("#nodes").selectAll("g")
     Tooltip
       .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>
              Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`)
-      .style("top", (event.pageY + 10) + "px")
-      .style("left", (event.pageX + 10) + "px")
       .style("visibility", "visible");
+    repositionTooltip(event.clientX, event.clientY);
   })
   .on("mousemove", (event) => {
-    Tooltip
-      .style("top", (event.pageY + 10) + "px")
-      .style("left", (event.pageX + 10) + "px")
+    repositionTooltip(event.clientX, event.clientY);
   })
   .on("mouseout", () => {
     Tooltip.style("visibility", "hidden");
@@ -492,11 +511,7 @@ svg.select("#nodes").selectAll("g")
 
     if (!checkbox) return;
 
-    checkbox.checked = !checkbox.checked;
-
-    if (typeof checkbox.onchange === "function") {
-      checkbox.onchange();
-    }
+    tryMarkCourseTaken(d.data.id, !checkbox.checked, 'node');
   });
 
 // --- Links ---
@@ -516,7 +531,7 @@ svg.select("#links")
       return makePath(d.points, 7);
     })
       .attr("fill", "none")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 2)
       .attr("stroke-dasharray", d => {
         const srcId = d.source.data.id;
         const tgtId = d.target.data.id;
@@ -630,8 +645,7 @@ function populateSidebar(data) {
     checkbox.dataset.courseId = course.id;
     checkbox.dataset.group = course.group;
     checkbox.onchange = function() {
-      recomputeAllNodeColors(this);
-      updateGroupCheckbox(course.group);
+      tryMarkCourseTaken(course.id, this.checked, 'sidebar');
     };
 
     label.appendChild(checkbox);
@@ -725,6 +739,194 @@ function evaluatePrerequisites(tokens, takenSet) {
   }
 
   return evaluate(tokens);
+}
+
+/**
+ * Returns an array of human-readable strings describing which
+ * top-level prerequisite clauses are still unmet.
+ * Preserves OR-group structure rather than expanding to individual courses.
+ */
+function getMissingPrereqs(tokens, takenSet) {
+  if (!tokens || tokens.length === 0) return [];
+
+  function matchParen(toks, i) {
+    let depth = 0;
+    for (let j = i; j < toks.length; j++) {
+      if (toks[j] === '(') depth++;
+      else if (toks[j] === ')') { depth--; if (depth === 0) return j; }
+    }
+    return toks.length - 1;
+  }
+
+  function splitByTopLevelAnd(toks) {
+    const clauses = [];
+    let current = [];
+    let depth = 0;
+    for (const t of toks) {
+      if (t === '(') { depth++; current.push(t); }
+      else if (t === ')') { depth--; current.push(t); }
+      else if (t === 'and' && depth === 0) {
+        if (current.length) clauses.push(current);
+        current = [];
+      } else {
+        current.push(t);
+      }
+    }
+    if (current.length) clauses.push(current);
+    return clauses;
+  }
+
+  function clauseIsMet(clause) {
+    // Strip outer parens for evaluation
+    let toks = clause;
+    while (toks[0] === '(' && matchParen(toks, 0) === toks.length - 1) {
+      toks = toks.slice(1, toks.length - 1);
+    }
+    // OR clause — any one satisfied
+    if (toks.includes('or')) {
+      return toks
+        .filter(t => t !== 'or' && t !== '(' && t !== ')')
+        .some(t => takenSet.has(t));
+    }
+    // AND clause or single course
+    return toks
+      .filter(t => t !== 'and' && t !== '(' && t !== ')')
+      .every(t => takenSet.has(t));
+  }
+
+  function clauseToString(clause) {
+    // Single course
+    if (clause.length === 1) return clause[0];
+    // Already wrapped in parens — preserve as-is
+    if (clause[0] === '(' && matchParen(clause, 0) === clause.length - 1) {
+      return clause.join(' ');
+    }
+    return clause.join(' ');
+  }
+
+  const topLevelClauses = splitByTopLevelAnd(tokens);
+  return topLevelClauses
+    .filter(clause => !clauseIsMet(clause))
+    .map(clauseToString);
+}
+
+/**
+ * Extracts all individual course IDs from a missing prereq clause string.
+ * e.g. "(MAT 140 or MAT 150)" → ["MAT 140", "MAT 150"]
+ * e.g. "CSC 221" → ["CSC 221"]
+ */
+function extractCourseIdsFromClause(clauseStr) {
+  return clauseStr
+    .replace(/[()]/g, '')
+    .split(/\s+(?:or|and)\s+/)
+    .map(s => s.trim())
+    .filter(Boolean);
+}
+
+function tryMarkCourseTaken(courseId, desiredChecked, source = 'node') {
+  const checkbox = document.querySelector(
+    `input[data-course-id="${CSS.escape(courseId)}"]`
+  );
+  if (!checkbox) return;
+
+  // Unchecking is always allowed
+  if (!desiredChecked) {
+    checkbox.checked = false;
+    recomputeAllNodeColors();
+    updateGroupCheckbox(checkbox.dataset.group);
+    return;
+  }
+
+  const courseData = data.find(d => d.id === courseId);
+  const prq = courseData?.PRQ ?? [];
+  const takenSet = getTakenSet();
+
+  if (evaluatePrerequisites(prq, takenSet)) {
+    // prereqs met — commit
+    checkbox.checked = true;
+    recomputeAllNodeColors();
+    updateGroupCheckbox(checkbox.dataset.group);
+    return;
+  }
+
+  // prereqs NOT met — revert checkbox immediately
+  checkbox.checked = false;
+
+  const missing = getMissingPrereqs(prq, takenSet);
+  const missingHtml = missing.length
+    ? `<br/><br/><span style="color:#c0392b;font-weight:600">✕ Missing prerequisites:</span>`
+      + missing.map(m => `<br/>• ${m}`).join('')
+    : `<br/><br/><span style="color:#c0392b">✕ Prerequisites not met</span>`;
+
+  // Find the node element
+  let targetNode = null;
+  svg.select("#nodes").selectAll("g").each(function(d) {
+    if (d.data.id === courseId) targetNode = this;
+  });
+
+  if (targetNode) {
+    // Flash red border regardless of source
+    const rect = d3.select(targetNode).select("rect.course-rect");
+    rect.attr("stroke", "#c0392b").attr("stroke-width", 4);
+    setTimeout(() => rect.attr("stroke", "white").attr("stroke-width", 2), 1000);
+
+    if (source === 'node') {
+      // Node click: just update the existing hover tooltip in place.
+      // It's already visible because the user is hovering over the node.
+      Tooltip.html(
+        `<strong>${courseData.id}: ${courseData.name}</strong>`
+        + `<br/>Prerequisites: ${prq?.join(' ') || 'None'}`
+        + missingHtml
+      );
+      // Tooltip position is already correct from the mouseover handler — no move needed.
+
+    } else {
+      // Sidebar click: user is not hovering, so we spawn and auto-dismiss the tooltip.
+      const svgEl = document.getElementById("svg");
+      const svgRect = svgEl.getBoundingClientRect();
+      const nodeData = d3.select(targetNode).datum();
+
+      const transform = d3.zoomTransform(svgEl);
+      const nodeScreenX = transform.applyX(nodeData.x) + svgRect.left;
+      const nodeScreenY = transform.applyY(nodeData.y) + svgRect.top - 10;
+
+      // Render tooltip offscreen first so we can measure its dimensions
+      Tooltip
+        .html(
+          `<strong>${courseData.id}: ${courseData.name}</strong>`
+          + `<br/>Prerequisites: ${prq?.join(' ') || 'None'}`
+          + missingHtml
+        )
+        .style("visibility", "hidden")  // hidden but in-flow so it has dimensions
+        .style("left", "0px")
+        .style("top",  "0px");
+
+      // Now read its rendered size
+      const tipW = Tooltip.node().offsetWidth;
+      const tipH = Tooltip.node().offsetHeight;
+      const pad  = 8; // minimum gap from viewport edge
+      const gap = 20; // distance from node edge to tooltip edge
+
+      // Flip to left side if not enough room on the right
+      const spaceOnRight = window.innerWidth - nodeScreenX - gap;
+      const finalX = spaceOnRight >= tipW
+        ? nodeScreenX + gap                  // enough room — place right
+        : nodeScreenX - tipW - gap;          // not enough room — flip left
+
+      // Flip upward if not enough room below
+      const spaceBelow = window.innerHeight - nodeScreenY - gap;
+      const finalY = spaceBelow >= tipH
+        ? nodeScreenY + gap                  // enough room — place below
+        : nodeScreenY - tipH - gap;          // not enough room — flip above
+
+      Tooltip
+        .style("left", Math.max(pad, finalX) + "px")
+        .style("top",  Math.max(pad, finalY) + "px")
+        .style("visibility", "visible");
+
+      setTimeout(() => Tooltip.style("visibility", "hidden"), 3000);
+    }
+  }
 }
 
 /**
