@@ -254,20 +254,30 @@ const zoom = d3.zoom()
 svg.call(zoom);
 
 // reset zoom function
-// double click
-svg.on("dblclick.zoom", () => svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity));
-// // vs button
-// d3.select("body").append("button")
-//   .text("Reset Zoom")
-//   .style("position", "fixed")
-//   .style("bottom", "16px")
-//   .style("right", "16px")
-//   .style("z-index", "100")
-//   .style("padding", "6px 12px")
-//   .style("cursor", "pointer")
-//   .on("click", () => {
-//     svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity);
-//   });
+// // double click
+// svg.on("dblclick.zoom", () => svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity));
+// vs button
+const resetButton = svg.append("g")
+  .attr("transform", `translate(20, ${height - 40})`)
+  .style("cursor", "pointer")
+  .on("click", () => {
+    svg.transition()
+      .duration(400)
+      .call(zoom.transform, d3.zoomIdentity);
+  });
+
+resetButton.append("rect")
+  .attr("width", 150)
+  .attr("height", 60)
+  .attr("rx", 5)
+  .attr("fill", "#f0f0f0")
+  .attr("stroke", "#888");
+resetButton.append("text")
+  .attr("x", 75)
+  .attr("y", 35)
+  .attr("text-anchor", "middle")
+  .attr("font-size", "22px")
+  .text("Reset Zoom");
 
 const trans = svg.transition().duration(500);
 
