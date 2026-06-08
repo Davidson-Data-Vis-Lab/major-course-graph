@@ -436,7 +436,8 @@ svg.select("#nodes").selectAll("g")
   .on("mouseover", (event, d) => {
     Tooltip
       .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>
-             Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`)
+             Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}<br/>
+             Description: ${d.data.description.slice(0, 120) || ''}`) // Truncate description for tooltip
       .style("top", (event.pageY + 10) + "px")
       .style("left", (event.pageX + 10) + "px")
       .style("visibility", "visible");
