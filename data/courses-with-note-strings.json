@@ -67,7 +67,7 @@
     "satisfies": [
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
-    "PRQ": ["MAT 112", "MAT 111"],
+    "PRQ": [],
     "group": "intro-math"
   },
   {
@@ -527,8 +527,6 @@
   {
     "id": "MAT 230",
     "parentIds": [
-      "MAT 113",
-      "MAT 140",
       "MAT 150",
       "MAT 160"
     ],
