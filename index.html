@@ -13,14 +13,14 @@
 
     <div class="controls">
       <h3>Instructions</h3>
-      <p>Hover over a course to see details.<br>
-      Check courses you have completed. <br>
-      Scroll to zoom in and out. </p>
+      <p>Use this chart to plot the courses you want to take or have taken in the major.<br><br>Hover over the course to 
+        see details. Click the course rectangle or check the box in the course list if you have completed the course.
+        <br><br>Scroll on the chart to zoom in and out. </p>
 
-      <button onclick="resetAllCourses()">Unselect All</button>
+      <button class="btn" onclick="resetAllCourses()">Unselect All</button>
 
       <div class="sidebar-section">
-        <h3>Major Prerequisites</h3>
+        <h3><br>Major Prerequisites</h3>
 
         <div class="sidebar-group">
           <label class="group-header">
@@ -124,13 +124,13 @@
       <!-- </div>   -->
       <div class="legend-overlay">
         <div class="legend-item">
-          <span class="legend-box" style="background:#aaaaaa"></span> Unavailable
+          <span class="legend-box" style="background:#aaaaaa"></span> Prerequisites Not Met <!-- OR not yet eligible to take -->
         </div>
         <div class="legend-item">
-          <span class="legend-box" style="background:#20a23a"></span> Available
+          <span class="legend-box" style="background:#20a23a"></span> Eligible to Take
         </div>
         <div class="legend-item">
-          <span class="legend-box" style="background:#d16b05"></span> Taken
+          <span class="legend-box" style="background:#d16b05"></span> Completed <!-- OR taken -->
         </div>
         <div class="legend-item">
           <span class="legend-line solid"></span> Required Path

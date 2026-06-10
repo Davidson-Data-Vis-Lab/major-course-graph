@@ -257,27 +257,19 @@ svg.call(zoom);
 // // double click
 // svg.on("dblclick.zoom", () => svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity));
 // vs button
-const resetButton = svg.append("g")
-  .attr("transform", `translate(20, ${height - 40})`)
-  .style("cursor", "pointer")
-  .on("click", () => {
-    svg.transition()
-      .duration(400)
-      .call(zoom.transform, d3.zoomIdentity);
-  });
+const foreignObject = svg.append("foreignObject")
+  .attr("x", 10)
+  .attr("y", 135)
+  .attr("width", 137)
+  .attr("height", 36);
 
-resetButton.append("rect")
-  .attr("width", 90)
-  .attr("height", 30)
-  .attr("rx", 5)
-  .attr("fill", "#f0f0f0")
-  .attr("stroke", "#888");
-resetButton.append("text")
-  .attr("x", 45)
-  .attr("y", 20)
-  .attr("text-anchor", "middle")
-  .attr("font-size", "14px")
-  .text("Reset Zoom");
+foreignObject.append("xhtml:button")
+  .attr("class", "btn")
+  .style("width", "100%")
+  .text("Reset Zoom")
+  .on("click", () => {
+    svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity);
+  });
 
 const trans = svg.transition().duration(500);
 
