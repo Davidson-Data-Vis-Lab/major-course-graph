@@ -665,8 +665,8 @@ populateSidebar(data);
 // --------------------------------- //
 
 const NODE_COLOR = {
-  taken:       "#285841",  // green
-  available:   "steelblue", // blue
+  taken:       "#d16b05",  // green
+  available:   "#285841", // blue
   unavailable: "#aaaaaa",  // gray
 };
 
