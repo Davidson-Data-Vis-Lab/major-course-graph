@@ -1112,21 +1112,20 @@ recomputeAllNodeColors();
 // Course Search Engine & Spatial Interaction Logic
 // ==================================================
 
-let activeSearchIndex = -1;
+let activeSearchIndex = 0; 
 let currentMatches = [];
 
 // Listen for keyboard entry typing sequences
 searchInput.on("input", function(event) {
   const query = event.target.value.toLowerCase().trim();
   searchDropdown.html("");
-  activeSearchIndex = -1;
+  activeSearchIndex = 0; 
 
   if (!query) {
     searchDropdown.style("display", "none");
     return;
   }
 
-  // Reuse the existing source of truth (the 'data' array parsed in phase 1)
   currentMatches = data.filter(course => 
     course.id.toLowerCase().includes(query) || 
     course.name.toLowerCase().includes(query)
@@ -1142,28 +1141,50 @@ searchInput.on("input", function(event) {
     searchDropdown.append("li")
       .attr("class", `search-item item-${idx}`)
       .text(`${course.id}: ${course.name}`)
-      .on("click", () => selectSearchedCourse(course));
+      .on("click", () => selectSearchedCourse(course))
+      
+      // --- HANDOFF RULE 1: Mouse movement overrides and clears keyboard highlight ---
+      .on("mousemove", function() {
+        // Clear out all highlights everywhere first
+        searchDropdown.selectAll(".search-item").classed("active", false).classed("hovered", false);
+        
+        // Sync our tracking index to the mouse position so pressing Enter still works perfectly
+        activeSearchIndex = idx;
+        
+        // Light up this specific item row with the subtle mouse style
+        d3.select(this).classed("hovered", true);
+      })
+      
+      // Clear highlight when the cursor completely exits the dropdown panel bounds
+      .on("mouseleave", function() {
+        d3.select(this).classed("hovered", false);
+      });
   });
 
   searchDropdown.style("display", "block");
+
+  // Highlight the first element immediately upon drawing the dropdown list
+  updateDropdownSelection();
 });
 
-// Handle special keyboard control paths (Arrow Keys + Enter Key)
+// Handle arrow controls and instant Enter key selection
 searchInput.on("keydown", function(event) {
-  const items = searchDropdown.selectAll(".search-item");
-  if (searchDropdown.style("display") === "none" || !items.size()) return;
+  if (searchDropdown.style("display") === "none" || currentMatches.length === 0) return;
 
+  // --- HANDOFF RULE 2: Arrow keys instantly override and clear mouse hover states ---
   if (event.key === "ArrowDown") {
     event.preventDefault();
+    searchDropdown.selectAll(".search-item").classed("hovered", false); // Kill mouse visual
     activeSearchIndex = (activeSearchIndex + 1) % currentMatches.length;
-    updateDropdownSelection(items);
+    updateDropdownSelection();
   } else if (event.key === "ArrowUp") {
     event.preventDefault();
+    searchDropdown.selectAll(".search-item").classed("hovered", false); // Kill mouse visual
     activeSearchIndex = (activeSearchIndex - 1 + currentMatches.length) % currentMatches.length;
-    updateDropdownSelection(items);
+    updateDropdownSelection();
   } else if (event.key === "Enter") {
     event.preventDefault();
-    if (activeSearchIndex > -1 && activeSearchIndex < currentMatches.length) {
+    if (activeSearchIndex >= 0 && activeSearchIndex < currentMatches.length) {
       selectSearchedCourse(currentMatches[activeSearchIndex]);
     }
   } else if (event.key === "Escape") {
@@ -1171,12 +1192,14 @@ searchInput.on("keydown", function(event) {
   }
 });
 
-// Synchronize keyboard active item array classes
-function updateDropdownSelection(items) {
-  items.classList.remove("active");
+// Cleanly applies the dark .active class to the correctly tracked item row
+function updateDropdownSelection() {
+  // Clear out both state classes everywhere to guarantee a clean baseline
+  searchDropdown.selectAll(".search-item").classed("active", false).classed("hovered", false);
+
   const activeItem = searchDropdown.select(`.item-${activeSearchIndex}`);
   if (!activeItem.empty()) {
-    activeItem.node().classList.add("active");
+    activeItem.classed("active", true);
     activeItem.node().scrollIntoView({ block: "nearest" });
   }
 }
