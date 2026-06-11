@@ -46,7 +46,12 @@ data.forEach(node => {
 // Collapse visual groups to one Sugiyama node each (parentIds remapped to
 // group ids). After layout, expand back to all courses for rendering.
 
-const baseNodeRadius = 20;
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
+const nodeRatio = 18/1512; // ratio of node radius to screen width that will size each node accordingly
+const fontRatio = 7/18; // ratio of font size to node radius for scaling text with node size
+
+const baseNodeRadius = screenWidth * nodeRatio;
 const nodeW = baseNodeRadius * 2.2;
 const nodeH = baseNodeRadius;
 const INTRA_GROUP_VERTICAL_GAP = 2;
@@ -437,6 +442,13 @@ function repositionTooltip(cursorX, cursorY) {
     .style("top",  Math.max(pad, finalY) + "px");
 }
 
+function shortDesc(text, wordLimit = 20) {
+  if (!text) return '';
+  const words = text.trim().split(/\s+/);
+  if (words.length <= wordLimit) return 'Description: ' + text;
+  return 'Description: ' + words.slice(0, wordLimit).join(' ') + '...(double-click for full description)';
+}
+
 svg.select("#nodes")
   .selectAll("g")
   .data(graph.nodes())
@@ -468,7 +480,7 @@ svg.select("#nodes")
           g.append("text")
             .text(d.data.id)
             .attr("font-weight", "bold")
-            .attr("font-size", "8px")
+            .attr("font-size", `${baseNodeRadius * fontRatio}px`)
             .attr("text-anchor", "middle")
             .attr("alignment-baseline", "middle")
             .attr("fill", "white")
@@ -484,10 +496,23 @@ svg.select("#nodes").selectAll("g")
   // tooltip
   .on("mouseover", (event, d) => {
     Tooltip
-      .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>
-             Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`)
+      .style("max-width", "none") 
+      .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>`
+             + `Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`)
       .style("visibility", "visible");
-    repositionTooltip(event.clientX, event.clientY);
+
+    const naturalWidth = Tooltip.node().offsetWidth;
+
+    // Now set the measured width as the cap and add the description
+    Tooltip
+      .style("max-width", naturalWidth + "px")
+      .html(
+        `<strong>${d.data.id}: ${d.data.name}</strong><br/>`
+        + `Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`
+        + (d.data.description ? `<br/><br/>${shortDesc(d.data.description)}` : '')
+      )
+      .style("visibility", "visible");
+      repositionTooltip(event.clientX, event.clientY);
   })
   .on("mousemove", (event) => {
     repositionTooltip(event.clientX, event.clientY);
@@ -504,6 +529,27 @@ svg.select("#nodes").selectAll("g")
     if (!checkbox) return;
 
     tryMarkCourseTaken(d.data.id, !checkbox.checked, 'node');
+  })
+  .on("dblclick", (event, d) => {
+    
+    Tooltip
+      .style("max-width", "none") 
+      .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>`
+             + `Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`)
+      .style("visibility", "visible");
+
+    const naturalWidth = Tooltip.node().offsetWidth;
+
+    // Now set the measured width as the cap and add the description
+    Tooltip
+      .style("max-width", naturalWidth + "px")
+      .html(
+        `<strong>${d.data.id}: ${d.data.name}</strong><br/>`
+        + `Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`
+        + (d.data.description ? `<br/><br/>${d.data.description}` : '')
+      )
+      .style("visibility", "visible");
+      repositionTooltip(event.clientX, event.clientY);
   });
 
 // --- Links ---
@@ -865,11 +911,24 @@ function tryMarkCourseTaken(courseId, desiredChecked, source = 'node') {
     if (source === 'node') {
       // Node click: just update the existing hover tooltip in place.
       // It's already visible because the user is hovering over the node.
-      Tooltip.html(
-        `<strong>${courseData.id}: ${courseData.name}</strong>`
-        + `<br/>Prerequisites: ${prq?.join(' ') || 'None'}`
-        + missingHtml
-      );
+      Tooltip
+        .style("max-width", "none") // cap max width for better readability of long descriptions
+        .html(
+          `<strong>${courseData.id}: ${courseData.name}</strong>`
+          + `<br/>Prerequisites: ${prq?.join(' ') || 'None'}`
+        );
+
+      const naturalWidth = Tooltip.node().offsetWidth;
+
+      Tooltip
+        .style("max-width", naturalWidth + "px")
+        .html(
+          `<strong>${courseData.id}: ${courseData.name}</strong><br/>`
+          + `Prerequisites: ${prq?.join(' ') || 'None'}`
+          + (courseData.description ? `<br/><br/>${shortDesc(courseData.description)}` : '')
+          + missingHtml
+        );
+
       // Tooltip position is already correct from the mouseover handler — no move needed.
 
     } else {
@@ -884,14 +943,16 @@ function tryMarkCourseTaken(courseId, desiredChecked, source = 'node') {
 
       // Render tooltip offscreen first so we can measure its dimensions
       Tooltip
+        .style("max-width", "none") 
         .html(
           `<strong>${courseData.id}: ${courseData.name}</strong>`
           + `<br/>Prerequisites: ${prq?.join(' ') || 'None'}`
-          + missingHtml
         )
         .style("visibility", "hidden")  // hidden but in-flow so it has dimensions
         .style("left", "0px")
         .style("top",  "0px");
+
+      const naturalWidth = Tooltip.node().offsetWidth;
 
       // Now read its rendered size
       const tipW = Tooltip.node().offsetWidth;
@@ -914,6 +975,13 @@ function tryMarkCourseTaken(courseId, desiredChecked, source = 'node') {
       Tooltip
         .style("left", Math.max(pad, finalX) + "px")
         .style("top",  Math.max(pad, finalY) + "px")
+        .style("max-width", naturalWidth + "px")
+        .html(
+          `<strong>${courseData.id}: ${courseData.name}</strong>`
+          + `<br/>Prerequisites: ${prq?.join(' ') || 'None'}`
+          + (courseData.description ? `<br/><br/>${shortDesc(courseData.description)}` : '')
+          + missingHtml
+        )
         .style("visibility", "visible");
 
       setTimeout(() => Tooltip.style("visibility", "hidden"), 3000);

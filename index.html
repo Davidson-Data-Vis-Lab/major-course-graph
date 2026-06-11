@@ -24,7 +24,6 @@
 
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="intro-programming" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Introductory Programming</span>
           </label>
           <div class="course-list" id="list-intro-programming"></div>
@@ -32,7 +31,6 @@
 
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="intro-math" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Introductory Mathematics</span>
           </label>
           <div class="course-list" id="list-intro-math"></div>
@@ -47,7 +45,6 @@
 
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="math" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Mathematics Courses</span>
             <span id="progress-math" class="group-progress"></span>
           </label>
@@ -56,7 +53,6 @@
 
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="core" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Core Courses</span>
             <span id="progress-core" class="group-progress"></span>
           </label>
@@ -65,7 +61,6 @@
 
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="electives" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Electives</span>
             <span id="progress-electives" class="group-progress"></span>
           </label>
@@ -74,7 +69,6 @@
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="applications" onchange="handleGroupCheck(this)"/>
                 <span class="header-title">Applications</span>
                 <span id="progress-applications" class="group-progress"></span>
               </label>
@@ -83,7 +77,6 @@
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="systems" onchange="handleGroupCheck(this)"/>
                 <span class="header-title">Systems</span>
                 <span id="progress-systems" class="group-progress"></span>
               </label>
@@ -92,7 +85,6 @@
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="theory" onchange="handleGroupCheck(this)"/>
                 <span class="header-title">Theory</span>
               </label>
               <div class="course-list" id="list-theory"></div>
@@ -100,7 +92,6 @@
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="other" onchange="handleGroupCheck(this)"/>
                 <span class="header-title">Other</span>
               </label>
               <div class="course-list" id="list-other"></div>
@@ -361,17 +352,19 @@
 
     function updateGroupCheckbox(group) {
       const boxes = getGroupCheckboxes(group);
-      const header = document.querySelector(`.group-checkbox[data-group="${group}"]`);
-      if (!header || !boxes.length) return;
+      if (!boxes.length) return;
 
-      const checked = boxes.filter(cb => cb.checked).length;
-      header.indeterminate = checked > 0 && checked < boxes.length;
-      header.checked = checked === boxes.length;
+      // Only update the header checkbox if it still exists
+      const header = document.querySelector(`.group-checkbox[data-group="${group}"]`);
+      if (header) {
+        const checked = boxes.filter(cb => cb.checked).length;
+        header.indeterminate = checked > 0 && checked < boxes.length;
+        header.checked = checked === boxes.length;
+      }
 
       updateProgressIndicator(group);
 
       if (ELECTIVE_GROUPS.includes(group)) {
-        updateElectivesGroupCheckbox();
         updateProgressIndicator('electives');
       }
 
