@@ -22,6 +22,7 @@
   padding: 10px;
   border-radius: 6px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .controls input[type="checkbox"] {
@@ -279,7 +280,7 @@ svg#svg {
 
 /* Info button */
 #info-btn {
-  position: fixed;
+  position: absolute;
   top: 16px;
   right: 16px;
   z-index: 999;
@@ -356,9 +357,9 @@ svg#svg {
   font-style: italic;
 }
 
-#info-modal .color-available { color: steelblue; font-weight: 600; }
-#info-modal .color-taken     { color: #285841;   font-weight: 600; }
-#info-modal .color-unavail   { color: #aaaaaa;   font-weight: 600; }
+#info-modal .color-available { color: #20a23a; font-weight: 600; }
+#info-modal .color-taken     { color: #d16b05;   font-weight: 600; }
+#info-modal .color-unavail   { color: #909090;   font-weight: 600; }
 
 #info-close {
   position: absolute;

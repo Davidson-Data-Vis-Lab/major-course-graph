@@ -12,6 +12,7 @@
   <div class="container">
 
     <div class="controls">
+      <button id="info-btn" class="btn">?</button>
       <h3>Instructions</h3>
       <p>Use this chart to plot the courses you want to take or have taken in the major.<br><br>Hover over the course to 
         see details. Click the course rectangle or check the box in the course list if you have completed the course.
@@ -156,8 +157,8 @@
 
       <h3>Node Colors</h3>
       <ul>
-        <li><span class="color-available">Blue</span> — course is available to take</li>
-        <li><span class="color-taken">Green</span> — course marked as taken</li>
+        <li><span class="color-available">Green</span> — course is available to take</li>
+        <li><span class="color-taken">Orange</span> — course marked as taken</li>
         <li><span class="color-unavail">Gray</span> — prerequisites not yet satisfied</li>
       </ul>
 
@@ -178,7 +179,9 @@
       <h3>Edges</h3>
       <ul>
         <li><strong>Solid arrow</strong> — represents a required prerequisite path to a course</li>
-        <li><strong>Dashed arrow</strong> — represents an optional prerequisite path to a course (i.e., not the only path)</li> <!-- struggling to word this-->
+        <li><strong>Dashed arrow</strong> — represents an optional prerequisite path (e.g., for MAT 230 Sets
+           and Proofs, you need to complete either MAT 113, MAT 140, MAT 150, or MAT 160, so there are dashed 
+           lines from those courses to MAT 230)</li> <!-- struggling to word this-->
       </ul>
 
       <hr/>
@@ -188,8 +191,6 @@
       </p>
     </div>
   </div>
-
-  <button id="info-btn" class="btn">?</button>
 
   <script>
   /**
