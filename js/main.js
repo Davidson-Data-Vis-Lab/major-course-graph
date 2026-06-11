@@ -278,6 +278,22 @@ foreignObject.append("xhtml:button")
 
 const trans = svg.transition().duration(500);
 
+// --- Search Interface HTML Injection ---
+// Placed near the top left corner (10px down, 150px right of your viewport edge wrapper)
+const searchWrapper = d3.select("body")
+  .append("div")
+  .attr("class", "search-container")
+  .style("left", "650px") // Positioned safely off the side panel boundaries
+  .style("top", "25px");
+
+searchWrapper.html(`
+  <input type="text" class="search-input" placeholder="Search Course ID or Name..." autocomplete="off">
+  <ul class="search-dropdown" style="display: none;"></ul>
+`);
+
+const searchInput = searchWrapper.select(".search-input");
+const searchDropdown = searchWrapper.select(".search-dropdown");
+
 // Legend
 // const legend = svg.append("g")
 //   .attr("class", "legend")
@@ -1090,3 +1106,156 @@ window.recomputeAllNodeColors = recomputeAllNodeColors;
 
 // Run once on load so unavailable courses start gray
 recomputeAllNodeColors();
+
+
+// ==================================================
+// Course Search Engine & Spatial Interaction Logic
+// ==================================================
+
+let activeSearchIndex = -1;
+let currentMatches = [];
+
+// Listen for keyboard entry typing sequences
+searchInput.on("input", function(event) {
+  const query = event.target.value.toLowerCase().trim();
+  searchDropdown.html("");
+  activeSearchIndex = -1;
+
+  if (!query) {
+    searchDropdown.style("display", "none");
+    return;
+  }
+
+  // Reuse the existing source of truth (the 'data' array parsed in phase 1)
+  currentMatches = data.filter(course => 
+    course.id.toLowerCase().includes(query) || 
+    course.name.toLowerCase().includes(query)
+  );
+
+  if (currentMatches.length === 0) {
+    searchDropdown.style("display", "none");
+    return;
+  }
+
+  // Populate dynamic dropdown list
+  currentMatches.forEach((course, idx) => {
+    searchDropdown.append("li")
+      .attr("class", `search-item item-${idx}`)
+      .text(`${course.id}: ${course.name}`)
+      .on("click", () => selectSearchedCourse(course));
+  });
+
+  searchDropdown.style("display", "block");
+});
+
+// Handle special keyboard control paths (Arrow Keys + Enter Key)
+searchInput.on("keydown", function(event) {
+  const items = searchDropdown.selectAll(".search-item");
+  if (searchDropdown.style("display") === "none" || !items.size()) return;
+
+  if (event.key === "ArrowDown") {
+    event.preventDefault();
+    activeSearchIndex = (activeSearchIndex + 1) % currentMatches.length;
+    updateDropdownSelection(items);
+  } else if (event.key === "ArrowUp") {
+    event.preventDefault();
+    activeSearchIndex = (activeSearchIndex - 1 + currentMatches.length) % currentMatches.length;
+    updateDropdownSelection(items);
+  } else if (event.key === "Enter") {
+    event.preventDefault();
+    if (activeSearchIndex > -1 && activeSearchIndex < currentMatches.length) {
+      selectSearchedCourse(currentMatches[activeSearchIndex]);
+    }
+  } else if (event.key === "Escape") {
+    closeSearchDropdown();
+  }
+});
+
+// Synchronize keyboard active item array classes
+function updateDropdownSelection(items) {
+  items.classList.remove("active");
+  const activeItem = searchDropdown.select(`.item-${activeSearchIndex}`);
+  if (!activeItem.empty()) {
+    activeItem.node().classList.add("active");
+    activeItem.node().scrollIntoView({ block: "nearest" });
+  }
+}
+
+function closeSearchDropdown() {
+  searchDropdown.style("display", "none");
+  searchInput.node().value = "";
+}
+
+// Global click monitoring to close search when clicking canvas whitespace
+d3.select("body").on("click.search-close", function(event) {
+  if (!searchWrapper.node().contains(event.target)) {
+    searchDropdown.style("display", "none");
+  }
+});
+
+// --- Core Target Evaluation Handler ---
+function selectSearchedCourse(course) {
+  closeSearchDropdown();
+
+  // 1. Locate the correct rendered canvas graphical elements
+  let targetedNodeGroup = null;
+  svg.select("#nodes").selectAll("g").each(function(d) {
+    if (d.data.id === course.id) {
+      targetedNodeGroup = d3.select(this);
+    }
+  });
+
+  if (!targetedNodeGroup || targetedNodeGroup.empty()) return;
+
+  const nodeDatum = targetedNodeGroup.datum();
+  const svgElement = document.getElementById("svg");
+  
+  // 2. Compute Spatial Viewport Coordinates
+  const svgRect = svgElement.getBoundingClientRect();
+  const currentTransform = d3.zoomTransform(svgElement);
+
+  // Translate node spatial position coordinates to live screen pixels
+  const targetScreenX = currentTransform.applyX(nodeDatum.x);
+  const targetScreenY = currentTransform.applyY(nodeDatum.y);
+
+  // 3. Evaluate Visibility Boundaries
+  // Margin buffers ensure a course is not considered "visible" if clipped at screen edge
+  const marginX = 80;
+  const marginY = 40;
+  
+  const isFullyVisible = 
+    targetScreenX >= marginX && 
+    targetScreenX <= (svgRect.width - marginX) &&
+    targetScreenY >= marginY && 
+    targetScreenY <= (svgRect.height - marginY);
+
+  // Action B vs C: Reset zoom only if the target is out of boundaries
+  if (!isFullyVisible) {
+    svg.transition()
+      .duration(500)
+      .call(zoom.transform, d3.zoomIdentity); // Safe identity reset matrix
+  }
+
+  // 4. Trigger Structural Highlight Ring Animation Sequence
+  triggerHighlightRing(targetedNodeGroup);
+}
+
+function triggerHighlightRing(nodeGroup) {
+  // Append temporary visual ring animation element
+  const ring = nodeGroup.append("circle")
+    .attr("class", "search-highlight-ring")
+    .attr("r", baseNodeRadius * 1.5) // Radiates comfortably outward past rect box parameters
+    .attr("fill", "none")
+    .attr("stroke", "#d16b05") // Accent coloring contrast that pulls your focus instantly
+    .attr("stroke-width", 4)
+    .attr("opacity", 1);
+
+  // Smooth pulse loop transition sequence
+  ring.transition()
+    .duration(1000)
+    .attr("opacity", 0.2)
+    .transition()
+    .duration(1000)
+    .attr("opacity", 0)
+    .remove(); // Clean up from the DOM immediately upon completion
+}
