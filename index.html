@@ -133,6 +133,64 @@
     </div>
   </div>
 
+  <div id="info-overlay">
+    <div id="info-modal">
+      <button id="info-close">✕</button>
+
+      <h2>How to Use This Visualization</h2>
+
+      <p class="disclaimer">
+        ⚠ This tool is a work in progress. Course data, prerequisite logic, and
+        graduation requirements may not perfectly reflect the official Davidson
+        College catalog. Always verify with your advisor or the official registrar.
+      </p>
+
+      <hr/>
+
+      <h3>Navigating the Graph</h3>
+      <ul>
+        <li><strong>Pinch or scroll wheel</strong> — zoom in and out</li>
+        <li><strong>Click and drag</strong> — pan around the graph</li>
+        <li><strong>Reset Zoom button</strong> — return to the original view</li>
+      </ul>
+
+      <h3>Node Colors</h3>
+      <ul>
+        <li><span class="color-available">Blue</span> — course is available to take</li>
+        <li><span class="color-taken">Green</span> — course marked as taken</li>
+        <li><span class="color-unavail">Gray</span> — prerequisites not yet satisfied</li>
+      </ul>
+
+      <h3>Interacting with Courses</h3>
+      <ul>
+        <li><strong>Hover</strong> over a node to see its name, prerequisites, and a short description</li>
+        <li><strong>Single click</strong> a node or check its sidebar checkbox to mark it as taken</li>
+        <li><strong>Double click</strong> a node to read its full course description</li>
+        <li>You can only mark a course as taken if its prerequisites are satisfied — missing prerequisites will be highlighted in red</li>
+      </ul>
+
+      <h3>Sidebar</h3>
+      <ul>
+        <li>Check courses you have completed to track your progress</li>
+        <li>Progress indicators show how many requirements you have fulfilled in each section</li>
+      </ul>
+
+      <h3>Edges</h3>
+      <ul>
+        <li><strong>Solid arrow</strong> — represents a required prerequisite path to a course</li>
+        <li><strong>Dashed arrow</strong> — represents an optional prerequisite path to a course (i.e., not the only path)</li> <!-- struggling to word this-->
+      </ul>
+
+      <hr/>
+      <p class="credits">
+        Created by Yurdanur Yolcu, Christian Weaver, and Dr. Katy Williams.
+        Summer 2025–2026. Coded with the help of Claude, ChatGPT, and Cursor.
+      </p>
+    </div>
+  </div>
+
+  <button id="info-btn" class="btn">?</button>
+
   <script>
   /**
    * Graduation requirement rules for "Requirements for the Major".
@@ -422,6 +480,30 @@
         initAllProgressIndicators();
       }
     }
+  </script>
+  <script>
+    const overlay  = document.getElementById('info-overlay');
+    const infoBtn  = document.getElementById('info-btn');
+    const closeBtn = document.getElementById('info-close');
+
+    function openModal()  { overlay.style.display = 'flex'; }
+    function closeModal() { overlay.style.display = 'none'; }
+
+    infoBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close when clicking outside the modal box
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal();
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Show on load automatically
+    openModal();
   </script>
 
   <script src="js/clusterNodes.js" type="module"></script>
