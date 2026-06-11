@@ -536,16 +536,6 @@ svg.select("#nodes").selectAll("g")
   .on("mouseout", () => {
     Tooltip.style("visibility", "hidden");
   })
-  // click for taken courses
-  .on("click", (event, d) => {
-    const checkbox = document.querySelector(
-      `input[data-course-id="${d.data.id}"]`
-    );
-
-    if (!checkbox) return;
-
-    tryMarkCourseTaken(d.data.id, !checkbox.checked, 'node');
-  })
   .on("dblclick", (event, d) => {
     
     Tooltip
@@ -566,6 +556,16 @@ svg.select("#nodes").selectAll("g")
       )
       .style("visibility", "visible");
       repositionTooltip(event.clientX, event.clientY);
+  })
+    // click for taken courses
+  .on("click", (event, d) => {
+    const checkbox = document.querySelector(
+      `input[data-course-id="${d.data.id}"]`
+    );
+
+    if (!checkbox) return;
+
+    tryMarkCourseTaken(d.data.id, !checkbox.checked, 'node');
   });
 
 // --- Links ---
@@ -1088,13 +1088,13 @@ function recomputeAllNodeColors() {
     // Check if ANY source node in the connected layout slot has been taken
     const isAnySourceTaken = sourceCoursesToCheck.some(id => takenSet.has(id));
 
-    return (isAnySourceTaken && isTargetAccessible) ? "black" : "#e2e8f0"
+    return (isAnySourceTaken && isTargetAccessible) ? "black" : "#c8cdd2"
   }
 
   // Apply colors to edge paths
   d3.select("#links").selectAll("path")
     .attr("stroke", getLinkColor)
-    .attr("opacity", d => getLinkColor(d) === "black" ? 0.9 : 0.35); // Pop active paths!
+    .attr("opacity", d => getLinkColor(d) === "black" ? 0.9 : .5); // Pop active paths!
 
   // Apply colors to structural triangle pointer markers
   d3.select("#arrows").selectAll("path")
