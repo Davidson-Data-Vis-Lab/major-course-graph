@@ -1,0 +1,1012 @@
+[
+  {
+    "id": "BIO 220",
+    "parentIds": [],
+    "name": "Comparative Neuroendocrinology +Lab",
+    "description": "Hormones are critically important for integrating internal physiology and the brain with the environment. This course will examine neuroendocrine mechanisms in humans and non-human animals, focusing especially on fundamentals of the endocrine system in vertebrates, sexual differentiation/puberty, reproduction, parental care, social behavior, homeostasis, biological rhythms, and stress. We will integrate multiple levels of biological organization, from molecules to organisms, to understand interactions among hormones, the nervous system, physiology, behavior, and environment. This course will also address hormonal processes, and the behaviors they regulate, as they relate to broader societal conversations about sex and gender, individual health and well-being, medicine, evolution, and environmental conservation. Satafies Gender and Sexuality Studies major and minor requirement.",
+    "satisfies": [
+      "Satisfies Group B Biology major requirement.",
+      "Satisfies Psychology major requirement.",
+      "Satisfies Neuroscience major and minor requirement."
+    ],
+    "PRQ": "Successful completion of BIO 111/113/115 and 112/114/116, or permission of the instructor. Successful completion of BIO 240 is recommended.",
+    "group": ""
+  },
+  {
+    "id": "BIO 223",
+    "parentIds": [],
+    "name": "Animal Behavior +Lab (=PSY 323)",
+    "description": "This class will explore the genetic, neurological, ecological, and social factors that influence the way animals behave. We will survey broad categories of behavior while diving deep into some of the most mysterious and astonishing animal acts. Key topics include animal communication, predator-prey interactions, reproductive strategies, and social dynamics. The course combines theoretical frameworks with practical observations, enabling students to analyze behaviors in both controlled and natural environments. The weekly lab involves hands-on experiments with both invertebrate and vertebrate systems to test fundamental behavioral questions. Through interactive lectures and lab-based activities, students will apply the scientific method to the study of ethology, preparing them for careers in biology, zoology, conservation, and environmental science. Ideal for those passionate about understanding the intricacies of animal life and behavior, as well as those thinking of a career in veterinary medicine.",
+    "satisfies": [
+      "Satisfies Biology major requirement as a Group B lab or an elective.",
+      "Satisfies Psychology major requirement as a Research Methods course in the Cognitive/Neuroscience category."
+    ],
+    "PRQ": "Successful completion of BIO 112/114/116 or permission of instructor is required.",
+    "group": ""
+  },
+  {
+    "id": "BIO 331",
+    "parentIds": [],
+    "name": "Behavioral Neuroscience (= PSY 303)",
+    "description": "(Cross-listed as PSY 303) Role of the nervous system; sensory and motor mechanism; physiological bases of motivation and emotion; sleep and arousal; and physiological bases of learning, memory, and language. Extensive laboratory training. Work with animals is required.",
+    "satisfies": [],
+    "PRQ": "Successful completion of PSY 101 or BIO 111/113 and 112/114 as well as permission of the instructor are required. PSY 200 required or permission of the instructor. Not open to students with credit for BIO 335 or CHE 230.",
+    "group": ""
+  },
+  {
+    "id": "BIO 332",
+    "parentIds": [
+      "PSY 303",
+      "BIO 331",
+      "PSY 280"
+    ],
+    "name": "Functional Neuroanatomy (= PSY 324)",
+    "description": "(Cross-listed as PSY 324) Intensive readings in molecular neurobiology, neuroanatomy, neurophysiology, and/or behavior. Students: 1) make classroom presentations of critical analyses of the course readings; 2) conduct laboratory research or hospital rounds; and 3) submit an annotated bibliography and a write-up of the laboratory project or term paper.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 303",
+      "BIO 331",
+      "or",
+      "PSY 280",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "EDU 234",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Child Psychopathology",
+    "description": "An overview of the psychological disorders of childhood, including their description, classification, etiology, assessment and treatment. Emphasis will be placed on the theoretical and empirical bases of these disorders, focusing on relevant research methods and findings as well as case history material. Social-Scientific Thought requirement. Educational Studies minor credit. Public Health minor credit. Psychology Major credit (Clinical column)",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "EDU 241",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Child Development (= PSY 241)",
+    "description": "(Cross-listed as Psychology 241.) Research and theory on the cognitive, socio-emotional and physical changes in development from prenatal through middle childhood. Emphasis on how culture shapes child development and applications to educational settings.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PBH 244",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Child Psychopathology (=EDU 234 and PSY 234)",
+    "description": "An overview of the psychological disorders of childhood, including their description, classification, etiology, assessment and treatment. Emphasis will be placed on the theoretical and empirical bases of these disorders, focusing on relevant research methods and findings as well as case history material. Social-Scientific Thought requirement. Educational Studies minor credit. Public Health interdisciplinary minor credit. Psychology Major credit (Clinical column)",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PBH 354",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Medical Rehabilitation and Disability (=PSY 354)",
+    "description": "This course addresses the conceptualization, assessment, and treatment of chronic health conditions, traumatic injuries, and disabilities. The readings will include an evidenced-based handbook on psychosocial adjustment to illness; peer-reviewed articles; and memoirs from the vantage point of the patient, caregiver, and healthcare provider. This course is community-based; therefore, it will also include a field experience at a local rehabilitation hospital .",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies a Public Health major and minor requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "POL 384",
+    "parentIds": [],
+    "name": "Psychology of Political Leadership",
+    "description": "This course is interdisciplinary and uses concepts, theories and methodological approaches from psychology to explore political leadership and its many facets. It has three overarching goals. First, it will explore the factors that influence who becomes a political leader. Here the focus will be on how political leaders are chosen and socialized and what their motivations for seeking political office are. Second, this course will seek to understand how contextual factors and character traits affect leadership and decision making with a particular focus on how leaders\u2019 personalities and experiences interact with their environment and affect their ability to govern accountably and effectively. Third, it will investigate how leaders relate to the public with a focus on the cognitive basis of this relationship and the role of persuasion.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "PSY 101",
+    "parentIds": [],
+    "name": "General Psychology",
+    "description": "Boyd, Flaherty, Good, Sockol Survey of the current psychology of learning, perception, motivation, intelligence, thinking, and social and abnormal behaviors, with emphasis on the application of scientific methods to psychological investigation and on the biological bases of behavior and experience. Students may be required to participate in experiments or in alternative research experiences.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "PSY 195",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Independent Study in Psychology",
+    "description": "Independent study in psychology under the direction of a faculty member who reviews and approves the topic and determines the means of evaluation.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 200",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Research Design and Statistics: 1",
+    "description": "Gadaire, Good This course will introduce students to scientific thinking, with a specific focus on how scientific understanding manifests in psychology, neuroscience, and interdisciplinary research across the social sciences. In this foundational course, students will develop skills important for advanced PSY courses (e.g., consumption, evaluation, and communication of data in various forms). Course content will address the following questions in the context of psychological science: 1) What is scientific knowledge, 2) How do we design, test, and formalize research questions, and 3) Current issues (e.g., ethics, replicability, diversity/inclusion/belonging). Emphasis will be placed on interpreting and communicating psychological science (visual and oral presentation of data, APA style, etc.). Students will be introduced to quantitative analysis and statistical programming. In this course, students will develop knowledge of historical and current systems of bias that arise in psychological science, as well as develop skills to design and critique psychological research using a critical lens. Furthermore, students will learn how to reduce bias through methodology, design, and statistical thinking. Lastly, students will practice reimagining scientific inquiry from an inclusive framework, contextualizing the way that psychology asks questions in comparison to other science and social science disciplines.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies Social Scientific Thought Ways if Knowing requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 220",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Health Psychology",
+    "description": "This course addresses behavioral health and illness from a biopsychosocial model. This model involves treating individuals from a holistic, interdisciplinary perspective that considers the medical, psychological, social, and cultural factors that influence health. In addition, we will focus on diversity, inclusion, inequities, intersectionality, and ethical considerations in depth in health populations. Social-Scientific Thought requirement.",
+    "satisfies": [
+      "Satisfies Public Health major and minor requirement."
+    ],
+    "PRQ": [
+      "PSY 101",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 226",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Death, Dying, and Bereavement",
+    "description": "Despite death being a universal experience, it is often taboo to discuss. In this course, we will use a lifespan developmental perspective to highlight how death-related events shapes our lives. We will examine real-world issues (e.g., healthcare, hospice, bereavement support) and explore potential implications for improving the lives of all people. The main goals for this course are threefold: 1) normalize death-related conversations, 2) generate scientific curiosity within death-related topics, and 3) reflect on one\u2019s own assumptions about death, dying, and bereavement.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies the Social and Scientific Thought requirement"
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 231",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Abnormal Psychology",
+    "description": "Characteristics, etiology, and treatment of major patterns of maladaptive behavior (anxiety disorders, depression, antisocial behavior, schizophrenia, etc.). Theoretical and empirical evidence for understanding causality and treatment.",
+    "satisfies": [
+      "Satisfies Public Health major and minor requirement.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 232",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Social Psychology",
+    "description": "An overview of how thoughts, attitudes, and behaviors are shaped by social and situational factors. Topics include: the social self, attitude formation and change, person perception, cultural influences, conformity, communication processes and persuasion, group processes, prejudice, aggression, cooperation-competition, and real-world applications of social psychology.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies Educational Studies major requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 233",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Theory and Practice of Career Development",
+    "description": "An overview of the field of Career Planning and Development, including major theories and research on career choice, self-assessment, career transition, and career management across the lifespan. Emphasis will be on critical evaluation and application to students\u2019 own processes of career development. Fulfills a requirement in the Social/Industrial-Organizational area of the Psychology major.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 234",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Child Psychopathology",
+    "description": "An overview of the psychological disorders of childhood, including their description, classification, etiology, assessment and treatment. Emphasis will be placed on the theoretical and empirical bases of these disorders, focusing on relevant research methods and findings as well as case history material. Social-Scientific Thought requirement. Educational Studies minor credit. Public Health interdisciplinary minor credit. Psychology Major credit (Clinical column)",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 235",
+    "parentIds": [],
+    "name": "Cultural Psychology",
+    "description": "What is culture and how does it relate to psychology? What, if anything, can psychological science contribute to the study of culture? This course is an introduction to the various issues surrounding an increasingly globalized world by critically examining the dynamic relationship between psychological processes (e.g., motivation, memory, self, prejudice) and diverse socio-cultural contexts.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies Social-Scientific Thought requirement.",
+      "Satisfies Cultural Diversity requirement."
+    ],
+    "PRQ": "PSY101 is a prerequisite.",
+    "group": ""
+  },
+  {
+    "id": "PSY 241",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Child Development (=EDU 241)",
+    "description": "(Cross-listed as Educational Studies 241.) Research and theory on the cognitive, socio-emotional and physical changes in development from prenatal through middle childhood. Emphasis on how culture shapes child development and applications to educational settings.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 242",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Educational Psychology (= EDU 242)",
+    "description": "(Cross-listed as Educational Studies 242.) This course focuses on issues in learning and development that have particular relevance to understanding students in classrooms, schools, and school communities. Topics include, but are not limited to: child and adolescent development, learning, motivation, information processing and evaluation, the exceptional child, and cultural differences.",
+    "satisfies": [
+      "Satisfies Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 243",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Adolescent Development",
+    "description": "An in-depth examination of specific theories, concepts, and methods related to the period of adolescence. Students will explore a wide range of topics including: cognitive development, moral development, identity formation, gender role, social relationships, and the effects of culture on adolescent development. Satisifies Educational Studies major and minor requirement Satisfies the Social-Scientific Thought requirement.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 245",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Psychology of Aging",
+    "description": "Introduction to human aging from a psychological perspective. Adult age-related changes in memory, intelligence, wisdom, personality, etc. Attitudes toward aging and adjustment to aging. Emphasis on the application of scientific methods to the study of aging.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 254",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "",
+    "description": "254 - Industrial and Organizational Psychology Instructors Boyd Current theory, research, and practice in the selection, training, and evaluation of employees; management and development of employees as resources for the organization; design and development of the organization as a whole.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 257",
+    "parentIds": [],
+    "name": "Sport and Performance Psychology",
+    "description": "This course offers a comprehensive exploration of sport and performance psychology, covering topics such as motivation, personality, group dynamics, and leadership across sport, exercise, and other high-pressure domains. Students will analyze how personal, social, biological, and systemic factors interact with environmental influences, and explore how theories of behavior, cognition, action, perception, and emotion are used to explain findings in sports science and its subdisciplines (e.g., athlete psychology, human performance & physiology, group and team dynamics). Learning outcomes emphasize scientific inquiry, critical thinking, and research skills essential for understanding human behavior through a social scientific lens. Assessments include low stakes, weekly activities that address topical content, longer-term projects such as application of mental skills training, case study reports, or observational research, combined with summative or reflective activities such as ethical reasoning or career exploration applied to the field. Throughout the semester, students will build a final portfolio that showcases their learning and application of course concepts across diverse performance settings. By completing assignments, students will earn experience points (XP) to level up a course avatar through a gamified grading system that links activities to learning outcomes. Learning outcomes emphasize scientific inquiry, critical thinking, and research skills essential for understanding human behavior through a social scientific lens.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "PSY 260",
+    "parentIds": [
+      "PSY 101",
+      "PSY 254"
+    ],
+    "name": "Organization Development",
+    "description": "Organization Development (OD) is a multi-disciplinary area of research and practice that deals with the understanding and application of the principles of behavioral science to planned organizational change.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101",
+      "PSY 254"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 266",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Community Psychology",
+    "description": "Community psychology investigates how social, cultural, economic, political, and environmental factors influence mental and physical health, development, and well-being. With a focus on promoting more equitable systems, community psychology emphasizes empowerment, citizen participation, respect for diversity, sense of community, strengths-based approaches, and a grounding in research and evaluation. In this course, we will utilize empirical articles, case studies, current events, and community-based learning to explore how research, evaluation, policy, programs, and interventions can incorporate these principles to improve systems, address disparities affecting diverse populations, and promote equity.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies Social-Scientific Thought requirement.",
+      "Satisfies Justice, Equality, and Community requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 269",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Black Psychology",
+    "description": "The purpose of this course is to critically examine psychological concepts, theories, and methods from perspectives grounded in the \u201cBlack experience.\u201d We will examine psychological phenomena and issues that emerge in the social and historical context of African-descended peoples living in the African Diaspora (primarily, the United States) and we will reflect on a variety of psychological phenomena (e.g., self & identity, motivation, language, relationships, racism) through African and Black-centered lenses. Throughout the course, we will deconstruct, challenge, and revisit various assumptions about the psychologies of people racialized as Black.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies Africana Studies major requirement.",
+      "Satisfies Social-Scientific Thought requirement.",
+      "Satisfies Justice, Equality, and Community requirement."
+    ],
+    "PRQ": [
+      "AFR 101",
+      "or",
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 276",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "",
+    "description": "276 - Cognitive Psychology Instructors Bond, Multhaup Introduction to cognitive psychology. Structure and processes underlying cognition including perception, memory, attention, language, problem solving, imagery, etc. Emphasis on theories and empirical evidence for understanding cognition.",
+    "satisfies": [
+      "Satisfies the Social- Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 280",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Human Neuropsychology",
+    "description": "Human Neuropsychology, provides a foundational understanding of human neuropsychology, including the most commonly studied neurobehavioral relationships and conditions. Students review neuropsychological test data, relate patterns in data to brain structure and function, and estimate recovery and rehabilitation patterns. This course does \u201cdevelop, test, and explain concepts and theories about human behavior.\u201d Satisfies a major requirement in Psychology.",
+    "satisfies": [
+      "Satisfies an interdisciplinary minor requirement in Neuroscience.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 282",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "",
+    "description": "282 - Learning Instructors Ramirez, Smith Overview of major topics in learning: elicitation, classical conditioning, reinforcement, punishment, problem solving, behavioral economics, and verbal behavior. Focus on empirical data, research methodology, and technologies generated from learning research.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 284",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Drugs and Behavior",
+    "description": "M The course examines the effects of drugs on human and animal behavior. Consideration is also given to the physiological effects of drugs on the central nervous system. Methods for preventing and treating drug abuse are also addressed. Students with credit in Psychology 302 may not enroll in Psychology 284.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 101",
+      "PSY 302"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 290",
+    "parentIds": [],
+    "name": "Psychology Practicum",
+    "description": "Field work and/or data collection in an applied area of psychology.",
+    "satisfies": [],
+    "PRQ": "Instructor permission required.",
+    "group": ""
+  },
+  {
+    "id": "PSY 291",
+    "parentIds": [
+      "PSY 101",
+      "PSY 254"
+    ],
+    "name": "Practicum in Applied Industrial-Organizational Psychology",
+    "description": "PSY 291 will provide a small team of students (N=4) with an opportunity to participate in organizational consulting first- hand. Students will help host organizations address issues which the host organization has identified in order to improve organizational effectiveness. All work will be done under the supervision of Liz Brigham, Director of the Jay Hurt Hub and Adjunct Assistant Professor of Psychology. As this practicum experience will be individually arranged with principals of the host organization, there will be no assigned text. Based on the nature of the consulting projects, relevant background readings and related activities will be assigned weekly by the instructor and researched by the student as well.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 101",
+      "PSY 254",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 292",
+    "parentIds": [],
+    "name": "Collective Memory",
+    "description": "Remembering is a social as well as cognitive experience. For example, we reminisce with others, select which details we share and don\u2019t share based on who those others are, and which portions of memories we rehearse and silence affects what we later remember. Students in this course will explore current theory and research regarding collective memory, primarily from a psychological perspective. We will explore questions raised by Boyer and Wertsch\u2019s (2009) influential book (e.g., How do we build shared collective memories? How does memory shape history? How does memory shape culture?) and related issues (e.g., silencing of memories, borrowing others\u2019 memories, how culture influences memory). Our study will be grounded in cognitive psychology and draw upon additional subfields (e.g., social psychology, cross-cultural psychology) and intersections with related fields (e.g., sociology, cultural studies, museum studies). Provides elective credit toward the Psychology major. \u200bSatisfies the Social-Scientific Thought requirement.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "PSY 300",
+    "parentIds": [
+      "PSY 200"
+    ],
+    "name": "Research Design and Statistics: 2",
+    "description": "Flaherty, Good, Ng This course will further develop students\u2019 quantitative skills, with a specific focus on formalism (i.e., the explicit link between measurement, mathematics, and real-world phenomena) in the behavioral sciences, particularly psychology and neuroscience, as well as interdisciplinary research across the social sciences. This course will prepare students to consume, create, and critique quantitative knowledge. Course content will address: 1) theoretical & conceptual mathematics necessary for research in behavioral sciences, 2) analysis and interpretation of data in behavioral sciences, and 3) computer-aided computation. Descriptive, correlational, and experimental methods of research will be examined. Primary focus will be on data analysis (including descriptive and inferential statistics, and basic modeling), interpretation, and communication of quantitative analysis (in written and visual form).&nbsp; Satisfies Psychology major requirement.",
+    "satisfies": [
+      "Satisfies Data Science minor requirement.",
+      "Satisfies Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": [
+      "PSY 200"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 301",
+    "parentIds": [
+      "PSY 200"
+    ],
+    "name": "Psychological Research-Perception and Attention",
+    "description": "Research methods, concepts, and empirical findings in perception and attention are examined in lecture and extensive laboratory experience. Course explores how a physical stimulus impinges on sense organs and is subsequently processed and understood by perceptual systems (e.g., how do we \u201csee\u201d things?). Participation in research as subjects and experimenters is required. Recommended completion by Fall of senior year for majors.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 200",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 303",
+    "parentIds": [
+      "PSY 200"
+    ],
+    "name": "Psychological Research-Behavioral Neuroscience (= BIO 331)",
+    "description": "(Cross-listed as Biology 331.) Role of the nervous system; sensory and motor mechanism; physiological bases of motivation and emotion; sleep and arousal; and physiological bases of learning, memory, and language. Extensive laboratory training. Work with animals is required. Recommended completion by Fall of senior year for majors.",
+    "satisfies": [
+      "Satisfies Public Health major and minor requirement."
+    ],
+    "PRQ": [
+      "PSY 200",
+      "or",
+      "BIO 111",
+      "and",
+      "BIO 112",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 304",
+    "parentIds": [
+      "PSY 200"
+    ],
+    "name": "Psychological Research-Memory",
+    "description": "Research methods, concepts, and empirical findings in the field of memory are explored in lecture and extensive laboratory experience. Emphasis is on human memory. Participation in research as subjects and experimenters is required. Recommended completion by Fall of senior year for majors.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 200",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 305",
+    "parentIds": [
+      "PSY 200"
+    ],
+    "name": "",
+    "description": "305 - Psychological Research-Learning Instructors Ramirez, Smith The major learning theories of the 20th century will be explored. Particular attention will be paid to the theories of Thorndike, Pavlov, Skinner, Tolman, Hull, Hebb, and Bolles. The empirical data supporting these theoretical frameworks will be assessed. This is a laboratory intensive course involving animals. Students with credit in Psychology 282 may not enroll in Psychology 305. Recommended completion by Fall of senior year for majors.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 200",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 312",
+    "parentIds": [
+      "PSY 200"
+    ],
+    "name": "Psychological Research: Data Visualization",
+    "description": "Smith This research methods courses focuses on the visual analysis of quantitative information, particularly regarding the interpretation and evaluation of scatterplots, histograms, line graphs, boxplots, heatmaps, et cetera . Considerable emphasis is placed on the creation of new data visualizations via the use of the ggplot2 and Shiny packages in R . Coding and data exploration will be central components of this course, and prior experience with R and elementary statistics is necessary; however, proficiency in these areas is neither required nor expected .",
+    "satisfies": [
+      "Satisfies Psychology major requirement."
+    ],
+    "PRQ": [
+      "PSY 200"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 313",
+    "parentIds": [
+      "PSY 200"
+    ],
+    "name": "Psychological Research: Quantitative/Experimental",
+    "description": "Science has experimentation and quantification at its foundation. This course will focus on the interdependency between methodology and measurement in Psychology with an emphasis on using human-machine interfaces (e.g., virtual reality, digital interaction, social media, computational modeling, eye/body movement tracking) to enhance accuracy, replicability, and explanation. We will survey a range of research designs using a behavioral dynamics framework to answer student-driven questions about human experience. We will explore these topics via readings, discussion groups, peer-led teaching, and by conducting, reviewing, and presenting an original research project. This course will be completed as part of a small team. Students are required to have taken PSY 101 and a statistics course in any department or have the permission of the instructor.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies Data Science minor requirement."
+    ],
+    "PRQ": [
+      "PSY 200",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 314",
+    "parentIds": [
+      "PSY 200",
+      "PSY 231",
+      "PSY 234"
+    ],
+    "name": "Psychological Research-Clinical",
+    "description": "Overview of the research methods and statistical techniques used in research in clinical and positive psychology through lecture, laboratory, and independent research projects. Students gain knowledge and experience evaluating psychological research and applying these techniques and methods to complete individual research projects. Ethical and practical considerations in research in clinical and positive psychology discussed. Course requirements include participation in research as investigators. Recommended completion by Fall of senior year for majors.",
+    "satisfies": [
+      "Satisfies Public Health major and minor requirement."
+    ],
+    "PRQ": [
+      "PSY 200",
+      "PSY 231",
+      "and/or",
+      "PSY 234"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 315",
+    "parentIds": [
+      "PSY 200"
+    ],
+    "name": "Psychological Research-Child Development",
+    "description": "Overview of the scientific methods, procedures, and techniques used to collect and analyze child development data. Focus on Developing students\u2019 data-analytic, observational, and scientific writing skills.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 200",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 316",
+    "parentIds": [
+      "PSY 200"
+    ],
+    "name": "Psychological Research-Industrial/Organizational",
+    "description": "Research methods and statistical techniques used in industrial/organizational psychology examined through lectures, laboratories, and field studies. Students gain knowledge and experience in research methods used in these fields. Students will be expected to apply these techniques and methods to complete individual research projects. Ethical and practical issues in organizational research discussed. Course requirements include participation in research as investigators. Counts as an elective in the Data Science interdisciplinary minor.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 200",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 317",
+    "parentIds": [
+      "PSY 200",
+      "PSY 235"
+    ],
+    "name": "Psychological Research-Methods in Cultural Psychology",
+    "description": "This course is designed to provide students with in-depth study of various methodologies and data analytic strategies used in cultural psychological research. Cultural Psychology focuses on how culture and psychological processes exist in a bi-directional relationship. This course will teach you to think like a cultural psychologist as we devote significant time to unpacking the empirical methods utilized to examine the relationship between various psychological phenomena and diversity in social and cultural contexts.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 200",
+      "or",
+      "PSY 235",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 318",
+    "parentIds": [
+      "PSY 200",
+      "PSY 232"
+    ],
+    "name": "Psychological Research-Social",
+    "description": "Research methods and statistical techniques used in social psychology are examined through lecture, laboratory, and field research. Students will gain knowledge in designing multiple types of research studies, as well as implementing a variety of data collection strategies. Scientific writing and ability to understand and critique empirical articles will be emphasized. Course requirements include participation in research as investigators. Recommended completion by Fall of senior year for majors.",
+    "satisfies": [
+      "Satisfies East Asian Studies major requirement; methods."
+    ],
+    "PRQ": [
+      "PSY 200",
+      "PSY 232"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 319",
+    "parentIds": [
+      "PSY 200"
+    ],
+    "name": "Psychological Research-Adult Development",
+    "description": "Research methods, concepts, empirical findings, and ethics for studying adult development (focus on younger and older adulthood) are explored. Course requirements include participation in research as investigators. Recommended completion by Fall of senior year for majors.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 200",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 323",
+    "parentIds": [],
+    "name": "Animal Behavior +Lab (= BIO 223)",
+    "description": "One can explore animal behavior on multiple levels of analysis: ontogenetic (the developmental origins of behavior), phylogenetic (the evolutionary origins of behavior), proximate (the physiology and neurophysiology of behavior), and functional (the fitness consequences of behavior). In Biology 223, we will touch on all of these facets of behavior, but we will focus on functionality - the adaptive significance of behaviors.",
+    "satisfies": [],
+    "PRQ": "BIO 112/114. One laboratory meeting per week. Counts towards the Psychology major as a Research Methods course in the Cognitive/Neuroscience column.",
+    "group": ""
+  },
+  {
+    "id": "PSY 324",
+    "parentIds": [
+      "PSY 303",
+      "BIO 331",
+      "PSY 280"
+    ],
+    "name": "Advanced Seminar: Functional Neuroanatomy (= BIO 332)",
+    "description": "(Cross-listed as Biology 332.) Intensive readings in molecular neurobiology, neuroanatomy, neurophysiology, and/or behavior. Students: 1) make classroom presentations of critical analyses of the course readings; 2) conduct laboratory research or hospital rounds; and 3) submit an annotated bibliography and a write-up of the laboratory project or term paper. For Psychology majors this meets the major\u2019s seminar requirement. For Interdisciplinary Minors in Neuroscience, this course satisfies the interdisciplinary minor requirement as stated in Interdisciplinary Minor in Neuroscience (Requirements, section 1b).",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 303",
+      "BIO 331",
+      "or",
+      "PSY 280",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 330",
+    "parentIds": [],
+    "name": "Advanced Independent Study in Psychology",
+    "description": "Advanced independent study in psychology under the direction of a faculty member who reviews and approves the topic and determines the means of evaluation.",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor. (Fall and Spring)",
+    "group": ""
+  },
+  {
+    "id": "PSY 331",
+    "parentIds": [],
+    "name": "Psychology Tutorial",
+    "description": "Intensive readings in a specific area of study under the direction and supervision of a faculty member who reviews and approves the topic of research. Students submit a written plan of study to the supervising faculty member prior to the close of Drop/Add in the semester of registration. Open ordinarily only to advanced majors in psychology.",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor. (Fall and Spring)",
+    "group": ""
+  },
+  {
+    "id": "PSY 332",
+    "parentIds": [],
+    "name": "Psychology Tutorial",
+    "description": "Intensive readings in a specific area of study under the direction and supervision of a faculty member who reviews and approves the topic of research. Students submit a written plan of study to the supervising faculty member prior to the close of Drop/Add in the semester of registration. Open ordinarily only to advanced majors in psychology.",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor. (Fall and Spring)",
+    "group": ""
+  },
+  {
+    "id": "PSY 350",
+    "parentIds": [
+      "PSY 101",
+      "PSY 241"
+    ],
+    "name": "Advanced Seminar: Lang and Learning Dev",
+    "description": "Spring 2022 Section A &B Adv Sem: Lang Learning and Dev Language is central to the human experience. All human communities have rich linguistic culture and children around the world learn language without explicit teaching. In fact, if children don\u2019t find an accessible language in their environment, they will invent their own. Strikingly, however, children become less skilled at language learning over development, even as they become more skilled in most other areas. In this seminar we will explore how children learn the forms, meaning, and structure of their language, as well as explore the ways language structure reflects the way human children learn, think, and communicate. We will consider a variety of language environments and situations and a range of potential theoretical accounts of child language learning. Fulfills the seminar requirement in Psychology.",
+    "satisfies": [
+      "Satisfies Educational Studies minor requirement."
+    ],
+    "PRQ": [
+      "PSY 101",
+      "or",
+      "PSY 241",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 351",
+    "parentIds": [
+      "PSY 231",
+      "PSY 234"
+    ],
+    "name": "Advanced Seminar in Clinical Psychology: Gender & Psychopathology",
+    "description": "This course will address a range of topics related to the intersection of gender and psychopathology. We will begin the class by discussing the meaning of \u201cgender\u201d and the various mechanisms by which biological sex, gender identity, gender roles and sexual orientation may relate to the development, presentation and treatment of psychological disorders. We will also discuss historical and current controversies regarding the classification of psychological disorders related to gender identity. The rest of the course will address gender differences in specific psychological disorders and the biological, psychological and social mechanisms contributing to these differences.",
+    "satisfies": [
+      "Satisfies a requirement of the Psychology major."
+    ],
+    "PRQ": [
+      "PSY 231",
+      "or",
+      "PSY 234",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 352",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Advanced Seminar: Counseling Psychology, Facilitating Personal Well-Being",
+    "description": "This course delves into the field of Counseling Psychology, which seeks to empower all individuals to overcome challenges and achieve optimal functioning. Reading and discussions will center on the history, ethics, outcomes research, and prominent theories of counseling, as well as issues typically addressed by counseling psychologists such as stress, loss, self-esteem, contextual identity, motivation, personal growth, and social justice.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 353",
+    "parentIds": [],
+    "name": "Advanced Seminar: Psychology of Prejudice",
+    "description": "This course explores current psychological theory and research regarding stereotyping, prejudice, and discrimination. We will discuss stereotype formation and activation, current and past conceptualizations of prejudice, interpersonal and institutional discrimination, as well as strategies for reducing the expression of prejudice. Throughout the course, we will consider the experiences of several marginalized groups including, but not limited to, prejudice based on gender, race, sexual orientation, age, disability, and socio-economic status. The general framework for the class will be social psychological, given that many of the central topics in social psychology are applicable to the study of prejudice; however, other psychological perspectives will also be touched upon (cognition, development, health, etc.) and interdisciplinary discussions are encouraged.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "Permission of the instructor.",
+    "group": ""
+  },
+  {
+    "id": "PSY 354",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Advanced Seminar: Medical Rehabilitation",
+    "description": "This seminar addresses the conceptualization, assessment, and treatment of chronic health conditions, traumatic injuries, and disabilities. The sources include peer-reviewed articles, videos, and memoirs from the vantage point of the patient, caregiver, and healthcare provider. In addition, we will focus on diversity, inclusion, inequities, intersectionality, and ethical considerations in depth in this population.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies Public Health interdisciplinary minor requirement.",
+      "Satisfies Justice, Equality, and Community requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 358",
+    "parentIds": [],
+    "name": "Advanced Seminar: Psychology of Teamwork",
+    "description": "This seminar will examine in depth the psychology of teamwork both in the context of business organizations and in the context of team sports.",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor is required.",
+    "group": ""
+  },
+  {
+    "id": "PSY 359",
+    "parentIds": [
+      "PSY 254",
+      "PSY 232",
+      "PSY 235"
+    ],
+    "name": "Advanced Seminar: Diversity, Equity, and Inclusion in Organizations",
+    "description": "This course will address a range of topics related to diversity, equity, and inclusion (DEI) in organizations. We will discuss the meaning of DEI both past and present, biases, discrimination, and strategies (individual and organizational) for enhancing inclusion. We will learn about these topics though the lens of industrial-organizational psychology which is rooted in understanding workplace phenomena through psychological theory and empirical study. We will learn about relevant theories, methods of research, and empirical evidence to understand and evaluate claims. This course will focus on the consumption, evaluation, and production of empirical psychological research; however, we will at times incorporate other sources such as news articles, book chapters, interdisciplinary work, and perspectives pieces. Interdisciplinary thinking is encouraged.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies Justice, Equality, and Community requirement."
+    ],
+    "PRQ": [
+      "PSY 254",
+      "PSY 232",
+      "PSY 235",
+      "SOC 205",
+      "SOC 217",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 360",
+    "parentIds": [],
+    "name": "Advanced Seminar in Behavioral Neuroscience: \u201cNeurophilosophy: The Mind-Body Probem as a Neuroscientist Sees It\u201d",
+    "description": "This seminar will explore several of the current accounts attempting to elucidate the relation between mind and brain. The emphasis of the course will be on the approaches that are being proposed by philosophers and scientists who take a deliberate neuroscientific approach to the problem. Although previous course work in neuroscience would be helpful, this seminar does not assume a strong background in neuroscience. Fulfills the seminar requirement in Psychology.",
+    "satisfies": [
+      "Satisfies Neuroscience minor requirement."
+    ],
+    "PRQ": "Permission required.",
+    "group": ""
+  },
+  {
+    "id": "PSY 361",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Advanced Seminar: Clinical Psychopharmacalogy",
+    "description": "Smith This course focuses on the clinical application of psychotherapeutic drugs (i.e., drugs designed to treat mental illness). Intensive readings will be made in the use of these drugs to treat a variety of psychological disorders, including panic disorder, obsessive-compulsive disorder, schizophrenia, major depressive disorder, bipolar depression, ADHD, autism, Alzheimer\u2019s disease, Parkinson\u2019s disease, eating disorders, sexual disorders, and substance use disorders. Over the course of the semester, students will (1) make weekly classroom presentations on empirical research derived from the literature, (2) compose a review paper discussing pharmacological treatment options for a disorder of their choosing, and (3) submit a 10-12 page research proposal outlining a novel set of experiments examining the effects of a psychotherapeutic drug of their choosing.",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 364",
+    "parentIds": [
+      "PSY 101",
+      "PSY 200"
+    ],
+    "name": "Advanced Seminar: The Science of Interpersonal Relationships",
+    "description": "This course will address specific theories and methods related to the scientific study of interpersonal relationships. Using a lifespan perspective, the course will examine three primary groups of relationships - family relationships in infancy and childhood, peer relationships in childhood and adolescence, and pair bonds in adolescence and adulthood. Students will investigate how relationships develop, why they are important, how they affect us, and how and why they vary from person to person.",
+    "satisfies": [
+      "Satisfies Psychology major requirement."
+    ],
+    "PRQ": [
+      "PSY 101",
+      "PSY 200"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 365",
+    "parentIds": [],
+    "name": "Advanced Seminar: Clinical Neuroscience",
+    "description": "This is an advanced seminar course that will address common neuropsychological findings in organic brain syndromes and neurodevelopmental conditions. Students will be expected to critically review neuropsychological research and link neuropathology to observed data patterns. Classes will involve pre-assigned, student-led discussions of neuropsychological conditions. A major emphasis of this class will be the ability to interpret neuropsychological research and synthesize and present material for class discussion. Major assignments include student-led discussions, term paper, and class participation.",
+    "satisfies": [],
+    "PRQ": "At least one from the following list : Abnormal Psychology, Behavioral Neuroscience, Behavioral Pharmacology. OR Permission of the Instructor",
+    "group": ""
+  },
+  {
+    "id": "PSY 366",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Advanced Seminar: Psychology of Women: Critical Perspectives on Race, Class, and Gender",
+    "description": "This class will address the psychology of women through an intersectional theoretical framework. Throughout the course, students will learn how the field of psychology and related social sciences have studied the effects of social, cultural, and political influences on the socialization of girls and women. Students will explore how such paradigms, specifically the intersections of race, class, and gender, affect psychological, social, and environmental outcomes for girls and women, nationally and internationally.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies Gender and Sexuality Studies major and minor requirement.",
+      "Satisfies Social-Scientific Thought requirement.",
+      "Satisfies Justice, Equality, and Community requirement."
+    ],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 369",
+    "parentIds": [
+      "PSY 101"
+    ],
+    "name": "Advanced Seminar: Black Psychology",
+    "description": "In this course, we will examine psychological phenomena and issues that emerge in the context of African-descent peoples living in the African Diaspora. Keep in mind, this is not a \u201chow-to\u201d course (for laughs, see \u201cHow to Be Black\u201d by Baratunde Thurston instead). Rather, we will examine and reflect on a variety of psychological issues through \u201cnon-Western\u201d lenses. The purpose of this course is to critically examine psychological experience, theories, and methods from perspectives grounded in the \u201cBlack experience.\u201d Major assignments include written reflections, student-led discussions, final project, and class participation. Satisifes Psychology major requirement Satisfies Justice, Equality, and Community requirement",
+    "satisfies": [],
+    "PRQ": [
+      "PSY 101"
+    ],
+    "group": ""
+  },
+  {
+    "id": "PSY 371",
+    "parentIds": [],
+    "name": "Advanced Seminar: Data Visualization in Psychology",
+    "description": "Smith This seminar comprehensively explores data visualization in psychology. Attention is devoted to the visual analysis of quantitative information, particularly in regard to the interpretation and evaluation of scatterplots, histograms, line graphs, boxplots, heatmaps, et cetera. Considerable emphasis is placed on the creation of new data visualizations via the use of the ggplot2 package in R. Coding and data exploration will be central components of this course, and prior experience with R and elementary statistics is necessary, such as that received in PSY 200: Research Design and Statistics.",
+    "satisfies": [
+      "Satisfies Psychology major requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "PSY 400",
+    "parentIds": [],
+    "name": "Senior Thesis",
+    "description": "Research designed and conducted by the student, supervised by a faculty member, and reported in writing according to the form approved in the Publication Manual of the American Psychological Association. Work completed in this course must also be presented in a poster format at the May celebration of science students\u2019 research.",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor and consent of an additional faculty member who serves on the student\u2019s thesis committee. For further details, see the department web page.",
+    "group": ""
+  },
+  {
+    "id": "PSY 401",
+    "parentIds": [],
+    "name": "",
+    "description": "401 - Issues in Psychology Instructors Boyd, Multhaup, Sockol Central issues in psychology that cut across previous course boundaries. Specific topics vary year by year. The course begins with a review of major approaches to psychology (e.g., Behaviorist, Biological, Cognitive, Evolutionary, Humanist, Psychoanalytic) and ethical principles that apply to a variety of situations that psychologists face.",
+    "satisfies": [],
+    "PRQ": "Limited to Psychology seniors except by permission of the department.",
+    "group": ""
+  },
+  {
+    "id": "PSY 402",
+    "parentIds": [],
+    "name": "History and Systems in Psychology",
+    "description": "This course is designed to facilitate an understanding of changes in the field of psychology over time. Students will consider the social, historical, and cultural contexts in which psychology developed and continues to evolve. This course will also highlight the contributions of women and people of color, often overlooked in psychology\u2019s origin stories, and facilitate discussions of critical social issues in the history of the field (e.g., eugenics, racism, and sexism).",
+    "satisfies": [],
+    "PRQ": "Limited to Psychology seniors except by permission of the department.",
+    "group": ""
+  }
+]
