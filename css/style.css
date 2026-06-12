@@ -18,7 +18,8 @@
   max-height: 100%;
   overflow-y: auto;
   font-size: 14px;
-  border: 2px dashed #aaaaaa;
+  background-color: #fafafa;
+  border: 2px solid #ddd;
   padding: 10px;
   border-radius: 6px;
   box-sizing: border-box;

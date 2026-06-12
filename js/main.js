@@ -263,7 +263,7 @@ svg.call(zoom);
 // svg.on("dblclick.zoom", () => svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity));
 // vs button
 const foreignObject = svg.append("foreignObject")
-  .attr("x", 10)
+  .attr("x", 25)
   .attr("y", 135)
   .attr("width", 137)
   .attr("height", 36);
