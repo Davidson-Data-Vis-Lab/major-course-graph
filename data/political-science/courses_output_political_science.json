@@ -1,0 +1,1390 @@
+[
+  {
+    "id": "ECO 288",
+    "parentIds": [
+      "POL 360"
+    ],
+    "name": "International Political Economy",
+    "instructor": "B.",
+    "description": "Crandall This course examines the interaction between economic and political forces on an international scale. It includes an introduction to both international trade and international monetary theory, applying how both political and economic factors interact to influence outcomes. Among the questions we address: Why do currencies go \u201cup\u201d or \u201cdown,\u201d and with what implications? How do financial crises begin and spread? Who are the winners and losers from international trade, and how should we best measure economic welfare? We will look other topical IPE issues such as the history and current role of the US dollar in the global economy, the function and impact of International Financial Institutions, income inequality, and the relationship between democracy, national security, and open markets. In addition to using texts and selected readings, we will rely on several case studies and country-specific analysis to further our understanding of the international economic global structure and the interaction between and among countries.",
+    "satisfies": [
+      "Satisfies a Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "POL 360"
+    ],
+    "group": ""
+  },
+  {
+    "id": "EDU 280",
+    "parentIds": [],
+    "name": "Introduction to Educational Policy",
+    "instructor": "Murray",
+    "description": "This course is designed to introduce students to major issues in U.S. K-12 education policy including those related to school accountability and other market-based reforms, school finance, school desegregation, teacher labor markets, and curriculum and instruction. Students will build an understanding of the disciplinary frameworks of education policy analysis and learn the methodological tools, approaches, and concepts researchers use to evaluate policy and shape policy debates. Students will also engage with the politics of education policy through an examination of key actors and institutions that influence adoption and implementation at the local, state, and federal levels. This course will offer a variety of opportunities for students to analyze current policy issues through original briefs, research, and translation of their findings to a broader audience.",
+    "satisfies": [
+      "Satisfies Political Science major requirement.",
+      "Satisfies Educational Studies minor requirement.",
+      "Satisfies the Justice, Equality, and Community requirement.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "EDU 300",
+    "parentIds": [],
+    "name": "Special Topics: Politics of Education",
+    "instructor": "Marsicovetere",
+    "description": "The United States is constantly stalled in a never-ending debate over the role of governments in schools, colleges, and universities. This course will explore that debate by examining the political dimensions of the major educational issues of our time including, but not limited to, the school choice movement, gun violence in schools, sexual assault on university campuses, school desegregation, and policies related to college affordability. The course will draw on methodologies from political science and economics and will focus on power dynamics and political action in education and society. In addition to traditional writing assignments and assessments, students will produce a white paper for a state or local legislator, non-profit organization, or other policy-related client on an educational policy issue of interest. Counts as an American politics course.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies an elective in the Political Science major."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "ENV 241",
+    "parentIds": [],
+    "name": "Globalization, Sustainability, and the Environment",
+    "instructor": "Cisneros",
+    "description": "The course will study the issues and science driving the international environmental and climate change policy agenda and the governance architecture that has developed around these, including the Sustainable Development Goals and the Paris Agreement. Students will develop a nuanced understanding of the social, political, and economic drivers of these issues, and the diverse contexts in which relevant policy is formulated. The course will sample the rich and novel repertoire of policy instruments available to tackle environmental issues globally, and will dig deep into the complex and fluid dynamic between the public and the private as it relates to sustainability. Provides social science track depth component credit in the Environmental Studies major and interdisciplinary minor.",
+    "satisfies": [
+      "Satisfies Political Science major requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 101",
+    "parentIds": [],
+    "name": "Contemporary Political Ideologies",
+    "instructor": "Ahrensdorf",
+    "description": "This course investigates the theories at the foundation of liberal democracy, capitalism, communism, fascism, Nazism, and political Islam.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "Not open to juniors until the first day of classes; not open to seniors except with permission of the instructor and only once the semester begins.",
+    "group": ""
+  },
+  {
+    "id": "POL 121",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 121 -",
+    "description": "American Politics Instructors Bullock, Crowder-Meyer, O\u2019Geen, Roberts, Yesnowitz Analysis of American political processes, institutions, and problems.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies a requirement in the Communication Studies interdisciplinary major and minor."
+    ],
+    "PRQ": "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins.",
+    "group": ""
+  },
+  {
+    "id": "POL 140",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 140 -",
+    "description": "Comparative Global Politics Instructors Bersch K Introduction to the comparative study of political institutions, selected public policy challenges, and political trends in selected countries and regions around the world. Students are introduced to aspects of critical analysis and comparative methods as part of exploration of topics such as comparative electoral systems, executive-legislative relations, health care policies, gun control, immigration, taxation, and democratization.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins.",
+    "group": ""
+  },
+  {
+    "id": "POL 141",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 141 -",
+    "description": "Comparative Global Politics Instructors Bullock G. Introduction to the comparative study of political institutions, selected public policy challenges, and political trends in selected countries and regions around the world. Students are introduced to aspects of critical analysis and comparative methods as part of exploration of topics such as comparative electoral systems, executive-legislative relations, health care policies, gun control, immigration, taxation, and democratization.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 161",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 161 -",
+    "description": "Introduction to International Relations Instructors Ceka, Toska Global issues, foreign policy, and the structures and processes of conflict and cooperation in a dynamically changing world environment. Satisfied the Social-Scientific Thought requirement.",
+    "satisfies": [],
+    "PRQ": "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins.",
+    "group": ""
+  },
+  {
+    "id": "POL 180",
+    "parentIds": [],
+    "name": "Introduction to Policy Analysis",
+    "instructor": "C.",
+    "description": "Marsicano, Menkhaus, Murray, Bullock, Zhu This course provides students with an introduction to the methods and theory related to policy analysis. Students will learn various forms of policy evaluation including decision analysis, risk analysis, cost-benefit analysis, and others. Policy topics will include issues in domestic and international policy related to education, the arts, the environment, healthcare, national defense, non-profit and non-governmental organizations, foreign direct investment and affairs, and economic policy. Students will write a policy whitepaper advocating for a policy intervention to impact an area of policy of their choosing.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 182",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 182 -",
+    "description": "Introduction to Political Science Research Methods Instructors Bersch, Ceka, Crowder-Meyer, O\u2019Geen, Toska The framework of social science analysis, and the use of statistics for studying political problems. Topics range from research design and hypothesis testing to correlation and multiple regression.",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement.",
+      "Satisfies a requirement in the Data Science interdisciplinary minor.",
+      "Satisfies the Methods requirement for the Gender and Sexuality Studies major in the Society and Politics track."
+    ],
+    "PRQ": "Not open to first-year students.",
+    "group": ""
+  },
+  {
+    "id": "POL 202",
+    "parentIds": [],
+    "name": "Classical Political Theory",
+    "instructor": "Ahrensdorf",
+    "description": "Through a study of works by Aristophanes, Plato, and Aristotle, this course examines the Socratic revolution in the history of thought, why Socrates founded political philosophy, and the radical challenge that classical political philosophy poses to modern and contemporary political thought.",
+    "satisfies": [
+      "Satisfies a requirement in the Political Science major.",
+      "Satisfies a requirement in the Classics major.",
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement"
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 203",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 203 -",
+    "description": "Medieval Political Theory Instructors Ahrensdorf, Shaw Major political thinkers of medieval Christianity, Islam, and Judaism.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 204",
+    "parentIds": [],
+    "name": "Modern Political Theory",
+    "instructor": "Shaw",
+    "description": "Leading political philosophers from the Renaissance to the latter part of the 19th century.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 206",
+    "parentIds": [],
+    "name": "Contemporary Political Theory",
+    "instructor": "Shaw",
+    "description": "Major political philosophers from Nietzsche to the present.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 207",
+    "parentIds": [],
+    "name": "Family and Justice",
+    "instructor": "Shaw",
+    "description": "Examination of the ways in which families and political and economic institutions shape one another, with special emphasis on policies that promote marriage over \u2018alternative\u2019 family arrangements; state-mandated family leave policies; \u2018family-friendly\u2019 corporate employment practices; same-sex marriage; divorce law; and welfare reform.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 220",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 220 -",
+    "description": "The US Congress Instructors Roberts, Yesnowitz Legislative behavior and policy-making in the United States, with particular emphasis on the Congress.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 222",
+    "parentIds": [],
+    "name": "Parties and Interest Groups",
+    "instructor": "Roberts",
+    "description": "Analysis of the internal operation of parties and interest groups and their role in the American electoral and legislative process.",
+    "satisfies": [
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 223",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 223 -",
+    "description": "The Presidency Instructors O\u2019Geen, Roberts The modern American presidency from a policy-making perspective, including consideration of the various internal and external factors that constrain the behavior of incumbent presidents.",
+    "satisfies": [
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 224",
+    "parentIds": [],
+    "name": "Political Institutions",
+    "instructor": "O\u2019Geen",
+    "description": "This course will examine the origins and maintenance of political institutions, as well as the role of institutions in shaping outcomes and behavior. Theories drawing on insights from Political Science, Economics, History, and Sociology will be explored with a focus on applications in American politics.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 225",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 225 - US",
+    "description": "Public Policy Instructors G. Bullock, Roberts, Yesnowitz Formation, implementation, and evaluation of governmental responses to public needs. Focus on special topics such as environmental policy and health care.",
+    "satisfies": [
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 226",
+    "parentIds": [],
+    "name": "Racial and Ethnic Politics",
+    "instructor": "Crowder-Meyer",
+    "description": "An exploration of the role of ethnic and racial identities in American political life, with special attention to debates about how best to incorporate various American minority groups into the political process.",
+    "satisfies": [
+      "Satisfies Cultural Diversity requirement.",
+      "Satisfies Social-Scientific Thought requirement"
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 227",
+    "parentIds": [],
+    "name": "Law, Politics and Society",
+    "instructor": "O\u2019Geen",
+    "description": "This course is a survey of issues and themes connecting law, politics, and society. Reading and discussion will focus on American politics and explore topics as wide-ranging as racial inequality in sentencing and imprisonment, historical changes in the interpretation of rights and liberties, and civil procedure.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 228",
+    "parentIds": [],
+    "name": "US Environmental Politics and Policy",
+    "instructor": "Bullock",
+    "description": "This course will explore the political challenges and opportunities associated with environmental problems in the United States. Through in-depth cases and role-playing simulations at the local, state, and national levels, students study the competing interests, values, narratives, and knowledge claims in the politics of energy, pollution, natural resources, biodiversity, and climate change.",
+    "satisfies": [
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
+      "Satisfies depth and breadth course requirement in Social Science track of the Environmental Studies major or interdisciplinary minor.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [],
+    "group": ""
+  },
+  {
+    "id": "POL 229",
+    "parentIds": [],
+    "name": "Business and Politics",
+    "instructor": "Bullock",
+    "description": "This course introduces students to a variety of analytical perspectives on the relationship between the public and private sectors in the United States. It has a particular focus on the characteristics of US political institutions and corporate actors that influence this relationship, the role of corporate activities in the political arena, and the effects of public policies on American businesses.",
+    "satisfies": [
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
+      "Satisfies the Social-Scientific Thought requirement"
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 239",
+    "parentIds": [],
+    "name": "Special Topics American Politics Spring 2020 POL 239 A Topic: Social Movements and Social Change in the United States",
+    "instructor": ":",
+    "description": "Yesnowitz When and why do social movements occur? What motivates some individuals to participate in organized collective action? What role do strategies, values, decision-making structures, and leaders play? How have recent technological developments transformed recruitment efforts? Which tactics are most effective in pressuring legislators to respond to movement demands? What impacts have oppositional movements had on politics and society in the United States? In considering these (and other) questions, we will explore a range of movements which have both animated previous cycles of protest such as civil rights, women\u2019s liberation, and antiwar mobilization along with several cases which characterize our own time including climate change advocacy, Black Lives Matter demonstrations, and the #MeToo campaign. When examining the issue grievances and proposed remedies of both historical and contemporary political struggles, we will also focus close attention on media coverage of social movements, intra-movement disputes and inter-movement coalitions, the rise of counter-movements, and movement relations with political parties and presidential administrations. POL 239 B Topic: What\u2019s Happening to the News, and What it Means for Democracy Instructor: Sill The 2020 presidential campaign will flood Americans with news, but how much will be independent information amid political messaging, social media manipulation and partisan spin? This course will examine campaign reporting and other case studies in considering how media disruption and fragmentation are affecting democracy and civic function in the United States, We\u2019ll explore current press-public issues, \u201cenemies of the people\u201d versus \u201cwatchdogs for the people\u201d and other issues of trust in the context of U.S. history and the Internet\u2019s transformation of communication, with an eye to what comes next. The course will also include tools and skills for verifying information and evaluating media sources for credibility.",
+    "satisfies": [
+      "Satisfies Social-Scientific Thought requirement.",
+      "Satisfies Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 241",
+    "parentIds": [],
+    "name": "Comparative Public Policy",
+    "instructor": "Bersch",
+    "description": "This course explores how and why policies dealing with issues such as the economy, health care, and immigration differ across nations. We examine and contrast the influence of political ideas and ideologies, institutions, and organized interests in shaping the process and substance of public policy. In this course, we also investigate why similar policies generate different outcomes, exploring the challenges that developed and developing states face in implementing public policy. Cases analysis and discussions will provide opportunities for students to apply analytical skills and gain a realistic understanding of the roles, responsibilities, and interdisciplinary knowledge required of practitioners.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 242",
+    "parentIds": [],
+    "name": "West European Politics",
+    "instructor": "Ceka",
+    "description": "This course is designed to introduce you to the politics of West European societies by comparing different paths to democracy, party systems, political cultures, and policy outcomes of a number of West European countries. The material covered here is divided in three parts. We will begin the first part by exploring the divergent paths to democratization of the three largest countries in West Europe: the United Kingdom, France and Germany. We will then continue by exploring the different party systems and examine how votes are turned into seats in a variety of countries. In the second part of the course we will examine the political economy of Europe by focusing on how capitalism works differently across Europe and by studying the different models of the welfare state in Europe. We will discuss policy outcomes in a variety of countries, with a particular focus on social inequality and health outcomes. We will then move to the third part of the course where we study the European Union (EU) and current challenges facing European democracies. Here we will explore why the EU was created, how it works and how it relates to the world, and discuss the consequences of the Great Recession for the future of the EU. Finally, we will examine the challenges facing Europe today by considering immigration, globalization and the rise of Islamic fundamentalism.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 248",
+    "parentIds": [],
+    "name": "Comparative Climate Policy",
+    "instructor": "G.",
+    "description": "Bullock This course examines the design, implementation, and outcomes of climate policies around the world. It investigates the politics of climate change in high, middle, and low income countries, including Brazil, China, the European Union, India, the United States, and more. The course explores the themes of climate governance, climate justice, and climate resistance and enables students to compare climate policies on multiple dimensions and across different contexts. It also identifies connections to other domains of environmental concern, such as biodiversity, air and water pollution, and sustainable development.",
+    "satisfies": [
+      "Satisfies Political Science major requirement.",
+      "Satisfies Environmental Studies major and minor requirement (All tracks).",
+      "Satisfies Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 259",
+    "parentIds": [],
+    "name": "Special Topic: Governance, Corruption, and Reform Fall 2019 Special Topic: Governance, Corruption, and Reform",
+    "instructor": ":",
+    "description": "Bersch This course explores the relationship between government, corruption, and reform, and under what conditions bureaucracies work either as either facilitators of or impediments to reform. This course provides a mix of classroom instruction with hands-on experiential learning, drawing on the instructor\u2019s work with the Bureaucracy Lab at the World Bank and the Stanford Governance Project. Students will develop a Governance/Policy Lab at Davison, work with an external partner on developing a project, and complete a final research paper based on data from the Governance Project.",
+    "satisfies": [],
+    "PRQ": "Instructor permission required.",
+    "group": ""
+  },
+  {
+    "id": "POL 269",
+    "parentIds": [],
+    "name": "Special Topics in International Politics An upper division course dealing with a topic in International Politics. Topics change from year to year. Fall 2025 Topic: War Reporting Post 9-11",
+    "instructor": ":",
+    "description": "Kalin War reporting has transformed in the 21st century, shaped by the complex global conflicts following the attacks of Sept. 11 as well as rapid developments in technology and the broader media landscape. This course examines the shifting dynamics of news reporting in a digitally connected world, where media plays a key role in shaping government policies and public narratives around war. Through case studies from the Middle East, Ukraine and elsewhere, this course will give students insight into the practices and challenges of war reporting and help them critically assess media coverage including for issues of bias, disinformation and ethical dilemmas. It introduces foundational news writing techniques and requires students to both regularly consume international news and participate robustly in class discussions. The course is taught by this year\u2019s Batten professor, who has reported from the frontlines of international conflicts for more than a decade.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 284",
+    "parentIds": [],
+    "name": "US Diplomacy in First-person",
+    "instructor": "Zimmerman",
+    "description": "This course explores the memoirs and oral histories of American diplomats from post-WWII to the present day, how these individuals shaped policy and the institutions they served, and the leadership and ethical challenges they faced. Primary and secondary sources, guest speakers, social network mapping, and other resources will enable students to explore theory and practice, and analyze how relationships and perspectives influence U.S. foreign policies and their implementation.",
+    "satisfies": [
+      "Satisfies a major requirement in Political Science Satisfies Digital Studies minor requirement Satisfies History major and minor requirement Satisfies Historical Thought requirement"
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 285",
+    "parentIds": [],
+    "name": "Independent Study",
+    "instructor": "Staff POL 285:",
+    "description": "Independent Study",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 286",
+    "parentIds": [],
+    "name": "Navigating Politics, Corruption, and Policy in International Trade and Investment",
+    "instructor": "Staff",
+    "description": "Political considerations have a dramatic impact on the viability of trade and investment prospects in any given country or region. These considerations need to be understood within a framework that assesses historical, cultural, economic, and external factors - and then applied to a scenario where either current or prospective investors are determining how they might participate. Robust trade and investment opportunities are a linchpin of a functioning and sustainable economy that provides broad-based opportunities to its population - and in doing so provides political stability and in some cases protects the sovereign integrity of the country in question. This course uses a case study method to delve into real-life situations where political considerations have played an outsized role in trade and investment, with sometimes severe consequences.",
+    "satisfies": [
+      "Satisfies Political Science major requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 288",
+    "parentIds": [],
+    "name": "Davidson in Washington Independent Study",
+    "instructor": "Staff",
+    "description": "Project involving student research conducted in Washington, D.C., as part of the summer program of Davidson in Washington. Must have a significant political component. Graded on a Pass or Fail basis.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 289",
+    "parentIds": [],
+    "name": "Independent Study",
+    "instructor": "Staff",
+    "description": "Research leading to the submission of a major paper under the direction and supervision of a faculty member who reviews and approves the topic of the independent study and evaluates the student\u2019s work.",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor.",
+    "group": ""
+  },
+  {
+    "id": "POL 290",
+    "parentIds": [],
+    "name": "Politics of Africa",
+    "instructor": "Menkhaus",
+    "description": "Survey of contemporary political conflicts, development and international relations of Sub-Saharan Africa. Sub-field = International and Comparative Satisfies the Social-Scientific Thought requirement. Fulfills cultural diversity requirement.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 291",
+    "parentIds": [],
+    "name": "Politics of the Middle East",
+    "instructor": "Toska",
+    "description": "Survey of contemporary political and economic issues facing the Middle East, including international relations of the Middle East. Sub-field = International and Comparative Satisfies the Social-Scientific Thought requirement. Provides credit towards the Arab Studies minor.",
+    "satisfies": [
+      "Satisfies the cultural diversity requirement.",
+      "Satisfies the Middle East Studies interdisciplinary minor."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 293",
+    "parentIds": [],
+    "name": "Politics of the Americas",
+    "instructor": "B.",
+    "description": "Crandall This course examines the history, politics, economics, and society of Latin America. We will examine the history and current state of the region, focusing on shared themes such as authoritarianism, democratization, regionalism, and economic development. Case studies of specific countries and individuals will augment our broad overview of the politics of the region. Sub-field = International and Comparative Satisfies the Social-Scientific Thought requirement.",
+    "satisfies": [
+      "Satisfies the Cultural Diversity requirement.",
+      "Satisfies a requirement of the Latin American Studies major."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 302",
+    "parentIds": [],
+    "name": "Special Topics in Classical Political Theory",
+    "instructor": "Ahrensdorf",
+    "description": "This course explores such central themes of classical political thought as \u201ceducation and politics,\u201d \u201cidealism and realism,\u201d and \u201cpolitics and literature.\u201d The content of this course changes from year to year.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 304",
+    "parentIds": [],
+    "name": "Foundations of Liberalism",
+    "instructor": "Shaw",
+    "description": "Major political philosophers within the liberal tradition, including Locke, Kant, de Tocqueville, Mill, Hayek, and Rawls. Satisifies the Social-Scientific Thought requirement.",
+    "satisfies": [
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 305",
+    "parentIds": [],
+    "name": "Education and Politics",
+    "instructor": "Ahrensdorf",
+    "description": "This course examines the proper political and moral education of aspiring leaders in works by Plato, Machiavelli, and Shakespeare.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 306",
+    "parentIds": [],
+    "name": "Special Topic: Machiavelli and the American Founding",
+    "instructor": "Ahrensdorf",
+    "description": "This course explores the theme of Machiavelli and the American Founding.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 307",
+    "parentIds": [],
+    "name": "Lincoln and the Crisis of American Democracy",
+    "instructor": "Ahrensdorf",
+    "description": "This course examines the political thought of Lincoln, his predecessors, and his contemporaries concerning such themes as slavery, democracy, the Founding, and the Constitution.",
+    "satisfies": [
+      "Satisfies a Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement"
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 318",
+    "parentIds": [],
+    "name": "Special Topics in Contemporary Political Theory",
+    "instructor": "Shaw",
+    "description": "The course explores topics of special relevance to debates in contemporary political theory such as \u201cmulticultural citizenship,\u201d \u201cdemocratic theory,\u201d and \u201cconservative political theory.\u201d The content of this course changes from year to year.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 324",
+    "parentIds": [],
+    "name": "American Judicial Politics",
+    "instructor": "O\u2019Geen",
+    "description": "The judiciary and its ancillary players occupy an important and unique space in the world of American politics. Judges make decisions that impact not only the parties to a case but can have important implications for public policy outside of the case at hand. Litigants, attorneys, and interest groups understand that courts can shape policy and often try to use the legal system to their advantage. This is true for big policy questions and constitutional law but is also true for the day-to-day business of lower courts and judges. Americans often view courts, and judges in particular, as above the political fray. However, a deep investigation of judicial politics involves an understanding that these actors and institutions live simultaneously in the legal and political worlds and that the difference between the two is not as stark as we might first believe.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 325",
+    "parentIds": [],
+    "name": "Constitutional Law",
+    "instructor": "O\u2019Geen,",
+    "description": "Lee Development and interpretation of the Constitution of the United States through analysis of the decisions of the Supreme Court.",
+    "satisfies": [
+      "Satisfies the Literary Studies, Creative Writing, and Rhetoric requirement."
+    ],
+    "PRQ": "Not open to first-year students.",
+    "group": ""
+  },
+  {
+    "id": "POL 327",
+    "parentIds": [],
+    "name": "Civil Liberties",
+    "instructor": "O\u2019Geen",
+    "description": "Analysis of Constitutional guarantees of civil liberties in the United States with special focus on the Bill of Rights and the 14th Amendment.",
+    "satisfies": [
+      "Satisfies the Literary Studies, Creative Writing, and Rhetoric requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 328",
+    "parentIds": [],
+    "name": "Politics of Information",
+    "instructor": "Bullock",
+    "description": "Ratings, rankings and certifications have become a ubiquitous form of power in American society. Through in-depth case studies, this course explores the validity, credibility and effectiveness of these hotly-contested \u201cinformation-based governance\u201d strategies (such as food sustainability certifications, corporate \u201cgreen\u201d rankings, or doctor quality ratings), particularly in the health and environmental fields. Counts as an elective in the Data Science interdisciplinary minor.",
+    "satisfies": [
+      "Satisfies depth and breadth course requirement in the Social Science track of the Environmental Studies major or interdisciplinary minor.",
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 330",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 330 -",
+    "description": "Campaign Strategy Instructors Staff Analysis of the strategic and ethical dilemmas that political candidates face in election campaigns.",
+    "satisfies": [
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 334",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 334 -",
+    "description": "Public Opinion Instructors Crowder-Meyer Formation, change and measurement of political attitudes.",
+    "satisfies": [
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
+      "Satisfies Social-Scientific Thought requirement."
+    ],
+    "PRQ": "(Offered alternate years.)",
+    "group": ""
+  },
+  {
+    "id": "POL 336",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 336 -",
+    "description": "Politics and the Media Instructors Crowder-Meyer An assessment of the role mass media plays in American politics with emphasis on systematic as well as individual effects.",
+    "satisfies": [
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 341",
+    "parentIds": [],
+    "name": "The Rise of New Democracies",
+    "instructor": "Rigger",
+    "description": "The study of selected countries undergoing democratic transitions using theories of democratization in contemporary societies as a framework.",
+    "satisfies": [
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 342",
+    "parentIds": [],
+    "name": "Politics, Economics, & Society in China",
+    "instructor": "Rigger",
+    "description": "Introduces the political institutions, behavior, and foreign relations of the People\u2019s Republic of China. Provides credit towards the Asian Studies Interdisciplinary Minor.",
+    "satisfies": [
+      "Satisfies the cultural diversity requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 344",
+    "parentIds": [],
+    "name": "Politics and Economics of Brazil (= LAS 220)",
+    "instructor": "B.",
+    "description": "Crandall Treatment of political and economic change in modern Brazil. Focus on inequality, violence, environmental protection, and US-Brazil relations. Course includes historical background from 1946 forward. Provides credit towards the Latin American Studies and Political Science majors.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies the cultural diversity requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 347",
+    "parentIds": [],
+    "name": "Politics of Development",
+    "instructor": "Menkhaus",
+    "description": "Theories of development and underdevelopment, assessment of development policies in practice, and study of political change in the Global South. Counts as a theory/methodology course for the Latin American Studies major.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 348",
+    "parentIds": [],
+    "name": "Politics of Russia and Eastern Europe",
+    "instructor": "Ceka",
+    "description": "This course introduces you to the politics of Russia and Eastern Europe through a comparative analysis of the political systems, political economies, and the post-communist trajectories of Russia and other former communist countries in Europe. The course is divided into three parts. In the first part, we trace the ideological underpinnings and the workings of the communist systems that dominated the region in the second half of the twentieth century. The focus will be on the communist ideology and how it spread, the centrally planned economy, totalitarianism and the 1989 revolution that led to the collapse of communism in Europe. This part of the course will enable us to situate more recent political developments in Eastern Europe in their larger historical and institutional context of the post-World War II era. In the second part, we focus on the challenges of post-Communism in Central Eastern Europe that arose from the transition from command economies to market-based ones and the introduction of multiparty elections and democratic institutions. The topics discussed include democratic consolidation, ethnic conflict and disintegration, economic reform, European integration, and democratic backsliding. The third part of the course focuses on post-communist Russia and its experience with the political and economic transition away from communism. Here we explore the reasons for the collapse of the Soviet Union, the rocky years of the Yeltsin era, the rise of the oligarchs, the consolidation of authoritarianism under Putin, and Russia\u2019s efforts to restore its global role and to influence domestic politics in the West. Counts toward the International Relations or Comparative Politics areas in the major",
+    "satisfies": [
+      "Satisfies a requirement in the Russian Studies major and minor.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 353",
+    "parentIds": [],
+    "name": "The Latin American Political Novel",
+    "instructor": "R.",
+    "description": "Crandall This course analyzes the political messages and discussions within some of Latin America\u2019s most widely read works of fiction. The course also examines the broader political, economic, and social context in which these stories take place. The novels will be read in English translation.",
+    "satisfies": [
+      "Satisfies the cultural diversity requirement.",
+      "Satisfies a major requirement in Latin American Studies."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 354",
+    "parentIds": [],
+    "name": "POL Southern Cone-S. America",
+    "instructor": "B.",
+    "description": "Crandall Course offers brief historical overview of Southern Cone nations Argentina, Chile, Uruguay and Paraguay and then moves to a study of political and economic institutions. Themes include bureaucratic authoritarianism, economic shocks, military rule and the return to democracy, regional integration, and globalization.",
+    "satisfies": [
+      "Satisfies a major requirement in Latin American Studies and Political Science.",
+      "Satisfies a minor elective requirement in Latin American Studies.",
+      "Satisfies the Social-Scientific Thought requirement Meets the Cultural Diversity requirement."
+    ],
+    "PRQ": "Open to all students",
+    "group": ""
+  },
+  {
+    "id": "POL 359",
+    "parentIds": [],
+    "name": "Topics in Comparative Politics Upper level course in comparative politics. Topics change from year to year. Fall 2025: Politics of the Gulf States",
+    "instructor": "Kalin",
+    "description": "This course explores the contemporary politics, economics, and society of the countries bordering the Persian Gulf, in particular Saudi Arabia, Iran, Iraq, the United Arab Emirates and Qatar. Through a multidisciplinary approach and robust engagement with both academic literature and current news coverage, students will gain an understanding of the transformations underway in this strategic region. Key topics include U.S. relations with the Middle East, regional security policies, authoritarian governance, oil rentierism and economic diversification, human rights, social liberalization and Islam. Case studies, class discussions and presentations, and guest speakers with regional expertise will give students the analytical tools to critically assess developments in the Gulf and their representation in the media. The course is taught by this year\u2019s Batten professor, who has reported from the region for more than a decade.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 360",
+    "parentIds": [],
+    "name": "International Political Economy",
+    "instructor": "B.",
+    "description": "Crandall This course encompasses the intersection of political and economic forces. It begins with the core concepts of international monetary and international trade theory, then pursues topical issues related to economic international relations between and among countries. Among the questions we address: Why do currencies go \u201cup\u201d or \u201cdown,\u201d and with what implications? How do financial crises begin and spread? Who are the winners and losers from international trade, and how does it affect human welfare? The course will also cover topical issues such as the function and impact of the international financial organizations, income inequality, and the relationship between democracy and open markets. The course will look into at least two country case studies to analyze the application of these issues in practice. This course is not quantitative, and no prior economics experience is required. This class is not open to students who have already taken ECO 288.",
+    "satisfies": [
+      "Satisfies Philisophy, Politics, and Economics major requirement.",
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies Cultural Diversity requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 361",
+    "parentIds": [],
+    "name": "U.S.-Latin American Relations",
+    "instructor": "Staff",
+    "description": "This course traces the evolution of United States involvement in Latin America beginning with the War of 1898 and continuing through the present day. It focuses on recent US-Latin American issues such as the war on drugs, undocumented immigration, and intermittent U.S. interventions in the hemisphere. Counts toward the Latin American Studies Major.",
+    "satisfies": [
+      "Satisfies the Historical Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 362",
+    "parentIds": [],
+    "name": "American Foreign Policy",
+    "instructor": "Menkhaus",
+    "description": "Analysis of the foreign policy process, and selected American foreign policy challenges and debates.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement"
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 363",
+    "parentIds": [
+      "POL 161"
+    ],
+    "name": "International Organization",
+    "instructor": "Ceka",
+    "description": "Survey of theories of international cooperation, conflict, and organization; the historical evolution, functions, and current politics of key international organizations, especially the United Nations; U.S. foreign policy toward the U.N.; and selected issues and case studies with a focus on the politics of intervention and international peacekeeping.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement"
+    ],
+    "PRQ": [
+      "POL 161"
+    ],
+    "group": ""
+  },
+  {
+    "id": "POL 364",
+    "parentIds": [
+      "POL 161"
+    ],
+    "name": "International Security",
+    "instructor": "Menkhaus",
+    "description": "Analysis of old and emerging global security threats, including nuclear proliferation, terrorism, cyber-terrorism, civil wars, transnational crime, and climate change.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement"
+    ],
+    "PRQ": [
+      "POL 161"
+    ],
+    "group": ""
+  },
+  {
+    "id": "POL 365",
+    "parentIds": [],
+    "name": "The International Relations of the Asia Pacific",
+    "instructor": "Zhu",
+    "description": "Considers the foreign policies of and relationships among nations in the Asia-Pacific region.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies a requirement of the East Asian Studies Interdisciplinary Minor."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 366",
+    "parentIds": [
+      "POL 161"
+    ],
+    "name": "",
+    "instructor": "POL 366 -",
+    "description": "State-building and Peacebuilding Instructors Menkhaus Failed and fragile states have been identified as a major threat to both development and security. This course explores the enterprise of peacebuilding and state-building in post-conflict settings, and the many challenges faced by the international community as it attempts to support the revival of states and good governance in countries emerging from war.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "POL 161",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "POL 379",
+    "parentIds": [],
+    "name": "Comparative Campaigns and Elections",
+    "instructor": "Staff",
+    "description": "Most countries around the world hold elections, but the quality of these elections differ greatly. In authoritarian and democratic regimes there are attempts to shape the electoral playing field in ways that can harm representation and accountability. This course examines several dimensions of election quality ranging from voter registration to campaigns to the reporting of results in countries across the globe. In the context of exploring election quality, the course will also investigate the nature of campaigns and election results in both authoritarian and democratic countries. In particular, we will consider campaign dynamics and strategy given institutional and regime constraints in a diverse set of countries across the globe",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 380",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 380 -",
+    "description": "Symposium: Davidson in Washington Summer 2022- Section A World Politics in American Politics Ceka In this seminar, we will explore how world politics, foreign actors, and events in the rest of the world influence American politics and policy. The course has two overarching goals. First, we will examine the role that domestic and foreign actors play in the making of American foreign policy by looking at lobbying efforts, think tank activity and diplomacy, and by studying cases such as the US withdrawal from Afghanistan, US-China relations, and conflicts in the Middle East. Second, we will explore the interplay between world politics and American politics by investigating the influence of foreign affairs in US elections and the power struggle between the President and Congress. Section B Identity in American Politics Crowder-Meyer One of the clearest findings across American politics scholarship is the power of party identity on political outcomes. Partisanship shapes how citizens behave, the outcome of elections, and what representatives do once in office. It is increasingly evident that many other identities influence American politics as well. In \u201cIdentity in American Politics,\u201d we will investigate how identities such as gender, race, ethnicity, and region affect American politics and the outcomes of American government.",
+    "satisfies": [
+      "Satisfies a major requirement in Political Science."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 381",
+    "parentIds": [],
+    "name": "Philanthropy and the Non-Profit Sector",
+    "instructor": "Menkhaus",
+    "description": "Multi-disciplinary exploration of the changing roles of the non-profit sector and philanthropy in service delivery, advocacy, civic life and public policy. Focus is primarily on the non-profit sector in the US. Topics include venture philanthropy; social entrepreneurism; foundations; patterns of giving and volunteerism; best practices in non-profit management; and critiques of philanthropic giving and the non-profit sector. Includes a lab component of the course, funded by the \u201cLearning by Giving Foundation,\u201d in which students solicit project proposals and allocate $10,000 to local non-profits.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 382",
+    "parentIds": [],
+    "name": "Special Topic: Dilemmas of Ethics and Public Service",
+    "instructor": "Bill",
+    "description": "Kristol If you are interested in this seminar, know that pre-reregistration is by permission only . To request permission to preregister, please write a one paragraph bio that includes your name, class, major or potential major, and a 3-5 sentence explanation of why you want to take the course and why you would be an excellent contributor to the class. Send to Meg Sawicki mesawicki@davidson.edu using the subject line \u201cKristol seminar\u201d. A committee will determine composition of the seminar. You will be contacted on April 4 notifying you whether you have a seat in the class. The course is open to all majors, and there are no pre-requisites.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 383",
+    "parentIds": [],
+    "name": "Peruvian Political Thought since the Conquest (=HIS 362)",
+    "instructor": "Staff",
+    "description": "This seminar uses primary-source readings to explore the history of political ideas in Peru since the conquest, with an emphasis on the nineteenth and twentieth centuries. The course includes a wide range of Peruvian voices, including indigenous-, Spanish-, and African-descended Peruvians; women and men; leftists and rightists. It also includes multiple genres, including novels (several), works of formal political theory, indigenous oral histories, and distinctively Peruvian \u201ctraditions\u201d (short works of historical fiction).",
+    "satisfies": [
+      "Satisfies the Historical Thought requirement.",
+      "Satisfies a requirement of the Latin American Studies interdisciplinary minor."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 384",
+    "parentIds": [],
+    "name": "Psychology of Political Leadership",
+    "instructor": "Ceka",
+    "description": "This course is interdisciplinary and uses concepts, theories and methodological approaches from psychology to explore political leadership and its many facets. It has three overarching goals. First, it will explore the factors that influence who becomes a political leader. Here the focus will be on how political leaders are chosen and socialized and what their motivations for seeking political office are. Second, this course will seek to understand how contextual factors and character traits affect leadership and decision making with a particular focus on how leaders\u2019 personalities and experiences interact with their environment and affect their ability to govern accountably and effectively. Third, it will investigate how leaders relate to the public with a focus on the cognitive basis of this relationship and the role of persuasion.",
+    "satisfies": [
+      "Satisfies Psychology major requirement.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 385",
+    "parentIds": [],
+    "name": "Independent Study",
+    "instructor": "Staff POL 385:",
+    "description": "Independent Study",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 389",
+    "parentIds": [],
+    "name": "Tutorial",
+    "instructor": "Staff",
+    "description": "Individual programs of supervised study conducted through the preparation and discussion of a series of essays under the direction and supervision of a faculty member who reviews and approves the topic of the tutorial.",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor. (Offered every semester.)",
+    "group": ""
+  },
+  {
+    "id": "POL 398",
+    "parentIds": [],
+    "name": "Global Environmental Politics",
+    "instructor": "Bullock",
+    "description": "Environmental issues often span national boundaries and thus can only be effectively solved through international cooperation. Insights from the study of international relations are essential to understanding the nature of both these transboundary challenges and their solutions. This course will provide students with the relevant theoretical and empirical knowledge from these political science sub-fields to engage deeply with three particularly \u201cwicked\u201d environmental issues - climate change, biodiversity loss, and air pollution. Students will learn about the strengths and limitations of efforts by international organizations, national governments, and non-governmental actors across a range of different countries and scales to tackle these challenges. They will also participate in an interactive and collaborative civic engagement project that will share what they have learned about these issues with the Davidson community.",
+    "satisfies": [
+      "Satisfies Political Science major requirement.",
+      "Satisfies a major requirement in Environmental Studies.",
+      "Satisfies Communication Studies minor requirement.",
+      "Satisfies the Social-Scientific Thought requirement"
+    ],
+    "PRQ": [],
+    "group": ""
+  },
+  {
+    "id": "POL 400",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 400 -",
+    "description": "Seminars in Political Theory, POL 400-419 Instructors Ahrensdorf, Shaw Reading, research, reports, and discussions on selected topics within the sub-field. Past seminars include \u201cLincoln and the Crisis of American Democracy,\u201d \u201cThe City and Justice,\u201d \u201cKant,\u201d and \u201cPolitics and Heroism.\u201d A list of available seminars will be posted on the department webpage prior to each semester\u2019s registration.",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor. Individual courses may have additional prerequisites. At least one seminar is offered in each sub-field every year.",
+    "group": ""
+  },
+  {
+    "id": "POL 401",
+    "parentIds": [],
+    "name": "Thucydides on Justice and War",
+    "instructor": "Ahrensdorf",
+    "description": "This course investigates arguments for and against both political realism and political idealism through a study of the founder of classical realism, Thucydides. .",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 402",
+    "parentIds": [],
+    "name": "Kant, Liberalism, and Rights",
+    "instructor": "Shaw A focused examination of",
+    "description": "Kant\u2019s principal moral and political writings.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 403",
+    "parentIds": [],
+    "name": "Against Liberal Democracy",
+    "instructor": "Shaw",
+    "description": "An examination of influential 19th and 20th century critiques of liberal democracy.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 404",
+    "parentIds": [],
+    "name": "Marxism and After",
+    "instructor": "Shaw",
+    "description": "An examination seminal writings by Marx and Engels and their elaboration by later writers such as Lenin, Gramsci, Lukacs, Fanon, Mao and Marcuse.",
+    "satisfies": [
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 405",
+    "parentIds": [],
+    "name": "Justice and the City",
+    "instructor": "Shaw",
+    "description": "An examination of contemporary urban design and regional planning practices in light of normative debates about property rights, democracy, and federalism.",
+    "satisfies": [
+      "Satisfies a Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 406",
+    "parentIds": [],
+    "name": "Religion, Politics, and Law",
+    "instructor": "Ahrensdorf",
+    "description": "This course explores the perennial issue of the relation between religion, politics, and law (both human and divine), through a study of such thinkers as Plato and Montesquieu.",
+    "satisfies": [
+      "Satisfies a Social-Scientific Thought requirement."
+    ],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 407",
+    "parentIds": [],
+    "name": "Liberalism, Feminism, and Manliness",
+    "instructor": "Shaw",
+    "description": "An examination of the tensions between liberalism and feminism in the works of Wollstonecraft, Rousseau, Mill, Tocqueville, Mansfield, and de Beauvoir.",
+    "satisfies": [
+      "Satisfies a Social-Scientific Thought requirement.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 408",
+    "parentIds": [],
+    "name": "",
+    "instructor": "POL 408 -",
+    "description": "Special Topics in Political Theory Fall 2016 - Chinese Political Thought: Ancient and Modern Given China\u2019s current prominence in global affairs, there has been a recent revival of interest in what China might teach us about the nature of political life. While many earlier interpreters regarded traditional Chinese political theories, most notably Confucianism, as an obstacle to economic and political modernization, some more recent political theorists have suggested that Chinese political thought offers a powerful alternative to modern Western thought. In this course, we will seek to examine these debates through the careful study of both the central Chinese texts (in translation) and contemporary works in the field. In the first part of the course, we will examine the major schools of ancient Chinese political thought\u2013 Confucianism, Daoism, Legalism, and Mohism. We will consider the ways in which each one responds to questions such as the following: what is the best way of life for human beings? How does can particular policies or approaches to government help or hinder human wellbeing? What forms of education support a flourishing community? What is the place of the family in political life? In the second part of the course, we will bring these theories, particularly Confucianism, into dialogue with contemporary Western political thought. Here we will discuss, for example, the ways in which concepts such as democracy and human rights might be understood within a Confucian framework.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 410",
+    "parentIds": [],
+    "name": "The Crisis of Liberal Democracy: Tocqueville and Nietzsche",
+    "instructor": "Ahrensdorf",
+    "description": "Seminar: The Crisis of Liberal Democracy: Tocqueville and Nietzsche",
+    "satisfies": [],
+    "PRQ": "Permission of instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 420",
+    "parentIds": [],
+    "name": "Institutions and Inequality: a case study of Panama",
+    "instructor": "B.",
+    "description": "Crandall Panama has been a stable democracy since 1990 and has in recent years been celebrated as an economic success story for its rapid rate of per capital GDP convergence with the United States. The country\u2019s canal along with high levels of service exports, foreign direct investment, and capital accumulation have been attributed as key factors driving growth and stability. This course will use this Panamanian success story as a starting point, analyzing the drivers of economic growth and relative political stability in Panama. At the same time, we acknowledge the \u201ctyranny of averages\u201d in indicators such as per capital income and will dig deeper into the winners and losers of Panama\u2019s current economic and political landscape. Panama is the second most unequal country in Latin America. To this end, we will look into what policies and/or sectors of its economy have contributed to or impeded more broadly shared prosperity. We also aim to better understand how political institutions are functioning in the country, including understanding its transition to democracy as well as the inclusivity of political rights, specifically Panama\u2019s indigenous populations. A key element of our understanding of Panama will be a class trip to Panama City during the week of spring break. Students should have basic Spanish speaking and reading skills.",
+    "satisfies": [
+      "Satisfies Political Science major requirement.",
+      "Satisfies Latin American Studies major and minor requirement.",
+      "Satisfies Cultural Diversity requirement."
+    ],
+    "PRQ": "Requires instructor permission. To seek permission email professor with the following 3 details: Class year (limited to Sophomores, Juniors, Seniors) Major Why you want to take the class",
+    "group": ""
+  },
+  {
+    "id": "POL 421",
+    "parentIds": [],
+    "name": "Judicial Politics",
+    "instructor": "O\u2019Geen",
+    "description": "This seminar provides an introduction to the study of the law and courts in American politics. This includes examination of courts as policy-shaping institutions, the motivation and behavior of judges, and the political contexts of courts and judging. The readings draw on current and classic work in political science and law and represents a range of theoretical and methodological perspectives. Courts and judges sit at the intersection of law and politics in the U.S. This seminar is particularly suited for students interested in understanding and studying this connection.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 422",
+    "parentIds": [],
+    "name": "Political Communication",
+    "instructor": "Sellers",
+    "description": "This seminar examines the use and effectiveness of different rhetorical and communication strategies in contemporary politics, from campaigns and elections and policy debates to crisis management and new media.",
+    "satisfies": [
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "Methods & Statistics in Political Science (POL 201) and permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 423",
+    "parentIds": [],
+    "name": "Politics of Reproduction",
+    "instructor": "Roberts",
+    "description": "This seminar examines political and policy questions regarding reproductive politics such as contraception, access to abortion, eugenics, artificial reproductive technology, egg donation, sperm banking, stem cell technology, sex education and surrogacy. The politics of reproduction touches on nearly all avenues of politics: policymaking, public opinion, framing, activism, legislation, constitutional questions, and elections.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement.",
+      "Satisfies a requirement in the Gender and Sexuality Studies major and minor (Society & Politics Track)."
+    ],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 428",
+    "parentIds": [],
+    "name": "Public Opinion/Survey Research",
+    "instructor": "Phan",
+    "description": "This course examines how to conduct survey/public opinion research and explores how public opinion informs American Politics. Topics will include how to conceptualize and measure public opinion, the origins of public opinions, the nature of mass opinion for specific policy areas, and how public opinion informs the policy making process. Students will also learn the fundaments of survey research.",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 430",
+    "parentIds": [],
+    "name": "The Politics of Youth",
+    "instructor": "Yesnowitz",
+    "description": "This seminar examines contemporary youth political participation in the United States. We will consider the historical, social, and economic forces that influence the politics of young people and how these forces compare with the formative experiences of earlier political generations. We will also explore the public policies, the political attitudes, and the ideological worldviews that shape youth political behavior today and study the role of institutions and organizations (e.g. political parties, social movements, organized religion, schools) in helping to form political identity and mobilize political action. Finally, this class looks at how contributions of youth politics - the embrace of novel forms of political expression, the employment of new venues for politics, and the centering of previously marginalized voices \u2013 are impacting the present and future of American politics.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 434",
+    "parentIds": [],
+    "name": "Political Psychology",
+    "instructor": "Staff",
+    "description": "The goal of political science is to explain why citizens engage in certain types of political behavior, and how citizens think about politics. Psychology offers a way to explain how and why individuals behave the way they do. This course considers the role of personality, emotions, stereotypes, and group dynamics in politics, campaigns, and voting. We will learn about key psychology concepts, apply these concepts to politics, and investigate how experimental methods can identify the psychology behind politics.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 435",
+    "parentIds": [],
+    "name": "(In)Justice in America",
+    "instructor": "O\u2019Geen",
+    "description": "This seminar is an exploration of the concept of justice in the United States. The course has three primary components: Theory, practice, and challenges. We begin by examining notions of justice, their origins, and development over time. We will also look at the mechanics of the justice system in the United States and how the justice system attempts to live up to ideals of justice and fairness. Finally, we address issues that arise when people and institutions fail to live up to those ideals.",
+    "satisfies": [
+      "Satisfies a requirement in the Political Science major.",
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 440",
+    "parentIds": [],
+    "name": "European Integration",
+    "instructor": "Ceka",
+    "description": "The European Union (EU) is one of the world\u2019s most ambitious experiments in governance. Consequently, it is both one of the most complex and intriguing international organizations to study and understand. In this course, we will review the history of European integration and we will investigate in detail the main institutions of the EU and how they relate to one another. We will also explore some of the most important current debates revolving around the EU, including the role of public opinion and identity politics for European integration, the \u2018democratic deficit\u2019 and the most recent global financial crisis.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 441",
+    "parentIds": [],
+    "name": "The Rise of China",
+    "instructor": "Zhu",
+    "description": "This course offers advanced students an opportunity to explore contemporary Chinese politics, economics, and society in detail.",
+    "satisfies": [
+      "Satisfies East Asian Studies major requirement."
+    ],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 442",
+    "parentIds": [],
+    "name": "Social Movements and Revolutions",
+    "instructor": "Toska",
+    "description": "Why do groups of people who have been quiescent for decades, all of a sudden take to the streets to oppose their regimes, often risking their lives to do so? Why do regimes that had survived wars and remained stable, suddenly collapse under popular pressure? Why do some movements last and succeed in their goals, while other fizzle and fail? In this seminar we will provide answers to these questions, by analyzing the causes and changing meanings of revolutions, social movements, contentious politics, and activism. We will start by looking at how the French Revolution in the 18th century defined the meaning of revolution in the modern world and how it was transformed by the revolutionary events in 1968 and then 1989. We will then continue with alternative trajectories and neglected histories such as the Haitian Revolution and contentious politics in 18 th century China, as well as more contemporary revolutions in post-Soviet states and the Middle East. Given that today we are living in another age of world-wide political activism, ultimately the goal of this course is to develop informed theoretical analyses of the meanings and practices of revolutions and social movements both in the past and in our own times.",
+    "satisfies": [
+      "Satisfies the Justice, Equality, and Community requirement."
+    ],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 443",
+    "parentIds": [],
+    "name": "Political Islam",
+    "instructor": "Toska",
+    "description": "This course examines how modern Islam, from the middle of the nineteenth century to today, \u201cbecame\u201d political. It explores the role of theology and domestic and international politics in the development of Islamic movements, political parties, Islamic jihad, and Islamic rule in various countries. It also focuses on contemporary issues - the relationship between Islam and democracy, the rise of violent non-state groups, and global responses to them.",
+    "satisfies": [
+      "Satisfies a major requirement in Political Science| Satisfies a minor requirement in Arab Studies Satisfies an interdisciplinary minor requirement in Middle East Studies Satisfies the Cultural Diversity requirement"
+    ],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 444",
+    "parentIds": [],
+    "name": "Nationalism",
+    "instructor": "Ceka",
+    "description": "How is the nation constructed? How is nationalism used by different groups and for what purposes? What role does nationalism play in creating political rights or basis for exclusion? This seminar examines the complex relationship between the nation and the state by studying examples from different parts of the world and across time. Using theories of nationalism, identity formation, and state-building we will explore the role that nationalism plays in the creation and fragmentation of states as well as the delineation of political communities. On the one hand, nationalism has the power to crystallize collective identities and provide the overriding basis for self-determination of groups, which can strengthen the state. On the other hand, when national identity is disputed domestically or various groups do not identify with the state, nationalism becomes a source of state disintegration and conflict, oftentimes leading to ethnically motivated political strife and even civil war.",
+    "satisfies": [],
+    "PRQ": "Permission of instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 445",
+    "parentIds": [],
+    "name": "Corruption and Development",
+    "instructor": "Bersch",
+    "description": "This seminar explores the relationship between corruption and development. Does corruption impede development? If so, what if anything can be done about it? We examine differences in conceptualization and measurement of corruption, explore cases of corruption in politics and the bureaucracy, explore concepts such as state capture, patronage, and clientelism, and assess various types of anti-corruption measures and reforms.",
+    "satisfies": [
+      "Satisfies a major requirement in Political Science."
+    ],
+    "PRQ": "Permission of instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 446",
+    "parentIds": [],
+    "name": "Comparative Youth Politics",
+    "instructor": "Rigger",
+    "description": "Around the world, young people are mobilizing to make their voices heard. From Hong Kong to North Africa, youth are protesting political and economic conditions; meanwhile their counterparts in Europe and North America are organizing climate strikes and other actions. In addition to direct action, youth are working to advance their ideas through electoral politics and in non-governmental organizations. This course will look at youth politics both conceptually and empirically. What does it mean to be young? How are youth different from other categories of citizens? How are youth excluded and marginalized, politically, socially, and economically, and what strategies are available to them for resisting and adapting to states that all to often ignore them? The course will focus on cases outside North America, but students will apply the concepts and theories we have studied to individual research projects on youth politics in the US and other countries of which they have direct experience.",
+    "satisfies": [
+      "Satisfies Political Science major requirement.",
+      "Satisfies Justice, Equality and Community requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 448",
+    "parentIds": [],
+    "name": "Seminar: Rise and Fall of Democracy",
+    "instructor": "Ceka",
+    "description": "What is democracy and why do we care about this form of government? What explains recent democratic erosion around the globe? How can we strengthen the resiliency of our democracies? This seminar explores the rise and fall of democracy by studying its origins and spread over time across the world. Using theories of democratic transition and consolidation, we will first trace the spread of democracy in the last one hundred years and explain its enduring appeal. We will then turn to theories of democratic erosion to explain the causes and consequences of democratic erosion. The focus is comparative, and we will investigate case studies from various regions of the world. We will explore various themes including populism and demagoguery, the role of truth in democratic societies, corruption, economic inequality, and polarization. At the end of the course, we will discuss remedies to democratic erosion and examine the role that civil society, protest groups, and democratic opposition can play in its reversal.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 449",
+    "parentIds": [],
+    "name": "Politics and Governance: Executive Power, Bureaucracy, and Accountability",
+    "instructor": "Bersch",
+    "description": "This seminar examines the role of the executive branch in modern governance, exploring the complexities of policymaking, policy implementation, political accountability, and bureaucratic expertise. Students will analyze how executive power is exercised, the role of civil servants in shaping policy, and the tensions between political oversight and bureaucratic autonomy. Topics include the meritocratic foundations of civil service, governance reform efforts, the politicization of bureaucracies, and the varying roles of executive agencies across policy domains. Drawing on comparative and historical perspectives, the course will explore key debates about executive power and accountability, including case studies on governance challenges in different policy areas. Students will engage with scholarship in political science, public administration, and law, developing a nuanced understanding of how executive policymaking functions in democratic and non-democratic contexts. The seminar is designed to be interactive, incorporating guest speakers, student presentations, case studies, and policy simulations. A major paper (capstone) will serve as the culminating assignment, allowing students to conduct in-depth research on an issue related to executive policymaking and governance.",
+    "satisfies": [
+      "Satisfies Political Science major requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 452",
+    "parentIds": [
+      "POL 472"
+    ],
+    "name": "Leaders vs. Entrepreneurs",
+    "instructor": "Bullock",
+    "description": "This course examines the characteristics of great leaders and successful entrepreneurs, and the roles they play in politics and society. Building on insights from political science, economics, and psychology, students use different theories and concepts, such as social entrepreneurship and transformative leadership, to analyze individuals as diverse as Jane Goodall, Steve Jobs, and Teddy Roosevelt.",
+    "satisfies": [
+      "Satisfies a major requirement in Political Science.",
+      "Satisfies depth and breadth course requirement in Social Science track of the Environmental Studies major or interdisciplinary minor.",
+      "Satisfies a Social-Scientific Thought requirement."
+    ],
+    "PRQ": [
+      "POL 472",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "POL 462",
+    "parentIds": [],
+    "name": "Humanitarian Intervention",
+    "instructor": "Menkhaus",
+    "description": "An exploration of the politics, policies, debates, and controversies surrounding humanitarian interventionism, including emergency relief operations, refugee politics, UN peace operations, and emerging global norms and enforcement mechanisms on war crimes, war economies, and human rights violations. Case studies of interventions in the name of humanitarian principles in countries such as Bosnia, Somalia, South Sudan, Haiti, and East Timor will be explored to complement thematic readings.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 463",
+    "parentIds": [],
+    "name": "International Organizations",
+    "instructor": "Staff",
+    "description": "There is a proliferation of international organizations covering domains from economic regulation to security to political norms. Many of these organizations are well-known including the United Nations, African Union, North Atlantic Treaty Organization, and European Union while others may be lesser known including the Economic Community of West African States, Mercosur, and Association of Southeast Asian Nations. These international organizations have varying aspirations ranging from facilitating transactions between states to transnational political unification and federation. The course considers how and why international organizations have proliferated and evolved and their influence on political, economic, and security outcomes. The course will approach the study comparatively by examining the similarities and differences between international organizations and considering the interaction between domestic politics and international organizations, particularly for organizations with political (e.g., democracy and governance) and distributional (e.g., trade) consequences. In addition to organizations comprised of states, the course will also examine the role of international non-governmental organizations.",
+    "satisfies": [
+      "Satisfies a requirement for the Political Science major."
+    ],
+    "PRQ": "Permission of the instructor.",
+    "group": ""
+  },
+  {
+    "id": "POL 464",
+    "parentIds": [
+      "POL 182"
+    ],
+    "name": "Conflict Analysis",
+    "instructor": "Menkhaus",
+    "description": "This seminar will explore seminal writings on the nature and causes of contemporary intra-state armed conflict, political violence, and civil war; the political economy of armed conflict; the state of the art on conflict prevention, mediation, and negotiation; and assessments of peacekeeping and peacebuilding efforts in countries emerging from conflict. Students will have the option of producing a major paper as part of the requirement for the POL major, or a more modest research paper if they do not need to meet the POL major paper requirement. One or more joint class sessions may be held with Batton visiting professor Stephen Kalin\u2019s course on reporting from war zones.",
+    "satisfies": [],
+    "PRQ": [
+      "POL 182",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": ""
+  },
+  {
+    "id": "POL 466",
+    "parentIds": [],
+    "name": "U.S.-China Competition in the Global South",
+    "instructor": "Zhu",
+    "description": "This advanced seminar examines the evolving competition between the United States and China across the Global South, with particular attention to how great-power rivalry shapes development trajectories, political institutions, and everyday governance in low- and middle-income countries. Situating contemporary U.S.-China competition within a longer historical arc, the course begins by exploring the strategic importance of the Global South during the Cold War and its renewed centrality in twenty-first-century geopolitics. The seminar then turns to the evolution of U.S. and Chinese foreign policy toward the Global South, analyzing how each country has defined its interests, instruments, and narratives across regions such as Africa, Southeast Asia, Latin America, and parts of the Middle East. Students will examine how security concerns, economic statecraft, development finance, diplomatic engagement, and soft power initiatives intersect with local political economies and state capacities. The latter part of the course focuses on key arenas of U.S.-China competition, including infrastructure and development finance, natural resources and energy, security and peacekeeping, public health, labor and migration, technology and digital governance, trade, and investment. Through in-depth country and sectoral case studies, students will assess how governments, firms, and social actors in the Global South navigate, resist, or leverage great-power competition to advance domestic priorities. The seminar emphasizes both theoretical and methodological rigor. Students will engage international relations and comparative politics theories while developing applied research skills, including foreign policy analysis, comparative case selection, data collection, and qualitative and quantitative methods. The major assignment is a substantial research paper (approximately 20 pages) in which students analyze U.S.-China competition in a specific country, sector, or region of the Global South, drawing on original data sources and a clearly articulated analytical framework. By the end of the course, students will be equipped to critically evaluate the implications of U.S.-China competition beyond the traditional great-power lens and to understand how actors in the Global South actively shape, rather than simply receive, global geopolitical pressures.",
+    "satisfies": [
+      "Satisfies Political Science major requirement.",
+      "Satisfies East Asian Studies major requirement.",
+      "Satisfies Chinese Studies minor requirement."
+    ],
+    "PRQ": "",
+    "group": ""
+  },
+  {
+    "id": "POL 468",
+    "parentIds": [],
+    "name": "International Law and Human Rights",
+    "instructor": "Staff",
+    "description": "The world celebrated the seventieth anniversary of the Universal Declaration of Human Rights (UDHR) last year. The UDHR enshrines many important rights, including the freedom of expression, freedom from arbitrary arrest and torture, non-discrimination, access to social security, and the ability of citizens to choose their government - to name just a few. The UDHR is just one form that international law takes. There are many other sanctioned treaties, charters, and protocols that comprise international law, such as the European Convention on Human Rights and African Charter on Human and Peoples\u2019 Rights. This seminar explores these critical documents and the associated institutions (e.g., International Criminal Court) that comprise international law. In doing so, we will address one of the major questions in international relations: does international law shape international and domestic behavior and outcomes? We will also consider a wide range of case studies that involve international conflict and security and domestic politics (e.g., activism and elections).",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 472",
+    "parentIds": [],
+    "name": "Citizens vs. Consumers",
+    "instructor": "Bullock",
+    "description": "This seminar investigates the roles of citizens and consumers in politics and society. Students compare different forms of citizenship, discuss the implications of political consumerism, and examine the tensions and complementarities between our identities as citizens and consumers in the context of different environmental arenas, including water pollution, air quality, and climate change.",
+    "satisfies": [
+      "Satisfies depth and breadth course requirement in Social Science track of the Environmental Studies major or interdisciplinary minor.",
+      "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": "Offered every other year, in rotation with POL 471. Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 485",
+    "parentIds": [],
+    "name": "Advanced Independent Study",
+    "instructor": "Bersch K,",
+    "description": "Bullock G, Rigger S, Research leading to the submission of a major paper under the direction and supervision of a faculty member who reviews and approves the topic of the independent study.",
+    "satisfies": [],
+    "PRQ": "Permission of the instructor required.",
+    "group": ""
+  },
+  {
+    "id": "POL 488",
+    "parentIds": [],
+    "name": "Honors Thesis",
+    "instructor": "Staff",
+    "description": "Required of and limited to seniors in the Honors Program. Thesis is written under supervision of an appropriate instructor and is defended orally before at least two members of the political science faculty.",
+    "satisfies": [],
+    "PRQ": "",
+    "group": ""
+  }
+]
