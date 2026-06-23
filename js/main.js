@@ -17,7 +17,7 @@ import {
 } from './groupLayout.js';
 
 //const data = await d3.json("data/courses-full-info.json");
-const data = await d3.json("data/chemistry/courses_output_chemistry.json");
+const data = await d3.json("data/chemistry/courses_handcollected_chemistry.json");
 
 
 // ------------------- //
@@ -686,6 +686,11 @@ function evaluatePrerequisites(tokens, takenSet) {
     }
 
     // Single token — must be a course ID
+    console.log("Evaluating single token:", toks);
+    if (toks.length === 1) {
+      const courseId = toks[0].trim();
+      return takenSet.has(courseId);
+    }
     const courseId = toks.join(' ').trim(); // handles multi-word IDs defensively
     return takenSet.has(courseId);
   }
