@@ -64,7 +64,7 @@
       "Satisfies the Natural Science requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "support"
   },
   {
     "id": "CHE 220",
@@ -77,7 +77,7 @@
       "Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major."
     ],
     "PRQ": ["CHE 115"],
-    "group": ""
+    "group": "foundation"
   },
   {
     "id": "CHE 230",
@@ -94,7 +94,7 @@
       "Satisfies a requirement in the Bioinformatics major."
     ],
     "PRQ": ["CHE 115", "and", "CHE 250"],
-    "group": ""
+    "group": "foundation"
   },
   {
     "id": "CHE 240",
@@ -106,7 +106,7 @@
       "Satisfies Natural Science requirement."
     ],
     "PRQ": ["CHE 115"],
-    "group": ""
+    "group": "foundation"
   },
   {
     "id": "CHE 250",
@@ -118,7 +118,7 @@
       "Satisfies Natural Science requirement."
     ],
     "PRQ": ["CHE 115"],
-    "group": ""
+    "group": "foundation"
   },
   {
     "id": "CHE 260",
@@ -143,7 +143,7 @@
       "MAT 140",
       ")"
     ],
-    "group": ""
+    "group": "foundation"
   },
   {
     "id": "CHE 320",
@@ -511,7 +511,7 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": ["MAT 111", "or", "MAT 112", "or", "equivalent preparation"],
-    "group": ""
+    "group": "support"
   },
   {
     "id": "MAT 140",
@@ -523,7 +523,7 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": ["MAT 111", "or", "MAT 112", "or", "equivalent preparation", "Not open to students with credit for MAT 150 or MAT 160."],
-    "group": ""
+    "group": "support"
   },
   {
     "id": "PHY 220",
@@ -535,7 +535,19 @@
       "Satisfies the Natural Science requirement."
     ],
     "PRQ": ["PHY 120", "or", "PHY 125", "or", "permission of the instructor"],
-    "group": ""
+    "group": "support"
+  },
+    {
+    "id": "PHY 225",
+    "parentIds": ["PHY 120", "PHY 125"],
+    "name": "PHysics placeholder",
+    "instructor": "Belloni, A. Kuchera, Yukich",
+    "description": "Electricity and magnetism, circuits, optics, and modern physics (special relativity, quantum mechanics, atomic and nuclear physics). One laboratory each week.",
+    "satisfies": [
+      "Satisfies the Natural Science requirement."
+    ],
+    "PRQ": ["PHY 120", "or", "PHY 125", "or", "permission of the instructor"],
+    "group": "support"
   },
   {
     "id": "PHY 230",
@@ -547,7 +559,19 @@
       "Satisfies the Natural Science requirement."
     ],
     "PRQ": ["PHY 130", "or", "permission of the instructor"],
-    "group": ""
+    "group": "support"
+  },
+    {
+    "id": "PHY 235",
+    "parentIds": ["PHY 130"],
+    "name": "PHysics placeholder",
+    "instructor": "Boye, M. Kuchera",
+    "description": "General Physics with Calculus II Instructors Boye, M. Kuchera Electricity and magnetism, circuits, optics, and modern physics (special relativity, quantum mechanics, atomic and nuclear physics). More comprehensive than Physics 220 and designed for students who intend to major in Chemistry, Mathematics, Physics, and/or plan to pursue a degree in engineering. One laboratory each week.",
+    "satisfies": [
+      "Satisfies the Natural Science requirement."
+    ],
+    "PRQ": ["PHY 130", "or", "permission of the instructor"],
+    "group": "support"
   },
   {
     "id": "BIO 111",
@@ -557,7 +581,7 @@
     "description": "This course is no longer offered. Contact a Biology or Chemistry professor about which class to take.",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "biology"
   },
     {
     "id": "BIO 113",
@@ -567,7 +591,7 @@
     "description": "This course is no longer offered. Contact a Biology or Chemistry professor about which class to take.",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "biology"
   },
     {
     "id": "BIO 115",
@@ -578,7 +602,7 @@
 
     "satisfies": [],
     "PRQ": ["Not open to students with credit for BIO111 or BIO113. Consult a Biology or Chemistry professor about which class to take."],
-    "group": ""
+    "group": "biology"
   },
     {
     "id": "CHE 202",
@@ -598,7 +622,7 @@
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and inverse trigonometric functions with applications including graphical analysis, optimization and numerical methods. Not open to students with one semester of a high school or college course about calculus. (Fall)",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
     "PRQ": ["Not open to students with one semester of a high school or college course about calculus. (Fall)"],
-    "group": ""
+    "group": "intro-mat"
   },
   {
     "id": "MAT 112",
@@ -608,7 +632,7 @@
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
     "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
-    "group": ""
+    "group": "intro-mat"
   }, 
 
     {
@@ -619,7 +643,7 @@
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
     "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
-    "group": ""
+    "group": "intro-phy"
   }, 
       {
     "id": "PHY 125",
@@ -629,7 +653,7 @@
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
     "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
-    "group": ""
+    "group": "intro-phy"
   },
         {
     "id": "PHY 130",
@@ -639,6 +663,17 @@
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
     "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
-    "group": ""
+    "group": "intro-phy"
+  },
+   {
+    "id": "Instructor permission required",
+    "parentIds": [],
+    "name": "Instructor permission required",
+    "instructor": "",
+    "description": "",
+    "satisfies": [""],
+    "PRQ": [""],
+    "group": "instructor"
   }
+
 ]

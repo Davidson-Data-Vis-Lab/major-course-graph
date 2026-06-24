@@ -19,22 +19,21 @@
       <button onclick="resetAllCourses()">Unselect All</button>
 
       <div class="sidebar-section">
-        <h3>Major Prerequisites</h3>
-
+        <h3>Possibly Needed Intro Courses</h3>
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="intro-programming" onchange="handleGroupCheck(this)"/>
-            <span class="header-title">Introductory Programming</span>
+            <input type="checkbox" class="group-checkbox" data-group="intro-mat" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Math Prerequisite</span>
           </label>
-          <div class="course-list" id="list-intro-programming"></div>
+          <div class="course-list" id="list-intro-mat"></div>
         </div>
 
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="intro-math" onchange="handleGroupCheck(this)"/>
-            <span class="header-title">Introductory Mathematics</span>
+            <input type="checkbox" class="group-checkbox" data-group="intro-phy" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Physics Prerequisite</span>
           </label>
-          <div class="course-list" id="list-intro-math"></div>
+          <div class="course-list" id="list-intro-phy"></div>
         </div>
       </div>
 
@@ -43,21 +42,31 @@
 
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="math" onchange="handleGroupCheck(this)"/>
-            <span class="header-title">Mathematics Courses</span>
-            <span id="progress-math" class="group-progress"></span>
+            <input type="checkbox" class="group-checkbox" data-group="foundation" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Foundation Courses</span>
+            <span id="progress-foundation" class="group-progress"></span>
           </label>
-          <div class="course-list" id="list-math"></div>
+          <div class="course-list" id="list-foundation"></div>
         </div>
 
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="core" onchange="handleGroupCheck(this)"/>
-            <span class="header-title">Core Courses</span>
-            <span id="progress-core" class="group-progress"></span>
+            <input type="checkbox" class="group-checkbox" data-group="foundation" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">In-depth Courses (2 labs, 1 400 seminar, 1 395/6/7/496/7/8 can count as non-lab)</span>
+            <span id="progress-foundation" class="group-progress"></span>
           </label>
-          <div class="course-list" id="list-core"></div>
+          <div class="course-list" id="list-foundation"></div>
         </div>
+
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="support" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Supporting and Prerequisite Courses</span>
+            <span id="progress-support" class="group-progress"></span>
+          </label>
+          <div class="course-list" id="list-support"></div>
+        </div>
+
 
         <div class="sidebar-group">
           <label class="group-header">
@@ -147,11 +156,22 @@
       math: {
         type: 'rules',
         rules: [
-          { anyOf: ['MAT 140', 'MAT 150'] },
-          { allOf: ['MAT 230'] },
+          { anyOf: ['MAT 113', 'MAT 140', 'AP equivalent'] },
         ],
       },
-      core: { type: 'allInGroup' },
+      chemistry: {
+        type: 'rules',
+        rules: [
+          { anyOf: ['CHE 115', 'AP equivalent'] },
+        ],
+      },
+      physics: {
+        type: 'rules',
+        rules: [
+          { anyOf: ['PHY 220','PHY 225','PHY 230','PHY 235'] },
+        ],
+      },
+      foundation: { type: 'allInGroup' },
       applications: { type: 'minChecked', min: 1 },
       systems: { type: 'minChecked', min: 1 },
       // 5 electives max: 1 Applications + 1 Systems reserved, then up to 3 more (any category).
@@ -163,8 +183,8 @@
     };
     window.GRADUATION_REQUIREMENTS = GRADUATION_REQUIREMENTS;
 
-    const ELECTIVE_GROUPS = ['applications', 'systems', 'theory', 'other'];
-    const PROGRESS_GROUPS = ['math', 'core', 'applications', 'systems', 'electives'];
+    const ELECTIVE_GROUPS = ['in-depth', 'in-depth-lab', '400-level-seminar', 'independent-research'];
+    const PROGRESS_GROUPS = ['intro-math', 'math', 'foundation', 'chemistry', 'intro-physics', 'physics' ];
 
     function getGroupCheckboxes(group) {
       const list = document.getElementById(`list-${group}`);

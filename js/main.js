@@ -686,7 +686,6 @@ function evaluatePrerequisites(tokens, takenSet) {
     }
 
     // Single token — must be a course ID
-    console.log("Evaluating single token:", toks);
     if (toks.length === 1) {
       const courseId = toks[0].trim();
       return takenSet.has(courseId);
