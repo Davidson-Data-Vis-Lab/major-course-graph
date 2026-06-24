@@ -622,7 +622,7 @@
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and inverse trigonometric functions with applications including graphical analysis, optimization and numerical methods. Not open to students with one semester of a high school or college course about calculus. (Fall)",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
     "PRQ": ["Not open to students with one semester of a high school or college course about calculus. (Fall)"],
-    "group": "intro-mat"
+    "group": "intro_mat"
   },
   {
     "id": "MAT 112",
@@ -632,7 +632,7 @@
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
     "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
-    "group": "intro-mat"
+    "group": "intro_mat"
   }, 
 
     {
@@ -643,7 +643,7 @@
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
     "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
-    "group": "intro-phy"
+    "group": "intro_phy"
   }, 
       {
     "id": "PHY 125",
@@ -653,7 +653,7 @@
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
     "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
-    "group": "intro-phy"
+    "group": "intro_phy"
   },
         {
     "id": "PHY 130",
@@ -663,7 +663,7 @@
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
     "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
-    "group": "intro-phy"
+    "group": "intro_phy"
   },
    {
     "id": "Instructor permission required",
@@ -683,7 +683,7 @@
     "description": "Check the Davidson College AP Exam webpage to confirm score requirements.",
     "satisfies": [""],
     "PRQ": [""],
-    "group": "intro-mat"
+    "group": "intro_mat"
   },
        {
     "id": "Credit for Physics",
@@ -693,7 +693,7 @@
     "description": "Check the Davidson College AP Exam webpage to confirm score requirements.",
     "satisfies": [""],
     "PRQ": [""],
-    "group": "intro-phy"
+    "group": "intro_phy"
   }
 
 ]

@@ -22,18 +22,20 @@
         <h3>Possibly Needed Intro Courses</h3>
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="intro-mat" onchange="handleGroupCheck(this)"/>
+            <input type="checkbox" class="group-checkbox" data-group="intro_mat" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Math Prerequisite</span>
+            <span id="progress-intro_mat" class="group-progress"></span>
           </label>
-          <div class="course-list" id="list-intro-mat"></div>
+          <div class="course-list" id="list-intro_mat"></div>
         </div>
 
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="intro-phy" onchange="handleGroupCheck(this)"/>
+            <input type="checkbox" class="group-checkbox" data-group="intro_phy" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Physics Prerequisite</span>
+            <span id="progress-intro_phy" class="group-progress"></span>
           </label>
-          <div class="course-list" id="list-intro-phy"></div>
+          <div class="course-list" id="list-intro_phy"></div>
         </div>
       </div>
 
@@ -153,16 +155,28 @@
    * Edit this object to change policy without touching evaluation logic.
    */
     const GRADUATION_REQUIREMENTS = {
+      intro_mat: {
+        type: 'rules',
+        rules: [
+          { anyOf: ['MAT 111', 'MAT 112', 'Credit for Calculus I'] },
+        ],
+      },
       math: {
         type: 'rules',
         rules: [
-          { anyOf: ['MAT 113', 'MAT 140', 'AP equivalent'] },
+          { anyOf: ['MAT 113', 'MAT 140', 'Credit for Calculus II'] },
         ],
       },
       chemistry: {
         type: 'rules',
         rules: [
           { anyOf: ['CHE 115', 'AP equivalent'] },
+        ],
+      },
+      intro_phy: {
+        type: 'rules',
+        rules: [
+          { anyOf: ['PHY 120','PHY 125','PHY 130','Credit for Physics'] },
         ],
       },
       physics: {
@@ -184,7 +198,7 @@
     window.GRADUATION_REQUIREMENTS = GRADUATION_REQUIREMENTS;
 
     const ELECTIVE_GROUPS = ['in-depth', 'in-depth-lab', '400-level-seminar', 'independent-research'];
-    const PROGRESS_GROUPS = ['intro-math', 'math', 'foundation', 'chemistry', 'intro-physics', 'physics' ];
+    const PROGRESS_GROUPS = ['intro_mat', 'math', 'foundation', 'chemistry', 'intro_physics', 'physics' ];
 
     function getGroupCheckboxes(group) {
       const list = document.getElementById(`list-${group}`);
