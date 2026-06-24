@@ -49,14 +49,14 @@
           <div class="course-list" id="list-foundation"></div>
         </div>
 
-        <div class="sidebar-group">
+        <!-- <div class="sidebar-group">
           <label class="group-header">
             <input type="checkbox" class="group-checkbox" data-group="foundation" onchange="handleGroupCheck(this)"/>
             <span class="header-title">In-depth Courses (2 labs, 1 400 seminar, 1 395/6/7/496/7/8 can count as non-lab)</span>
             <span id="progress-foundation" class="group-progress"></span>
           </label>
           <div class="course-list" id="list-foundation"></div>
-        </div>
+        </div> -->
 
         <div class="sidebar-group">
           <label class="group-header">
@@ -71,7 +71,7 @@
         <div class="sidebar-group">
           <label class="group-header">
             <input type="checkbox" class="group-checkbox" data-group="electives" onchange="handleGroupCheck(this)"/>
-            <span class="header-title">Electives</span>
+            <span class="header-title">In-depth Courses</span>
             <span id="progress-electives" class="group-progress"></span>
           </label>
 
@@ -79,28 +79,28 @@
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="applications" onchange="handleGroupCheck(this)"/>
-                <span class="header-title">Applications</span>
-                <span id="progress-applications" class="group-progress"></span>
+                <input type="checkbox" class="group-checkbox" data-group="lab" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Lab courses (300+)</span>
+                <span id="progress-lab" class="group-progress"></span>
               </label>
-              <div class="course-list" id="list-applications"></div>
+              <div class="course-list" id="list-lab"></div>
             </div>
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="systems" onchange="handleGroupCheck(this)"/>
-                <span class="header-title">Systems</span>
-                <span id="progress-systems" class="group-progress"></span>
+                <input type="checkbox" class="group-checkbox" data-group="no_lab" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Non-lab 300+</span>
+                <span id="progress-no_lab" class="group-progress"></span>
               </label>
-              <div class="course-list" id="list-systems"></div>
+              <div class="course-list" id="list-no_lab"></div>
             </div>
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="theory" onchange="handleGroupCheck(this)"/>
-                <span class="header-title">Theory</span>
+                <input type="checkbox" class="group-checkbox" data-group="400-level" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">400-level course</span>
               </label>
-              <div class="course-list" id="list-theory"></div>
+              <div class="course-list" id="list-400-level"></div>
             </div>
 
             <div class="sidebar-subgroup">
@@ -172,13 +172,13 @@
         ],
       },
       foundation: { type: 'allInGroup' },
-      applications: { type: 'minChecked', min: 1 },
-      systems: { type: 'minChecked', min: 1 },
-      // 5 electives max: 1 Applications + 1 Systems reserved, then up to 3 more (any category).
+      labs: { type: 'minChecked', min: 2 },
+      no_lab: { type: 'minChecked', min: 1 },
+      // 5 electives max: 2 labs + 1 no_lab reserved, then up to 3 more (any category).
       electives: {
         type: 'cappedElectivePool',
         total: 5,
-        reserveFromGroup: { applications: 1, systems: 1 },
+        reserveFromGroup: { labs: 2, no_lab: 1 },
       },
     };
     window.GRADUATION_REQUIREMENTS = GRADUATION_REQUIREMENTS;
@@ -210,7 +210,7 @@
     }
 
     /**
-     * Count electives toward the 5-course cap. One Applications and one Systems
+     * Count electives toward the 5-course cap. One labs and one no_lab
      * course each reserve a slot; if that category has none checked, that slot
      * cannot count toward the 5 (so e.g. 5 Theory-only shows 3/5, not 5/5).
      */
