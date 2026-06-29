@@ -16,7 +16,7 @@
       "or",
       "Permission of instructor"
     ],
-    "group": "400-level"
+    "group": "level_400_seminar"
   },
   {
     "id": "BIO 303",
@@ -64,7 +64,7 @@
       "Satisfies the Natural Science requirement."
     ],
     "PRQ": [],
-    "group": "support"
+    "group": "chem_support"
   },
   {
     "id": "CHE 220",
@@ -367,7 +367,7 @@
     "description": " This course is designed for any qualified student who desires to pursue a literature research project in an area of special interest in chemistry under the direction and supervision of a faculty member. The latter reviews and approves the topic of research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. Permission of the instructor. (Fall and Spring)",
     "satisfies": [],
     "PRQ": ["Permission of the instructor. (Fall and Spring)"],
-    "group": "indep-research"
+    "group": "independent_research"
   },
   {
     "id": "CHE 396",
@@ -377,7 +377,7 @@
     "description": "Experimental chemistry projects conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. This course is intended for non-senior students.",
     "satisfies": [],
     "PRQ": ["Permission of the instructor. (Fall and Spring)"],
-    "group": "indep-research"
+    "group": "independent_research"
   },
   {
     "id": "CHE 397",
@@ -387,7 +387,7 @@
     "description": "Experimental chemistry projects conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. This course is intended for non-senior students. (Fall and Spring)",
     "satisfies": [],
     "PRQ": ["CHE 396", "or", "Permission of the instructor. "],
-    "group": "indep-research"
+    "group": "independent_research"
   },
   {
     "id": "CHE 410",
@@ -397,7 +397,7 @@
     "description": "Selected topics in organic chemistry. (Fall and Spring)",
     "satisfies": [],
     "PRQ": ["CHE 202", "and", "CHE 351", "or", "Permission of the instructor"],
-    "group": "400-level"
+    "group": "level_400_seminar"
   },
   {
     "id": "CHE 420",
@@ -410,7 +410,7 @@
       "Satisfies Environmental Studies major requirement."
     ],
     "PRQ": ["CHE 220"],
-    "group": "400-level"
+    "group": "level_400_seminar"
   },
   {
     "id": "CHE 430",
@@ -420,7 +420,7 @@
     "description": "Advanced topics in biological chemistry related to instructor's areas of interest and expertise.",
     "satisfies": [],
     "PRQ": ["CHE 230"],
-    "group": "400-level"
+    "group": "level_400_seminar"
   },
   {
     "id": "CHE 440",
@@ -430,7 +430,7 @@
     "description": "Many biochemical reactions depend on the presence of metal ions: adjusting the acid-base behavior of water, changing redox potentials and providing adequate pathways for electron and ion transfer, and transporting and activating small molecules like oxygen. Modern medicine has explored inorganic chemistry for cancer treatments (cisplatin), MRI contrast agents (gadolinium), and anti-inflammatories. Inorganic chemists have been inspired by biochemistry to develop new and more elegant chemical compounds that replicate enzymatic processes ex vivo such as photosynthetic electron transfers and carbon-carbon bond-forming reactions. Chemistry 440 will touch on these and many other aspects of bioinorganic chemistry. In the beginning of the semester, we will discuss general reaction processes in inorganic chemistry. These processes will then be placed in a biological context through literature discussions and case studies. Students will discuss relevant and recent literature as well as ultimately develop a sample research proposal as a final project in the course. No laboratory.",
     "satisfies": [],
     "PRQ": ["CHE 240"],
-    "group": "400-level"
+    "group": "level_400_seminar"
   },
   {
     "id": "CHE 450",
@@ -444,7 +444,7 @@
     "PRQ": [
       "CHE 250"
     ],
-    "group": "400-level"
+    "group": "level_400_seminar"
   },
   {
     "id": "CHE 460",
@@ -454,7 +454,7 @@
     "description": "Advanced topics in physical chemistry related to instructor's areas of interest and expertise. No laboratory. (Fall, offered every two years)",
     "satisfies": [],
     "PRQ": ["CHE 360", "or", "CHE 352"],
-    "group": "400-level"
+    "group": "level_400_seminar"
   },
   {
     "id": "CHE 496",
@@ -464,7 +464,7 @@
     "description": "Experimental chemistry project conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. This course is intended for senior chemistry majors. Permission of the instructor. (Fall and Spring)",
     "satisfies": [],
     "PRQ": ["Permission of instructor"],
-    "group": "400-level"
+    "group": "independent_research"
   },
   {
     "id": "CHE 497",
@@ -474,7 +474,7 @@
     "description": "Experimental chemistry project conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. This course is not intended for students who are completing a thesis and pursuing an honors degree (See Chemistry 498). Consult the department's guidelines for the preparation of independent research proposals. Chemistry 496 or a summer of research with the instructor after the student’s junior year. (Fall and Spring)",
     "satisfies": [],
     "PRQ": ["CHE 496", "or", "a summer of research with the instructor after the student's junior year."],
-    "group": "400-level"
+    "group": "independent_research"
   },
   {
     "id": "CHE 498",
@@ -484,7 +484,7 @@
     "description": "Experimental chemistry project conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following accepatance of the student's written research proposal. This course is intended for senior students that are completing a thesis for evaluation by the department and pursuing an honors degree. Consult the department's guidelines for the preparation of independent research proposals.",
     "satisfies": [],
     "PRQ": ["CHE 496", "or", "a summer of research with the instructor after the student's junior year."],
-    "group": "400-level"
+    "group": "independent_research"
   },
   {
     "id": "ENV 315",
@@ -511,7 +511,7 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": ["MAT 111", "or", "MAT 112", "or", "Credit for Calculus I"],
-    "group": "support"
+    "group": "math_support"
   },
   {
     "id": "MAT 140",
@@ -523,7 +523,7 @@
       "Satisfies the Mathematical and Quantitative Thought requirement."
     ],
     "PRQ": ["MAT 111", "or", "MAT 112", "or", "Credit for Calculus I"],
-    "group": "support"
+    "group": "math_support"
   },
   {
     "id": "PHY 220",
@@ -535,19 +535,22 @@
       "Satisfies the Natural Science requirement."
     ],
     "PRQ": ["PHY 120", "or", "PHY 125", "or", "permission of the instructor"],
-    "group": "support"
+    "group": "phy_support"
   },
     {
     "id": "PHY 225",
-    "parentIds": ["PHY 120", "PHY 125"],
-    "name": "PHysics placeholder",
-    "instructor": "Belloni, A. Kuchera, Yukich",
-    "description": "Electricity and magnetism, circuits, optics, and modern physics (special relativity, quantum mechanics, atomic and nuclear physics). One laboratory each week.",
+    "parentIds": ["PHY 125", "PHY 130"],
+    "name": "General Physics II: Studio (Integrated Laboratory and Lecture)",
+    "instructor": "Levy",
+    "description": "Electricity and magnetism, circuits, optics, and modern physics (special relativity, quantum mechanics, atomic and nuclear physics). Class meets 6 hours per week (2-hour block, three times per week) in a combined lecture/laboratory setting with time distributed equally between course material and laboratory exercises (3 hours lecture/3 hours laboratory).",
     "satisfies": [
-      "Satisfies the Natural Science requirement."
+      "Satisfies a major requirement for Physics",
+      "Satisfies a major requirement for Chemistry",
+      "Satisfies a minor requirement for Astrophysics",
+      "Satisfies a minor requirement for Applied Physics"
     ],
-    "PRQ": ["PHY 120", "or", "PHY 125", "or", "permission of the instructor"],
-    "group": "support"
+    "PRQ": ["PHY 125", "or", "PHY 123", "or", "permission of the instructor"],
+    "group": "phy_support"
   },
   {
     "id": "PHY 230",
@@ -559,19 +562,22 @@
       "Satisfies the Natural Science requirement."
     ],
     "PRQ": ["PHY 130", "or", "permission of the instructor"],
-    "group": "support"
+    "group": "phy_support"
   },
     {
     "id": "PHY 235",
     "parentIds": ["PHY 130"],
-    "name": "PHysics placeholder",
-    "instructor": "Boye, M. Kuchera",
-    "description": "General Physics with Calculus II Instructors Boye, M. Kuchera Electricity and magnetism, circuits, optics, and modern physics (special relativity, quantum mechanics, atomic and nuclear physics). More comprehensive than Physics 220 and designed for students who intend to major in Chemistry, Mathematics, Physics, and/or plan to pursue a degree in engineering. One laboratory each week.",
+    "name": "General Physics with Calculus II: Studio (Integrated Laboratory and Lecture)",
+    "instructor": "Yukich, Bastani, Belloni, Kuchera, Powers",
+    "description": "Electricity and magnetism, circuits, optics, and modern physics (special relativity, quantum mechanics, atomic and nuclear physics). More comprehensive than Physics 225 and designed for students who intend to major in Chemistry, Mathematics, Physics, and/or plan to pursue a degree in engineering. Class meets 6 hours per week (2-hour block, three times per week) in a combined lecture/laboratory setting with time distributed equally between course material and laboratory exercises (3 hours lecture/3 hours laboratory).",
     "satisfies": [
-      "Satisfies the Natural Science requirement."
+      "Satisfies a major requirement for Physics",
+      "Satisfies a major requirement for Chemistry",
+      "Satisfies a minor requirement for Astrophysics",
+      "Satisfies a minor requirement for Applied Physics"
     ],
-    "PRQ": ["PHY 130", "or", "permission of the instructor"],
-    "group": "support"
+    "PRQ": ["PHY 125", "or", "PHY 130", "or", "permission of the instructor"],
+    "group": "phy_support"
   },
   {
     "id": "BIO 111",
@@ -686,6 +692,16 @@
     "group": "intro_mat"
   },
        {
+    "id": "Credit for Calculus II",
+    "parentIds": [],
+    "name": "Credit for Calculus II (AP or equivalent preparation)",
+    "instructor": "",
+    "description": "Check the Davidson College AP Exam webpage to confirm score requirements.",
+    "satisfies": [""],
+    "PRQ": [""],
+    "group": "math_support"
+  },
+       {
     "id": "Credit for Physics",
     "parentIds": [],
     "name": "Credit for Physics (AP or equivalent preparation)",
@@ -694,6 +710,15 @@
     "satisfies": [""],
     "PRQ": [""],
     "group": "intro_phy"
+  },
+         {
+    "id": "Credit for Chemistry",
+    "parentIds": [],
+    "name": "Credit for Chemistry (AP or equivalent preparation)",
+    "instructor": "",
+    "description": "Check the Davidson College AP Exam webpage to confirm score requirements.",
+    "satisfies": [""],
+    "PRQ": [""],
+    "group": "chem_support"
   }
-
 ]

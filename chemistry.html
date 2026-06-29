@@ -19,27 +19,6 @@
       <button onclick="resetAllCourses()">Unselect All</button>
 
       <div class="sidebar-section">
-        <h3>Possibly Needed Intro Courses</h3>
-        <div class="sidebar-group">
-          <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="intro_mat" onchange="handleGroupCheck(this)"/>
-            <span class="header-title">Math Prerequisite</span>
-            <span id="progress-intro_mat" class="group-progress"></span>
-          </label>
-          <div class="course-list" id="list-intro_mat"></div>
-        </div>
-
-        <div class="sidebar-group">
-          <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="intro_phy" onchange="handleGroupCheck(this)"/>
-            <span class="header-title">Physics Prerequisite</span>
-            <span id="progress-intro_phy" class="group-progress"></span>
-          </label>
-          <div class="course-list" id="list-intro_phy"></div>
-        </div>
-      </div>
-
-      <div class="sidebar-section">
         <h3>Requirements for the Major</h3>
 
         <div class="sidebar-group">
@@ -62,61 +41,84 @@
 
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="support" onchange="handleGroupCheck(this)"/>
-            <span class="header-title">Supporting and Prerequisite Courses</span>
-            <span id="progress-support" class="group-progress"></span>
-          </label>
-          <div class="course-list" id="list-support"></div>
-        </div>
-
-
-        <div class="sidebar-group">
-          <label class="group-header">
             <input type="checkbox" class="group-checkbox" data-group="electives" onchange="handleGroupCheck(this)"/>
-            <span class="header-title">In-depth Courses</span>
+            <span class="header-title">Supporting and Prereq Courses</span>
             <span id="progress-electives" class="group-progress"></span>
           </label>
-
-          <div class="electives-wrapper">
-
+            <div class="electives-wrapper">
+             <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="chem_support" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Chemistry Support</span>
+                <span id="progress-chem_support" class="group-progress"></span>
+              </label>
+              <div class="course-list" id="list-chem_support"></div>
+            </div>
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="lab" onchange="handleGroupCheck(this)"/>
-                <span class="header-title">Lab courses (300+)</span>
-                <span id="progress-lab" class="group-progress"></span>
+                <input type="checkbox" class="group-checkbox" data-group="math_support" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Math Support</span>
+                <span id="progress-math_support" class="group-progress"></span>
               </label>
-              <div class="course-list" id="list-lab"></div>
+              <div class="course-list" id="list-math_support"></div>
             </div>
-
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="no_lab" onchange="handleGroupCheck(this)"/>
-                <span class="header-title">Non-lab 300+</span>
-                <span id="progress-no_lab" class="group-progress"></span>
+                <input type="checkbox" class="group-checkbox" data-group="phy_support" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Physics Support</span>
+                <span id="progress-phy_support" class="group-progress"></span>
               </label>
-              <div class="course-list" id="list-no_lab"></div>
+              <div class="course-list" id="list-phy_support"></div>
             </div>
-
-            <div class="sidebar-subgroup">
-              <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="400-level" onchange="handleGroupCheck(this)"/>
-                <span class="header-title">400-level course</span>
-              </label>
-              <div class="course-list" id="list-400-level"></div>
             </div>
+ 
 
-            <div class="sidebar-subgroup">
-              <label class="subgroup-header">
-                <input type="checkbox" class="group-checkbox" data-group="other" onchange="handleGroupCheck(this)"/>
-                <span class="header-title">Other</span>
-              </label>
-              <div class="course-list" id="list-other"></div>
+ 
+          <div class="sidebar-group">
+            <label class="group-header">
+              <input type="checkbox" class="group-checkbox" data-group="electives" onchange="handleGroupCheck(this)"/>
+              <span class="header-title">In-depth Courses</span>
+              <span id="progress-electives" class="group-progress"></span>
+            </label>
+
+            <div class="electives-wrapper"> <!--KPW-->
+              <div class="sidebar-subgroup">
+                <label class="subgroup-header">
+                  <input type="checkbox" class="group-checkbox" data-group="lab" onchange="handleGroupCheck(this)"/>
+                  <span class="header-title">Lab courses (300+)</span>
+                  <span id="progress-lab" class="group-progress"></span>
+                </label>
+                <div class="course-list" id="list-lab"></div>
+              </div>
+
+              <div class="sidebar-subgroup">
+                <label class="subgroup-header">
+                  <input type="checkbox" class="group-checkbox" data-group="no_lab" onchange="handleGroupCheck(this)"/>
+                  <span class="header-title">Non-lab 300+</span>
+                  <span id="progress-no_lab" class="group-progress"></span>
+                </label>
+                <div class="course-list" id="list-no_lab"></div>
+              </div>
+
+              <div class="sidebar-subgroup">
+                <label class="subgroup-header">
+                  <input type="checkbox" class="group-checkbox" data-group="level_400_seminar" onchange="handleGroupCheck(this)"/>
+                  <span class="header-title">400-level course</span>
+                </label>
+                <div class="course-list" id="list-level_400_seminar"></div>
+              </div>
+
+              <div class="sidebar-subgroup">
+                <label class="subgroup-header">
+                  <input type="checkbox" class="group-checkbox" data-group="independent_research" onchange="handleGroupCheck(this)"/>
+                  <span class="header-title">Independent Research</span>
+                </label>
+                <div class="course-list" id="list-independent_research"></div>
+              </div>
             </div>
-
           </div>
         </div>
-
-      </div>
+      </div> 
     </div>
     <div class="graph-wrapper">
     <div class="graph-viewport">
@@ -161,44 +163,49 @@
           { anyOf: ['MAT 111', 'MAT 112', 'Credit for Calculus I'] },
         ],
       },
-      math: {
+      math_support: {
         type: 'rules',
         rules: [
           { anyOf: ['MAT 113', 'MAT 140', 'Credit for Calculus II'] },
         ],
       },
-      chemistry: {
+      chem_support: {
         type: 'rules',
         rules: [
-          { anyOf: ['CHE 115', 'AP equivalent'] },
+          { anyOf: ['CHE 115', 'Credit for Chemistry'] },
         ],
       },
       intro_phy: {
         type: 'rules',
         rules: [
-          { anyOf: ['PHY 120','PHY 125','PHY 130','Credit for Physics'] },
+          { anyOf: ['PHY 120', 'PHY 125', 'PHY 130' ,'Credit for Physics'] },
         ],
       },
-      physics: {
+      phy_support: {
         type: 'rules',
         rules: [
           { anyOf: ['PHY 220','PHY 225','PHY 230','PHY 235'] },
         ],
       },
       foundation: { type: 'allInGroup' },
-      labs: { type: 'minChecked', min: 2 },
-      no_lab: { type: 'minChecked', min: 1 },
+      // labs: { type: 'minChecked', min: 2 },
+      // no_lab: { type: 'minChecked', min: 1 },
+      support: {
+        type: 'cappedElectivePool',
+        total: 3,
+        reserveFromGroup: { phy_support: 1, chem_support: 1, math_support: 1 },
+      },
       // 5 electives max: 2 labs + 1 no_lab reserved, then up to 3 more (any category).
       electives: {
         type: 'cappedElectivePool',
         total: 5,
-        reserveFromGroup: { labs: 2, no_lab: 1 },
+        reserveFromGroup: { labs: 2, no_lab: 1},
       },
     };
     window.GRADUATION_REQUIREMENTS = GRADUATION_REQUIREMENTS;
 
-    const ELECTIVE_GROUPS = ['in-depth', 'in-depth-lab', '400-level-seminar', 'independent-research'];
-    const PROGRESS_GROUPS = ['intro_mat', 'math', 'foundation', 'chemistry', 'intro_physics', 'physics' ];
+    const ELECTIVE_GROUPS = ['in-depth', 'lab', 'no_lab', 'level_400_seminar', 'independent_research'];
+    const PROGRESS_GROUPS = ['intro_mat', 'math', 'math_support', 'phy_support', 'chem_support', 'intro_phy', 'physics', 'foundation', 'chemistry' ];
 
     function getGroupCheckboxes(group) {
       const list = document.getElementById(`list-${group}`);

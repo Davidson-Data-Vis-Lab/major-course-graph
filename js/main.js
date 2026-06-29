@@ -416,14 +416,38 @@ svg.select("#nodes")
             .attr("stroke", "white")
             .attr("stroke-width", 2);
 
-          g.append("text")
-            .text(d.data.id)
+          const label = d.data.id;
+          const textEl = g.append("text")
             .attr("font-weight", "bold")
             .attr("font-size", "12px")
             .attr("text-anchor", "middle")
             .attr("alignment-baseline", "middle")
             .attr("fill", "white")
             .style("pointer-events", "none");
+
+          const creditForPrefix = "Credit for ";
+          let line1;
+          let line2;
+          if (label.startsWith(creditForPrefix) && label.length > creditForPrefix.length) {
+            line1 = "Credit for";
+            line2 = label.slice(creditForPrefix.length);
+          } else if (label.length > 14) {
+            line1 = label.slice(0, 14);
+            line2 = label.slice(14);
+          }
+
+          if (line2) {
+            textEl.append("tspan")
+              .attr("x", 0)
+              .attr("dy", "-0.15em")
+              .text(line1);
+            textEl.append("tspan")
+              .attr("x", 0)
+              .attr("dy", "0.9em")
+              .text(line2);
+          } else {
+            textEl.text(label);
+          }
         });
 
         enter.transition(trans).attr("opacity", 1);
@@ -708,6 +732,7 @@ function getTakenSet() {
   });
   return taken;
 }
+
 
 /**
  * Recompute and apply green/blue/gray to every node in the graph.
