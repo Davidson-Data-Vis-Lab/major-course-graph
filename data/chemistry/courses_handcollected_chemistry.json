@@ -453,7 +453,7 @@
     "instructor": "Blauch, Striplin",
     "description": "Advanced topics in physical chemistry related to instructor's areas of interest and expertise. No laboratory. (Fall, offered every two years)",
     "satisfies": [],
-    "PRQ": ["CHE 360", "or", "CHE 352"],
+    "PRQ": ["CHE 360"],
     "group": "level_400_seminar"
   },
   {
@@ -485,20 +485,6 @@
     "satisfies": [],
     "PRQ": ["CHE 496", "or", "a summer of research with the instructor after the student's junior year."],
     "group": "independent_research"
-  },
-  {
-    "id": "ENV 315",
-    "parentIds": [],
-    "name": "Analytical Chemistry I +Lab (= CHE 220)",
-    "instructor": "Blauch, Hauser",
-    "description": "Topics in chemical equilibrium, electrochemistry, spectroscopy, chromatography, and nuclear chemistry, with applications in biological, environmental, forensic, archaeological, and consumer chemistry. Laboratory experiments include qualitative and quantitative analyses using volumetric, electrochemical, chromatographic, and spectroscopic methods. Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major.",
-    "satisfies": [
-      "Satisfies the Natural Science requirement.",
-      "Satisfies depth or breadth course requirement in Natural Science Track of the Environmental Studies major or interdisciplinary minor.",
-      "Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major."
-    ],
-    "PRQ": [],
-    "group": ""
   },
   {
     "id": "MAT 113",
@@ -644,7 +630,7 @@
     {
     "id": "PHY 120",
     "parentIds": ["Credit for Physics"],
-    "name": "PHysics placeholder",
+    "name": "Physics placeholder",
     "instructor": "Duhon, Wright, Chavez",
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
@@ -654,7 +640,7 @@
       {
     "id": "PHY 125",
     "parentIds": ["Credit for Physics"],
-    "name": "PHysics placeholder",
+    "name": "Physics placeholder",
     "instructor": "Duhon, Wright, Chavez",
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
@@ -664,7 +650,7 @@
         {
     "id": "PHY 130",
     "parentIds": ["Credit for Physics"],
-    "name": "PHysics placeholder",
+    "name": "Physics placeholder",
     "instructor": "Duhon, Wright, Chavez",
     "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
     "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
