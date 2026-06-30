@@ -16,8 +16,8 @@ import {
   fitGraphToViewport,
 } from './groupLayout.js';
 
-const data = await d3.json("data/courses-full-info.json");
-//const data = await d3.json("data/chemistry/courses_handcollected_chemistry.json");
+//const data = await d3.json("data/courses-full-info.json");
+const data = await d3.json("data/chemistry/courses_handcollected_chemistry.json");
 
 
 // ------------------- //
@@ -608,7 +608,7 @@ function populateSidebar(data) {
   sorted.forEach(course => {
     const container = document.getElementById(`list-${course.group}`);
     if (!container) {
-      console.warn(`No sidebar list for group "${course.group}" (${course.id})`);
+      //console.warn(`No sidebar list for group "${course.group}" (${course.id})`);
       return;
     }
 

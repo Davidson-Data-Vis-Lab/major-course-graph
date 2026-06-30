@@ -30,20 +30,11 @@
           <div class="course-list" id="list-foundation"></div>
         </div>
 
-        <!-- <div class="sidebar-group">
-          <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="foundation" onchange="handleGroupCheck(this)"/>
-            <span class="header-title">In-depth Courses (2 labs, 1 400 seminar, 1 395/6/7/496/7/8 can count as non-lab)</span>
-            <span id="progress-foundation" class="group-progress"></span>
-          </label>
-          <div class="course-list" id="list-foundation"></div>
-        </div> -->
-
         <div class="sidebar-group">
           <label class="group-header">
-            <input type="checkbox" class="group-checkbox" data-group="electives" onchange="handleGroupCheck(this)"/>
+            <input type="checkbox" class="group-checkbox" data-group="support" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Supporting and Prereq Courses</span>
-            <span id="progress-electives" class="group-progress"></span>
+            <span id="progress-support" class="group-progress"></span>
           </label>
             <div class="electives-wrapper">
              <div class="sidebar-subgroup">
@@ -71,17 +62,16 @@
               <div class="course-list" id="list-phy_support"></div>
             </div>
             </div>
- 
+        </div>
 
- 
-          <div class="sidebar-group">
+        <div class="sidebar-group">
             <label class="group-header">
               <input type="checkbox" class="group-checkbox" data-group="electives" onchange="handleGroupCheck(this)"/>
               <span class="header-title">In-depth Courses</span>
               <span id="progress-electives" class="group-progress"></span>
             </label>
 
-            <div class="electives-wrapper"> <!--KPW-->
+            <div class="electives-wrapper">
               <div class="sidebar-subgroup">
                 <label class="subgroup-header">
                   <input type="checkbox" class="group-checkbox" data-group="lab" onchange="handleGroupCheck(this)"/>
@@ -117,7 +107,6 @@
               </div>
             </div>
           </div>
-        </div>
       </div> 
     </div>
     <div class="graph-wrapper">
@@ -188,24 +177,31 @@
         ],
       },
       foundation: { type: 'allInGroup' },
-      // labs: { type: 'minChecked', min: 2 },
-      // no_lab: { type: 'minChecked', min: 1 },
+      lab: { type: 'minChecked', min: 2 },
+      no_lab: { type: 'minChecked', min: 1 },
       support: {
         type: 'cappedElectivePool',
         total: 3,
+        poolGroups: ['chem_support', 'math_support', 'phy_support'],
         reserveFromGroup: { phy_support: 1, chem_support: 1, math_support: 1 },
       },
-      // 5 electives max: 2 labs + 1 no_lab reserved, then up to 3 more (any category).
+      // 5 electives max: 2 lab + 1 no_lab + 1 seminar reserved, then up to 2 more (any category).
       electives: {
         type: 'cappedElectivePool',
         total: 5,
-        reserveFromGroup: { labs: 2, no_lab: 1},
+        poolGroups: ['lab', 'no_lab', 'level_400_seminar', 'independent_research'],
+        reserveFromGroup: { lab: 2, no_lab: 1, level_400_seminar: 1 },
       },
     };
     window.GRADUATION_REQUIREMENTS = GRADUATION_REQUIREMENTS;
 
-    const ELECTIVE_GROUPS = ['in-depth', 'lab', 'no_lab', 'level_400_seminar', 'independent_research'];
-    const PROGRESS_GROUPS = ['intro_mat', 'math', 'math_support', 'phy_support', 'chem_support', 'intro_phy', 'physics', 'foundation', 'chemistry' ];
+    const SUPPORT_GROUPS = ['chem_support', 'math_support', 'phy_support'];
+    const ELECTIVE_GROUPS = ['lab', 'no_lab', 'level_400_seminar', 'independent_research'];
+    const PROGRESS_GROUPS = [
+      'foundation',
+      'support', 'chem_support', 'math_support', 'phy_support',
+      'electives', 'lab', 'no_lab',
+    ];
 
     function getGroupCheckboxes(group) {
       const list = document.getElementById(`list-${group}`);
@@ -238,6 +234,7 @@
     function countCappedElectives(spec) {
       const total = spec.total;
       const reserve = spec.reserveFromGroup ?? {};
+      const poolGroups = spec.poolGroups ?? [];
 
       const allMinsMet = Object.entries(reserve).every(
         ([group, min]) => countCheckedInGroup(group) >= min,
@@ -251,18 +248,18 @@
       }
 
       const remaining = {};
-      for (const g of ELECTIVE_GROUPS) {
+      for (const g of poolGroups) {
         remaining[g] = getCheckedIdsInGroup(g);
       }
 
       let counted = 0;
       for (const [group, min] of Object.entries(reserve)) {
-        const use = Math.min(remaining[group].length, min);
+        const use = Math.min(remaining[group]?.length ?? 0, min);
         counted += use;
-        remaining[group] = remaining[group].slice(use);
+        remaining[group] = (remaining[group] ?? []).slice(use);
       }
 
-      const discretionary = ELECTIVE_GROUPS.flatMap(g => remaining[g]);
+      const discretionary = poolGroups.flatMap(g => remaining[g]);
       const slotsLeft = Math.max(0, maxCountable - counted);
       counted += Math.min(slotsLeft, discretionary.length);
       counted = Math.min(maxCountable, counted);
@@ -352,13 +349,13 @@
       }
     }
 
-    function updateElectivesGroupCheckbox() {
-      const header = document.querySelector('.group-checkbox[data-group="electives"]');
+    function updateParentGroupCheckbox(parentGroup, childGroups) {
+      const header = document.querySelector(`.group-checkbox[data-group="${parentGroup}"]`);
       if (!header) return;
 
       let total = 0;
       let checked = 0;
-      for (const group of ELECTIVE_GROUPS) {
+      for (const group of childGroups) {
         const boxes = getGroupCheckboxes(group);
         total += boxes.length;
         checked += boxes.filter(cb => cb.checked).length;
@@ -367,17 +364,29 @@
       header.checked = total > 0 && checked === total;
     }
 
+    function updateSupportGroupCheckbox() {
+      updateParentGroupCheckbox('support', SUPPORT_GROUPS);
+    }
+
+    function updateElectivesGroupCheckbox() {
+      updateParentGroupCheckbox('electives', ELECTIVE_GROUPS);
+    }
+
     function updateGroupCheckbox(group) {
       const boxes = getGroupCheckboxes(group);
       const header = document.querySelector(`.group-checkbox[data-group="${group}"]`);
-      if (!header || !boxes.length) return;
-
-      const checked = boxes.filter(cb => cb.checked).length;
-      header.indeterminate = checked > 0 && checked < boxes.length;
-      header.checked = checked === boxes.length;
+      if (header && boxes.length) {
+        const checked = boxes.filter(cb => cb.checked).length;
+        header.indeterminate = checked > 0 && checked < boxes.length;
+        header.checked = checked === boxes.length;
+      }
 
       updateProgressIndicator(group);
 
+      if (SUPPORT_GROUPS.includes(group)) {
+        updateSupportGroupCheckbox();
+        updateProgressIndicator('support');
+      }
       if (ELECTIVE_GROUPS.includes(group)) {
         updateElectivesGroupCheckbox();
         updateProgressIndicator('electives');
@@ -389,12 +398,18 @@
       const checked = groupCheckbox.checked;
 
       if (group === 'electives') {
-        // ELECTIVES CASE --> Check/uncheck all four elective subgroups
         ELECTIVE_GROUPS.forEach(subgroup => {
           const boxes = getGroupCheckboxes(subgroup);
           boxes.forEach(cb => {
             cb.checked = checked;
-            // colorClass(cb);
+          });
+          updateGroupCheckbox(subgroup);
+        });
+      } else if (group === 'support') {
+        SUPPORT_GROUPS.forEach(subgroup => {
+          const boxes = getGroupCheckboxes(subgroup);
+          boxes.forEach(cb => {
+            cb.checked = checked;
           });
           updateGroupCheckbox(subgroup);
         });
