@@ -360,32 +360,32 @@
   },
   {
     "id": "CHE 395",
-    "parentIds": [],
+    "parentIds": ["Instructor permission required"],
     "name": "Literature Investigation",
     "instructor": "Hauser",
     "description": "This course is designed for any qualified student who desires to pursue a literature research project in an area of special interest in chemistry under the direction and supervision of a faculty member. The latter reviews and approves the topic of research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. Permission of the instructor. (Fall and Spring)",
     "satisfies": [],
-    "PRQ": ["Permission of the instructor. (Fall and Spring)"],
+    "PRQ": ["Instructor permission required"],
     "group": "independent_research"
   },
   {
     "id": "CHE 396",
-    "parentIds": [],
+    "parentIds": ["Instructor permission required"],
     "name": "Laboratory Research I",
     "instructor": "Hauser, Key, Snyder N.",
     "description": "Experimental chemistry projects conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. This course is intended for non-senior students.",
     "satisfies": [],
-    "PRQ": ["Permission of the instructor. (Fall and Spring)"],
+    "PRQ": ["Instructor permission required"],
     "group": "independent_research"
   },
   {
     "id": "CHE 397",
-    "parentIds": ["CHE 396"],
+    "parentIds": ["Instructor permission required"],
     "name": "Laboratory Research II",
     "instructor": "Snyder N.",
     "description": "Experimental chemistry projects conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. This course is intended for non-senior students. (Fall and Spring)",
     "satisfies": [],
-    "PRQ": ["CHE 396", "or", "Permission of the instructor. "],
+    "PRQ": ["Instructor permission required"],
     "group": "independent_research"
   },
   {
@@ -457,32 +457,32 @@
   },
   {
     "id": "CHE 496",
-    "parentIds": [],
+    "parentIds": ["Instructor permission required"],
     "name": "Hauser, Key, Snyder N.",
     "instructor": "Senior Research I",
     "description": "Experimental chemistry project conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. This course is intended for senior chemistry majors. Permission of the instructor. (Fall and Spring)",
     "satisfies": [],
-    "PRQ": ["Permission of instructor"],
+    "PRQ": ["Instructor permission required"],
     "group": "independent_research"
   },
   {
     "id": "CHE 497",
-    "parentIds": ["CHE 496"],
+    "parentIds": ["Instructor permission required"],
     "name": "Senior Research II",
     "instructor": "Staff",
     "description": "Experimental chemistry project conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. This course is not intended for students who are completing a thesis and pursuing an honors degree (See Chemistry 498). Consult the department's guidelines for the preparation of independent research proposals. Chemistry 496 or a summer of research with the instructor after the student’s junior year. (Fall and Spring)",
     "satisfies": [],
-    "PRQ": ["CHE 496", "or", "a summer of research with the instructor after the student's junior year."],
+    "PRQ": ["Instructor permission required"],
     "group": "independent_research"
   },
   {
     "id": "CHE 498",
-    "parentIds": ["CHE 496"],
+    "parentIds": ["Instructor permission required"],
     "name": "Thesis Research",
     "instructor": "Staff",
     "description": "Experimental chemistry project conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following accepatance of the student's written research proposal. This course is intended for senior students that are completing a thesis for evaluation by the department and pursuing an honors degree. Consult the department's guidelines for the preparation of independent research proposals.",
     "satisfies": [],
-    "PRQ": ["CHE 496", "or", "a summer of research with the instructor after the student's junior year."],
+    "PRQ": ["CHE 496", "or", "Instructor permission required"],
     "group": "independent_research"
   },
   {
