@@ -43,18 +43,6 @@
     "group": ""
   },
   {
-    "id": "CHE 106",
-    "parentIds": [],
-    "name": "The Chemistry of Art",
-    "instructor": "Staff",
-    "description": "Art objects, materials and techniques examined from a chemical perspective. Designed to fulfill the ways of knowing requirement for science with lab. No previous exposure to chemistry assumed; does not count toward a major in chemistry or for pre-medical requirements. One laboratory meeting per week.",
-    "satisfies": [
-      "Satisfies the Natural Science Ways of Knowing requirement."
-    ],
-    "PRQ": [],
-    "group": ""
-  },
-  {
     "id": "CHE 115",
     "parentIds": [],
     "name": "Principles of Chemistry + Lab",
