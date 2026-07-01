@@ -68,7 +68,7 @@
   },
   {
     "id": "CHE 220",
-    "parentIds": ["CHE 115"],
+    "parentIds": ["CHE 115", "Credit for Chemistry"],
     "name": "Introduction to Analytical Chemistry + Lab (=ENV 315)",
     "instructor": "Hauser",
     "description": "Topics in chemical equilibrium, electrochemistry, spectroscopy, chromatography, and nuclear chemistry, with applications in biological, environmental, forensic, archaeological, and consumer chemistry. Laboratory experiments include qualitative and quantitative analyses using volumetric, electrochemical, chromatographic, and spectroscopic methods. Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major. One laboratory meeting per week. (Fall)",
@@ -76,12 +76,12 @@
       "Satisfies the Natural Science requirement.",
       "Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major."
     ],
-    "PRQ": ["CHE 115"],
+    "PRQ": ["CHE 115", "or", "Credit for Chemistry"],
     "group": "foundation"
   },
   {
     "id": "CHE 230",
-    "parentIds": ["CHE 115", "CHE 250"],
+    "parentIds": ["CHE 115", "CHE 250", "Credit for Chemistry"],
     "name": "Introduction to Biological Chemistry",
     "instructor": "Myers",
     "description": "Introduction to the chemistry of biological systems. Includes the study of amino acids and proteins, nucleic acids, lipids, carbohydrates, enzymes and enzyme mechanisms, and the chemistry of important metabolic pathways and regulatory mechanisms. Chemistry 115 and 250. One laboratory meeting per week. (Fall and Spring)",
@@ -93,49 +93,54 @@
       "Satisfies a requirement in the Genomics major and interdisciplinary minor.",
       "Satisfies a requirement in the Bioinformatics major."
     ],
-    "PRQ": ["CHE 115", "and", "CHE 250"],
+    "PRQ": [ "(", "CHE 115","or", "Credit for Chemistry" , ")", "and", "CHE 250"],
     "group": "foundation"
   },
   {
     "id": "CHE 240",
-    "parentIds": ["CHE 115"],
+    "parentIds": ["CHE 115", "Credit for Chemistry"],
     "name": "Introduction to Inorganic Chemistry + Lab",
     "instructor": "Anstey",
     "description": "Foundational course in inorganic chemistry. Topics include nuclear chemistry and atomic structure, simple bonding and molecular orbital theory, molecular symmetry and group theory, acid-base and donor-acceptor chemistry, solid-state and crystal-field theory, coordination chemistry, and modern inorganic chemistry topics in fields such as solar energy conversion, materials science, and nanoparticles. One laboratory meeting per week.",
     "satisfies": [
       "Satisfies Natural Science requirement."
     ],
-    "PRQ": ["CHE 115"],
+    "PRQ": ["CHE 115", "or", "Credit for Chemistry"],
     "group": "foundation"
   },
   {
     "id": "CHE 250",
-    "parentIds": ["CHE 115"],
+    "parentIds": ["CHE 115", "Credit for Chemistry"],
     "name": "Introduction to Organic Chemistry + Lab",
     "instructor": "Key, Burde",
     "description": "Introduction to organic chemistry including nomenclature, structure and properties of organic and bioorganic molecules, spectroscopic analysis, and reactions of carboxylic acid and carbonyl derivatives. Laboratory introduces students to basic experimental techniques.One laboratory meeting per week. (Fall and Spring)",
     "satisfies": [
       "Satisfies Natural Science requirement."
     ],
-    "PRQ": ["CHE 115"],
+    "PRQ": ["CHE 115", "or", "Credit for Chemistry"],
     "group": "foundation"
   },
   {
     "id": "CHE 260",
     "parentIds": [
       "CHE 115",
+      "Credit for Chemistry",
       "MAT 113",
       "MAT 140",
       "MAT 140"
     ],
     "name": "Thermodynamics and Kinetics +Lab",
     "instructor": "El-Zaatari, Striplin",
-    "description": "This course addresses the specific topics of thermodynamics and kinetics with an increased emphasis on biochemical systems. CHE 115; MAT 113 or MAT 140.  MAT 140 recommended and may be used as a co-requisite. One laboratory meeting per week. (Fall)",
+    "description": "This course addresses the specific topics of thermodynamics and kinetics with an increased emphasis on biochemical systems. (CHE 115 or Credit for Chemistry); MAT 113 or MAT 140.  MAT 140 recommended and may be used as a co-requisite. One laboratory meeting per week. (Fall)",
     "satisfies": [
       "Satisfies the Natural Science requirement."
     ],
     "PRQ": [
+      "(",
       "CHE 115",
+      "or",
+      "Credit for Chemistry",
+      ")",
       "and",
       "(",
       "MAT 113",
@@ -154,16 +159,6 @@
     "satisfies": [],
     "PRQ": ["CHE 220"],
     "group": "lab"
-  },
-  {
-    "id": "CHE 321",
-    "parentIds": [],
-    "name": "Special Topics in Analytical Chemistry: Mass Spectrometry FALL 2019",
-    "instructor": "Blauch",
-    "description": "This course examines the principles of mass spectrometry, including the design and operation of ion sources and mass analyzers, interpretation of mass spectra and fragmentation processes. Mass spectrometry is applied to problems in chemistry, biochemistry, food science, and environmental science.",
-    "satisfies": [],
-    "PRQ": "",
-    "group": "no_lab"
   },
   {
     "id": "CHE 325",
@@ -207,16 +202,16 @@
   },
   {
     "id": "CHE 340",
-    "parentIds": [],
+    "parentIds": ["CHE 240"],
     "name": "Experimental Inorganic Chemistry +Lab",
     "instructor": "Anstey",
     "description": "This course qualifies as a lecture with a laboratory in the Chemistry curriculum. The laboratory will examine the course content through a semester-long exploratory research project. All students will take part in the research process as a team, asking and answering research questions through experimentation. Like other labs in the Chemistry department, there will be approximately three hours of lab work each week of the semester. However, to accommodate this research experience, the timing of those hours will be coordinated at the start of each successive week to accomplish that week's research tasks. The student will have flexibility in scheduling, including the use of multiple short blocks of time instead of a single three-hour block. Students will not be asked to work alone or without supervision.\u201d",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": ["CHE 240"],
     "group": "lab"
   },
   {
-    "id": "CHE 341",
+    "id": "CHE 353",
     "parentIds": ["CHE 250"],
     "name": "Polymer Chemistry",
     "instructor": "El-Zaatari",
@@ -269,14 +264,18 @@
   {
     "id": "CHE 360",
     "parentIds": [
-      "CHE 115", "MAT 113", "MAT 140"
+      "CHE 115", "MAT 113", "MAT 140", "Credit for Chemistry"
     ],
     "name": "Quantum Chemistry and Spectroscopy +Lab",
     "instructor": "Blauch, Striplin",
     "description": "This in-depth course covers quantum mechanics and its application to spectroscopy and the structure of matter.",
     "satisfies": [],
     "PRQ": [
-      "CHE 115",
+      "(",
+      "CHE 115", 
+      "or", 
+      "Credit for Chemistry",
+      ")",
       "and",
       "(",
       "MAT 113", 
@@ -308,7 +307,7 @@
   },
   {
     "id": "CHE 371",
-    "parentIds": ["CHE 115"],
+    "parentIds": ["CHE 115", "Credit for Chemistry"],
     "name": "Energy",
     "instructor": "Striplin",
     "description": "Course focuses on energy fundamentals such as the various guises of energy, combustion, inescapable inefficiencies, electric generation, and the planet's energy balance. Unsustainable energy technologies (coal, oil, gas, nuclear, and hydropower), sustainable energy technologies (solar, photovoltaics, wind, wave and tidal, biomass, geothermal, and fusion), and other fuel technologies such as hydrogen/fuel cells, carbon sequestration, and syngas production will be discussed and, in some cases, demonstrated. Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major.",
@@ -316,7 +315,7 @@
       "Satisfies depth and breadth course requirement in the Natural Science track of the Environmental Studies major or interdisciplinary minor.",
       "Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major."
     ],
-    "PRQ": ["CHE 115"],
+    "PRQ": ["CHE 115", "or", "Credit for Chemistry"],
     "group": "no_lab"
   },
   {
@@ -364,7 +363,7 @@
     "parentIds": [],
     "name": "Literature Investigation",
     "instructor": "Hauser",
-    "description": " This course is designed for any qualified student who desires to pursue a literature research project in an area of special interest in chemistry under the direction and supervision of a faculty member. The latter reviews and approves the topic of research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. Permission of the instructor. (Fall and Spring)",
+    "description": "This course is designed for any qualified student who desires to pursue a literature research project in an area of special interest in chemistry under the direction and supervision of a faculty member. The latter reviews and approves the topic of research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. Permission of the instructor. (Fall and Spring)",
     "satisfies": [],
     "PRQ": ["Permission of the instructor. (Fall and Spring)"],
     "group": "independent_research"
