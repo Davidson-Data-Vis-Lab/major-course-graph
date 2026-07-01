@@ -17,7 +17,7 @@ import {
 } from './groupLayout.js';
 
 //const data = await d3.json("data/courses-full-info.json");
-const data = await d3.json("data/chemistry/courses_handcollected_chemistry.json");
+//const data = await d3.json("data/chemistry/courses_handcollected_chemistry.json");
 
 
 // ------------------- //

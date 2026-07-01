@@ -1222,7 +1222,10 @@
     "instructor": "Toska",
     "description": "This course examines how modern Islam, from the middle of the nineteenth century to today, 'became' political. It explores the role of theology and domestic and international politics in the development of Islamic movements, political parties, Islamic jihad, and Islamic rule in various countries. It also focuses on contemporary issues - the relationship between Islam and democracy, the rise of violent non-state groups, and global responses to them.",
     "satisfies": [
-      "Satisfies a major requirement in Political Science| Satisfies a minor requirement in Arab Studies Satisfies an interdisciplinary minor requirement in Middle East Studies Satisfies the Cultural Diversity requirement"
+      "Satisfies a major requirement in Political Science", 
+      "Satisfies a minor requirement in Arab Studies",  
+      "Satisfies an interdisciplinary minor requirement in Middle East Studies", 
+      "Satisfies the Cultural Diversity requirement"
     ],
     "PRQ": "Permission of the instructor required.",
     "group": ""
@@ -1277,7 +1280,7 @@
     "parentIds": [],
     "name": "Politics and Governance: Executive Power, Bureaucracy, and Accountability",
     "instructor": "Bersch",
-    "description": "This seminar examines the role of the executive branch in modern governance, exploring the complexities of policymaking, policy implementation, political accountability, and bureaucratic expertise. Students will analyze how executive power is exercised, the role of civil servants in shaping policy, and the tensions between political oversight and bureaucratic autonomy. Topics include the meritocratic foundations of civil service, governance reform efforts, the politicization of bureaucracies, and the varying roles of executive agencies across policy domains. Drawing on comparative and historical perspectives, the course will explore key debates about executive power and accountability, including case studies on governance challenges in different policy areas. Students will engage with scholarship in political science, public administration, and law, developing a nuanced understanding of how executive policymaking functions in democratic and non-democratic contexts. The seminar is designed to be interactive, incorporating guest speakers, student presentations, case studies, and policy simulations. A major paper (capstone) will serve as the culminating assignment, allowing students to conduct in-depth research on an issue related to executive policymaking and governance.",
+    "description": "This seminar examines the role of the executive branch in modern governance, exploring the complexities of policymaking, policy implementation, political accountability, and bureaucratic expertise. Students will analyze how executive power is exercised, the role of civil servants in shaping policy, and the tensions between political oversight and bureaucratic autonomy. Topics include the meritocratic foundations of civil service, governance reform efforts, the politicization of bureaucracies, and the varying roles of executive agencies across policy domains. Drawing on comparative and historical perspectives, the course will explore key debates about executive power and accountability, including case studies on governance challenges in different policy areas. Students will engage with scholarship in political science, public administration, and law, developing a nuanced understanding of how executive policymaking functions in democratic and non-democratic contexts. The seminar is designed to be interactive, incorporating guest speakers, student presentations, case studies, and policy simulations. A major paper (capstone) will serve as the culminating assignment, allowing students to conduct in-depth research on an issue related to executive policymaking and governance. Offered every other year, in rotation with POL 472.",
     "satisfies": [
       "Satisfies Political Science major requirement."
     ],
@@ -1286,9 +1289,7 @@
   },
   {
     "id": "POL 452",
-    "parentIds": [
-      "POL 472"
-    ],
+    "parentIds": [],
     "name": "Leaders vs. Entrepreneurs",
     "instructor": "Bullock",
     "description": "This course examines the characteristics of great leaders and successful entrepreneurs, and the roles they play in politics and society. Building on insights from political science, economics, and psychology, students use different theories and concepts, such as social entrepreneurship and transformative leadership, to analyze individuals as diverse as Jane Goodall, Steve Jobs, and Teddy Roosevelt.",
@@ -1298,8 +1299,6 @@
       "Satisfies a Social-Scientific Thought requirement."
     ],
     "PRQ": [
-      "POL 472",
-      "or",
       "Permission of instructor"
     ],
     "group": ""
@@ -1339,7 +1338,7 @@
     "satisfies": [],
     "PRQ": [
       "POL 182",
-      "or",
+      "and",
       "Permission of instructor"
     ],
     "group": ""
@@ -1373,21 +1372,21 @@
     "parentIds": [],
     "name": "Citizens vs. Consumers",
     "instructor": "Bullock",
-    "description": "This seminar investigates the roles of citizens and consumers in politics and society. Students compare different forms of citizenship, discuss the implications of political consumerism, and examine the tensions and complementarities between our identities as citizens and consumers in the context of different environmental arenas, including water pollution, air quality, and climate change.",
+    "description": "This seminar investigates the roles of citizens and consumers in politics and society. Students compare different forms of citizenship, discuss the implications of political consumerism, and examine the tensions and complementarities between our identities as citizens and consumers in the context of different environmental arenas, including water pollution, air quality, and climate change. Offered every other year, in rotation with POL 471. ",
     "satisfies": [
       "Satisfies depth and breadth course requirement in Social Science track of the Environmental Studies major or interdisciplinary minor.",
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "Offered every other year, in rotation with POL 471. Permission of the instructor required.",
+    "PRQ": "Permission of the instructor required.",
     "group": ""
   },
   {
     "id": "POL 485",
     "parentIds": [],
     "name": "Advanced Independent Study",
-    "instructor": "Bersch K,",
-    "description": "Bullock G, Rigger S, Research leading to the submission of a major paper under the direction and supervision of a faculty member who reviews and approves the topic of the independent study.",
+    "instructor": "Bersch K, Bullock G, Rigger S",
+    "description": "Research leading to the submission of a major paper under the direction and supervision of a faculty member who reviews and approves the topic of the independent study.",
     "satisfies": [],
     "PRQ": "Permission of the instructor required.",
     "group": ""
