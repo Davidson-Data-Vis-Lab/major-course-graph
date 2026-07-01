@@ -114,7 +114,7 @@
       "CHE 115",
       "Credit for Chemistry",
       "MAT 113",
-      "MAT 140",
+      "Credit for Calculus II",
       "MAT 140"
     ],
     "name": "Thermodynamics and Kinetics +Lab",
@@ -134,6 +134,8 @@
       "MAT 113",
       "or",
       "MAT 140",
+      "or",
+      "Credit for Calculus II",
       ")"
     ],
     "group": "foundation"
@@ -252,7 +254,7 @@
   {
     "id": "CHE 360",
     "parentIds": [
-      "CHE 115", "MAT 113", "MAT 140", "Credit for Chemistry"
+      "CHE 115", "MAT 113", "MAT 140", "Credit for Chemistry", "Credit for Calculus II"
     ],
     "name": "Quantum Chemistry and Spectroscopy +Lab",
     "instructor": "Blauch, Striplin",
@@ -269,6 +271,8 @@
       "MAT 113", 
       "or", 
       "MAT 140",
+      "or",
+      "Credit for Calculus II",
       ")"
     ],
     "group": "lab"
@@ -666,12 +670,12 @@
   },
        {
     "id": "Credit for Calculus II",
-    "parentIds": [],
+    "parentIds": ["MAT 111", "MAT 112", "Credit for Calculus I"],
     "name": "Credit for Calculus II (AP or equivalent preparation)",
     "instructor": "",
     "description": "Check the Davidson College AP Exam webpage to confirm score requirements.",
     "satisfies": [""],
-    "PRQ": [""],
+    "PRQ": ["MAT 111", "or", "MAT 112", "or", "Credit for Calculus I"],
     "group": "math_support"
   },
        {
