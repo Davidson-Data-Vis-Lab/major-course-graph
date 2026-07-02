@@ -15,8 +15,8 @@ import {
   fitGraphToViewport,
 } from './groupLayout.js';
 
-//const data = await d3.json("data/courses-full-info.json");
-const data = await d3.json("data/chemistry/courses_handcollected_chemistry.json");
+const data = await d3.json("computer-science-data/courses-handcollected-with-note-strings.json");
+//const data = await d3.json("data/chemistry/courses_handcollected_chemistry.json");
 
 
 // ------------------- //
