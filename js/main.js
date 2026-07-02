@@ -6,7 +6,6 @@ console.log("main.js is running...");
  */
 
 import * as d3 from "https://cdn.skypack.dev/d3@7.8.4";
-window.d3 = d3;
 import * as d3dag from "https://cdn.skypack.dev/d3-dag@1.0.0-1";
 import { clusterNodes } from './clusterNodes.js';
 import {
@@ -73,7 +72,7 @@ try {
 // Roots reserve full stack height; leaves use one slot and expand into bottom margin.
 const layoutNodeSize = createRoleAwareLayoutNodeSize(nodeW, nodeH, INTRA_GROUP_VERTICAL_GAP);
 const shape = d3dag.tweakShape(layoutNodeSize, d3dag.shapeRect);
-const LAYER_GAP_Y = nodeH * 0.55;
+
 // With this — the path generator now accepts an optional trim:
 function makePath(points, trimEnd = 0) {
   if (trimEnd === 0) return d3.line().curve(d3.curveMonotoneY)(points);
@@ -538,15 +537,7 @@ svg.select("#links")
       .call(enter => enter.transition(trans).attr("opacity", 0.7))
   );
 
-// --- Arrows ---
-function arrowTransform(linkData) {
-  const points = linkData.points;
-  if (points.length < 2) return "";
-  const [x1, y1] = points[points.length - 2];
-  const [x2, y2] = points[points.length - 1];
-  const angle = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI + 90;
-  return `translate(${x2}, ${y2}) rotate(${angle})`;
-}
+
 
 const arrowSize = 80;
 const arrow = d3.symbol().type(d3.symbolTriangle).size(arrowSize);
