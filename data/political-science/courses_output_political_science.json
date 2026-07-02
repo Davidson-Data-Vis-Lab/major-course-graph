@@ -27,7 +27,7 @@
       "Satisfies the Justice, Equality, and Community requirement.",
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -40,7 +40,7 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies an elective in the Political Science major."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -52,7 +52,7 @@
     "satisfies": [
       "Satisfies Political Science major requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -65,7 +65,9 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "Not open to juniors until the first day of classes; not open to seniors except with permission of the instructor and only once the semester begins.",
+    "PRQ": [
+      "Not open to juniors until the first day of classes; not open to seniors except with permission of the instructor and only once the semester begins."
+    ],
     "group": ""
   },
   {
@@ -73,12 +75,14 @@
     "parentIds": [],
     "name": "American Politics",
     "instructor": "Bullock, Crowder-Meyer, O'Geen, Roberts, Yesnowitz",
-    "description":  "Analysis of American political processes, institutions, and problems.",
+    "description": "Analysis of American political processes, institutions, and problems.",
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies a requirement in the Communication Studies interdisciplinary major and minor."
     ],
-    "PRQ": "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins.",
+    "PRQ": [
+      "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins."
+    ],
     "group": ""
   },
   {
@@ -90,7 +94,9 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins.",
+    "PRQ": [
+      "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins."
+    ],
     "group": ""
   },
   {
@@ -103,7 +109,9 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins.",
+    "PRQ": [
+      "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins."
+    ],
     "group": ""
   },
   {
@@ -115,7 +123,9 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins.",
+    "PRQ": [
+      "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins."
+    ],
     "group": ""
   },
   {
@@ -127,7 +137,9 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins.",
+    "PRQ": [
+      "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins."
+    ],
     "group": ""
   },
   {
@@ -141,7 +153,9 @@
       "Satisfies a requirement in the Data Science interdisciplinary minor.",
       "Satisfies the Methods requirement for the Gender and Sexuality Studies major in the Society and Politics track."
     ],
-    "PRQ": "Not open to first-year students.",
+    "PRQ": [
+      "Not open to first-year students."
+    ],
     "group": ""
   },
   {
@@ -156,7 +170,7 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement"
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -168,7 +182,7 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -181,7 +195,7 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -194,7 +208,7 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -202,12 +216,12 @@
     "parentIds": [],
     "name": "Family and Justice",
     "instructor": "Shaw",
-    "description": "Examination of the ways in which families and political and economic institutions shape one another, with special emphasis on policies that promote marriage over \u2018alternative' family arrangements; state-mandated family leave policies; \u2018family-friendly' corporate employment practices; same-sex marriage; divorce law; and welfare reform.",
+    "description": "Examination of the ways in which families and political and economic institutions shape one another, with special emphasis on policies that promote marriage over 'alternative' family arrangements; state-mandated family leave policies; 'family-friendly' corporate employment practices; same-sex marriage; divorce law; and welfare reform.",
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -220,7 +234,7 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -233,7 +247,7 @@
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -246,7 +260,7 @@
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -258,7 +272,7 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -271,7 +285,7 @@
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -284,8 +298,8 @@
       "Satisfies Cultural Diversity requirement.",
       "Satisfies Social-Scientific Thought requirement"
     ],
-    "PRQ": "",
-    "group": ""
+    "PRQ": [],
+    "group": "cultural_diversity"
   },
   {
     "id": "POL 227",
@@ -296,7 +310,7 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -323,7 +337,7 @@
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
       "Satisfies the Social-Scientific Thought requirement"
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -331,11 +345,11 @@
     "parentIds": [],
     "name": "Special Topics American Politics (Spring 2020): Section A -- Social Movements and Social Change in the United States, Section B -- What’s Happening to the News, and What it Means for Democracy",
     "instructor": "Yesnowitz, Sill",
-    "description": "Section A: When and why do social movements occur? What motivates some individuals to participate in organized collective action? What role do strategies, values, decision-making structures, and leaders play? How have recent technological developments transformed recruitment efforts? Which tactics are most effective in pressuring legislators to respond to movement demands? What impacts have oppositional movements had on politics and society in the United States? In considering these (and other) questions, we will explore a range of movements which have both animated previous cycles of protest such as civil rights, women's liberation, and antiwar mobilization along with several cases which characterize our own time including climate change advocacy, Black Lives Matter demonstrations, and the #MeToo campaign. When examining the issue grievances and proposed remedies of both historical and contemporary political struggles, we will also focus close attention on media coverage of social movements, intra-movement disputes and inter-movement coalitions, the rise of counter-movements, and movement relations with political parties and presidential administrations. POL 239 B Topic: What's Happening to the News, and What it Means for Democracy Instructor: Sill The 2020 presidential campaign will flood Americans with news, but how much will be independent information amid political messaging, social media manipulation and partisan spin? This course will examine campaign reporting and other case studies in considering how media disruption and fragmentation are affecting democracy and civic function in the United States, We'll explore current press-public issues, 'enemies of the people' versus 'watchdogs for the people' and other issues of trust in the context of U.S. history and the Internet's transformation of communication, with an eye to what comes next. The course will also include tools and skills for verifying information and evaluating media sources for credibility. Section B: The 2020 presidential campaign will flood Americans with news, but how much will be independent information amid political messaging, social media manipulation and partisan spin? This course will examine campaign reporting and other case studies in considering how media disruption and fragmentation are affecting democracy and civic function in the United States, We’ll explore current press-public issues, “enemies of the people” versus “watchdogs for the people” and other issues of trust in the context of U.S. history and the Internet’s transformation of communication, with an eye to what comes next. The course will also include tools and skills for verifying information and evaluating media sources for credibility." ,
+    "description": "Section A: When and why do social movements occur? What motivates some individuals to participate in organized collective action? What role do strategies, values, decision-making structures, and leaders play? How have recent technological developments transformed recruitment efforts? Which tactics are most effective in pressuring legislators to respond to movement demands? What impacts have oppositional movements had on politics and society in the United States? In considering these (and other) questions, we will explore a range of movements which have both animated previous cycles of protest such as civil rights, women's liberation, and antiwar mobilization along with several cases which characterize our own time including climate change advocacy, Black Lives Matter demonstrations, and the #MeToo campaign. When examining the issue grievances and proposed remedies of both historical and contemporary political struggles, we will also focus close attention on media coverage of social movements, intra-movement disputes and inter-movement coalitions, the rise of counter-movements, and movement relations with political parties and presidential administrations. POL 239 B Topic: What's Happening to the News, and What it Means for Democracy Instructor: Sill The 2020 presidential campaign will flood Americans with news, but how much will be independent information amid political messaging, social media manipulation and partisan spin? This course will examine campaign reporting and other case studies in considering how media disruption and fragmentation are affecting democracy and civic function in the United States, We'll explore current press-public issues, 'enemies of the people' versus 'watchdogs for the people' and other issues of trust in the context of U.S. history and the Internet's transformation of communication, with an eye to what comes next. The course will also include tools and skills for verifying information and evaluating media sources for credibility. Section B: The 2020 presidential campaign will flood Americans with news, but how much will be independent information amid political messaging, social media manipulation and partisan spin? This course will examine campaign reporting and other case studies in considering how media disruption and fragmentation are affecting democracy and civic function in the United States, We’ll explore current press-public issues, “enemies of the people” versus “watchdogs for the people” and other issues of trust in the context of U.S. history and the Internet’s transformation of communication, with an eye to what comes next. The course will also include tools and skills for verifying information and evaluating media sources for credibility.",
     "satisfies": [
       "Satisfies Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -347,7 +361,7 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -359,7 +373,7 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -373,7 +387,7 @@
       "Satisfies Environmental Studies major and minor requirement (All tracks).",
       "Satisfies Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -383,7 +397,9 @@
     "instructor": "Bersch",
     "description": "This course explores the relationship between government, corruption, and reform, and under what conditions bureaucracies work either as either facilitators of or impediments to reform. This course provides a mix of classroom instruction with hands-on experiential learning, drawing on the instructor's work with the Bureaucracy Lab at the World Bank and the Stanford Governance Project. Students will develop a Governance/Policy Lab at Davison, work with an external partner on developing a project, and complete a final research paper based on data from the Governance Project.",
     "satisfies": [],
-    "PRQ": "Instructor permission required.",
+    "PRQ": [
+      "Instructor permission required."
+    ],
     "group": ""
   },
   {
@@ -393,7 +409,7 @@
     "instructor": "Kalin",
     "description": "An upper division course dealing with a topic in International Politics. Topics change from year to year.",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -408,7 +424,7 @@
       "Satisfies History major and minor requirement",
       "Satisfies Historical Thought requirement"
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -418,7 +434,7 @@
     "instructor": "Staff",
     "description": "Independent Study",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -430,7 +446,7 @@
     "satisfies": [
       "Satisfies Political Science major requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -440,7 +456,7 @@
     "instructor": "Staff",
     "description": "Project involving student research conducted in Washington, D.C., as part of the summer program of Davidson in Washington. Must have a significant political component. Graded on a Pass or Fail basis.",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -450,7 +466,9 @@
     "instructor": "Staff",
     "description": "Research leading to the submission of a major paper under the direction and supervision of a faculty member who reviews and approves the topic of the independent study and evaluates the student's work.",
     "satisfies": [],
-    "PRQ": "Permission of the instructor.",
+    "PRQ": [
+      "Permission of the instructor."
+    ],
     "group": ""
   },
   {
@@ -460,11 +478,11 @@
     "instructor": "Menkhaus",
     "description": "Survey of contemporary political conflicts, development and international relations of Sub-Saharan Africa. Sub-field = International and Comparative.",
     "satisfies": [
-      "Satisfies the Social-Scientific Thought requirement.", 
+      "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies cultural diversity requirement."
     ],
-    "PRQ": "",
-    "group": ""
+    "PRQ": [],
+    "group": "cultural_diversity"
   },
   {
     "id": "POL 291",
@@ -476,8 +494,8 @@
       "Satisfies the cultural diversity requirement.",
       "Satisfies the Middle East Studies interdisciplinary minor."
     ],
-    "PRQ": "",
-    "group": ""
+    "PRQ": [],
+    "group": "cultural_diversity"
   },
   {
     "id": "POL 293",
@@ -489,8 +507,8 @@
       "Satisfies the Cultural Diversity requirement.",
       "Satisfies a requirement of the Latin American Studies major."
     ],
-    "PRQ": "",
-    "group": ""
+    "PRQ": [],
+    "group": "cultural_diversity"
   },
   {
     "id": "POL 302",
@@ -502,7 +520,7 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -515,7 +533,7 @@
       "Satisifies the Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -527,7 +545,7 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -539,7 +557,7 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -552,7 +570,7 @@
       "Satisfies a Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement"
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -562,8 +580,8 @@
     "instructor": "Shaw",
     "description": "The course explores topics of special relevance to debates in contemporary political theory such as 'multicultural citizenship,' 'democratic theory,' and 'conservative political theory.' The content of this course changes from year to year.",
     "satisfies": [],
-    "PRQ": "",
-    "group": ""
+    "PRQ": [],
+    "group": "cultural_diversity"
   },
   {
     "id": "POL 324",
@@ -574,7 +592,7 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -586,7 +604,9 @@
     "satisfies": [
       "Satisfies the Literary Studies, Creative Writing, and Rhetoric requirement."
     ],
-    "PRQ": "Not open to first-year students.",
+    "PRQ": [
+      "Not open to first-year students."
+    ],
     "group": ""
   },
   {
@@ -598,7 +618,7 @@
     "satisfies": [
       "Satisfies the Literary Studies, Creative Writing, and Rhetoric requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -613,7 +633,7 @@
       "Counts as an elective in the Data Science interdisciplinary minor.",
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -625,7 +645,7 @@
     "satisfies": [
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -638,7 +658,9 @@
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
       "Satisfies Social-Scientific Thought requirement."
     ],
-    "PRQ": "(Offered alternate years.)",
+    "PRQ": [
+      "(Offered alternate years.)"
+    ],
     "group": ""
   },
   {
@@ -650,7 +672,7 @@
     "satisfies": [
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -663,7 +685,7 @@
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -676,8 +698,8 @@
       "Satisfies the cultural diversity requirement.",
       "Provides credit towards the Asian Studies Interdisciplinary Minor."
     ],
-    "PRQ": "",
-    "group": ""
+    "PRQ": [],
+    "group": "cultural_diversity"
   },
   {
     "id": "POL 344",
@@ -690,8 +712,8 @@
       "Satisfies the cultural diversity requirement.",
       "Provides credit towards the Latin American Studies and Political Science majors."
     ],
-    "PRQ": "",
-    "group": ""
+    "PRQ": [],
+    "group": "cultural_diversity"
   },
   {
     "id": "POL 347",
@@ -704,8 +726,8 @@
       "Satisfies the Justice, Equality, and Community requirement.",
       "Counts as a theory/methodology course for the Latin American Studies major."
     ],
-    "PRQ": "",
-    "group": ""
+    "PRQ": [],
+    "group": "cultural_diversity"
   },
   {
     "id": "POL 348",
@@ -718,7 +740,7 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Counts toward the International Relations or Comparative Politics areas in the major."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -731,8 +753,8 @@
       "Satisfies the cultural diversity requirement.",
       "Satisfies a major requirement in Latin American Studies."
     ],
-    "PRQ": "",
-    "group": ""
+    "PRQ": [],
+    "group": "cultural_diversity"
   },
   {
     "id": "POL 354",
@@ -746,7 +768,9 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Meets the Cultural Diversity requirement."
     ],
-    "PRQ": "Open to all students",
+    "PRQ": [
+      "Open to all students"
+    ],
     "group": ""
   },
   {
@@ -756,7 +780,7 @@
     "instructor": "Kalin",
     "description": "Upper level course in comparative politics. Topics change from year to year.",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -770,7 +794,9 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies Cultural Diversity requirement."
     ],
-    "PRQ": "This class is not open to students who have already taken ECO 288.",
+    "PRQ": [
+      "This class is not open to students who have already taken ECO 288."
+    ],
     "group": ""
   },
   {
@@ -783,7 +809,7 @@
       "Satisfies the Historical Thought requirement.",
       "Counts toward the Latin American Studies Major."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -795,7 +821,7 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement"
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -840,7 +866,7 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies a requirement of the East Asian Studies Interdisciplinary Minor."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -868,7 +894,7 @@
     "instructor": "Staff",
     "description": "Most countries around the world hold elections, but the quality of these elections differ greatly. In authoritarian and democratic regimes there are attempts to shape the electoral playing field in ways that can harm representation and accountability. This course examines several dimensions of election quality ranging from voter registration to campaigns to the reporting of results in countries across the globe. In the context of exploring election quality, the course will also investigate the nature of campaigns and election results in both authoritarian and democratic countries. In particular, we will consider campaign dynamics and strategy given institutional and regime constraints in a diverse set of countries across the globe",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -880,7 +906,7 @@
     "satisfies": [
       "Satisfies a major requirement in Political Science."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -892,7 +918,7 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -902,7 +928,7 @@
     "instructor": "Staff",
     "description": "",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -915,7 +941,7 @@
       "Satisfies the Historical Thought requirement.",
       "Satisfies a requirement of the Latin American Studies interdisciplinary minor."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -928,7 +954,7 @@
       "Satisfies Psychology major requirement.",
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -938,7 +964,7 @@
     "instructor": "Staff",
     "description": "Independent Study",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -948,7 +974,9 @@
     "instructor": "Staff",
     "description": "Individual programs of supervised study conducted through the preparation and discussion of a series of essays under the direction and supervision of a faculty member who reviews and approves the topic of the tutorial.",
     "satisfies": [],
-    "PRQ": "Permission of the instructor. (Offered every semester.)",
+    "PRQ": [
+      "Permission of the instructor. (Offered every semester.)"
+    ],
     "group": ""
   },
   {
@@ -973,7 +1001,9 @@
     "instructor": "Ahrensdorf, Shaw",
     "description": "Reading, research, reports, and discussions on selected topics within the sub-field. Past seminars include 'Lincoln and the Crisis of American Democracy,' 'The City and Justice,' 'Kant,' and 'Politics and Heroism.' A list of available seminars will be posted on the department webpage prior to each semester's registration.",
     "satisfies": [],
-    "PRQ": "Permission of the instructor. Individual courses may have additional prerequisites. At least one seminar is offered in each sub-field every year.",
+    "PRQ": [
+      "Permission of the instructor. Individual courses may have additional prerequisites. At least one seminar is offered in each sub-field every year."
+    ],
     "group": ""
   },
   {
@@ -983,7 +1013,9 @@
     "instructor": "Ahrensdorf",
     "description": "This course investigates arguments for and against both political realism and political idealism through a study of the founder of classical realism, Thucydides. .",
     "satisfies": [],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -996,7 +1028,7 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1009,7 +1041,7 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1021,7 +1053,7 @@
     "satisfies": [
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1034,7 +1066,7 @@
       "Satisfies a Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1046,7 +1078,9 @@
     "satisfies": [
       "Satisfies a Social-Scientific Thought requirement."
     ],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1059,7 +1093,7 @@
       "Satisfies a Social-Scientific Thought requirement.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1069,7 +1103,7 @@
     "instructor": "Staff",
     "description": "",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1079,7 +1113,9 @@
     "instructor": "Ahrensdorf",
     "description": "Seminar: The Crisis of Liberal Democracy: Tocqueville and Nietzsche",
     "satisfies": [],
-    "PRQ": "Permission of instructor required.",
+    "PRQ": [
+      "Permission of instructor required."
+    ],
     "group": ""
   },
   {
@@ -1093,7 +1129,9 @@
       "Satisfies Latin American Studies major and minor requirement.",
       "Satisfies Cultural Diversity requirement."
     ],
-    "PRQ": "Requires instructor permission. To seek permission email professor with the following 3 details: Class year (limited to Sophomores, Juniors, Seniors) Major Why you want to take the class",
+    "PRQ": [
+      "Requires instructor permission. To seek permission email professor with the following 3 details: Class year (limited to Sophomores, Juniors, Seniors) Major Why you want to take the class"
+    ],
     "group": ""
   },
   {
@@ -1105,12 +1143,16 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
     "id": "POL 422",
-    "parentIds": ["POL 201"],
+    "parentIds": [
+      "POL 182"
+    ],
     "name": "Political Communication",
     "instructor": "Sellers",
     "description": "This seminar examines the use and effectiveness of different rhetorical and communication strategies in contemporary politics, from campaigns and elections and policy debates to crisis management and new media. Methods & Statistics in Political Science (POL 201) and permission of the instructor required.",
@@ -1118,11 +1160,15 @@
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": ["POL 201", "and", "Permission of instructor"],
+    "PRQ": [
+      "POL 182",
+      "and",
+      "Permission of instructor"
+    ],
     "group": ""
   },
   {
-    "id": "POL 423", 
+    "id": "POL 423",
     "parentIds": [],
     "name": "Politics of Reproduction",
     "instructor": "Roberts",
@@ -1131,7 +1177,9 @@
       "Satisfies the Social-Scientific Thought requirement.",
       "Satisfies a requirement in the Gender and Sexuality Studies major and minor (Society & Politics Track)."
     ],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1141,7 +1189,9 @@
     "instructor": "Phan",
     "description": "This course examines how to conduct survey/public opinion research and explores how public opinion informs American Politics. Topics will include how to conceptualize and measure public opinion, the origins of public opinions, the nature of mass opinion for specific policy areas, and how public opinion informs the policy making process. Students will also learn the fundaments of survey research.",
     "satisfies": [],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1149,9 +1199,9 @@
     "parentIds": [],
     "name": "The Politics of Youth",
     "instructor": "Yesnowitz",
-    "description": "This seminar examines contemporary youth political participation in the United States. We will consider the historical, social, and economic forces that influence the politics of young people and how these forces compare with the formative experiences of earlier political generations. We will also explore the public policies, the political attitudes, and the ideological worldviews that shape youth political behavior today and study the role of institutions and organizations (e.g. political parties, social movements, organized religion, schools) in helping to form political identity and mobilize political action. Finally, this class looks at how contributions of youth politics - the embrace of novel forms of political expression, the employment of new venues for politics, and the centering of previously marginalized voices \u2013 are impacting the present and future of American politics.",
+    "description": "This seminar examines contemporary youth political participation in the United States. We will consider the historical, social, and economic forces that influence the politics of young people and how these forces compare with the formative experiences of earlier political generations. We will also explore the public policies, the political attitudes, and the ideological worldviews that shape youth political behavior today and study the role of institutions and organizations (e.g. political parties, social movements, organized religion, schools) in helping to form political identity and mobilize political action. Finally, this class looks at how contributions of youth politics - the embrace of novel forms of political expression, the employment of new venues for politics, and the centering of previously marginalized voices – are impacting the present and future of American politics.",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1163,7 +1213,9 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1176,7 +1228,7 @@
       "Satisfies a requirement in the Political Science major.",
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1184,11 +1236,13 @@
     "parentIds": [],
     "name": "European Integration",
     "instructor": "Ceka",
-    "description": "The European Union (EU) is one of the world's most ambitious experiments in governance. Consequently, it is both one of the most complex and intriguing international organizations to study and understand. In this course, we will review the history of European integration and we will investigate in detail the main institutions of the EU and how they relate to one another. We will also explore some of the most important current debates revolving around the EU, including the role of public opinion and identity politics for European integration, the \u2018democratic deficit' and the most recent global financial crisis.",
+    "description": "The European Union (EU) is one of the world's most ambitious experiments in governance. Consequently, it is both one of the most complex and intriguing international organizations to study and understand. In this course, we will review the history of European integration and we will investigate in detail the main institutions of the EU and how they relate to one another. We will also explore some of the most important current debates revolving around the EU, including the role of public opinion and identity politics for European integration, the 'democratic deficit' and the most recent global financial crisis.",
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1200,7 +1254,9 @@
     "satisfies": [
       "Satisfies East Asian Studies major requirement."
     ],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1212,7 +1268,9 @@
     "satisfies": [
       "Satisfies the Justice, Equality, and Community requirement."
     ],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1222,9 +1280,14 @@
     "instructor": "Toska",
     "description": "This course examines how modern Islam, from the middle of the nineteenth century to today, 'became' political. It explores the role of theology and domestic and international politics in the development of Islamic movements, political parties, Islamic jihad, and Islamic rule in various countries. It also focuses on contemporary issues - the relationship between Islam and democracy, the rise of violent non-state groups, and global responses to them.",
     "satisfies": [
-      "Satisfies a major requirement in Political Science| Satisfies a minor requirement in Arab Studies Satisfies an interdisciplinary minor requirement in Middle East Studies Satisfies the Cultural Diversity requirement"
+      "Satisfies a major requirement in Political Science",
+      "Satisfies a minor requirement in Arab Studies",
+      "Satisfies an interdisciplinary minor requirement in Middle East Studies",
+      "Satisfies the Cultural Diversity requirement"
     ],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1234,7 +1297,9 @@
     "instructor": "Ceka",
     "description": "How is the nation constructed? How is nationalism used by different groups and for what purposes? What role does nationalism play in creating political rights or basis for exclusion? This seminar examines the complex relationship between the nation and the state by studying examples from different parts of the world and across time. Using theories of nationalism, identity formation, and state-building we will explore the role that nationalism plays in the creation and fragmentation of states as well as the delineation of political communities. On the one hand, nationalism has the power to crystallize collective identities and provide the overriding basis for self-determination of groups, which can strengthen the state. On the other hand, when national identity is disputed domestically or various groups do not identify with the state, nationalism becomes a source of state disintegration and conflict, oftentimes leading to ethnically motivated political strife and even civil war.",
     "satisfies": [],
-    "PRQ": "Permission of instructor required.",
+    "PRQ": [
+      "Permission of instructor required."
+    ],
     "group": ""
   },
   {
@@ -1246,7 +1311,9 @@
     "satisfies": [
       "Satisfies a major requirement in Political Science."
     ],
-    "PRQ": "Permission of instructor required.",
+    "PRQ": [
+      "Permission of instructor required."
+    ],
     "group": ""
   },
   {
@@ -1259,7 +1326,7 @@
       "Satisfies Political Science major requirement.",
       "Satisfies Justice, Equality and Community requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1269,7 +1336,7 @@
     "instructor": "Ceka",
     "description": "What is democracy and why do we care about this form of government? What explains recent democratic erosion around the globe? How can we strengthen the resiliency of our democracies? This seminar explores the rise and fall of democracy by studying its origins and spread over time across the world. Using theories of democratic transition and consolidation, we will first trace the spread of democracy in the last one hundred years and explain its enduring appeal. We will then turn to theories of democratic erosion to explain the causes and consequences of democratic erosion. The focus is comparative, and we will investigate case studies from various regions of the world. We will explore various themes including populism and demagoguery, the role of truth in democratic societies, corruption, economic inequality, and polarization. At the end of the course, we will discuss remedies to democratic erosion and examine the role that civil society, protest groups, and democratic opposition can play in its reversal.",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1277,18 +1344,16 @@
     "parentIds": [],
     "name": "Politics and Governance: Executive Power, Bureaucracy, and Accountability",
     "instructor": "Bersch",
-    "description": "This seminar examines the role of the executive branch in modern governance, exploring the complexities of policymaking, policy implementation, political accountability, and bureaucratic expertise. Students will analyze how executive power is exercised, the role of civil servants in shaping policy, and the tensions between political oversight and bureaucratic autonomy. Topics include the meritocratic foundations of civil service, governance reform efforts, the politicization of bureaucracies, and the varying roles of executive agencies across policy domains. Drawing on comparative and historical perspectives, the course will explore key debates about executive power and accountability, including case studies on governance challenges in different policy areas. Students will engage with scholarship in political science, public administration, and law, developing a nuanced understanding of how executive policymaking functions in democratic and non-democratic contexts. The seminar is designed to be interactive, incorporating guest speakers, student presentations, case studies, and policy simulations. A major paper (capstone) will serve as the culminating assignment, allowing students to conduct in-depth research on an issue related to executive policymaking and governance.",
+    "description": "This seminar examines the role of the executive branch in modern governance, exploring the complexities of policymaking, policy implementation, political accountability, and bureaucratic expertise. Students will analyze how executive power is exercised, the role of civil servants in shaping policy, and the tensions between political oversight and bureaucratic autonomy. Topics include the meritocratic foundations of civil service, governance reform efforts, the politicization of bureaucracies, and the varying roles of executive agencies across policy domains. Drawing on comparative and historical perspectives, the course will explore key debates about executive power and accountability, including case studies on governance challenges in different policy areas. Students will engage with scholarship in political science, public administration, and law, developing a nuanced understanding of how executive policymaking functions in democratic and non-democratic contexts. The seminar is designed to be interactive, incorporating guest speakers, student presentations, case studies, and policy simulations. A major paper (capstone) will serve as the culminating assignment, allowing students to conduct in-depth research on an issue related to executive policymaking and governance. Offered every other year, in rotation with POL 472.",
     "satisfies": [
       "Satisfies Political Science major requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
     "id": "POL 452",
-    "parentIds": [
-      "POL 472"
-    ],
+    "parentIds": [],
     "name": "Leaders vs. Entrepreneurs",
     "instructor": "Bullock",
     "description": "This course examines the characteristics of great leaders and successful entrepreneurs, and the roles they play in politics and society. Building on insights from political science, economics, and psychology, students use different theories and concepts, such as social entrepreneurship and transformative leadership, to analyze individuals as diverse as Jane Goodall, Steve Jobs, and Teddy Roosevelt.",
@@ -1298,8 +1363,6 @@
       "Satisfies a Social-Scientific Thought requirement."
     ],
     "PRQ": [
-      "POL 472",
-      "or",
       "Permission of instructor"
     ],
     "group": ""
@@ -1313,7 +1376,9 @@
     "satisfies": [
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1325,7 +1390,9 @@
     "satisfies": [
       "Satisfies a requirement for the Political Science major."
     ],
-    "PRQ": "Permission of the instructor.",
+    "PRQ": [
+      "Permission of the instructor."
+    ],
     "group": ""
   },
   {
@@ -1339,7 +1406,7 @@
     "satisfies": [],
     "PRQ": [
       "POL 182",
-      "or",
+      "and",
       "Permission of instructor"
     ],
     "group": ""
@@ -1355,7 +1422,7 @@
       "Satisfies East Asian Studies major requirement.",
       "Satisfies Chinese Studies minor requirement."
     ],
-    "PRQ": "",
+    "PRQ": [],
     "group": ""
   },
   {
@@ -1365,7 +1432,9 @@
     "instructor": "Staff",
     "description": "The world celebrated the seventieth anniversary of the Universal Declaration of Human Rights (UDHR) last year. The UDHR enshrines many important rights, including the freedom of expression, freedom from arbitrary arrest and torture, non-discrimination, access to social security, and the ability of citizens to choose their government - to name just a few. The UDHR is just one form that international law takes. There are many other sanctioned treaties, charters, and protocols that comprise international law, such as the European Convention on Human Rights and African Charter on Human and Peoples' Rights. This seminar explores these critical documents and the associated institutions (e.g., International Criminal Court) that comprise international law. In doing so, we will address one of the major questions in international relations: does international law shape international and domestic behavior and outcomes? We will also consider a wide range of case studies that involve international conflict and security and domestic politics (e.g., activism and elections).",
     "satisfies": [],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1373,23 +1442,27 @@
     "parentIds": [],
     "name": "Citizens vs. Consumers",
     "instructor": "Bullock",
-    "description": "This seminar investigates the roles of citizens and consumers in politics and society. Students compare different forms of citizenship, discuss the implications of political consumerism, and examine the tensions and complementarities between our identities as citizens and consumers in the context of different environmental arenas, including water pollution, air quality, and climate change.",
+    "description": "This seminar investigates the roles of citizens and consumers in politics and society. Students compare different forms of citizenship, discuss the implications of political consumerism, and examine the tensions and complementarities between our identities as citizens and consumers in the context of different environmental arenas, including water pollution, air quality, and climate change. Offered every other year, in rotation with POL 471. ",
     "satisfies": [
       "Satisfies depth and breadth course requirement in Social Science track of the Environmental Studies major or interdisciplinary minor.",
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies.",
       "Satisfies the Social-Scientific Thought requirement."
     ],
-    "PRQ": "Offered every other year, in rotation with POL 471. Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
     "id": "POL 485",
     "parentIds": [],
     "name": "Advanced Independent Study",
-    "instructor": "Bersch K,",
-    "description": "Bullock G, Rigger S, Research leading to the submission of a major paper under the direction and supervision of a faculty member who reviews and approves the topic of the independent study.",
+    "instructor": "Bersch K, Bullock G, Rigger S",
+    "description": "Research leading to the submission of a major paper under the direction and supervision of a faculty member who reviews and approves the topic of the independent study.",
     "satisfies": [],
-    "PRQ": "Permission of the instructor required.",
+    "PRQ": [
+      "Permission of the instructor required."
+    ],
     "group": ""
   },
   {
@@ -1399,7 +1472,19 @@
     "instructor": "Staff",
     "description": "Required of and limited to seniors in the Honors Program. Thesis is written under supervision of an appropriate instructor and is defended orally before at least two members of the political science faculty.",
     "satisfies": [],
-    "PRQ": "",
+    "PRQ": [],
+    "group": ""
+  },
+  {
+    "id": "ECO 101",
+    "parentIds": [],
+    "name": "Introductory Economics",
+    "instructor": "Kumar, Staff",
+    "description": "Theories and institutions that organize and direct economic activities in contemporary society. Covering both microeconomics and macroeconomics, prepares students for understanding domestic and international economic issues, and serves as a foundation for further work in economics.",
+    "satisfies": [
+      "Satisfies the Social-Scientific Thought requirement."
+    ],
+    "PRQ": [],
     "group": ""
   }
 ]
