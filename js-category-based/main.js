@@ -6,6 +6,7 @@ console.log("main.js is running...");
  */
 
 import * as d3 from "https://cdn.skypack.dev/d3@7.8.4";
+window.d3 = d3;
 import * as d3dag from "https://cdn.skypack.dev/d3-dag@1.0.0-1";
 import { clusterNodes } from './clusterNodes.js';
 import {
