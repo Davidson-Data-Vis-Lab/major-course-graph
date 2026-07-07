@@ -13,7 +13,7 @@
     "PRQ": [
       "ECO 101"
     ],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "EDU 280",
@@ -28,7 +28,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "EDU 300",
@@ -41,7 +41,7 @@
       "Satisfies an elective in the Political Science major."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "ENV 241",
@@ -53,7 +53,7 @@
       "Satisfies Political Science major requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 101",
@@ -68,7 +68,7 @@
     "PRQ": [
       "Not open to juniors until the first day of classes; not open to seniors except with permission of the instructor and only once the semester begins."
     ],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 121",
@@ -83,7 +83,7 @@
     "PRQ": [
       "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins."
     ],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 140",
@@ -97,7 +97,7 @@
     "PRQ": [
       "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins."
     ],
-    "group": ""
+    "group": "comparative-politics"
   },
   {
     "id": "POL 141",
@@ -112,7 +112,7 @@
     "PRQ": [
       "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins."
     ],
-    "group": ""
+    "group": "comparative-politics"
   },
   {
     "id": "POL 161",
@@ -126,7 +126,7 @@
     "PRQ": [
       "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins."
     ],
-    "group": ""
+    "group": "international-politics"
   },
   {
     "id": "POL 180",
@@ -140,7 +140,7 @@
     "PRQ": [
       "Not open to juniors until drop-add; not open to seniors except with permission of the instructor and only once the semester begins."
     ],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 182",
@@ -156,7 +156,7 @@
     "PRQ": [
       "Not open to first-year students."
     ],
-    "group": ""
+    "group": "methodology"
   },
   {
     "id": "POL 202",
@@ -171,7 +171,7 @@
       "Satisfies the Justice, Equality, and Community requirement"
     ],
     "PRQ": [],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 203",
@@ -183,7 +183,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 204",
@@ -196,7 +196,7 @@
       "Satisfies the Justice, Equality, and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 206",
@@ -209,7 +209,7 @@
       "Satisfies the Justice, Equality, and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 207",
@@ -222,7 +222,7 @@
       "Satisfies the Justice, Equality, and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 220",
@@ -235,7 +235,7 @@
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 222",
@@ -248,7 +248,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 223",
@@ -261,7 +261,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 224",
@@ -273,7 +273,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 225",
@@ -286,7 +286,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 226",
@@ -299,7 +299,7 @@
       "Satisfies Social-Scientific Thought requirement"
     ],
     "PRQ": [],
-    "group": "cultural_diversity"
+    "group": "cultural_diversity, american-politics"
   },
   {
     "id": "POL 227",
@@ -311,7 +311,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 228",
@@ -325,7 +325,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 229",
@@ -338,7 +338,7 @@
       "Satisfies the Social-Scientific Thought requirement"
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 239",
@@ -350,7 +350,7 @@
       "Satisfies Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 241",
@@ -362,7 +362,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "comparative-politics"
   },
   {
     "id": "POL 242",
@@ -374,7 +374,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "comparative-politics"
   },
   {
     "id": "POL 248",
@@ -388,7 +388,7 @@
       "Satisfies Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "comparative-politics"
   },
   {
     "id": "POL 259",
@@ -400,7 +400,7 @@
     "PRQ": [
       "Instructor permission required."
     ],
-    "group": ""
+    "group": "comparative-politics"
   },
   {
     "id": "POL 269",
@@ -410,7 +410,7 @@
     "description": "An upper division course dealing with a topic in International Politics. Topics change from year to year.",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "international-politics"
   },
   {
     "id": "POL 284",
@@ -425,7 +425,7 @@
       "Satisfies Historical Thought requirement"
     ],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 285",
@@ -435,7 +435,7 @@
     "description": "Independent Study",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 286",
@@ -447,7 +447,7 @@
       "Satisfies Political Science major requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 288",
@@ -457,7 +457,7 @@
     "description": "Project involving student research conducted in Washington, D.C., as part of the summer program of Davidson in Washington. Must have a significant political component. Graded on a Pass or Fail basis.",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 289",
@@ -469,7 +469,7 @@
     "PRQ": [
       "Permission of the instructor."
     ],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 290",
@@ -521,7 +521,7 @@
       "Satisfies Justice, Equality, and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 304",
@@ -534,7 +534,7 @@
       "Satisfies the Justice, Equality, and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 305",
@@ -546,7 +546,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 306",
@@ -558,7 +558,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 307",
@@ -571,7 +571,7 @@
       "Satisfies the Justice, Equality, and Community requirement"
     ],
     "PRQ": [],
-    "group": ""
+    "group": "political-theory"
   },
   {
     "id": "POL 318",
@@ -581,7 +581,7 @@
     "description": "The course explores topics of special relevance to debates in contemporary political theory such as 'multicultural citizenship,' 'democratic theory,' and 'conservative political theory.' The content of this course changes from year to year.",
     "satisfies": [],
     "PRQ": [],
-    "group": "cultural_diversity"
+    "group": "cultural_diversity, political-theory"
   },
   {
     "id": "POL 324",
@@ -593,7 +593,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 325",
@@ -607,7 +607,7 @@
     "PRQ": [
       "Not open to first-year students."
     ],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 327",
@@ -619,7 +619,7 @@
       "Satisfies the Literary Studies, Creative Writing, and Rhetoric requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 328",
@@ -634,7 +634,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 330",
@@ -646,7 +646,7 @@
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 334",
@@ -661,7 +661,7 @@
     "PRQ": [
       "(Offered alternate years.)"
     ],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 336",
@@ -673,7 +673,7 @@
       "Satisfies a major or interdisciplinary minor requirement in Communication Studies."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "american-politics"
   },
   {
     "id": "POL 341",
@@ -686,7 +686,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "comparative-politics"
   },
   {
     "id": "POL 342",
@@ -699,7 +699,7 @@
       "Provides credit towards the Asian Studies Interdisciplinary Minor."
     ],
     "PRQ": [],
-    "group": "cultural_diversity"
+    "group": "cultural_diversity, comparative-politics"
   },
   {
     "id": "POL 344",
@@ -713,7 +713,7 @@
       "Provides credit towards the Latin American Studies and Political Science majors."
     ],
     "PRQ": [],
-    "group": "cultural_diversity"
+    "group": "cultural_diversity, comparative-politics"
   },
   {
     "id": "POL 347",
@@ -727,7 +727,7 @@
       "Counts as a theory/methodology course for the Latin American Studies major."
     ],
     "PRQ": [],
-    "group": "cultural_diversity"
+    "group": "cultural_diversity, comparative-politics"
   },
   {
     "id": "POL 348",
@@ -741,7 +741,7 @@
       "Counts toward the International Relations or Comparative Politics areas in the major."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "comparative-politics"
   },
   {
     "id": "POL 353",
@@ -754,7 +754,7 @@
       "Satisfies a major requirement in Latin American Studies."
     ],
     "PRQ": [],
-    "group": "cultural_diversity"
+    "group": "cultural_diversity, comparative-politics"
   },
   {
     "id": "POL 354",
@@ -771,7 +771,7 @@
     "PRQ": [
       "Open to all students"
     ],
-    "group": ""
+    "group": "comparative-politics"
   },
   {
     "id": "POL 359",
@@ -781,7 +781,7 @@
     "description": "Upper level course in comparative politics. Topics change from year to year.",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "comparative-politics"
   },
   {
     "id": "POL 360",
@@ -797,7 +797,7 @@
     "PRQ": [
       "This class is not open to students who have already taken ECO 288."
     ],
-    "group": ""
+    "group": "international-politics"
   },
   {
     "id": "POL 361",
@@ -810,7 +810,7 @@
       "Counts toward the Latin American Studies Major."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "international-politics"
   },
   {
     "id": "POL 362",
@@ -822,7 +822,7 @@
       "Satisfies the Social-Scientific Thought requirement"
     ],
     "PRQ": [],
-    "group": ""
+    "group": "international-politics"
   },
   {
     "id": "POL 363",
@@ -838,7 +838,7 @@
     "PRQ": [
       "POL 161"
     ],
-    "group": ""
+    "group": "international-politics"
   },
   {
     "id": "POL 364",
@@ -854,7 +854,7 @@
     "PRQ": [
       "POL 161"
     ],
-    "group": ""
+    "group": "international-politics"
   },
   {
     "id": "POL 365",
@@ -867,7 +867,7 @@
       "Satisfies a requirement of the East Asian Studies Interdisciplinary Minor."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "international-politics"
   },
   {
     "id": "POL 366",
@@ -885,7 +885,7 @@
       "and",
       "Permission of instructor"
     ],
-    "group": ""
+    "group": "international-politics"
   },
   {
     "id": "POL 379",
@@ -895,7 +895,7 @@
     "description": "Most countries around the world hold elections, but the quality of these elections differ greatly. In authoritarian and democratic regimes there are attempts to shape the electoral playing field in ways that can harm representation and accountability. This course examines several dimensions of election quality ranging from voter registration to campaigns to the reporting of results in countries across the globe. In the context of exploring election quality, the course will also investigate the nature of campaigns and election results in both authoritarian and democratic countries. In particular, we will consider campaign dynamics and strategy given institutional and regime constraints in a diverse set of countries across the globe",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "international-politics"
   },
   {
     "id": "POL 380",
@@ -907,7 +907,7 @@
       "Satisfies a major requirement in Political Science."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 381",
@@ -919,7 +919,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 382",
@@ -929,7 +929,7 @@
     "description": "",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 383",
@@ -942,7 +942,7 @@
       "Satisfies a requirement of the Latin American Studies interdisciplinary minor."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 384",
@@ -955,7 +955,7 @@
       "Satisfies the Social-Scientific Thought requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 385",
@@ -965,7 +965,7 @@
     "description": "Independent Study",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 389",
@@ -977,7 +977,7 @@
     "PRQ": [
       "Permission of the instructor. (Offered every semester.)"
     ],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 398",
@@ -992,7 +992,7 @@
       "Satisfies the Social-Scientific Thought requirement"
     ],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 400",
@@ -1004,7 +1004,7 @@
     "PRQ": [
       "Permission of the instructor. Individual courses may have additional prerequisites. At least one seminar is offered in each sub-field every year."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 401",
@@ -1016,7 +1016,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 402",
@@ -1029,7 +1029,7 @@
       "Satisfies the Justice, Equality, and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 403",
@@ -1042,7 +1042,7 @@
       "Satisfies the Justice, Equality, and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 404",
@@ -1054,7 +1054,7 @@
       "Satisfies the Justice, Equality, and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 405",
@@ -1081,7 +1081,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 407",
@@ -1094,7 +1094,7 @@
       "Satisfies the Justice, Equality, and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 408",
@@ -1104,7 +1104,7 @@
     "description": "",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 410",
@@ -1116,7 +1116,7 @@
     "PRQ": [
       "Permission of instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 420",
@@ -1132,7 +1132,7 @@
     "PRQ": [
       "Requires instructor permission. To seek permission email professor with the following 3 details: Class year (limited to Sophomores, Juniors, Seniors) Major Why you want to take the class"
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 421",
@@ -1146,7 +1146,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 422",
@@ -1165,7 +1165,7 @@
       "and",
       "Permission of instructor"
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 423",
@@ -1180,7 +1180,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 428",
@@ -1192,7 +1192,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 430",
@@ -1202,7 +1202,7 @@
     "description": "This seminar examines contemporary youth political participation in the United States. We will consider the historical, social, and economic forces that influence the politics of young people and how these forces compare with the formative experiences of earlier political generations. We will also explore the public policies, the political attitudes, and the ideological worldviews that shape youth political behavior today and study the role of institutions and organizations (e.g. political parties, social movements, organized religion, schools) in helping to form political identity and mobilize political action. Finally, this class looks at how contributions of youth politics - the embrace of novel forms of political expression, the employment of new venues for politics, and the centering of previously marginalized voices – are impacting the present and future of American politics.",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 434",
@@ -1216,7 +1216,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 435",
@@ -1229,7 +1229,7 @@
       "Satisfies the Justice, Equality, and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 440",
@@ -1243,7 +1243,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 441",
@@ -1257,7 +1257,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 442",
@@ -1271,7 +1271,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 443",
@@ -1288,7 +1288,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 444",
@@ -1300,7 +1300,7 @@
     "PRQ": [
       "Permission of instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 445",
@@ -1314,7 +1314,7 @@
     "PRQ": [
       "Permission of instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 446",
@@ -1327,7 +1327,7 @@
       "Satisfies Justice, Equality and Community requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 448",
@@ -1337,7 +1337,7 @@
     "description": "What is democracy and why do we care about this form of government? What explains recent democratic erosion around the globe? How can we strengthen the resiliency of our democracies? This seminar explores the rise and fall of democracy by studying its origins and spread over time across the world. Using theories of democratic transition and consolidation, we will first trace the spread of democracy in the last one hundred years and explain its enduring appeal. We will then turn to theories of democratic erosion to explain the causes and consequences of democratic erosion. The focus is comparative, and we will investigate case studies from various regions of the world. We will explore various themes including populism and demagoguery, the role of truth in democratic societies, corruption, economic inequality, and polarization. At the end of the course, we will discuss remedies to democratic erosion and examine the role that civil society, protest groups, and democratic opposition can play in its reversal.",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 449",
@@ -1349,7 +1349,7 @@
       "Satisfies Political Science major requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 452",
@@ -1365,7 +1365,7 @@
     "PRQ": [
       "Permission of instructor"
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 462",
@@ -1379,7 +1379,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 463",
@@ -1393,7 +1393,7 @@
     "PRQ": [
       "Permission of the instructor."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 464",
@@ -1409,7 +1409,7 @@
       "and",
       "Permission of instructor"
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 466",
@@ -1423,7 +1423,7 @@
       "Satisfies Chinese Studies minor requirement."
     ],
     "PRQ": [],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 468",
@@ -1435,7 +1435,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 472",
@@ -1451,7 +1451,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "seminar"
   },
   {
     "id": "POL 485",
@@ -1463,7 +1463,7 @@
     "PRQ": [
       "Permission of the instructor required."
     ],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "POL 488",
@@ -1473,7 +1473,7 @@
     "description": "Required of and limited to seniors in the Honors Program. Thesis is written under supervision of an appropriate instructor and is defended orally before at least two members of the political science faculty.",
     "satisfies": [],
     "PRQ": [],
-    "group": ""
+    "group": "elective"
   },
   {
     "id": "ECO 101",
