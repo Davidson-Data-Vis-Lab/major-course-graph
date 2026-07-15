@@ -12,19 +12,18 @@
   <div class="container">
 
     <div class="controls">
-      <button id="info-btn" class="btn">?</button>
       <h3>Instructions</h3>
-      <p>Use this chart to plot the courses you want to take or have taken in the major.<br><br>Hover over the course to 
-        see details. Click the course rectangle or check the box in the course list if you have completed the course.
-        <br><br>Scroll on the chart to zoom in and out. </p>
+      <p>Hover over a course to see details.<br>
+      Check courses you have completed.</p>
 
-      <button class="btn" onclick="resetAllCourses()">Unselect All</button>
+      <button onclick="resetAllCourses()">Unselect All</button>
 
       <div class="sidebar-section">
-        <h3><br>Major Prerequisites</h3>
+        <h3>Major Prerequisites</h3>
 
         <div class="sidebar-group">
           <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="intro-programming" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Introductory Programming</span>
           </label>
           <div class="course-list" id="list-intro-programming"></div>
@@ -32,6 +31,7 @@
 
         <div class="sidebar-group">
           <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="intro-math" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Introductory Mathematics</span>
           </label>
           <div class="course-list" id="list-intro-math"></div>
@@ -39,13 +39,11 @@
       </div>
 
       <div class="sidebar-section">
-        <label class="group-header" style="cursor: default; font-size: 1.17em; margin-bottom: 0.5rem;">
-          <span class="header-title" style="color: black;">Requirements for the Major</span>
-          <span id="progress-major" class="group-progress"></span>
-        </label>
+        <h3>Requirements for the Major</h3>
 
         <div class="sidebar-group">
           <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="math" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Mathematics Courses</span>
             <span id="progress-math" class="group-progress"></span>
           </label>
@@ -54,6 +52,7 @@
 
         <div class="sidebar-group">
           <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="core" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Core Courses</span>
             <span id="progress-core" class="group-progress"></span>
           </label>
@@ -62,6 +61,7 @@
 
         <div class="sidebar-group">
           <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="electives" onchange="handleGroupCheck(this)"/>
             <span class="header-title">Electives</span>
             <span id="progress-electives" class="group-progress"></span>
           </label>
@@ -70,6 +70,7 @@
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="applications" onchange="handleGroupCheck(this)"/>
                 <span class="header-title">Applications</span>
                 <span id="progress-applications" class="group-progress"></span>
               </label>
@@ -78,6 +79,7 @@
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="systems" onchange="handleGroupCheck(this)"/>
                 <span class="header-title">Systems</span>
                 <span id="progress-systems" class="group-progress"></span>
               </label>
@@ -86,6 +88,7 @@
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="theory" onchange="handleGroupCheck(this)"/>
                 <span class="header-title">Theory</span>
               </label>
               <div class="course-list" id="list-theory"></div>
@@ -93,6 +96,7 @@
 
             <div class="sidebar-subgroup">
               <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="other" onchange="handleGroupCheck(this)"/>
                 <span class="header-title">Other</span>
               </label>
               <div class="course-list" id="list-other"></div>
@@ -104,92 +108,34 @@
       </div>
     </div>
     <div class="graph-wrapper">
-      <!-- <div class="graph-viewport"> -->
-        <svg id="svg">
-          <g transform="translate(10,10)">
-            <g id="groups"></g>
-            <g id="links"></g>
-            <g id="nodes"></g>
-            <g id="arrows"></g>
-          </g>
-        </svg>
-      <!-- </div>   -->
-      <div class="legend-overlay">
-        <div class="legend-item">
-          <span class="legend-box" style="background:#aaaaaa"></span> Prerequisites Not Met <!-- OR not yet eligible to take -->
-        </div>
-        <div class="legend-item">
-          <span class="legend-box" style="background:#20a23a"></span> Eligible to Take
-        </div>
-        <div class="legend-item">
-          <span class="legend-box" style="background:#d16b05"></span> Completed <!-- OR taken -->
-        </div>
-        <div class="legend-item">
-          <span class="legend-line solid"></span> Required Path
-        </div>
-        <div class="legend-item">
-          <span class="legend-line dashed"></span> Optional Path
-        </div>
-      </div>
+    <div class="graph-viewport">
+      <svg id="svg">
+        <g transform="translate(10,10)">
+          <g id="groups"></g>
+          <g id="links"></g>
+          <g id="nodes"></g>
+          <g id="arrows"></g>
+        </g>
+      </svg>
+    </div>
+    <div class="legend-overlay">
+    <div class="legend-item">
+      <span class="legend-box" style="background:#aaaaaa"></span> Unavailable
+    </div>
+    <div class="legend-item">
+      <span class="legend-box" style="background:steelblue"></span> Available
+    </div>
+    <div class="legend-item">
+      <span class="legend-box" style="background:#285841"></span> Taken
+    </div>
+    <div class="legend-item">
+      <span class="legend-line solid"></span> Required Path
+    </div>
+    <div class="legend-item">
+      <span class="legend-line dashed"></span> Optional Path
     </div>
   </div>
-
-  <div id="info-overlay">
-    <div id="info-modal">
-      <button id="info-close">✕</button>
-
-      <h2>How to Use This Visualization</h2>
-
-      <p class="disclaimer">
-        ⚠ This tool is a work in progress. Course data, prerequisite logic, and
-        graduation requirements may not perfectly reflect the official Davidson
-        College catalog. Always verify with your advisor or the official registrar.
-      </p>
-
-      <hr/>
-
-      <h3>Navigating the Graph</h3>
-      <ul>
-        <li><strong>Pinch or scroll wheel</strong> — zoom in and out</li>
-        <li><strong>Click and drag</strong> — pan around the graph</li>
-        <li><strong>Reset Zoom button</strong> — return to the original view</li>
-      </ul>
-
-      <h3>Node Colors</h3>
-      <ul>
-        <li><span class="color-available">Green</span> — course is available to take</li>
-        <li><span class="color-taken">Orange</span> — course marked as taken</li>
-        <li><span class="color-unavail">Gray</span> — prerequisites not yet satisfied</li>
-      </ul>
-
-      <h3>Interacting with Courses</h3>
-      <ul>
-        <li><strong>Hover</strong> over a node to see its name, prerequisites, and a short description</li>
-        <li><strong>Single click</strong> a node or check its sidebar checkbox to mark it as taken</li>
-        <li><strong>Double click</strong> a node to read its full course description</li>
-        <li>You can only mark a course as taken if its prerequisites are satisfied — missing prerequisites will be highlighted in red</li>
-      </ul>
-
-      <h3>Sidebar</h3>
-      <ul>
-        <li>Check courses you have completed to track your progress</li>
-        <li>Progress indicators show how many requirements you have fulfilled in each section</li>
-      </ul>
-
-      <h3>Edges</h3>
-      <ul>
-        <li><strong>Solid arrow</strong> — represents a required prerequisite path to a course</li>
-        <li><strong>Dashed arrow</strong> — represents an optional prerequisite path (e.g., for MAT 230 Sets
-           and Proofs, you need to complete either MAT 113, MAT 140, MAT 150, or MAT 160, so there are dashed 
-           lines from those courses to MAT 230)</li> <!-- struggling to word this-->
-      </ul>
-
-      <hr/>
-      <p class="credits">
-        Created by Yurdanur Yolcu, Christian Weaver, and Dr. Katy Williams.
-        Summer 2025–2026. Coded with the help of Claude, ChatGPT, and Cursor.
-      </p>
-    </div>
+  </div>
   </div>
 
   <script>
@@ -198,10 +144,6 @@
    * Edit this object to change policy without touching evaluation logic.
    */
     const GRADUATION_REQUIREMENTS = {
-      major: {
-        type: 'aggregateGrandTotal',
-        total: 10
-      },
       math: {
         type: 'rules',
         rules: [
@@ -222,7 +164,7 @@
     window.GRADUATION_REQUIREMENTS = GRADUATION_REQUIREMENTS;
 
     const ELECTIVE_GROUPS = ['applications', 'systems', 'theory', 'other'];
-    const PROGRESS_GROUPS = ['major','math', 'core', 'applications', 'systems', 'electives'];
+    const PROGRESS_GROUPS = ['math', 'core', 'applications', 'systems', 'electives'];
 
     function getGroupCheckboxes(group) {
       const list = document.getElementById(`list-${group}`);
@@ -293,31 +235,6 @@
     function evaluateGroupProgress(group) {
       const spec = GRADUATION_REQUIREMENTS[group];
       if (!spec) return null;
-
-      if (spec.type === 'aggregateGrandTotal') {
-        let grandTotal = 0;
-
-        // 1. Math rules component
-        const mSpec = GRADUATION_REQUIREMENTS['math'];
-        for (const rule of mSpec.rules) {
-          if (rule.anyOf?.some(isCourseChecked)) grandTotal++;
-          else if (rule.allOf?.every(isCourseChecked)) grandTotal++;
-        }
-
-        // 2. Core courses component
-        grandTotal += getGroupCheckboxes('core').filter(cb => cb.checked).length;
-
-        // 3. Electives pool component (Using your existing capped engine function!)
-        const eSpec = GRADUATION_REQUIREMENTS['electives'];
-        const { counted } = countCappedElectives(eSpec);
-        grandTotal += counted;
-
-        const finalScore = Math.min(spec.total, grandTotal);
-        return {
-          text: `${finalScore} / ${spec.total} required`,
-          met: finalScore >= spec.total
-        };
-      }
 
       if (spec.type === 'rules') {
         let metCount = 0;
@@ -411,23 +328,19 @@
 
     function updateGroupCheckbox(group) {
       const boxes = getGroupCheckboxes(group);
-      if (!boxes.length) return;
-
-      // Only update the header checkbox if it still exists
       const header = document.querySelector(`.group-checkbox[data-group="${group}"]`);
-      if (header) {
-        const checked = boxes.filter(cb => cb.checked).length;
-        header.indeterminate = checked > 0 && checked < boxes.length;
-        header.checked = checked === boxes.length;
-      }
+      if (!header || !boxes.length) return;
+
+      const checked = boxes.filter(cb => cb.checked).length;
+      header.indeterminate = checked > 0 && checked < boxes.length;
+      header.checked = checked === boxes.length;
 
       updateProgressIndicator(group);
 
       if (ELECTIVE_GROUPS.includes(group)) {
+        updateElectivesGroupCheckbox();
         updateProgressIndicator('electives');
       }
-
-      updateProgressIndicator('major');
     }
 
     function handleGroupCheck(groupCheckbox) {
