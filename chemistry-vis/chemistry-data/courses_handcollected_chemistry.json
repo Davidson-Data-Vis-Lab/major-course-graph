@@ -1,0 +1,701 @@
+[
+  {
+    "id": "BIO 395",
+    "parentIds": [
+      "BIO 303",
+      "CHE 230"
+    ],
+    "name": "Biochemistry Seminar (= CHE 430)",
+    "instructor": "Myers",
+    "description": "This advanced seminar course examines selected topics in biochemistry by examining primary literature.",
+    "satisfies": [],
+    "PRQ": [
+      "BIO 303",
+      "or",
+      "CHE 230",
+      "or",
+      "Permission of instructor"
+    ],
+    "group": "level_400_seminar"
+  },
+  {
+    "id": "BIO 303",
+    "parentIds": ["BIO 111", "BIO 113", "BIO 115", "CHE 250"],
+    "name": "Biochemistry +Lab",
+    "instructor": "B. Thurtle-Schmidt",
+    "description": "Introduction to the principles of biochemistry. Emphasis is placed on enzymology, structure of biomolecules, and cellular metabolism. Laboratory emphasizes enzyme purification and characterization. Successful completion of BIO 111/113/115 and CHE 250 are required. One laboratory meeting per week. Not open to students with credit for BIO 335.",
+    "satisfies": [
+      "Satisfies a requirement in Group A of the Biology major.",
+      "Satisfies a requirement in the Chemistry major.",
+      "Satisfies a requirement in the Neuroscience major and interdisciplinary minor.",
+      "Satisfies a requirement in the Genomics major and interdisciplinary minor.",
+      "Satisfies a requiremet in the Bioinformatics major."
+    ],
+    "PRQ": ["(", 
+    "BIO 111", 
+    "or", 
+    "BIO 113",
+    "or",
+    "BIO 115",
+    ")",
+    "and",
+    "CHE 250"],
+    "group": ""
+  },
+  {
+    "id": "CHE 115",
+    "parentIds": [],
+    "name": "Principles of Chemistry + Lab",
+    "instructor": "El-Zaatari, Travis White",
+    "description": "Topics include stoichiometry, chemical thermodynamics, atomic and molecular structure, chemical equilibria, chemical dynamics, and descriptive chemistry of the main group elements. The laboratory illustrates the lecture topics and emphasizes quantitative measurements. This course is intended for students who plan to take additional courses in chemistry. One laboratory meeting per week. (Fall and Spring)",
+    "satisfies": [
+      "Satisfies the Natural Science requirement."
+    ],
+    "PRQ": [],
+    "group": "chem_support"
+  },
+  {
+    "id": "CHE 220",
+    "parentIds": ["CHE 115", "Credit for Chemistry"],
+    "name": "Introduction to Analytical Chemistry + Lab (=ENV 315)",
+    "instructor": "Hauser",
+    "description": "Topics in chemical equilibrium, electrochemistry, spectroscopy, chromatography, and nuclear chemistry, with applications in biological, environmental, forensic, archaeological, and consumer chemistry. Laboratory experiments include qualitative and quantitative analyses using volumetric, electrochemical, chromatographic, and spectroscopic methods. Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major. One laboratory meeting per week. (Fall)",
+    "satisfies": [
+      "Satisfies the Natural Science requirement.",
+      "Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major."
+    ],
+    "PRQ": ["CHE 115", "or", "Credit for Chemistry"],
+    "group": "foundation"
+  },
+  {
+    "id": "CHE 230",
+    "parentIds": ["CHE 115", "CHE 250", "Credit for Chemistry"],
+    "name": "Introduction to Biological Chemistry",
+    "instructor": "Myers",
+    "description": "Introduction to the chemistry of biological systems. Includes the study of amino acids and proteins, nucleic acids, lipids, carbohydrates, enzymes and enzyme mechanisms, and the chemistry of important metabolic pathways and regulatory mechanisms. Chemistry 115 and 250. One laboratory meeting per week. (Fall and Spring)",
+    "satisfies": [
+      "Satisfies the Natural Science requirement.",
+      "Satisfies a requirement in Group A of the Biology major.",
+      "Satisfies a requirement in the Chemistry major.",
+      "Satisfies a requirement in the Neuroscience major and interdisciplinary minor.",
+      "Satisfies a requirement in the Genomics major and interdisciplinary minor.",
+      "Satisfies a requirement in the Bioinformatics major."
+    ],
+    "PRQ": [ "(", "CHE 115","or", "Credit for Chemistry" , ")", "and", "CHE 250"],
+    "group": "foundation"
+  },
+  {
+    "id": "CHE 240",
+    "parentIds": ["CHE 115", "Credit for Chemistry"],
+    "name": "Introduction to Inorganic Chemistry + Lab",
+    "instructor": "Anstey",
+    "description": "Foundational course in inorganic chemistry. Topics include nuclear chemistry and atomic structure, simple bonding and molecular orbital theory, molecular symmetry and group theory, acid-base and donor-acceptor chemistry, solid-state and crystal-field theory, coordination chemistry, and modern inorganic chemistry topics in fields such as solar energy conversion, materials science, and nanoparticles. One laboratory meeting per week.",
+    "satisfies": [
+      "Satisfies Natural Science requirement."
+    ],
+    "PRQ": ["CHE 115", "or", "Credit for Chemistry"],
+    "group": "foundation"
+  },
+  {
+    "id": "CHE 250",
+    "parentIds": ["CHE 115", "Credit for Chemistry"],
+    "name": "Introduction to Organic Chemistry + Lab",
+    "instructor": "Key, Burde",
+    "description": "Introduction to organic chemistry including nomenclature, structure and properties of organic and bioorganic molecules, spectroscopic analysis, and reactions of carboxylic acid and carbonyl derivatives. Laboratory introduces students to basic experimental techniques.One laboratory meeting per week. (Fall and Spring)",
+    "satisfies": [
+      "Satisfies Natural Science requirement."
+    ],
+    "PRQ": ["CHE 115", "or", "Credit for Chemistry"],
+    "group": "foundation"
+  },
+  {
+    "id": "CHE 260",
+    "parentIds": [
+      "CHE 115",
+      "Credit for Chemistry",
+      "MAT 113",
+      "Credit for Calculus II",
+      "MAT 140"
+    ],
+    "name": "Thermodynamics and Kinetics +Lab",
+    "instructor": "El-Zaatari, Striplin",
+    "description": "This course addresses the specific topics of thermodynamics and kinetics with an increased emphasis on biochemical systems. (CHE 115 or Credit for Chemistry); MAT 113 or MAT 140.  MAT 140 recommended and may be used as a co-requisite. One laboratory meeting per week. (Fall)",
+    "satisfies": [
+      "Satisfies the Natural Science requirement."
+    ],
+    "PRQ": [
+      "(",
+      "CHE 115",
+      "or",
+      "Credit for Chemistry",
+      ")",
+      "and",
+      "(",
+      "MAT 113",
+      "or",
+      "MAT 140",
+      "or",
+      "Credit for Calculus II",
+      ")"
+    ],
+    "group": "foundation"
+  },
+  {
+    "id": "CHE 320",
+    "parentIds": ["CHE 220"],
+    "name": "Experimental Analytical Chemistry +Lab",
+    "instructor": "Blauch, Hauser",
+    "description": "In-depth course in analytical methods including optical spectroscopy, mass spectroscopy, separations, and advanced topics in chemical equilibrium. Emphasis will be placed on the principles behind, and components of, chromatographic and mass spectrometry instrumentation.One laboratory meeting per week. (Spring, offered every two years)",
+    "satisfies": [],
+    "PRQ": ["CHE 220"],
+    "group": "lab"
+  },
+  {
+    "id": "CHE 325",
+    "parentIds": ["CHE 220"],
+    "name": "The Chemistry of Hookah Smoke",
+    "instructor": "Hauser",
+    "description": "What is smoke, how is smoke formed, what instrumental methods are associated with the characterization of the physical and chemical properties of hookah smoke, and how do they work? In the second half of the course, students will investigate the physical and/or chemical properties of smoke formed as a function of a variable of interest such as type of filtration media or shisha or height of water pipe.",
+    "satisfies": [],
+    "PRQ": ["CHE 220"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 330",
+    "parentIds": ["CHE 230", "BIO 111"],
+    "name": "Experimental Biological Chemistry +Lab",
+    "instructor": "Myers",
+    "description": "Chemistry and mechanisms of gene expression, signal transduction, and advanced metabolism. Prerequisite: Chemistry 230. Biology 111 recommended. One laboratory meeting per week. (Fall)",
+    "satisfies": [],
+    "PRQ": ["CHE 230", "and", "BIO 111"],
+    "group": "lab"
+  },
+  {
+    "id": "CHE 331",
+    "parentIds": ["CHE 230"],
+    "name": "Topics in Biological Chemistry: Protein Chemistry",
+    "instructor": "Staff",
+    "description": "Advanced topics in protein chemistry including: protein synthesis, isolation, purification, manipulation, and characterization. A strong emphasis will be placed on the biochemical and biophysical methods that lead to protein characterization. This course also will include the study of protein-protein and protein-small molecule interactions as well as structure-function relationships. No laboratory. (Fall)",
+    "satisfies": [],
+    "PRQ": ["CHE 230"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 335",
+    "parentIds": ["CHE 230"],
+    "name": "Research Methods in Biological Chemistry",
+    "instructor": "Myers",
+    "description": "This course is designed to expose students to critical components of the biological chemistry research experience including reading and interpretation of the primary literature, writing literature reviews and proposals, completing an independent project around a guided question, and presenting the results of their work in oral and written forms. Methods covered in this course will be related to the instructor's areas of interest and expertise.",
+    "satisfies": [],
+    "PRQ": ["CHE 230"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 340",
+    "parentIds": ["CHE 240"],
+    "name": "Experimental Inorganic Chemistry +Lab",
+    "instructor": "Anstey",
+    "description": "This course qualifies as a lecture with a laboratory in the Chemistry curriculum. The laboratory will examine the course content through a semester-long exploratory research project. All students will take part in the research process as a team, asking and answering research questions through experimentation. Like other labs in the Chemistry department, there will be approximately three hours of lab work each week of the semester. However, to accommodate this research experience, the timing of those hours will be coordinated at the start of each successive week to accomplish that week's research tasks. The student will have flexibility in scheduling, including the use of multiple short blocks of time instead of a single three-hour block. Students will not be asked to work alone or without supervision.\u201d",
+    "satisfies": [],
+    "PRQ": ["CHE 240"],
+    "group": "lab"
+  },
+  {
+    "id": "CHE 353",
+    "parentIds": ["CHE 250"],
+    "name": "Polymer Chemistry",
+    "instructor": "El-Zaatari",
+    "description": "Whether it's synthetic plastics and rubbers that surround us, or natural occurring biopolymers such as proteins and DNA that are fundamental to biological structure, polymers are ubiquitous in almost every part of our lives. This course will focus on the design, synthesis and characterization techniques of polymers while emphasizing their applications. Special topics such as biological applications of polymers and the recyclability of plastics will be highlighted.",
+    "satisfies": [],
+    "PRQ": ["CHE 250"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 345",
+    "parentIds": ["CHE 240"],
+    "name": "Research Methods in Inorganic Chemistry",
+    "instructor": "Anstey",
+    "description": "This course is designed to expose students to critical components of the inorganic chemistry research experience including reading and interpretation of the primary literature, writing literature reviews and proposals, completing an independent project around a guided question, and presenting the results of their work in oral and written forms. Methods covered in this course will be related to the instructor's area of interest and expertise.",
+    "satisfies": [],
+    "PRQ": ["CHE 240"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 350",
+    "parentIds": ["CHE 250"],
+    "name": "Experimental Organic Chemistry +Lab",
+    "instructor": "Stevens",
+    "description": "Continuing studies in organic chemistry. Emphasis on carbon-carbon bond forming reactions, oxidations, and reductions. One laboratory meeting per week. (Fall and Spring)",
+    "satisfies": [],
+    "PRQ": ["CHE 250"],
+    "group": "lab"
+  },
+  {
+    "id": "CHE 351",
+    "parentIds": ["CHE 250", "CHE 230"],
+    "name": "Topics in Organic Chemistry:Pharmacology",
+    "instructor": "N. Snyder, E. Stevens",
+    "description": "In pharmacology we will discuss how different drugs (natural and synthetic) function by examining the mechanisms through which they act. General topics will include drug receptors, pharmacokinetics, pharmacodynamics and toxicology. In addition, an overview of the different classes of drugs, their structure/function and mechanisms of action will be discussed. Drug classes will include drugs that are used treat inflammation, cardiovascular and metabolic diseases, drugs that act on the nervous system, drugs that are used to treat autoimmune diseases, drugs that are used during organ transplant, and drugs that are used to treat infectious diseases and malignant diseases. CHE 250 required and CHE 230 preferred. No laboratory",
+    "satisfies": [
+      "Satisfies a major requirement in Chemistry."],
+    "PRQ": ["CHE 250", "and", "CHE 230"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 355",
+    "parentIds": ["CHE 250"],
+    "name": "Group Investigation in Organic Chemistry: Carbohydrates in Materials and Medicine",
+    "instructor": "",
+    "description": "This course is designed to expose students to critical components of the organic chemistry research experience including reading and interpretation of the primary literature, writing literature reviews and proposals, completing an independent project around a guided question, and presenting results of their work in oral and written forms. Methods covered in this course will be related to the instructor’s area of interest and expertise. ",
+    "satisfies": [],
+    "PRQ": ["CHE 250"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 360",
+    "parentIds": [
+      "CHE 115", "MAT 113", "MAT 140", "Credit for Chemistry", "Credit for Calculus II"
+    ],
+    "name": "Quantum Chemistry and Spectroscopy +Lab",
+    "instructor": "Blauch, Striplin",
+    "description": "This in-depth course covers quantum mechanics and its application to spectroscopy and the structure of matter.",
+    "satisfies": [],
+    "PRQ": [
+      "(",
+      "CHE 115", 
+      "or", 
+      "Credit for Chemistry",
+      ")",
+      "and",
+      "(",
+      "MAT 113", 
+      "or", 
+      "MAT 140",
+      "or",
+      "Credit for Calculus II",
+      ")"
+    ],
+    "group": "lab"
+  },
+  {
+    "id": "CHE 361",
+    "parentIds": ["CHE 260"],
+    "name": "Topics in Physical Chemistry",
+    "instructor": "Striplin",
+    "description": "Physical chemistry topics covered in this course will be related to the instructor's area of interest and expertise. No laboratory.",
+    "satisfies": [],
+    "PRQ": ["CHE 260"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 365",
+    "parentIds": ["CHE 260"],
+    "name": "Research Methods in Physical Chemistry",
+    "instructor": "Striplin",
+    "description": "This course is designed to expose students to critical components of the physical chemistry research experience including reading and interpretation of the primary literature, writing literature reviews and proposals, completing an independent project around a guided question, and presenting the results of their work in oral and written forms. Methods covered in this course will be related to the instructor's area of interest and expertise.",
+    "satisfies": [],
+    "PRQ": ["CHE 260"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 371",
+    "parentIds": ["CHE 115", "Credit for Chemistry"],
+    "name": "Energy",
+    "instructor": "Striplin",
+    "description": "Course focuses on energy fundamentals such as the various guises of energy, combustion, inescapable inefficiencies, electric generation, and the planet's energy balance. Unsustainable energy technologies (coal, oil, gas, nuclear, and hydropower), sustainable energy technologies (solar, photovoltaics, wind, wave and tidal, biomass, geothermal, and fusion), and other fuel technologies such as hydrogen/fuel cells, carbon sequestration, and syngas production will be discussed and, in some cases, demonstrated. Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major.",
+    "satisfies": [
+      "Satisfies depth and breadth course requirement in the Natural Science track of the Environmental Studies major or interdisciplinary minor.",
+      "Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major."
+    ],
+    "PRQ": ["CHE 115", "or", "Credit for Chemistry"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 372",
+    "parentIds": ["CHE 220"],
+    "name": "Environmental Chemistry",
+    "instructor": "Hauser",
+    "description": "Introduction to environmental chemical principles and methodology including aspects of the chemistry of air, water, and soil; identities, sources, properties, and reactions of pollutants; green chemical approaches to pollution prevention; environmentally-benign synthetic methodologies, design of safer chemical products, alternative solvents and catalyst development, and applications of biomimetic principles. Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major. No laboratory.",
+    "satisfies": [
+      "Satisfies depth and breadth course requirement in the Natural Science track of the Environmental Studies major or interdisciplinary minor.",
+      "Counts as an Applied Environmental Science course in the Natural Science track of the Environmental Studies interdisciplinary major.",
+      "Satisfies the Justice, Equality, and Community requirement"
+    ],
+    "PRQ": ["CHE 220"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 374",
+    "parentIds": ["CHE 250"],
+    "name": "Medicinal Chemistry",
+    "instructor": "E. Stevens",
+    "description": "Chemical basis of pharmaceuticals and pharmaceutical development. Topics include drug discovery, pharmacokinetics (delivery of a drug to the site of its action), pharmacodynamics (mode of action of the drug), drug metabolism, and patent issues that affect the development and manufacture of pharmaceuticals. No laboratory. (Fall)",
+    "satisfies": [],
+    "PRQ": ["CHE 250"],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 375",
+    "parentIds": [
+      "CHE 250"
+    ],
+    "name": "Spectroscopy and Structural Determination in Organic Chemistry",
+    "instructor": "Burde",
+    "description": "This course expands on some of the spectroscopic identification you learnt in CHE 250 and CHE 350. Essentially it may be described as analytical organic chemistry. It is heavily weighted towards problem solving with a very minor lecture component. You will learn about NMR, IR, UV and Mass spectroscopy and how each of these can be used to elucidate the structure of organic molecules. Most topics in the course will be discussed briefly with most lecture periods dedicated to solving spectroscopic problems.",
+    "satisfies": [
+      "Satisfies a Chemistry major requirement."
+    ],
+    "PRQ": [
+      "CHE 250"
+    ],
+    "group": "no_lab"
+  },
+  {
+    "id": "CHE 395",
+    "parentIds": ["Instructor permission required"],
+    "name": "Literature Investigation",
+    "instructor": "Hauser",
+    "description": "This course is designed for any qualified student who desires to pursue a literature research project in an area of special interest in chemistry under the direction and supervision of a faculty member. The latter reviews and approves the topic of research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. Permission of the instructor. (Fall and Spring)",
+    "satisfies": [],
+    "PRQ": ["Instructor permission required"],
+    "group": "independent_research"
+  },
+  {
+    "id": "CHE 396",
+    "parentIds": ["Instructor permission required"],
+    "name": "Laboratory Research I",
+    "instructor": "Hauser, Key, Snyder N.",
+    "description": "Experimental chemistry projects conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. This course is intended for non-senior students.",
+    "satisfies": [],
+    "PRQ": ["Instructor permission required"],
+    "group": "independent_research"
+  },
+  {
+    "id": "CHE 397",
+    "parentIds": ["Instructor permission required"],
+    "name": "Laboratory Research II",
+    "instructor": "Snyder N.",
+    "description": "Experimental chemistry projects conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. This course is intended for non-senior students. (Fall and Spring)",
+    "satisfies": [],
+    "PRQ": ["Instructor permission required"],
+    "group": "independent_research"
+  },
+  {
+    "id": "CHE 410",
+    "parentIds": ["CHE 202", "CHE 351"],
+    "name": "Advanced Topics in Chemistry",
+    "instructor": "Blauch",
+    "description": "Selected topics in organic chemistry. (Fall and Spring)",
+    "satisfies": [],
+    "PRQ": ["CHE 202", "and", "CHE 351", "or", "Permission of the instructor"],
+    "group": "level_400_seminar"
+  },
+  {
+    "id": "CHE 420",
+    "parentIds": ["CHE 220"],
+    "name": "Seminar in Analytical Chemistry",
+    "instructor": "Blauch, Hauser",
+    "description": "Advanced topics in analytical chemistry related to instructor's areas of interest and expertise.",
+    "satisfies": [
+      "Satisfies a major requirement in Chemistry.",
+      "Satisfies Environmental Studies major requirement."
+    ],
+    "PRQ": ["CHE 220"],
+    "group": "level_400_seminar"
+  },
+  {
+    "id": "CHE 430",
+    "parentIds": ["CHE 230"],
+    "name": "Special Topics (=BIO 395)",
+    "instructor": "Key",
+    "description": "Advanced topics in biological chemistry related to instructor's areas of interest and expertise.",
+    "satisfies": [],
+    "PRQ": ["CHE 230"],
+    "group": "level_400_seminar"
+  },
+  {
+    "id": "CHE 440",
+    "parentIds": ["CHE 240"],
+    "name": "Seminar in Inorganic Chemistry: Bioinorganic Chemistry",
+    "instructor": "Anstey",
+    "description": "Many biochemical reactions depend on the presence of metal ions: adjusting the acid-base behavior of water, changing redox potentials and providing adequate pathways for electron and ion transfer, and transporting and activating small molecules like oxygen. Modern medicine has explored inorganic chemistry for cancer treatments (cisplatin), MRI contrast agents (gadolinium), and anti-inflammatories. Inorganic chemists have been inspired by biochemistry to develop new and more elegant chemical compounds that replicate enzymatic processes ex vivo such as photosynthetic electron transfers and carbon-carbon bond-forming reactions. Chemistry 440 will touch on these and many other aspects of bioinorganic chemistry. In the beginning of the semester, we will discuss general reaction processes in inorganic chemistry. These processes will then be placed in a biological context through literature discussions and case studies. Students will discuss relevant and recent literature as well as ultimately develop a sample research proposal as a final project in the course. No laboratory.",
+    "satisfies": [],
+    "PRQ": ["CHE 240"],
+    "group": "level_400_seminar"
+  },
+  {
+    "id": "CHE 450",
+    "parentIds": [
+      "CHE 250"
+    ],
+    "name": "Seminar in Organic Chemistry",
+    "instructor": "Carroll, Snyder, E. Stevens",
+    "description": "Advanced topics in organic chemistry related to instructor's areas of interest and expertise.",
+    "satisfies": [],
+    "PRQ": [
+      "CHE 250"
+    ],
+    "group": "level_400_seminar"
+  },
+  {
+    "id": "CHE 460",
+    "parentIds": ["CHE 360"],
+    "name": "Seminar in Physical Chemistry",
+    "instructor": "Blauch, Striplin",
+    "description": "Advanced topics in physical chemistry related to instructor's areas of interest and expertise. No laboratory. (Fall, offered every two years)",
+    "satisfies": [],
+    "PRQ": ["CHE 360"],
+    "group": "level_400_seminar"
+  },
+  {
+    "id": "CHE 496",
+    "parentIds": ["Instructor permission required"],
+    "name": "Hauser, Key, Snyder N.",
+    "instructor": "Senior Research I",
+    "description": "Experimental chemistry project conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. Consult the department's guidelines for the preparation of independent research proposals. This course is intended for senior chemistry majors. Permission of the instructor. (Fall and Spring)",
+    "satisfies": [],
+    "PRQ": ["Instructor permission required"],
+    "group": "independent_research"
+  },
+  {
+    "id": "CHE 497",
+    "parentIds": ["Instructor permission required"],
+    "name": "Senior Research II",
+    "instructor": "Staff",
+    "description": "Experimental chemistry project conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following acceptance of the student's written research proposal. This course is not intended for students who are completing a thesis and pursuing an honors degree (See Chemistry 498). Consult the department's guidelines for the preparation of independent research proposals. Chemistry 496 or a summer of research with the instructor after the student’s junior year. (Fall and Spring)",
+    "satisfies": [],
+    "PRQ": ["Instructor permission required"],
+    "group": "independent_research"
+  },
+  {
+    "id": "CHE 498",
+    "parentIds": ["Instructor permission required"],
+    "name": "Thesis Research",
+    "instructor": "Staff",
+    "description": "Experimental chemistry project conducted with the direction and supervision of a faculty member, who reviews and approves the topic of the research and evaluates the student's work. Admission by consent of the faculty member following accepatance of the student's written research proposal. This course is intended for senior students that are completing a thesis for evaluation by the department and pursuing an honors degree. Consult the department's guidelines for the preparation of independent research proposals.",
+    "satisfies": [],
+    "PRQ": ["CHE 496", "or", "Instructor permission required"],
+    "group": "independent_research"
+  },
+  {
+    "id": "MAT 113",
+    "parentIds": ["MAT 111", "MAT 112", "Credit for Calculus I"],
+    "name": "Calculus II",
+    "instructor": "Chan, Chartier",
+    "description": "An introduction to techniques and applications of integration; infinite series including convergence tests and Taylor series; calculus on parametric and polar curves; and concepts in 3-space including vectors, lines, planes, and vector-valued functions.",
+    "satisfies": [
+      "Satisfies a major requirement in Mathematics.",
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": ["MAT 111", "or", "MAT 112", "or", "Credit for Calculus I"],
+    "group": "math_support"
+  },
+  {
+    "id": "MAT 140",
+    "parentIds": ["MAT 111", "MAT 112", "Credit for Calculus I"],
+    "name": "Multivariable Calculus and Modeling",
+    "instructor": "Heyer",
+    "description": "Continued study of calculus and other mathematical methods for modeling change and uncertainty. Multivariable calculus topics include partial derivatives and the gradient vector, multivariate optimization, and double integrals. Matrix methods include systems of linear equations, matrix algebra, and eigenvalues. Models, primarily in the context of problems in the life sciences, make use of these methods and others chosen from systems of differential equations, difference equations, and discrete and continuous probability. Not open to students with credit for MAT 150 or MAT 160.",
+    "satisfies": [
+      "Satisfies the Mathematical and Quantitative Thought requirement."
+    ],
+    "PRQ": ["MAT 111", "or", "MAT 112", "or", "Credit for Calculus I"],
+    "group": "math_support"
+  },
+  {
+    "id": "PHY 220",
+    "parentIds": ["PHY 120", "PHY 125"],
+    "name": "General Physics II",
+    "instructor": "Belloni, A. Kuchera, Yukich",
+    "description": "Electricity and magnetism, circuits, optics, and modern physics (special relativity, quantum mechanics, atomic and nuclear physics). One laboratory each week.",
+    "satisfies": [
+      "Satisfies the Natural Science requirement."
+    ],
+    "PRQ": ["PHY 120", "or", "PHY 125", "or", "permission of the instructor"],
+    "group": "phy_support"
+  },
+    {
+    "id": "PHY 225",
+    "parentIds": ["PHY 125", "PHY 130"],
+    "name": "General Physics II: Studio (Integrated Laboratory and Lecture)",
+    "instructor": "Levy",
+    "description": "Electricity and magnetism, circuits, optics, and modern physics (special relativity, quantum mechanics, atomic and nuclear physics). Class meets 6 hours per week (2-hour block, three times per week) in a combined lecture/laboratory setting with time distributed equally between course material and laboratory exercises (3 hours lecture/3 hours laboratory).",
+    "satisfies": [
+      "Satisfies a major requirement for Physics",
+      "Satisfies a major requirement for Chemistry",
+      "Satisfies a minor requirement for Astrophysics",
+      "Satisfies a minor requirement for Applied Physics"
+    ],
+    "PRQ": ["PHY 125", "or", "PHY 123", "or", "permission of the instructor"],
+    "group": "phy_support"
+  },
+  {
+    "id": "PHY 230",
+    "parentIds": ["PHY 130"],
+    "name": "General Physics with Calculus II",
+    "instructor": "Boye, M. Kuchera",
+    "description": "General Physics with Calculus II Instructors Boye, M. Kuchera Electricity and magnetism, circuits, optics, and modern physics (special relativity, quantum mechanics, atomic and nuclear physics). More comprehensive than Physics 220 and designed for students who intend to major in Chemistry, Mathematics, Physics, and/or plan to pursue a degree in engineering. One laboratory each week.",
+    "satisfies": [
+      "Satisfies the Natural Science requirement."
+    ],
+    "PRQ": ["PHY 130", "or", "permission of the instructor"],
+    "group": "phy_support"
+  },
+    {
+    "id": "PHY 235",
+    "parentIds": ["PHY 130"],
+    "name": "General Physics with Calculus II: Studio (Integrated Laboratory and Lecture)",
+    "instructor": "Yukich, Bastani, Belloni, Kuchera, Powers",
+    "description": "Electricity and magnetism, circuits, optics, and modern physics (special relativity, quantum mechanics, atomic and nuclear physics). More comprehensive than Physics 225 and designed for students who intend to major in Chemistry, Mathematics, Physics, and/or plan to pursue a degree in engineering. Class meets 6 hours per week (2-hour block, three times per week) in a combined lecture/laboratory setting with time distributed equally between course material and laboratory exercises (3 hours lecture/3 hours laboratory).",
+    "satisfies": [
+      "Satisfies a major requirement for Physics",
+      "Satisfies a major requirement for Chemistry",
+      "Satisfies a minor requirement for Astrophysics",
+      "Satisfies a minor requirement for Applied Physics"
+    ],
+    "PRQ": ["PHY 125", "or", "PHY 130", "or", "permission of the instructor"],
+    "group": "phy_support"
+  },
+  {
+    "id": "BIO 111",
+    "parentIds": [],
+    "name": "BIO 111 no longer exists",
+    "instructor": "Staff",
+    "description": "This course is no longer offered. Contact a Biology or Chemistry professor about which class to take.",
+    "satisfies": [],
+    "PRQ": [],
+    "group": "biology"
+  },
+    {
+    "id": "BIO 113",
+    "parentIds": [],
+    "name": "BIO 113 no longer exists",
+    "instructor": "Staff",
+    "description": "This course is no longer offered. Contact a Biology or Chemistry professor about which class to take.",
+    "satisfies": [],
+    "PRQ": [],
+    "group": "biology"
+  },
+    {
+    "id": "BIO 115",
+    "parentIds": [],
+    "name": "Molecules, Genes, and Cells +Lab",
+    "instructor": "Smith, Melanakos, El Bejjani",
+    "description": "BIO115 is an introductory biology course that explores life at molecular, genetic, and cellular levels. This course emphasizes the interdisciplinary nature of modern biology and how it engages society, focusing on evolution and its intersections with cellular communication mechanisms, bioenergetics, and the passage of genetic information. Students will develop skills in laboratory research methods, critical thinking, data interpretation, quantitative analysis, and communication while exploring social and ethical implications of biological knowledge.All students are welcome in BIO115. BIO115 and BIO116 may be taken in any order. BIO115 is not open to students with credit for BIO111 or BIO113.",
+
+    "satisfies": [],
+    "PRQ": ["Not open to students with credit for BIO111 or BIO113. Consult a Biology or Chemistry professor about which class to take."],
+    "group": "biology"
+  },
+    {
+    "id": "CHE 202",
+    "parentIds": [],
+    "name": "CHE 202 no longer exists",
+    "instructor": "Staff",
+    "description": "This course is no longer offered. Contact a Biology or Chemistry professor about which class to take.",
+    "satisfies": [],
+    "PRQ": [],
+    "group": ""
+  },
+      {
+    "id": "MAT 111",
+    "parentIds": [],
+    "name": "Calculus I (for those with no previous exposure)",
+    "instructor": "Blake",
+    "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and inverse trigonometric functions with applications including graphical analysis, optimization and numerical methods. Not open to students with one semester of a high school or college course about calculus. (Fall)",
+    "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
+    "PRQ": ["Not open to students with one semester of a high school or college course about calculus. (Fall)"],
+    "group": "intro_mat"
+  },
+  {
+    "id": "MAT 112",
+    "parentIds": [],
+    "name": "Calculus I and Modeling",
+    "instructor": "Duhon, Wright, Chavez",
+    "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
+    "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
+    "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
+    "group": "intro_mat"
+  }, 
+
+    {
+    "id": "PHY 120",
+    "parentIds": ["Credit for Physics"],
+    "name": "Physics placeholder",
+    "instructor": "Duhon, Wright, Chavez",
+    "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
+    "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
+    "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
+    "group": "intro_phy"
+  }, 
+      {
+    "id": "PHY 125",
+    "parentIds": ["Credit for Physics"],
+    "name": "Physics placeholder",
+    "instructor": "Duhon, Wright, Chavez",
+    "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
+    "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
+    "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
+    "group": "intro_phy"
+  },
+        {
+    "id": "PHY 130",
+    "parentIds": ["Credit for Physics"],
+    "name": "Physics placeholder",
+    "instructor": "Duhon, Wright, Chavez",
+    "description": "An introduction to the differential and integral calculus of algebraic, trigonometric, exponential, and applications including graphical analysis, optimization, and numerical methods. An emphasis on investigating mathematical approaches to describing and understanding change in the context of problems in the life sciences. No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111.",
+    "satisfies": ["Satisfies the Mathematical and Quantitative Thought requirement."],
+    "PRQ": ["No exposure to calculus is expected. Math 112 is not open for students with credit for Math 111"],
+    "group": "intro_phy"
+  },
+   {
+    "id": "Instructor permission required",
+    "parentIds": [],
+    "name": "Instructor permission required",
+    "instructor": "",
+    "description": "",
+    "satisfies": [""],
+    "PRQ": [""],
+    "group": ""
+  },
+     {
+    "id": "Credit for Calculus I",
+    "parentIds": [],
+    "name": "Credit for Calculus I (AP or equivalent preparation)",
+    "instructor": "",
+    "description": "Check the Davidson College AP Exam webpage to confirm score requirements.",
+    "satisfies": [""],
+    "PRQ": [""],
+    "group": "intro_mat"
+  },
+       {
+    "id": "Credit for Calculus II",
+    "parentIds": ["MAT 111", "MAT 112", "Credit for Calculus I"],
+    "name": "Credit for Calculus II (AP or equivalent preparation)",
+    "instructor": "",
+    "description": "Check the Davidson College AP Exam webpage to confirm score requirements.",
+    "satisfies": [""],
+    "PRQ": ["MAT 111", "or", "MAT 112", "or", "Credit for Calculus I"],
+    "group": "math_support"
+  },
+       {
+    "id": "Credit for Physics",
+    "parentIds": [],
+    "name": "Credit for Physics (AP or equivalent preparation)",
+    "instructor": "",
+    "description": "Check the Davidson College AP Exam webpage to confirm score requirements.",
+    "satisfies": [""],
+    "PRQ": [""],
+    "group": "intro_phy"
+  },
+         {
+    "id": "Credit for Chemistry",
+    "parentIds": [],
+    "name": "Credit for Chemistry (AP or equivalent preparation)",
+    "instructor": "",
+    "description": "Check the Davidson College AP Exam webpage to confirm score requirements.",
+    "satisfies": [""],
+    "PRQ": [""],
+    "group": "chem_support"
+  }
+]

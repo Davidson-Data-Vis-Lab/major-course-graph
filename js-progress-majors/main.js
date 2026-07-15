@@ -6,7 +6,6 @@ console.log("main.js is running...");
  */
 
 import * as d3 from "https://cdn.skypack.dev/d3@7.8.4";
-window.d3 = d3;
 import * as d3dag from "https://cdn.skypack.dev/d3-dag@1.0.0-1";
 import { clusterNodes } from './clusterNodes.js';
 import {
@@ -16,7 +15,8 @@ import {
   fitGraphToViewport,
 } from './groupLayout.js';
 
-const data = await d3.json("data/courses-full-info.json");
+//const data = await d3.json("computer-science-data/courses-handcollected-with-note-strings.json");
+const data = await d3.json("chemistry-data/courses_handcollected_chemistry.json");
 
 
 // ------------------- //
@@ -77,7 +77,7 @@ try {
 // Roots reserve full stack height; leaves use one slot and expand into bottom margin.
 const layoutNodeSize = createRoleAwareLayoutNodeSize(nodeW, nodeH, INTRA_GROUP_VERTICAL_GAP);
 const shape = d3dag.tweakShape(layoutNodeSize, d3dag.shapeRect);
-const LAYER_GAP_Y = nodeH * 0.55;
+
 // With this — the path generator now accepts an optional trim:
 function makePath(points, trimEnd = 0) {
   if (trimEnd === 0) return d3.line().curve(d3.curveMonotoneY)(points);
@@ -493,14 +493,38 @@ svg.select("#nodes")
             .attr("stroke", "white")
             .attr("stroke-width", 2);
 
-          g.append("text")
-            .text(d.data.id)
+          const label = d.data.id;
+          const textEl = g.append("text")
             .attr("font-weight", "bold")
             .attr("font-size", `${baseNodeRadius * fontRatio}px`)
             .attr("text-anchor", "middle")
             .attr("alignment-baseline", "middle")
             .attr("fill", "white")
             .style("pointer-events", "none");
+
+          const creditForPrefix = "Credit for ";
+          let line1;
+          let line2;
+          if (label.startsWith(creditForPrefix) && label.length > creditForPrefix.length) {
+            line1 = "Credit for";
+            line2 = label.slice(creditForPrefix.length);
+          } else if (label.length > 14) {
+            line1 = label.slice(0, 14);
+            line2 = label.slice(14);
+          }
+
+          if (line2) {
+            textEl.append("tspan")
+              .attr("x", 0)
+              .attr("dy", "-0.15em")
+              .text(line1);
+            textEl.append("tspan")
+              .attr("x", 0)
+              .attr("dy", "0.9em")
+              .text(line2);
+          } else {
+            textEl.text(label);
+          }
         });
 
         enter.transition(trans).attr("opacity", 1);
@@ -512,9 +536,17 @@ svg.select("#nodes").selectAll("g")
   // tooltip
   .on("mouseover", (event, d) => {
     Tooltip
+<<<<<<< HEAD:js/main.js
       .style("max-width", "none") 
       .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>`
              + `Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`)
+=======
+      .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>
+             Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}<br/>
+             Description: ${d.data.description.slice(0, 120) || ''}`) // Truncate description for tooltip
+      .style("top", (event.pageY + 10) + "px")
+      .style("left", (event.pageX + 10) + "px")
+>>>>>>> 37bc4f4ee93ccf0023d9c4c894438cc49c3454d3:js-progress-majors/main.js
       .style("visibility", "visible");
 
     const naturalWidth = Tooltip.node().offsetWidth;
@@ -617,15 +649,7 @@ svg.select("#links")
       .call(enter => enter.transition(trans).attr("opacity", 0.7))
   );
 
-// --- Arrows ---
-function arrowTransform(linkData) {
-  const points = linkData.points;
-  if (points.length < 2) return "";
-  const [x1, y1] = points[points.length - 2];
-  const [x2, y2] = points[points.length - 1];
-  const angle = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI + 90;
-  return `translate(${x2}, ${y2}) rotate(${angle})`;
-}
+
 
 const arrowSize = 80;
 const arrow = d3.symbol().type(d3.symbolTriangle).size(arrowSize);
@@ -687,7 +711,7 @@ function populateSidebar(data) {
   sorted.forEach(course => {
     const container = document.getElementById(`list-${course.group}`);
     if (!container) {
-      console.warn(`No sidebar list for group "${course.group}" (${course.id})`);
+      //console.warn(`No sidebar list for group "${course.group}" (${course.id})`);
       return;
     }
 
@@ -788,6 +812,10 @@ function evaluatePrerequisites(tokens, takenSet) {
     }
 
     // Single token — must be a course ID
+    if (toks.length === 1) {
+      const courseId = toks[0].trim();
+      return takenSet.has(courseId);
+    }
     const courseId = toks.join(' ').trim(); // handles multi-word IDs defensively
     return takenSet.has(courseId);
   }
@@ -1016,6 +1044,7 @@ function getTakenSet() {
   });
   return taken;
 }
+
 
 /**
  * Recompute and apply green/blue/gray to every node in the graph.

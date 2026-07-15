@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chemistry Major Graph</title>
+</head>
+
+<body>
+  <h1>Chemistry Major Requirements</h1>
+  <div class="container">
+
+    <div class="controls">
+      <h3>Instructions</h3>
+      <p>Hover over a course to see details.<br>
+      Check courses you have completed.</p>
+
+      <button onclick="resetAllCourses()">Unselect All</button>
+
+      <div class="sidebar-section">
+        <h3>Requirements for the Major</h3>
+
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="foundation" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Foundation Courses</span>
+            <span id="progress-foundation" class="group-progress"></span>
+          </label>
+          <div class="course-list" id="list-foundation"></div>
+        </div>
+
+        <div class="sidebar-group">
+          <label class="group-header">
+            <input type="checkbox" class="group-checkbox" data-group="support" onchange="handleGroupCheck(this)"/>
+            <span class="header-title">Supporting and Prereq Courses</span>
+            <span id="progress-support" class="group-progress"></span>
+          </label>
+            <div class="electives-wrapper">
+             <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="chem_support" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Chemistry Support</span>
+                <span id="progress-chem_support" class="group-progress"></span>
+              </label>
+              <div class="course-list" id="list-chem_support"></div>
+            </div>
+            <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="math_support" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Math Support</span>
+                <span id="progress-math_support" class="group-progress"></span>
+              </label>
+              <div class="course-list" id="list-math_support"></div>
+            </div>
+            <div class="sidebar-subgroup">
+              <label class="subgroup-header">
+                <input type="checkbox" class="group-checkbox" data-group="phy_support" onchange="handleGroupCheck(this)"/>
+                <span class="header-title">Physics Support</span>
+                <span id="progress-phy_support" class="group-progress"></span>
+              </label>
+              <div class="course-list" id="list-phy_support"></div>
+            </div>
+            </div>
+        </div>
+
+        <div class="sidebar-group">
+            <label class="group-header">
+              <input type="checkbox" class="group-checkbox" data-group="electives" onchange="handleGroupCheck(this)"/>
+              <span class="header-title">In-depth Courses</span>
+              <span id="progress-electives" class="group-progress"></span>
+            </label>
+
+            <div class="electives-wrapper">
+              <div class="sidebar-subgroup">
+                <label class="subgroup-header">
+                  <input type="checkbox" class="group-checkbox" data-group="lab" onchange="handleGroupCheck(this)"/>
+                  <span class="header-title">Lab courses (300+)</span>
+                  <span id="progress-lab" class="group-progress"></span>
+                </label>
+                <div class="course-list" id="list-lab"></div>
+              </div>
+
+              <div class="sidebar-subgroup">
+                <label class="subgroup-header">
+                  <input type="checkbox" class="group-checkbox" data-group="no_lab" onchange="handleGroupCheck(this)"/>
+                  <span class="header-title">Non-lab 300+</span>
+                  <span id="progress-no_lab" class="group-progress"></span>
+                </label>
+                <div class="course-list" id="list-no_lab"></div>
+              </div>
+
+              <div class="sidebar-subgroup">
+                <label class="subgroup-header">
+                  <input type="checkbox" class="group-checkbox" data-group="level_400_seminar" onchange="handleGroupCheck(this)"/>
+                  <span class="header-title">400-level course</span>
+                </label>
+                <div class="course-list" id="list-level_400_seminar"></div>
+              </div>
+
+              <div class="sidebar-subgroup">
+                <label class="subgroup-header">
+                  <input type="checkbox" class="group-checkbox" data-group="independent_research" onchange="handleGroupCheck(this)"/>
+                  <span class="header-title">Independent Research</span>
+                </label>
+                <div class="course-list" id="list-independent_research"></div>
+              </div>
+            </div>
+          </div>
+      </div> 
+    </div>
+    <div class="graph-wrapper">
+    <div class="graph-viewport">
+      <svg id="svg">
+        <g transform="translate(10,10)">
+          <g id="groups"></g>
+          <g id="links"></g>
+          <g id="nodes"></g>
+          <g id="arrows"></g>
+        </g>
+      </svg>
+    </div>
+    <!-- <div class="legend-overlay">
+    <div class="legend-item">
+      <span class="legend-box" style="background:#aaaaaa"></span> Unavailable
+    </div>
+    <div class="legend-item">
+      <span class="legend-box" style="background:steelblue"></span> Available
+    </div>
+    <div class="legend-item">
+      <span class="legend-box" style="background:#285841"></span> Taken
+    </div>
+    <div class="legend-item">
+      <span class="legend-line solid"></span> Required Path
+    </div>
+    <div class="legend-item">
+      <span class="legend-line dashed"></span> Optional Path
+    </div>
+  </div> -->
+  </div>
+  </div>
+
+  <script>
+  /**
+   * Graduation requirement rules for "Requirements for the Major".
+   * Edit this object to change policy without touching evaluation logic.
+   */
+    const GRADUATION_REQUIREMENTS = {
+      intro_mat: {
+        type: 'rules',
+        rules: [
+          { anyOf: ['MAT 111', 'MAT 112', 'Credit for Calculus I'] },
+        ],
+      },
+      math_support: {
+        type: 'rules',
+        rules: [
+          { anyOf: ['MAT 113', 'MAT 140', 'Credit for Calculus II'] },
+        ],
+      },
+      chem_support: {
+        type: 'rules',
+        rules: [
+          { anyOf: ['CHE 115', 'Credit for Chemistry'] },
+        ],
+      },
+      intro_phy: {
+        type: 'rules',
+        rules: [
+          { anyOf: ['PHY 120', 'PHY 125', 'PHY 130' ,'Credit for Physics'] },
+        ],
+      },
+      phy_support: {
+        type: 'rules',
+        rules: [
+          { anyOf: ['PHY 220','PHY 225','PHY 230','PHY 235'] },
+        ],
+      },
+      foundation: { type: 'allInGroup' },
+      lab: { type: 'minChecked', min: 2 },
+      no_lab: { type: 'minChecked', min: 1 },
+      support: {
+        type: 'cappedElectivePool',
+        total: 3,
+        poolGroups: ['chem_support', 'math_support', 'phy_support'],
+        reserveFromGroup: { phy_support: 1, chem_support: 1, math_support: 1 },
+      },
+      // 5 electives max: 2 lab + 1 no_lab + 1 seminar reserved, then up to 2 more (any category).
+      electives: {
+        type: 'cappedElectivePool',
+        total: 5,
+        poolGroups: ['lab', 'no_lab', 'level_400_seminar', 'independent_research'],
+        reserveFromGroup: { lab: 2, no_lab: 1, level_400_seminar: 1 },
+      },
+    };
+    window.GRADUATION_REQUIREMENTS = GRADUATION_REQUIREMENTS;
+
+    const SUPPORT_GROUPS = ['chem_support', 'math_support', 'phy_support'];
+    const ELECTIVE_GROUPS = ['lab', 'no_lab', 'level_400_seminar', 'independent_research'];
+    const PROGRESS_GROUPS = [
+      'foundation',
+      'support', 'chem_support', 'math_support', 'phy_support',
+      'electives', 'lab', 'no_lab',
+    ];
+
+    function getGroupCheckboxes(group) {
+      const list = document.getElementById(`list-${group}`);
+      if (!list) return [];
+      return [...list.querySelectorAll('input[type="checkbox"][data-course-id]')];
+    }
+
+    function isCourseChecked(courseId) {
+      const el = document.querySelector(
+        `input[type="checkbox"][data-course-id="${CSS.escape(courseId)}"]`,
+      );
+      return el?.checked ?? false;
+    }
+
+    function countCheckedInGroup(group) {
+      return getGroupCheckboxes(group).filter(cb => cb.checked).length;
+    }
+
+    function getCheckedIdsInGroup(group) {
+      return getGroupCheckboxes(group)
+        .filter(cb => cb.checked)
+        .map(cb => cb.dataset.courseId);
+    }
+
+    /**
+     * Count electives toward the 5-course cap. One labs and one no_lab
+     * course each reserve a slot; if that category has none checked, that slot
+     * cannot count toward the 5 (so e.g. 5 Theory-only shows 3/5, not 5/5).
+     */
+    function countCappedElectives(spec) {
+      const total = spec.total;
+      const reserve = spec.reserveFromGroup ?? {};
+      const poolGroups = spec.poolGroups ?? [];
+
+      const allMinsMet = Object.entries(reserve).every(
+        ([group, min]) => countCheckedInGroup(group) >= min,
+      );
+
+      let maxCountable = total;
+      for (const [group, min] of Object.entries(reserve)) {
+        if (countCheckedInGroup(group) < min) {
+          maxCountable -= min;
+        }
+      }
+
+      const remaining = {};
+      for (const g of poolGroups) {
+        remaining[g] = getCheckedIdsInGroup(g);
+      }
+
+      let counted = 0;
+      for (const [group, min] of Object.entries(reserve)) {
+        const use = Math.min(remaining[group]?.length ?? 0, min);
+        counted += use;
+        remaining[group] = (remaining[group] ?? []).slice(use);
+      }
+
+      const discretionary = poolGroups.flatMap(g => remaining[g]);
+      const slotsLeft = Math.max(0, maxCountable - counted);
+      counted += Math.min(slotsLeft, discretionary.length);
+      counted = Math.min(maxCountable, counted);
+
+      return {
+        counted,
+        met: allMinsMet && counted >= total,
+      };
+    }
+
+    function evaluateGroupProgress(group) {
+      const spec = GRADUATION_REQUIREMENTS[group];
+      if (!spec) return null;
+
+      if (spec.type === 'rules') {
+        let metCount = 0;
+        for (const rule of spec.rules) {
+          if (rule.anyOf?.some(isCourseChecked)) metCount++;
+          else if (rule.allOf?.every(isCourseChecked)) metCount++;
+        }
+        const required = spec.rules.length;
+        return {
+          text: `${metCount} / ${required} required`,
+          met: metCount >= required,
+        };
+      }
+
+      if (spec.type === 'allInGroup') {
+        const boxes = getGroupCheckboxes(group);
+        const checked = boxes.filter(cb => cb.checked).length;
+        const total = boxes.length;
+        return {
+          text: `${checked} / ${total} required`,
+          met: total > 0 && checked >= total,
+        };
+      }
+
+      if (spec.type === 'minChecked') {
+        const checked = countCheckedInGroup(group);
+        const min = spec.min;
+        return {
+          text: `${Math.min(checked, min)} / ${min} required`,
+          met: checked >= min,
+        };
+      }
+
+      if (spec.type === 'cappedElectivePool') {
+        const { counted, met } = countCappedElectives(spec);
+        return {
+          text: `${counted} / ${spec.total} required`,
+          met,
+        };
+      }
+
+      return null;
+    }
+
+    function colorClass(checkbox) {
+      // const courseId = checkbox.dataset.courseId;
+      // const checked = checkbox.checked;
+      // d3.selectAll("#nodes > g").each(function(d) {
+      //   if (d.data.id === courseId) {
+      //     d3.select(this).select("rect")
+      //       .attr("fill", checked ? "#285841" : "steelblue");
+      //   }
+      // });
+    }
+
+    function updateProgressIndicator(group) {
+      if (!GRADUATION_REQUIREMENTS[group]) return;
+
+      const span = document.getElementById(`progress-${group}`);
+      if (!span) return;
+
+      const result = evaluateGroupProgress(group);
+      if (!result) return;
+
+      span.textContent = result.text;
+      span.classList.toggle('progress-complete', result.met);
+      span.classList.toggle('progress-incomplete', !result.met);
+
+      const header = document
+        .querySelector(`.group-checkbox[data-group="${group}"]`)
+        ?.closest('.group-header, .subgroup-header');
+      if (header) {
+        header.classList.toggle('section-complete', result.met);
+      }
+    }
+
+    function updateParentGroupCheckbox(parentGroup, childGroups) {
+      const header = document.querySelector(`.group-checkbox[data-group="${parentGroup}"]`);
+      if (!header) return;
+
+      let total = 0;
+      let checked = 0;
+      for (const group of childGroups) {
+        const boxes = getGroupCheckboxes(group);
+        total += boxes.length;
+        checked += boxes.filter(cb => cb.checked).length;
+      }
+      header.indeterminate = checked > 0 && checked < total;
+      header.checked = total > 0 && checked === total;
+    }
+
+    function updateSupportGroupCheckbox() {
+      updateParentGroupCheckbox('support', SUPPORT_GROUPS);
+    }
+
+    function updateElectivesGroupCheckbox() {
+      updateParentGroupCheckbox('electives', ELECTIVE_GROUPS);
+    }
+
+    function updateGroupCheckbox(group) {
+      const boxes = getGroupCheckboxes(group);
+      const header = document.querySelector(`.group-checkbox[data-group="${group}"]`);
+      if (header && boxes.length) {
+        const checked = boxes.filter(cb => cb.checked).length;
+        header.indeterminate = checked > 0 && checked < boxes.length;
+        header.checked = checked === boxes.length;
+      }
+
+      updateProgressIndicator(group);
+
+      if (SUPPORT_GROUPS.includes(group)) {
+        updateSupportGroupCheckbox();
+        updateProgressIndicator('support');
+      }
+      if (ELECTIVE_GROUPS.includes(group)) {
+        updateElectivesGroupCheckbox();
+        updateProgressIndicator('electives');
+      }
+    }
+
+    function handleGroupCheck(groupCheckbox) {
+      const group = groupCheckbox.dataset.group;
+      const checked = groupCheckbox.checked;
+
+      if (group === 'electives') {
+        ELECTIVE_GROUPS.forEach(subgroup => {
+          const boxes = getGroupCheckboxes(subgroup);
+          boxes.forEach(cb => {
+            cb.checked = checked;
+          });
+          updateGroupCheckbox(subgroup);
+        });
+      } else if (group === 'support') {
+        SUPPORT_GROUPS.forEach(subgroup => {
+          const boxes = getGroupCheckboxes(subgroup);
+          boxes.forEach(cb => {
+            cb.checked = checked;
+          });
+          updateGroupCheckbox(subgroup);
+        });
+      } else {
+        // ALL OTHER CASES --> Check/uncheck all courses in the group
+        const boxes = getGroupCheckboxes(group);
+        boxes.forEach(cb => {
+          cb.checked = checked;
+          // colorClass(cb);
+        });
+        updateGroupCheckbox(group);
+      }
+
+      if (window.recomputeAllNodeColors) recomputeAllNodeColors();
+    }
+
+    function initAllProgressIndicators() {
+      PROGRESS_GROUPS.forEach(updateProgressIndicator);
+    }
+
+    function resetAllCourses() {
+      // Uncheck every course checkbox
+      document.querySelectorAll('input[type="checkbox"][data-course-id]').forEach(cb => {
+        cb.checked = false;
+      });
+
+      // Uncheck and clear indeterminate on all group header checkboxes
+      document.querySelectorAll('input.group-checkbox').forEach(cb => {
+        cb.checked = false;
+        cb.indeterminate = false;
+      });
+
+      // Recompute node colors (everything goes back to available/unavailable)
+      if (window.recomputeAllNodeColors) recomputeAllNodeColors();
+
+      // Update all progress indicators back to 0
+      if (typeof initAllProgressIndicators === 'function') {
+        initAllProgressIndicators();
+      }
+    }
+  </script>
+
+  <script src="../js-progress-majors/clusterNodes.js" type="module"></script>
+  <script src="../js-progress-majors/main.js" type="module"></script>
+</body>
+<footer> Created by Yurdanur Yolcu, Christian Weaver, and Dr. Katy Williams. Summer 2025-2026. Coded with the help of Claude, ChatGPT, and Cursor.   </footer>
+</html>
