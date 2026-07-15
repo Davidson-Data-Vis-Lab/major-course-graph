@@ -733,23 +733,5 @@
       "CSC 250"
     ],
     "group": "other"
-  },
-  {
-    "id": "CSC 356",
-    "parentIds": [
-      "CSC 221",
-      "CSC 250"
-    ],
-    "name": "Computer Security",
-    "description": "**NEEDS UPDATE**",
-    "satisfies": [
-      "**NEEDS UPDATE**"
-    ],
-    "PRQ": [
-      "CSC 221",
-      "and",
-      "CSC 250"
-    ],
-    "group": "systems"
   }
 ]
