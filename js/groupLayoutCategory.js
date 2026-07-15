@@ -162,6 +162,7 @@ export function buildCategoryLayoutNodes(courses, visualGroups, nodeToGroupId) {
     });
     rawNodes.push({
       id: group.id,
+      children: [...parentIds], //kpw added
       parentIds: [...parentIds],
       isLayoutGroup: true,
       memberCount: group.memberIds.length,
@@ -178,6 +179,7 @@ export function buildCategoryLayoutNodes(courses, visualGroups, nodeToGroupId) {
     });
     rawNodes.push({
       id: course.id,
+      children: [...parentIds], //kpw added
       parentIds: [...parentIds],
       isLayoutGroup: false,
       memberCount: 1,
@@ -185,7 +187,7 @@ export function buildCategoryLayoutNodes(courses, visualGroups, nodeToGroupId) {
     });
   }
 
-  return detectAndDropCyclicEdges(rawNodes);
+  return rawNodes; //detectAndDropCyclicEdges(rawNodes); //kpw
 }
 
 /**

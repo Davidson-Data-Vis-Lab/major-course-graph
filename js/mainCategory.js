@@ -136,7 +136,7 @@ try {
   throw err;
 }
 
-const { width, height } = fitGraphToViewport(graph, nodeW, nodeH);
+const { width, height } = fitGraphToViewport(graph, nodeW, nodeH); //kpw
 
 // ------------------------------ //
 // Phase 4b: Deduplicate edges     //
