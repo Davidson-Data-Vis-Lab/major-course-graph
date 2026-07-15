@@ -536,17 +536,11 @@ svg.select("#nodes").selectAll("g")
   // tooltip
   .on("mouseover", (event, d) => {
     Tooltip
-<<<<<<< HEAD:js/main.js
-      .style("max-width", "none") 
-      .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>`
-             + `Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`)
-=======
       .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>
              Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}<br/>
              Description: ${d.data.description.slice(0, 120) || ''}`) // Truncate description for tooltip
       .style("top", (event.pageY + 10) + "px")
       .style("left", (event.pageX + 10) + "px")
->>>>>>> 37bc4f4ee93ccf0023d9c4c894438cc49c3454d3:js-progress-majors/main.js
       .style("visibility", "visible");
 
     const naturalWidth = Tooltip.node().offsetWidth;
