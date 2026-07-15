@@ -395,8 +395,39 @@
       }
     }
   </script>
+  <script>
+    const overlay  = document.getElementById('info-overlay');
+    const infoBtn  = document.getElementById('info-btn');
+    const closeBtn = document.getElementById('info-close');
 
-  <script src=../js-progress-majors/clusterNodes.js" type="module"></script>
+    function openModal()  { overlay.style.display = 'flex'; }
+    function closeModal() { overlay.style.display = 'none'; }
+
+    infoBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close when clicking outside the modal box
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal();
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Show on load automatically
+    openModal();
+  </script>
+  <script type="module">
+    import { initVisualization } from '../js-progress-majors/main.js';
+    import * as d3 from "https://cdn.skypack.dev/d3@7.8.4";
+
+    // Load the data and start the visualization
+    const data = await d3.json("computer-science-data/courses-handcollected-with-note-strings.json");
+    initVisualization(data);
+  </script>
+  <script src="../js-progress-majors/clusterNodes.js" type="module"></script>
   <script src="../js-progress-majors/main.js" type="module"></script>
 </body>
 <footer> Created by Yurdanur Yolcu, Christian Weaver, and Dr. Katy Williams. Summer 2025-2026. Coded with the help of Claude, ChatGPT, and Cursor.   </footer>
