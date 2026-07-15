@@ -151,7 +151,7 @@ export function expandLayoutToCourseGraph(
   return graph;
 }
 
-/** Fitting helper logic to prevent clipping windows */
+
 export function fitGraphToViewport(graph, nodeW, nodeH, padX = 24, padTop = 32, padBottom = 48) {
   let minX = Infinity;
   let minY = Infinity;

@@ -46,9 +46,14 @@ data.forEach(node => {
 // Collapse visual groups to one Sugiyama node each (parentIds remapped to
 // group ids). After layout, expand back to all courses for rendering.
 
-const baseNodeRadius = 33;
-const nodeW = baseNodeRadius * 3.1;
-const nodeH = baseNodeRadius * 1.1;
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
+const nodeRatio = 18/1512; // ratio of node radius to screen width that will size each node accordingly
+const fontRatio = 7/18; // ratio of font size to node radius for scaling text with node size
+
+const baseNodeRadius = screenWidth * nodeRatio;
+const nodeW = baseNodeRadius * 2.2;
+const nodeH = baseNodeRadius;
 const INTRA_GROUP_VERTICAL_GAP = 2;
 
 const stratify = d3dag.graphStratify()
@@ -96,7 +101,7 @@ const layout = d3dag
   .sugiyama()
   .layering(d3dag.layeringSimplex())
   .nodeSize(layoutNodeSize)
-  .gap([baseNodeRadius, baseNodeRadius * 5.5])
+  .gap([baseNodeRadius * 2, baseNodeRadius * 4])
   .tweaks([shape]);
 
 layout(layoutGraph);
@@ -243,7 +248,51 @@ const svg = d3
   .style("width", width + 4)
   .style("height", height + 50);
 
+// --- Zoom ---
+const zoom = d3.zoom()
+  .scaleExtent([0.75, 3])         // min 75% zoom, max 300%
+  .translateExtent([[-100, -100], [width + 100, height + 100]])
+  .on("zoom", (event) => {
+    svg.select("g").attr("transform", event.transform);
+  });
+
+svg.call(zoom);
+
+// reset zoom function
+// // double click
+// svg.on("dblclick.zoom", () => svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity));
+// vs button
+const foreignObject = svg.append("foreignObject")
+  .attr("x", 25)
+  .attr("y", 135)
+  .attr("width", 137)
+  .attr("height", 36);
+
+foreignObject.append("xhtml:button")
+  .attr("class", "btn")
+  .style("width", "100%")
+  .text("Reset Zoom")
+  .on("click", () => {
+    svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity);
+  });
+
 const trans = svg.transition().duration(500);
+
+// --- Search Interface HTML Injection ---
+// Placed near the top left corner (10px down, 150px right of your viewport edge wrapper)
+const searchWrapper = d3.select("body")
+  .append("div")
+  .attr("class", "search-container")
+  .style("left", "650px") // Positioned safely off the side panel boundaries
+  .style("top", "25px");
+
+searchWrapper.html(`
+  <input type="text" class="search-input" placeholder="Search Course ID or Name..." autocomplete="off">
+  <ul class="search-dropdown" style="display: none;"></ul>
+`);
+
+const searchInput = searchWrapper.select(".search-input");
+const searchDropdown = searchWrapper.select(".search-dropdown");
 
 // Legend
 // const legend = svg.append("g")
@@ -294,7 +343,7 @@ graph.nodes().forEach(n => nodeById.set(n.data.id, n));
 
 const GROUP_PADDING = 2;
 
-const groupBoxes = svg.select("#groups")
+svg.select("#groups")
   .selectAll("rect.visual-group")
   .data(visualGroups)
   .join("rect")
@@ -387,6 +436,35 @@ const Tooltip = d3.select("body").append("div")
   .style("pointer-events", "none")
   .style("visibility", "hidden");
 
+function repositionTooltip(cursorX, cursorY) {
+  const tipW = Tooltip.node().offsetWidth;
+  const tipH = Tooltip.node().offsetHeight;
+  const pad = 8;
+  const gap = 12;
+
+  const spaceOnRight = window.innerWidth  - cursorX - gap;
+  const spaceBelow   = window.innerHeight - cursorY - gap;
+
+  const finalX = spaceOnRight >= tipW
+    ? cursorX + gap
+    : cursorX - tipW - gap;
+
+  const finalY = spaceBelow >= tipH
+    ? cursorY + gap
+    : cursorY - tipH - gap;
+
+  Tooltip
+    .style("left", Math.max(pad, finalX) + "px")
+    .style("top",  Math.max(pad, finalY) + "px");
+}
+
+function shortDesc(text, wordLimit = 20) {
+  if (!text) return '';
+  const words = text.trim().split(/\s+/);
+  if (words.length <= wordLimit) return 'Description: ' + text;
+  return 'Description: ' + words.slice(0, wordLimit).join(' ') + '...(double-click for full description)';
+}
+
 svg.select("#nodes")
   .selectAll("g")
   .data(graph.nodes())
@@ -418,7 +496,7 @@ svg.select("#nodes")
           const label = d.data.id;
           const textEl = g.append("text")
             .attr("font-weight", "bold")
-            .attr("font-size", "12px")
+            .attr("font-size", `${baseNodeRadius * fontRatio}px`)
             .attr("text-anchor", "middle")
             .attr("alignment-baseline", "middle")
             .attr("fill", "white")
@@ -464,16 +542,48 @@ svg.select("#nodes").selectAll("g")
       .style("top", (event.pageY + 10) + "px")
       .style("left", (event.pageX + 10) + "px")
       .style("visibility", "visible");
+
+    const naturalWidth = Tooltip.node().offsetWidth;
+
+    // Now set the measured width as the cap and add the description
+    Tooltip
+      .style("max-width", naturalWidth + "px")
+      .html(
+        `<strong>${d.data.id}: ${d.data.name}</strong><br/>`
+        + `Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`
+        + (d.data.description ? `<br/><br/>${shortDesc(d.data.description)}` : '')
+      )
+      .style("visibility", "visible");
+      repositionTooltip(event.clientX, event.clientY);
   })
   .on("mousemove", (event) => {
-    Tooltip
-      .style("top", (event.pageY + 10) + "px")
-      .style("left", (event.pageX + 10) + "px")
+    repositionTooltip(event.clientX, event.clientY);
   })
   .on("mouseout", () => {
     Tooltip.style("visibility", "hidden");
   })
-  // click for taken courses
+  .on("dblclick", (event, d) => {
+    
+    Tooltip
+      .style("max-width", "none") 
+      .html(`<strong>${d.data.id}: ${d.data.name}</strong><br/>`
+             + `Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`)
+      .style("visibility", "visible");
+
+    const naturalWidth = Tooltip.node().offsetWidth;
+
+    // Now set the measured width as the cap and add the description
+    Tooltip
+      .style("max-width", naturalWidth + "px")
+      .html(
+        `<strong>${d.data.id}: ${d.data.name}</strong><br/>`
+        + `Prerequisites: ${d.data.PRQ?.join(' ') || 'None'}`
+        + (d.data.description ? `<br/><br/>${d.data.description}` : '')
+      )
+      .style("visibility", "visible");
+      repositionTooltip(event.clientX, event.clientY);
+  })
+    // click for taken courses
   .on("click", (event, d) => {
     const checkbox = document.querySelector(
       `input[data-course-id="${d.data.id}"]`
@@ -481,11 +591,7 @@ svg.select("#nodes").selectAll("g")
 
     if (!checkbox) return;
 
-    checkbox.checked = !checkbox.checked;
-
-    if (typeof checkbox.onchange === "function") {
-      checkbox.onchange();
-    }
+    tryMarkCourseTaken(d.data.id, !checkbox.checked, 'node');
   });
 
 // --- Links ---
@@ -505,7 +611,7 @@ svg.select("#links")
       return makePath(d.points, 7);
     })
       .attr("fill", "none")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 2)
       .attr("stroke-dasharray", d => {
         const srcId = d.source.data.id;
         const tgtId = d.target.data.id;
@@ -611,8 +717,7 @@ function populateSidebar(data) {
     checkbox.dataset.courseId = course.id;
     checkbox.dataset.group = course.group;
     checkbox.onchange = function() {
-      recomputeAllNodeColors(this);
-      updateGroupCheckbox(course.group);
+      tryMarkCourseTaken(course.id, this.checked, 'sidebar');
     };
 
     label.appendChild(checkbox);
@@ -632,8 +737,8 @@ populateSidebar(data);
 // --------------------------------- //
 
 const NODE_COLOR = {
-  taken:       "#285841",  // green
-  available:   "steelblue", // blue
+  taken:       "#d16b05",  // orange
+  available:   "#20a23a", // green
   unavailable: "#aaaaaa",  // gray
 };
 
@@ -710,6 +815,216 @@ function evaluatePrerequisites(tokens, takenSet) {
   }
 
   return evaluate(tokens);
+}
+
+/**
+ * Returns an array of human-readable strings describing which
+ * top-level prerequisite clauses are still unmet.
+ * Preserves OR-group structure rather than expanding to individual courses.
+ */
+function getMissingPrereqs(tokens, takenSet) {
+  if (!tokens || tokens.length === 0) return [];
+
+  function matchParen(toks, i) {
+    let depth = 0;
+    for (let j = i; j < toks.length; j++) {
+      if (toks[j] === '(') depth++;
+      else if (toks[j] === ')') { depth--; if (depth === 0) return j; }
+    }
+    return toks.length - 1;
+  }
+
+  function splitByTopLevelAnd(toks) {
+    const clauses = [];
+    let current = [];
+    let depth = 0;
+    for (const t of toks) {
+      if (t === '(') { depth++; current.push(t); }
+      else if (t === ')') { depth--; current.push(t); }
+      else if (t === 'and' && depth === 0) {
+        if (current.length) clauses.push(current);
+        current = [];
+      } else {
+        current.push(t);
+      }
+    }
+    if (current.length) clauses.push(current);
+    return clauses;
+  }
+
+  function clauseIsMet(clause) {
+    // Strip outer parens for evaluation
+    let toks = clause;
+    while (toks[0] === '(' && matchParen(toks, 0) === toks.length - 1) {
+      toks = toks.slice(1, toks.length - 1);
+    }
+    // OR clause — any one satisfied
+    if (toks.includes('or')) {
+      return toks
+        .filter(t => t !== 'or' && t !== '(' && t !== ')')
+        .some(t => takenSet.has(t));
+    }
+    // AND clause or single course
+    return toks
+      .filter(t => t !== 'and' && t !== '(' && t !== ')')
+      .every(t => takenSet.has(t));
+  }
+
+  function clauseToString(clause) {
+    // Single course
+    if (clause.length === 1) return clause[0];
+    // Already wrapped in parens — preserve as-is
+    if (clause[0] === '(' && matchParen(clause, 0) === clause.length - 1) {
+      return clause.join(' ');
+    }
+    return clause.join(' ');
+  }
+
+  const topLevelClauses = splitByTopLevelAnd(tokens);
+  return topLevelClauses
+    .filter(clause => !clauseIsMet(clause))
+    .map(clauseToString);
+}
+
+/**
+ * Extracts all individual course IDs from a missing prereq clause string.
+ * e.g. "(MAT 140 or MAT 150)" → ["MAT 140", "MAT 150"]
+ * e.g. "CSC 221" → ["CSC 221"]
+ */
+function extractCourseIdsFromClause(clauseStr) {
+  return clauseStr
+    .replace(/[()]/g, '')
+    .split(/\s+(?:or|and)\s+/)
+    .map(s => s.trim())
+    .filter(Boolean);
+}
+
+function tryMarkCourseTaken(courseId, desiredChecked, source = 'node') {
+  const checkbox = document.querySelector(
+    `input[data-course-id="${CSS.escape(courseId)}"]`
+  );
+  if (!checkbox) return;
+
+  // Unchecking is always allowed
+  if (!desiredChecked) {
+    checkbox.checked = false;
+    recomputeAllNodeColors();
+    updateGroupCheckbox(checkbox.dataset.group);
+    return;
+  }
+
+  const courseData = data.find(d => d.id === courseId);
+  const prq = courseData?.PRQ ?? [];
+  const takenSet = getTakenSet();
+
+  if (evaluatePrerequisites(prq, takenSet)) {
+    // prereqs met — commit
+    checkbox.checked = true;
+    recomputeAllNodeColors();
+    updateGroupCheckbox(checkbox.dataset.group);
+    return;
+  }
+
+  // prereqs NOT met — revert checkbox immediately
+  checkbox.checked = false;
+
+  const missing = getMissingPrereqs(prq, takenSet);
+  const missingHtml = missing.length
+    ? `<br/><br/><span style="color:#c0392b;font-weight:600">✕ Missing prerequisites:</span>`
+      + missing.map(m => `<br/>• ${m}`).join('')
+    : `<br/><br/><span style="color:#c0392b">✕ Prerequisites not met</span>`;
+
+  // Find the node element
+  let targetNode = null;
+  svg.select("#nodes").selectAll("g").each(function(d) {
+    if (d.data.id === courseId) targetNode = this;
+  });
+
+  if (targetNode) {
+    // Flash red border regardless of source
+    const rect = d3.select(targetNode).select("rect.course-rect");
+    rect.attr("stroke", "#c0392b").attr("stroke-width", 4);
+    setTimeout(() => rect.attr("stroke", "white").attr("stroke-width", 2), 1000);
+
+    if (source === 'node') {
+      // Node click: just update the existing hover tooltip in place.
+      // It's already visible because the user is hovering over the node.
+      Tooltip
+        .style("max-width", "none") // cap max width for better readability of long descriptions
+        .html(
+          `<strong>${courseData.id}: ${courseData.name}</strong>`
+          + `<br/>Prerequisites: ${prq?.join(' ') || 'None'}`
+        );
+
+      const naturalWidth = Tooltip.node().offsetWidth;
+
+      Tooltip
+        .style("max-width", naturalWidth + "px")
+        .html(
+          `<strong>${courseData.id}: ${courseData.name}</strong><br/>`
+          + `Prerequisites: ${prq?.join(' ') || 'None'}`
+          + (courseData.description ? `<br/><br/>${shortDesc(courseData.description)}` : '')
+          + missingHtml
+        );
+
+      // Tooltip position is already correct from the mouseover handler — no move needed.
+
+    } else {
+      // Sidebar click: user is not hovering, so we spawn and auto-dismiss the tooltip.
+      const svgEl = document.getElementById("svg");
+      const svgRect = svgEl.getBoundingClientRect();
+      const nodeData = d3.select(targetNode).datum();
+
+      const transform = d3.zoomTransform(svgEl);
+      const nodeScreenX = transform.applyX(nodeData.x) + svgRect.left;
+      const nodeScreenY = transform.applyY(nodeData.y) + svgRect.top - 10;
+
+      // Render tooltip offscreen first so we can measure its dimensions
+      Tooltip
+        .style("max-width", "none") 
+        .html(
+          `<strong>${courseData.id}: ${courseData.name}</strong>`
+          + `<br/>Prerequisites: ${prq?.join(' ') || 'None'}`
+        )
+        .style("visibility", "hidden")  // hidden but in-flow so it has dimensions
+        .style("left", "0px")
+        .style("top",  "0px");
+
+      const naturalWidth = Tooltip.node().offsetWidth;
+
+      // Now read its rendered size
+      const tipW = Tooltip.node().offsetWidth;
+      const tipH = Tooltip.node().offsetHeight;
+      const pad  = 8; // minimum gap from viewport edge
+      const gap = 20; // distance from node edge to tooltip edge
+
+      // Flip to left side if not enough room on the right
+      const spaceOnRight = window.innerWidth - nodeScreenX - gap;
+      const finalX = spaceOnRight >= tipW
+        ? nodeScreenX + gap                  // enough room — place right
+        : nodeScreenX - tipW - gap;          // not enough room — flip left
+
+      // Flip upward if not enough room below
+      const spaceBelow = window.innerHeight - nodeScreenY - gap;
+      const finalY = spaceBelow >= tipH
+        ? nodeScreenY + gap                  // enough room — place below
+        : nodeScreenY - tipH - gap;          // not enough room — flip above
+
+      Tooltip
+        .style("left", Math.max(pad, finalX) + "px")
+        .style("top",  Math.max(pad, finalY) + "px")
+        .style("max-width", naturalWidth + "px")
+        .html(
+          `<strong>${courseData.id}: ${courseData.name}</strong>`
+          + `<br/>Prerequisites: ${prq?.join(' ') || 'None'}`
+          + (courseData.description ? `<br/><br/>${shortDesc(courseData.description)}` : '')
+          + missingHtml
+        )
+        .style("visibility", "visible");
+
+      setTimeout(() => Tooltip.style("visibility", "hidden"), 3000);
+    }
+  }
 }
 
 /**
@@ -796,13 +1111,13 @@ function recomputeAllNodeColors() {
     // Check if ANY source node in the connected layout slot has been taken
     const isAnySourceTaken = sourceCoursesToCheck.some(id => takenSet.has(id));
 
-    return (isAnySourceTaken && isTargetAccessible) ? "black" : "#e2e8f0"
+    return (isAnySourceTaken && isTargetAccessible) ? "black" : "#c8cdd2"
   }
 
   // Apply colors to edge paths
   d3.select("#links").selectAll("path")
     .attr("stroke", getLinkColor)
-    .attr("opacity", d => getLinkColor(d) === "black" ? 0.9 : 0.35); // Pop active paths!
+    .attr("opacity", d => getLinkColor(d) === "black" ? 0.9 : .5); // Pop active paths!
 
   // Apply colors to structural triangle pointer markers
   d3.select("#arrows").selectAll("path")
@@ -814,3 +1129,179 @@ window.recomputeAllNodeColors = recomputeAllNodeColors;
 
 // Run once on load so unavailable courses start gray
 recomputeAllNodeColors();
+
+
+// ==================================================
+// Course Search Engine & Spatial Interaction Logic
+// ==================================================
+
+let activeSearchIndex = 0; 
+let currentMatches = [];
+
+// Listen for keyboard entry typing sequences
+searchInput.on("input", function(event) {
+  const query = event.target.value.toLowerCase().trim();
+  searchDropdown.html("");
+  activeSearchIndex = 0; 
+
+  if (!query) {
+    searchDropdown.style("display", "none");
+    return;
+  }
+
+  currentMatches = data.filter(course => 
+    course.id.toLowerCase().includes(query) || 
+    course.name.toLowerCase().includes(query)
+  );
+
+  if (currentMatches.length === 0) {
+    searchDropdown.style("display", "none");
+    return;
+  }
+
+  // Populate dynamic dropdown list
+  currentMatches.forEach((course, idx) => {
+    searchDropdown.append("li")
+      .attr("class", `search-item item-${idx}`)
+      .text(`${course.id}: ${course.name}`)
+      .on("click", () => selectSearchedCourse(course))
+      
+      // --- HANDOFF RULE 1: Mouse movement overrides and clears keyboard highlight ---
+      .on("mousemove", function() {
+        // Clear out all highlights everywhere first
+        searchDropdown.selectAll(".search-item").classed("active", false).classed("hovered", false);
+        
+        // Sync our tracking index to the mouse position so pressing Enter still works perfectly
+        activeSearchIndex = idx;
+        
+        // Light up this specific item row with the subtle mouse style
+        d3.select(this).classed("hovered", true);
+      })
+      
+      // Clear highlight when the cursor completely exits the dropdown panel bounds
+      .on("mouseleave", function() {
+        d3.select(this).classed("hovered", false);
+      });
+  });
+
+  searchDropdown.style("display", "block");
+
+  // Highlight the first element immediately upon drawing the dropdown list
+  updateDropdownSelection();
+});
+
+// Handle arrow controls and instant Enter key selection
+searchInput.on("keydown", function(event) {
+  if (searchDropdown.style("display") === "none" || currentMatches.length === 0) return;
+
+  // --- HANDOFF RULE 2: Arrow keys instantly override and clear mouse hover states ---
+  if (event.key === "ArrowDown") {
+    event.preventDefault();
+    searchDropdown.selectAll(".search-item").classed("hovered", false); // Kill mouse visual
+    activeSearchIndex = (activeSearchIndex + 1) % currentMatches.length;
+    updateDropdownSelection();
+  } else if (event.key === "ArrowUp") {
+    event.preventDefault();
+    searchDropdown.selectAll(".search-item").classed("hovered", false); // Kill mouse visual
+    activeSearchIndex = (activeSearchIndex - 1 + currentMatches.length) % currentMatches.length;
+    updateDropdownSelection();
+  } else if (event.key === "Enter") {
+    event.preventDefault();
+    if (activeSearchIndex >= 0 && activeSearchIndex < currentMatches.length) {
+      selectSearchedCourse(currentMatches[activeSearchIndex]);
+    }
+  } else if (event.key === "Escape") {
+    closeSearchDropdown();
+  }
+});
+
+// Cleanly applies the dark .active class to the correctly tracked item row
+function updateDropdownSelection() {
+  // Clear out both state classes everywhere to guarantee a clean baseline
+  searchDropdown.selectAll(".search-item").classed("active", false).classed("hovered", false);
+
+  const activeItem = searchDropdown.select(`.item-${activeSearchIndex}`);
+  if (!activeItem.empty()) {
+    activeItem.classed("active", true);
+    activeItem.node().scrollIntoView({ block: "nearest" });
+  }
+}
+
+function closeSearchDropdown() {
+  searchDropdown.style("display", "none");
+  searchInput.node().value = "";
+}
+
+// Global click monitoring to close search when clicking canvas whitespace
+d3.select("body").on("click.search-close", function(event) {
+  if (!searchWrapper.node().contains(event.target)) {
+    searchDropdown.style("display", "none");
+  }
+});
+
+// --- Core Target Evaluation Handler ---
+function selectSearchedCourse(course) {
+  closeSearchDropdown();
+
+  // 1. Locate the correct rendered canvas graphical elements
+  let targetedNodeGroup = null;
+  svg.select("#nodes").selectAll("g").each(function(d) {
+    if (d.data.id === course.id) {
+      targetedNodeGroup = d3.select(this);
+    }
+  });
+
+  if (!targetedNodeGroup || targetedNodeGroup.empty()) return;
+
+  const nodeDatum = targetedNodeGroup.datum();
+  const svgElement = document.getElementById("svg");
+  
+  // 2. Compute Spatial Viewport Coordinates
+  const svgRect = svgElement.getBoundingClientRect();
+  const currentTransform = d3.zoomTransform(svgElement);
+
+  // Translate node spatial position coordinates to live screen pixels
+  const targetScreenX = currentTransform.applyX(nodeDatum.x);
+  const targetScreenY = currentTransform.applyY(nodeDatum.y);
+
+  // 3. Evaluate Visibility Boundaries
+  // Margin buffers ensure a course is not considered "visible" if clipped at screen edge
+  const marginX = 80;
+  const marginY = 40;
+  
+  const isFullyVisible = 
+    targetScreenX >= marginX && 
+    targetScreenX <= (svgRect.width - marginX) &&
+    targetScreenY >= marginY && 
+    targetScreenY <= (svgRect.height - marginY);
+
+  // Action B vs C: Reset zoom only if the target is out of boundaries
+  if (!isFullyVisible) {
+    svg.transition()
+      .duration(500)
+      .call(zoom.transform, d3.zoomIdentity); // Safe identity reset matrix
+  }
+
+  // 4. Trigger Structural Highlight Ring Animation Sequence
+  triggerHighlightRing(targetedNodeGroup);
+}
+
+function triggerHighlightRing(nodeGroup) {
+  // Append temporary visual ring animation element
+  const ring = nodeGroup.append("circle")
+    .attr("class", "search-highlight-ring")
+    .attr("r", baseNodeRadius * 1.5) // Radiates comfortably outward past rect box parameters
+    .attr("fill", "none")
+    .attr("stroke", "#d16b05") // Accent coloring contrast that pulls your focus instantly
+    .attr("stroke-width", 4)
+    .attr("opacity", 1);
+
+  // Smooth pulse loop transition sequence
+  ring.transition()
+    .duration(1000)
+    .attr("opacity", 0.2)
+    .transition()
+    .duration(1000)
+    .attr("opacity", 0)
+    .remove(); // Clean up from the DOM immediately upon completion
+}
